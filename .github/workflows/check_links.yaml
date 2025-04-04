@@ -1,0 +1,18 @@
+# Check that all links are valid, i.e. not broken
+name: Check links
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check_links:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
