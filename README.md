@@ -67,9 +67,10 @@ git commit -m "Added topic"
 
 ### Docker
 
-A docker container is available for rendering quarto documents and to run RStudio server.
+A docker container is available for rendering quarto documents and to run RStudio server. 
 
-:warning: ~14GB
+:warning: ~14GB  
+:exclamation: Run the container in the root of the repo.  
 
 ```
 docker pull --platform=linux/amd64 ghcr.io/nbisweden/workshop-raukr:latest
@@ -80,7 +81,6 @@ docker pull --platform=linux/amd64 ghcr.io/nbisweden/workshop-raukr:latest
 - For non-interactive use
 
 ```
-# run in the cloned repo
 docker run --platform=linux/amd64 --rm -u 1000:1000 -v ${PWD}:/home/rstudio/work ghcr.io/nbisweden/workshop-raukr:latest quarto render index.qmd
 ```
 
@@ -89,7 +89,6 @@ docker run --platform=linux/amd64 --rm -u 1000:1000 -v ${PWD}:/home/rstudio/work
 - To develop or interactively work with notebooks in Rstudio
 
 ```
-# run in the cloned repo
 docker run --platform=linux/amd64 -e PASSWORD=raukr -p 8787:8787  -p 4200:4200 -v ${PWD}:/home/rstudio/work ghcr.io/nbisweden/workshop-raukr:latest
 ```
 
@@ -102,7 +101,7 @@ Then set working directory to `/home/rstudio/work`.
 
 ## Convert HTML slides to PDF
 
-Another docker image is available to convert any RevealJS slides from any URL to PDF.
+Another docker image is available to convert any RevealJS slides from any URL to PDF. You can run the container anywhere as it is unrelated to the repo.
 
 ```
 docker run --platform=linux/amd64 -v $PWD:/work astefanutti/decktape url-to-slide.html /work/output.pdf
