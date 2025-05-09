@@ -20,7 +20,7 @@ Gotland, Sweden
 We will use classrooms B25 and B27 on Floor 2 (on map) throughout the workshop. B26 is also available for breakout sessions or group discussions etc. Lunches will be served in the Cafe next to it on the ground floor.
 
 ::: {.callout-tip}
-If you have an door access card for Uppsala university, take it with you.
+If you have a door access card for Uppsala university, take it with you.
 :::
 
 ## Computer
