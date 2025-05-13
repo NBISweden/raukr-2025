@@ -75,8 +75,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -217,9 +215,9 @@ background-size: cover;
   <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages"><span class="header-section-number">4</span> R packages</a>
   <ul>
   <li><a href="#manual-installation" id="toc-manual-installation" class="nav-link" data-scroll-target="#manual-installation"><span class="header-section-number">4.1</span> Manual installation</a></li>
-  <li><a href="#using-renv" id="toc-using-renv" class="nav-link" data-scroll-target="#using-renv"><span class="header-section-number">4.2</span> Using renv</a></li>
-  <li><a href="#using-docker-container" id="toc-using-docker-container" class="nav-link" data-scroll-target="#using-docker-container"><span class="header-section-number">4.3</span> Using docker container</a></li>
+  <li><a href="#using-docker-container" id="toc-using-docker-container" class="nav-link" data-scroll-target="#using-docker-container"><span class="header-section-number">4.2</span> Using docker container</a></li>
   </ul></li>
+  <li><a href="#course-materials" id="toc-course-materials" class="nav-link" data-scroll-target="#course-materials"><span class="header-section-number">5</span> Course materials</a></li>
   </ul>
 </nav>
     </div>
@@ -257,7 +255,7 @@ Tip
 </section>
 <section id="computer" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="computer"><span class="header-section-number">2</span> Computer</h2>
-<p>You can use any system you like, but we recommend using a Linux or Mac system. If you are using Windows, we recommend using WSL2 (Windows Subsystem for Linux). This will allow you to run a Linux environment on your Windows machine. It’s good to have about 20GB of free space on your system.</p>
+<p>You can use any system you like, but we recommend using a Linux or Mac system. It’s good to have about 20GB of free space on your system. If you are using Windows, we recommend using WSL2 (Windows Subsystem for Linux). This will allow you to run a Linux environment on your Windows machine.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -274,7 +272,7 @@ Warning
 </section>
 <section id="software" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="software"><span class="header-section-number">3</span> Software</h2>
-<p>You will need the following list of software tools and a long list of R packages for the Hands-on practical labs.</p>
+<p>You will need the following list of software tools and a list of R packages for the Hands-on practical labs.</p>
 <ul>
 <li>R 4.4</li>
 <li>IDE (Latest RStudio, Positron or VS Code)</li>
@@ -337,36 +335,41 @@ Warning
 </div>
 </div>
 </section>
-<section id="using-renv" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="using-renv"><span class="header-section-number">4.2</span> Using renv</h3>
-<p>You can use the <code>renv</code> package to create a reproducible environment for your project. This will allow you to install all the required packages in a single command. First download the renv lockfile.</p>
-<p><a class="btn btn-primary btn-sm" href="https://raw.githubusercontent.com/NBISweden/raukr-2025/refs/heads/main/docker/renv.lock" role="button" target="_blank"><i class="fa-solid fa-download" aria-label="download"></i> renv.lock</a></p>
-<p>Install the <strong>renv</strong> R package and use it to restore the environment.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'renv'</span>, <span class="at">repos =</span> <span class="st">'https://packagemanager.rstudio.com/all/latest'</span>, <span class="at">verbose =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="using-docker-container" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="using-docker-container"><span class="header-section-number">4.3</span> Using docker container</h3>
-<p>We provide a docker container with all the required packages pre-installed. This is the easiest way to set up your environment, as you don’t need an R or RStudio installation on your local machine. But you will need to have docker installed.</p>
-<p>Run the following command in the terminal.</p>
+<section id="using-docker-container" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="using-docker-container"><span class="header-section-number">4.2</span> Using docker container</h3>
+<p>We provide a docker container with all the required packages pre-installed. This is the easiest way to set up your environment, as you don’t need an R or RStudio installation on your local machine. But you will need to have docker installed. Follow the instructions on <a href="https://docs.docker.com/engine/install/">DockerDocs</a> to install docker on your system.</p>
+<p>Once you have verified that it works, run the following command in the terminal.</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--platform</span><span class="op">=</span>linux/amd64 <span class="at">-e</span> PASSWORD=raukr <span class="at">-p</span> 8787:8787 <span class="at">-p</span> 4200:4200 <span class="at">-v</span> <span class="va">${PWD}</span>:/home/rstudio/work ghcr.io/nbisweden/workshop-raukr:latest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--platform</span><span class="op">=</span>linux/amd64 <span class="at">-e</span> PASSWORD=raukr <span class="at">-p</span> 8787:8787 <span class="at">-p</span> 4200:4200 <span class="at">-v</span> <span class="va">${PWD}</span>:/home/rstudio/work ghcr.io/nbisweden/workshop-raukr:latest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>In the browser, go to <a href="http://localhost:8787/">http://localhost:8787/</a>. Use following credentials:</p>
+<p>This will launch an instance of RStudio Server. In the browser, go to <a href="http://localhost:8787/">http://localhost:8787/</a>. Use following credentials:</p>
 <blockquote class="blockquote">
 <p>username: rstudio<br>
 password: raukr</p>
 </blockquote>
-
-
 </section>
+</section>
+<section id="course-materials" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="course-materials"><span class="header-section-number">5</span> Course materials</h2>
+<p>Course materials will be made available on <a href="https://nbisweden.github.io/raukr-2025/home_contents.html" class="uri">https://nbisweden.github.io/raukr-2025/home_contents.html</a> once the workshop begins. You can copy-paste code from the website to your R session.</p>
+<p>Alternatively, you can also download/clone the materials from GitHub and run them locally. To do this, go to <a href="https://github.com/NBISweden/raukr-2025" class="uri">https://github.com/NBISweden/raukr-2025</a> and click on the green <strong>Code</strong> button. You can either download the materials as a zip file (<strong>Download ZIP</strong>) or clone the repository using git. If you are using git, run the following command in your terminal:</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/NBISweden/raukr-2025.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>This will create a folder called <code>raukr-2025</code> in your current working directory. You can then open the materials in RStudio or any other IDE of your choice. Or run a docker container as previous described.</p>
+<p>The course materials on GitHub and the website will persist after the workshop. You can use them as a reference in the future. The materials are also available on Zenodo with a DOI.</p>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -25,7 +25,7 @@ If you have a door access card for Uppsala university, take it with you.
 
 ## Computer
 
-You can use any system you like, but we recommend using a Linux or Mac system. If you are using Windows, we recommend using WSL2 (Windows Subsystem for Linux). This will allow you to run a Linux environment on your Windows machine. It's good to have about 20GB of free space on your system.
+You can use any system you like, but we recommend using a Linux or Mac system. It's good to have about 20GB of free space on your system. If you are using Windows, we recommend using WSL2 (Windows Subsystem for Linux). This will allow you to run a Linux environment on your Windows machine. 
 
 ::: {.callout-warning}
 Make sure you have administrative rights on your system. You will need to install software and packages. Make sure you set-up Eduroam for wifi at your home institution before you leave.
@@ -33,7 +33,7 @@ Make sure you have administrative rights on your system. You will need to instal
 
 ## Software
 
-You will need the following list of software tools and a long list of R packages for the Hands-on practical labs.
+You will need the following list of software tools and a list of R packages for the Hands-on practical labs.
 
 - R 4.4
 - IDE (Latest RStudio, Positron or VS Code)
@@ -139,25 +139,11 @@ if (nrow(p_github) > 0) {
 }
 ```
 
-### Using renv
-
-You can use the `renv` package to create a reproducible environment for your project. This will allow you to install all the required packages in a single command. First download the renv lockfile.
-
-<a class="btn btn-primary btn-sm" href="https://raw.githubusercontent.com/NBISweden/raukr-2025/refs/heads/main/docker/renv.lock" role="button" target="_blank">{{< fa download >}} renv.lock</a>
-
-Install the **renv** R package and use it to restore the environment.
-
-```{r}
-#| eval: false
-install.packages('renv', repos = 'https://packagemanager.rstudio.com/all/latest', verbose = TRUE)
-renv::restore()
-```
-
 ### Using docker container
 
-We provide a docker container with all the required packages pre-installed. This is the easiest way to set up your environment, as you don't need an R or RStudio installation on your local machine. But you will need to have docker installed. 
+We provide a docker container with all the required packages pre-installed. This is the easiest way to set up your environment, as you don't need an R or RStudio installation on your local machine. But you will need to have docker installed. Follow the instructions on [DockerDocs](https://docs.docker.com/engine/install/) to install docker on your system.
 
-Run the following command in the terminal.
+Once you have verified that it works, run the following command in the terminal.
 
 ```{sh}
 #| eval: false
@@ -165,7 +151,23 @@ Run the following command in the terminal.
 docker run --platform=linux/amd64 -e PASSWORD=raukr -p 8787:8787 -p 4200:4200 -v ${PWD}:/home/rstudio/work ghcr.io/nbisweden/workshop-raukr:latest
 ```
 
-In the browser, go to [http://localhost:8787/](http://localhost:8787/). Use following credentials:
+This will launch an instance of RStudio Server. In the browser, go to [http://localhost:8787/](http://localhost:8787/). Use following credentials:
 
 > username: rstudio  
 > password: raukr
+
+## Course materials
+
+Course materials will be made available on <https://nbisweden.github.io/raukr-2025/home_contents.html> once the workshop begins. You can copy-paste code from the website to your R session. 
+
+Alternatively, you can also download/clone the materials from GitHub and run them locally. To do this, go to <https://github.com/NBISweden/raukr-2025> and click on the green **Code** button. You can either download the materials as a zip file (**Download ZIP**) or clone the repository using git. If you are using git, run the following command in your terminal:
+
+```{sh}
+#| eval: false
+#| filename: Terminal
+git clone https://github.com/NBISweden/raukr-2025.git
+```
+
+This will create a folder called `raukr-2025` in your current working directory. You can then open the materials in RStudio or any other IDE of your choice. Or run a docker container as previous described.
+
+The course materials on GitHub and the website will persist after the workshop. You can use them as a reference in the future. The materials are also available on Zenodo with a DOI.
