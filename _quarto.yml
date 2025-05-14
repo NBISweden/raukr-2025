@@ -39,7 +39,7 @@ website:
         aria-label: "GitHub"
   page-footer:
     border: false
-    left: "{{< meta current_year >}} NBIS | [GPL-3 License](https://choosealicense.com/licenses/gpl-3.0/)"
+    left: '{{< meta current_year >}} NBIS • <img src="assets/images/cc/cc.svg" class="cc-icon"><img src="assets/images/cc/by.svg" class="cc-icon"><img src="assets/images/cc/nc.svg" class="cc-icon"><img src="assets/images/cc/sa.svg" class="cc-icon">'
     right: "Published with [Quarto](https://quarto.org/) v{{< meta quarto_version >}}"
   # announcement:
   #   icon: info-circle
