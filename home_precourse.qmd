@@ -17,7 +17,7 @@ Cramérgatan 3
 621 57 Visby  
 Gotland, Sweden  
 
-We will use classrooms B25 and B27 on Floor 2 (on map) throughout the workshop. B26 is also available for breakout sessions or group discussions etc. Lunches will be served in the Cafe next to it on the ground floor.
+We will use classrooms B25 and B27 on Floor 2 (on map) throughout the workshop. We may use other rooms for Online sessions. Lunches and coffee/tea will be served in the Cafe next to it on the ground floor.
 
 ::: {.callout-tip}
 If you have a door access card for Uppsala university, take it with you.
@@ -38,31 +38,30 @@ You will need the following list of software tools and a list of R packages for 
 - R 4.4
 - IDE (Latest RStudio, Positron or VS Code)
 - Quarto 1.5.57 or newer
-- Conda (Miniconda or Miniforge recommended)
-- Slack (https://raukr.slack.com/) Invitation will be sent to your email
+- Conda (Miniforge recommended)
+- Slack (https://raukr.slack.com/) *Invitation will be sent to your email*
 - Git
 - Browser (Chrome, Firefox, Safari etc)
 - Docker (Optional)
 
 ### Conda
 
-Install Miniconda or Miniforge. Test that it works and then create a new environment and activate it.
+Install [Miniforge](https://github.com/conda-forge/miniforge). Test that it works and then create a new environment and activate it.
 
 ```{sh}
 #| eval: false
 #| filename: Terminal
-conda create -n raukr -c conda-forge -c bioconda r-base=4.4 r-tidyverse r-essentials r-svglite quarto freetype libpng libxml2 pkg-config zlib xz bioconda::htslib
+conda create -n raukr -c conda-forge -c bioconda r-base=4.4 r-tidyverse r-essentials r-svglite quarto freetype libpng libxml2 pkg-config zlib xz bioconda::htslib gdal proj
 conda activate raukr
 ```
 
-To install packages, either follow the **Manual installation** or the **renv** installation instructions below. If you are using the docker container, you don't need Conda.
+To install packages, see installation instructions below. If you are using the docker container, you don't need Conda.
 
 ## R packages
 
-You can save valuable time during the labs by setting up the environment and installing the R packages in advance. There are a few different ways to approach this:
+You can save valuable time during the labs by setting up the environment and installing the R packages in advance. You can choose between two options:
 
 - Manual installation
-- Using renv
 - Using docker container
 
 ### Manual installation
@@ -171,3 +170,7 @@ git clone https://github.com/NBISweden/raukr-2025.git
 This will create a folder called `raukr-2025` in your current working directory. You can then open the materials in RStudio or any other IDE of your choice. Or run a docker container as previous described.
 
 The course materials on GitHub and the website will persist after the workshop. You can use them as a reference in the future. The materials are also available on Zenodo with a DOI.
+
+## Social media
+
+[{{< fa brands instagram size=xl >}}](https://www.instagram.com/raukr_nbis/) &nbsp; [{{< fa brands bluesky size=xl >}}](https://bsky.app/profile/nbis.se) &nbsp; [{{< fa brands linkedin size=xl >}}](https://www.linkedin.com/company/nbisweden)  

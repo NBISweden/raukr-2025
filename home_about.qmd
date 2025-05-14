@@ -16,7 +16,7 @@ format:
 
 ![](assets/images/profile/marcin-kierczak.webp){.nolightbox}
 
-[**Marcin Kierczak**](http://www.kierczak.pl/)  
+[Marcin Kierczak](http://www.kierczak.pl/)  
 Bioinformatics Data Scientist, NBIS  
 Associate Professor in Bioinformatics, Uppsala university
 
@@ -25,7 +25,7 @@ Associate Professor in Bioinformatics, Uppsala university
 
 ![](assets/images/profile/sebastian-dilorenzo.webp){.nolightbox}
 
-[**Sebastian DiLorenzo**](https://www.katalog.uu.se/profile?id=N11-2322)  
+[Sebastian DiLorenzo](https://www.katalog.uu.se/profile?id=N11-2322)  
 Bioinformatics Data Scientist, NBIS
 
 :::
@@ -33,7 +33,7 @@ Bioinformatics Data Scientist, NBIS
 
 ![](assets/images/profile/roy-francis.webp){.nolightbox}
 
-[**Roy Francis**](https://www.katalog.uu.se/empinfo/?id=N14-525)  
+[Roy Francis](https://www.katalog.uu.se/empinfo/?id=N14-525)  
 Bioinformatics Data Scientist, NBIS
 
 :::
@@ -41,7 +41,7 @@ Bioinformatics Data Scientist, NBIS
 
 ![](assets/images/profile/annika-kollstedt.webp){.nolightbox}
 
-[**Annika Kollstedt**](https://www.katalog.uu.se/empinfo/?id=N1-816)  
+[Annika Kollstedt](https://www.katalog.uu.se/empinfo/?id=N1-816)  
 Administrator, NBIS
 
 :::
@@ -53,4 +53,6 @@ Administrator, NBIS
 
 For queries, write to us at **raukr[at]nbis.se**.  
 
-![](assets/logos/raukr.svg){height="1.2em" style="margin-bottom:-3px;"} &nbsp; ![](assets/logos/nbis-scilifelab.svg){height="1.1em"}
+---
+
+![](assets/logos/raukr.svg){height="1.2em" style="margin-bottom:-3px;"} &nbsp; ![](assets/logos/nbis-scilifelab.svg){height="1.1em"} &nbsp; [{{< fa brands instagram >}}](https://www.instagram.com/raukr_nbis/) &nbsp; [{{< fa brands bluesky >}}](https://bsky.app/profile/nbis.se) &nbsp; [{{< fa brands linkedin >}}](https://www.linkedin.com/company/nbisweden)  
