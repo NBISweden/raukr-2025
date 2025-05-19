@@ -791,7 +791,7 @@ IMHO those are the hardest 💀 to debug!</p>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">proc.time</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  2.020   0.654   1.702 </code></pre>
+  1.954   0.704   1.662 </code></pre>
 </div>
 </div>
 <ul>
@@ -807,7 +807,7 @@ IMHO those are the hardest 💀 to debug!</p>
 <span id="cb35-4"><a></a>pt2 <span class="sc">-</span> pt1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  0.021   0.004   0.026 </code></pre>
+  0.019   0.004   0.024 </code></pre>
 </div>
 </div>
 </div>
@@ -819,9 +819,9 @@ IMHO those are the hardest 💀 to debug!</p>
 <span id="cb37-2"><a></a><span class="fu">system.time</span>(<span class="fu">rnorm</span>(<span class="at">n =</span> <span class="fl">10e6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  0.285   0.012   0.296 
+  0.268   0.016   0.285 
    user  system elapsed 
-  0.481   0.004   0.484 </code></pre>
+  0.447   0.020   0.468 </code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -832,7 +832,7 @@ IMHO those are the hardest 💀 to debug!</p>
 <span id="cb39-3"><a></a>tmp1 <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="fl">10e6</span>)</span>
 <span id="cb39-4"><a></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.169 sec elapsed</code></pre>
+<pre><code>0.236 sec elapsed</code></pre>
 </div>
 </div>
 </div>
@@ -913,19 +913,19 @@ IMHO those are the hardest 💀 to debug!</p>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">fn1</td>
-<td style="text-align: right;">6.058</td>
-<td style="text-align: right;">0.031</td>
-<td style="text-align: right;">6.091</td>
+<td style="text-align: right;">7.644</td>
+<td style="text-align: right;">0.166</td>
+<td style="text-align: right;">7.811</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">fn2</td>
-<td style="text-align: right;">0.214</td>
+<td style="text-align: right;">0.479</td>
 <td style="text-align: right;">0.000</td>
-<td style="text-align: right;">0.214</td>
+<td style="text-align: right;">0.480</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">fn3</td>
-<td style="text-align: right;">0.002</td>
+<td style="text-align: right;">0.001</td>
 <td style="text-align: right;">0.000</td>
 <td style="text-align: right;">0.002</td>
 </tr>
@@ -950,11 +950,11 @@ IMHO those are the hardest 💀 to debug!</p>
 <span id="cb46-5"><a></a>}</span>
 <span id="cb46-6"><a></a><span class="fu">Rprof</span>(<span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.5825933 0.2919335 0.8824947 0.6511328 0.0712020 0.8351863
-[1] 0.4641238 0.9352785 0.2966961 0.1183239 0.5968922 0.7065838
-[1] 0.3590248 0.9599851 0.5830024 0.6542112 0.3288977 0.4875695
-[1] 0.56976293 0.18717478 0.78338592 0.63665240 0.52241872 0.02901144
-[1] 0.03875743 0.80142878 0.37999959 0.43131611 0.68155980 0.71524188</code></pre>
+<pre><code>[1] 0.6536342 0.6183371 0.6189789 0.3408437 0.2664858 0.6185547
+[1] 0.6383574 0.5914124 0.2921400 0.3233635 0.9352206 0.1025050
+[1] 0.98932042 0.03798655 0.64528481 0.83488187 0.14626268 0.32709305
+[1] 0.63197483 0.32713220 0.34499497 0.32908306 0.26927382 0.09823248
+[1] 0.569201405 0.860486382 0.096056464 0.941512789 0.001748405 0.055280883</code></pre>
 </div>
 </div>
 <p>And let us summarise:</p>
@@ -985,51 +985,67 @@ IMHO those are the hardest 💀 to debug!</p>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">“eval”</td>
-<td style="text-align: right;">1.29</td>
-<td style="text-align: right;">53.75</td>
-<td style="text-align: right;">2.40</td>
+<td style="text-align: right;">1.21</td>
+<td style="text-align: right;">50.21</td>
+<td style="text-align: right;">2.41</td>
 <td style="text-align: right;">100.00</td>
-<td style="text-align: right;">1597.1</td>
+<td style="text-align: right;">1606.6</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">“runif”</td>
-<td style="text-align: right;">0.42</td>
-<td style="text-align: right;">17.50</td>
-<td style="text-align: right;">0.42</td>
-<td style="text-align: right;">17.50</td>
-<td style="text-align: right;">303.8</td>
+<td style="text-align: left;">“force”</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">20.75</td>
+<td style="text-align: right;">0.66</td>
+<td style="text-align: right;">27.39</td>
+<td style="text-align: right;">464.5</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">“force”</td>
-<td style="text-align: right;">0.41</td>
-<td style="text-align: right;">17.08</td>
-<td style="text-align: right;">0.54</td>
-<td style="text-align: right;">22.50</td>
-<td style="text-align: right;">389.6</td>
+<td style="text-align: left;">“runif”</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">11.62</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">11.62</td>
+<td style="text-align: right;">175.6</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">“fun_fill_loop2”</td>
-<td style="text-align: right;">0.15</td>
-<td style="text-align: right;">6.25</td>
-<td style="text-align: right;">2.40</td>
+<td style="text-align: right;">0.26</td>
+<td style="text-align: right;">10.79</td>
+<td style="text-align: right;">2.41</td>
 <td style="text-align: right;">100.00</td>
-<td style="text-align: right;">1597.1</td>
+<td style="text-align: right;">1606.6</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">“parent.frame”</td>
-<td style="text-align: right;">0.10</td>
-<td style="text-align: right;">4.17</td>
-<td style="text-align: right;">0.10</td>
-<td style="text-align: right;">4.17</td>
-<td style="text-align: right;">79.8</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">2.90</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">2.90</td>
+<td style="text-align: right;">54.4</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">“is.list”</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">2.07</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">2.07</td>
+<td style="text-align: right;">30.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">“is.pairlist”</td>
 <td style="text-align: right;">0.03</td>
-<td style="text-align: right;">1.25</td>
+<td style="text-align: right;">1.24</td>
 <td style="text-align: right;">0.03</td>
-<td style="text-align: right;">1.25</td>
-<td style="text-align: right;">15.8</td>
+<td style="text-align: right;">1.24</td>
+<td style="text-align: right;">18.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">“baseenv”</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">9.5</td>
 </tr>
 </tbody>
 </table>
@@ -1083,10 +1099,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">.main</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
@@ -1095,10 +1111,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">execute</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
@@ -1107,10 +1123,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">rmarkdown::render</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
@@ -1119,10 +1135,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">knitr::knit</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
@@ -1131,10 +1147,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">process_file</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
@@ -1143,10 +1159,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">xfun:::handle_error</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
@@ -1155,10 +1171,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">withCallingHandlers</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">base</td>
 </tr>
 <tr class="even">
@@ -1167,10 +1183,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">process_group</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
@@ -1179,10 +1195,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">call_block</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
@@ -1191,10 +1207,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">block_exec</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
@@ -1203,10 +1219,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">eng_r</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
@@ -1215,10 +1231,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">in_input_dir</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
@@ -1227,10 +1243,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">in_dir</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
@@ -1239,10 +1255,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">evaluate</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
@@ -1251,10 +1267,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">evaluate::evaluate</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
@@ -1263,10 +1279,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">withRestarts</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">base</td>
 </tr>
 <tr class="odd">
@@ -1275,10 +1291,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">withRestartList</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
@@ -1287,10 +1303,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">withOneRestart</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
@@ -1299,10 +1315,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">doWithOneRestart</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
@@ -1311,10 +1327,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">withRestartList</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
@@ -1323,10 +1339,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">withOneRestart</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
@@ -1335,10 +1351,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">doWithOneRestart</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
@@ -1347,10 +1363,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">with_handlers</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
@@ -1359,10 +1375,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">eval</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">BiocGenerics</td>
 </tr>
 <tr class="odd">
@@ -1371,10 +1387,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">eval</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">BiocGenerics</td>
 </tr>
 <tr class="even">
@@ -1383,10 +1399,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">withCallingHandlers</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">base</td>
 </tr>
 <tr class="odd">
@@ -1395,10 +1411,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">withVisible</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">base</td>
 </tr>
 <tr class="even">
@@ -1407,10 +1423,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">eval</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">BiocGenerics</td>
 </tr>
 <tr class="odd">
@@ -1419,10 +1435,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">eval</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">BiocGenerics</td>
 </tr>
 <tr class="even">
@@ -1431,10 +1447,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">table</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">BiocGenerics</td>
 </tr>
 <tr class="odd">
@@ -1443,10 +1459,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">standardGeneric</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">base</td>
 </tr>
 <tr class="even">
@@ -1455,10 +1471,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">eval</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">BiocGenerics</td>
 </tr>
 <tr class="odd">
@@ -1467,10 +1483,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">eval</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">BiocGenerics</td>
 </tr>
 <tr class="even">
@@ -1479,10 +1495,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">eval</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">BiocGenerics</td>
 </tr>
 <tr class="odd">
@@ -1491,10 +1507,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">table</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">BiocGenerics</td>
 </tr>
 <tr class="even">
@@ -1503,10 +1519,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">base::table</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
@@ -1515,10 +1531,10 @@ IMHO those are the hardest 💀 to debug!</p>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">factor</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.28</td>
 <td style="text-align: left;">base</td>
 </tr>
 <tr class="even">
@@ -1575,8 +1591,8 @@ IMHO those are the hardest 💀 to debug!</p>
 <h2>Profiling with <code>profvis</code> cted.</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="profvis html-widget html-fill-item" id="htmlwidget-36a9ad44f48bb86b3fe2" style="width:100%;height:600px;"></div>
-<script type="application/json" data-for="htmlwidget-36a9ad44f48bb86b3fe2">{"x":{"message":{"prof":{"time":[1,1,2,2,3,3,4,4],"depth":[2,1,2,1,2,1,2,1],"label":["eval","fun_fill_loop2","eval","fun_fill_loop2","eval","fun_fill_loop2","eval","fun_fill_loop2"],"filenum":[null,null,null,null,null,null,null,null],"linenum":[null,null,null,null,null,null,null,null],"memalloc":[24.80929565429688,24.80929565429688,25.04824066162109,25.04824066162109,25.29187774658203,25.29187774658203,25.51948547363281,25.51948547363281],"meminc":[0,0,0.2389450073242188,0,0.2436370849609375,0,0.2276077270507812,0],"filename":[null,null,null,null,null,null,null,null]},"interval":10,"files":[],"prof_output":"/tmp/RtmpK5raC1/file71279dd5470.prof","highlight":{"output":["^output\\$"],"gc":["^<GC>$"],"stacktrace":["^\\.\\.stacktraceo(n|ff)\\.\\.$"]},"split":"h"}},"evals":[],"jsHooks":[]}</script>
+<div class="profvis html-widget html-fill-item" id="htmlwidget-5881af99b4c430ab9af3" style="width:100%;height:600px;"></div>
+<script type="application/json" data-for="htmlwidget-5881af99b4c430ab9af3">{"x":{"message":{"prof":{"time":[1,2,2,3,3,3,4,4],"depth":[1,2,1,3,2,1,2,1],"label":[".main","eval","fun_fill_loop2","force","eval","fun_fill_loop2","eval","fun_fill_loop2"],"filenum":[null,null,null,null,null,null,null,null],"linenum":[null,null,null,null,null,null,null,null],"memalloc":[101.1625213623047,101.4086151123047,101.4086151123047,101.6471252441406,101.6471252441406,101.6471252441406,101.8789901733398,101.8789901733398],"meminc":[0,0.24609375,0,0.2385101318359375,0,0,0.2318649291992188,0],"filename":[null,null,null,null,null,null,null,null]},"interval":10,"files":[],"prof_output":"/tmp/RtmpOw6dKd/file71211d31134.prof","highlight":{"output":["^output\\$"],"gc":["^<GC>$"],"stacktrace":["^\\.\\.stacktraceo(n|ff)\\.\\.$"]},"split":"h"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -1626,8 +1642,8 @@ IMHO those are the hardest 💀 to debug!</p>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a><span class="fu">address</span>(matrix_A)</span>
 <span id="cb54-2"><a></a><span class="fu">address</span>(matrix_B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "0x7fd03699e010"
-[1] "0x7fd03699e010"</code></pre>
+<pre><code>[1] "0x7f1daa7fd010"
+[1] "0x7f1daa7fd010"</code></pre>
 </div>
 </div>
 </div>
@@ -1640,8 +1656,8 @@ IMHO those are the hardest 💀 to debug!</p>
 <span id="cb56-2"><a></a><span class="fu">address</span>(matrix_A)</span>
 <span id="cb56-3"><a></a><span class="fu">address</span>(matrix_B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "0x7fd03699e010"
-[1] "0x55b5f83cdbd0"</code></pre>
+<pre><code>[1] "0x7f1daa7fd010"
+[1] "0x556ee3c3b920"</code></pre>
 </div>
 </div>
 </div>
@@ -1661,9 +1677,9 @@ IMHO those are the hardest 💀 to debug!</p>
 <span id="cb58-9"><a></a>}</span>
 <span id="cb58-10"><a></a><span class="fu">f1</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "0x55b5ebf0e810 --&gt; 0x55b5f5bf64c0"
-[1] "0x55b5f5bf64c0 --&gt; 0x55b5f5bf6808"
-[1] "0x55b5f5bf6808 --&gt; 0x55b5f57c90f8"</code></pre>
+<pre><code>[1] "0x556ed6acf810 --&gt; 0x556ee094f450"
+[1] "0x556ee094f450 --&gt; 0x556ee094fa00"
+[1] "0x556ee094fa00 --&gt; 0x556ee04b5b18"</code></pre>
 </div>
 </div>
 </section>
@@ -1682,9 +1698,9 @@ IMHO those are the hardest 💀 to debug!</p>
 <span id="cb60-9"><a></a>}</span>
 <span id="cb60-10"><a></a><span class="fu">f2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "0x55b5f8e13918 --&gt; 0x55b5f8e13918"
-[1] "0x55b5f8e13918 --&gt; 0x55b5f8e13918"
-[1] "0x55b5f8e13918 --&gt; 0x55b5f8e13918"</code></pre>
+<pre><code>[1] "0x556ee39c8e78 --&gt; 0x556ee39c8e78"
+[1] "0x556ee39c8e78 --&gt; 0x556ee39c8e78"
+[1] "0x556ee39c8e78 --&gt; 0x556ee39c8e78"</code></pre>
 </div>
 </div>
 </section>

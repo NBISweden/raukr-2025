@@ -169,8 +169,4 @@ git clone https://github.com/NBISweden/raukr-2025.git
 
 This will create a folder called `raukr-2025` in your current working directory. You can then open the materials in RStudio or any other IDE of your choice. Or run a docker container as previous described.
 
-The course materials on GitHub and the website will persist after the workshop. You can use them as a reference in the future. The materials are also available on Zenodo with a DOI.
-
-## Social media
-
-[{{< fa brands instagram size=xl >}}](https://www.instagram.com/raukr_nbis/) &nbsp; [{{< fa brands bluesky size=xl >}}](https://bsky.app/profile/nbis.se) &nbsp; [{{< fa brands linkedin size=xl >}}](https://www.linkedin.com/company/nbisweden)  
+The course materials on GitHub and the website will persist after the workshop. You can use them as a reference in the future.

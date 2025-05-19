@@ -11,7 +11,7 @@ $secondary: #A6CBCF;
 $tertiary: #D1E5E6;
 $link-color: #79B1B7;
 $body-color: #1c2833;
-$code-color: #496985;
+$code-color: #010305;
 $code-block-bg: WhiteSmoke;
 $font-family-sans-serif: 'Nunito', 'Source Sans Pro', 'Helvetica', 'sans-serif' ;
 $font-family-monospace: 'Fira Mono','Ubuntu Mono', 'Lucida Console', 'Courier', 'monospace';
@@ -74,15 +74,6 @@ h1,h2,h3,h4,h5,h6 {
   width: 60px;
   -o-object-fit: cover;
   object-fit: cover;
-}
-
-/* cc license icons */
-
-.cc-icon {
-  max-width: 1em;
-  max-height: 1em;
-  margin-left: 0.2em;
-  margin-bottom: 0.3em;
 }
 
 /* buttons and badges */

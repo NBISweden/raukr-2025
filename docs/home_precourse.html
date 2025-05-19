@@ -144,6 +144,14 @@ background-size: cover;
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./home_schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./home_precourse.html" aria-current="page"> 
+<span class="menu-text">Precourse</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./home_program.html"> 
 <span class="menu-text">Program</span></a>
   </li>  
@@ -238,7 +246,7 @@ Uppsala University<br>
 Cramérgatan 3<br>
 621 57 Visby<br>
 Gotland, Sweden</p>
-<p>We will use classrooms B25 and B27 on Floor 2 (on map) throughout the workshop. B26 is also available for breakout sessions or group discussions etc. Lunches will be served in the Cafe next to it on the ground floor.</p>
+<p>We will use classrooms B25 and B27 on Floor 2 (on map) throughout the workshop. We may use other rooms for Online sessions. Lunches and coffee/tea will be served in the Cafe next to it on the ground floor.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -277,33 +285,32 @@ Warning
 <li>R 4.4</li>
 <li>IDE (Latest RStudio, Positron or VS Code)</li>
 <li>Quarto 1.5.57 or newer</li>
-<li>Conda (Miniconda or Miniforge recommended)</li>
-<li>Slack (https://raukr.slack.com/) Invitation will be sent to your email</li>
+<li>Conda (Miniforge recommended)</li>
+<li>Slack (https://raukr.slack.com/) <em>Invitation will be sent to your email</em></li>
 <li>Git</li>
 <li>Browser (Chrome, Firefox, Safari etc)</li>
 <li>Docker (Optional)</li>
 </ul>
 <section id="conda" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="conda"><span class="header-section-number">3.1</span> Conda</h3>
-<p>Install Miniconda or Miniforge. Test that it works and then create a new environment and activate it.</p>
+<p>Install <a href="https://github.com/conda-forge/miniforge">Miniforge</a>. Test that it works and then create a new environment and activate it.</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> raukr <span class="at">-c</span> conda-forge <span class="at">-c</span> bioconda r-base=4.4 r-tidyverse r-essentials r-svglite quarto freetype libpng libxml2 pkg-config zlib xz bioconda::htslib</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> raukr <span class="at">-c</span> conda-forge <span class="at">-c</span> bioconda r-base=4.4 r-tidyverse r-essentials r-svglite quarto freetype libpng libxml2 pkg-config zlib xz bioconda::htslib gdal proj</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate raukr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>To install packages, either follow the <strong>Manual installation</strong> or the <strong>renv</strong> installation instructions below. If you are using the docker container, you don’t need Conda.</p>
+<p>To install packages, see installation instructions below. If you are using the docker container, you don’t need Conda.</p>
 </section>
 </section>
 <section id="r-packages" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="r-packages"><span class="header-section-number">4</span> R packages</h2>
-<p>You can save valuable time during the labs by setting up the environment and installing the R packages in advance. There are a few different ways to approach this:</p>
+<p>You can save valuable time during the labs by setting up the environment and installing the R packages in advance. You can choose between two options:</p>
 <ul>
 <li>Manual installation</li>
-<li>Using renv</li>
 <li>Using docker container</li>
 </ul>
 <section id="manual-installation" class="level3" data-number="4.1">
@@ -367,7 +374,7 @@ password: raukr</p>
 </div>
 </div>
 <p>This will create a folder called <code>raukr-2025</code> in your current working directory. You can then open the materials in RStudio or any other IDE of your choice. Or run a docker container as previous described.</p>
-<p>The course materials on GitHub and the website will persist after the workshop. You can use them as a reference in the future. The materials are also available on Zenodo with a DOI.</p>
+<p>The course materials on GitHub and the website will persist after the workshop. You can use them as a reference in the future.</p>
 
 
 </section>
@@ -797,7 +804,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>2025 NBIS | <a href="https://choosealicense.com/licenses/gpl-3.0/">GPL-3 License</a></p>
+<p>2025 NBIS • CC BY-NC-SA 4.0</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
