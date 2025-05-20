@@ -45,7 +45,7 @@ website:
         aria-label: "GitHub"
   page-footer:
     border: false
-    left: '{{< meta current_year >}} NBIS • CC BY-NC-SA 4.0'
+    left: '{{< meta current_year >}} NBIS • [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)'
     right: "Published with [Quarto](https://quarto.org/) v{{< meta quarto_version >}}"
   # announcement:
   #   icon: info-circle
