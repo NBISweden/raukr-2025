@@ -21,9 +21,10 @@ execute:
 |Introduction to RaukR                  |Marcin Kierczak, Sebastian DiLorenzo   ||
 |Best Coding Practices in R             |Marcin Kierczak, Sebastian DiLorenzo   |[Slides](slides/coding/index.html), [Lab](labs/coding/index.html)|
 |Project environments using Renv        |Roy Francis                            |[Slides](slides/r-env/index.html)|
-|Literate programming with Quarto       |Roy Francis                            |[Slides](slides/quarto/index.html), [Lab](labs/quarto/index.html)|
-|[10-Jun-2025 (Tue)]{.badge .badge-secondary}                               |||
 |Debugging, Profiling and Optimization  |Marcin Kierczak                        |[Slides](slides/debugging/index.html), [Lab](labs/debugging/index.html)|
+|[10-Jun-2025 (Tue)]{.badge .badge-secondary}                               |||
+|Introduction to Quarto                 |Christophe Dervieux                    ||
+|Creating websites with Quarto          |Roy Francis                            |[Lab](labs/quarto-site/index.html)|
 |[11-Jun-2025 (Wed)]{.badge .badge-secondary}                               |||
 |git with R                             |Sebastian DiLorenzo                    |[Slides](slides/git/index.html), [Lab](labs/git/index.html)|
 |Futurverse                             |Henrik Bengtsson, UCSF                 ||
@@ -43,4 +44,4 @@ execute:
 
 <br>
 
-[[Slides]{.btn .btn-sm .btn-primary}](slides/index.html) [[Labs]{.btn .btn-sm .btn-primary}](labs/index.html) 
+[[Slides {{< fa circle-chevron-right >}}]{.btn .btn-sm .btn-primary}](slides/index.html) [[Labs {{< fa circle-chevron-right >}}]{.btn .btn-sm .btn-primary}](labs/index.html) 
