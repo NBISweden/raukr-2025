@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://nbisweden.github.io/raukr-2025/labs/index.html</loc>
-    <lastmod>2025-05-08T20:31:30.308Z</lastmod>
+    <lastmod>2025-05-28T09:27:57.484Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/raukr-2025/home_program.html</loc>
@@ -82,7 +82,7 @@
   </url>
   <url>
     <loc>https://nbisweden.github.io/raukr-2025/home_contents.html</loc>
-    <lastmod>2025-05-08T20:31:30.300Z</lastmod>
+    <lastmod>2025-05-28T09:27:57.484Z</lastmod>
   </url>
   <url>
     <loc>https://nbisweden.github.io/raukr-2025/home_about.html</loc>
@@ -167,5 +167,9 @@
   <url>
     <loc>https://nbisweden.github.io/raukr-2025/slides/ggplot/index.html</loc>
     <lastmod>2025-05-08T20:31:30.584Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nbisweden.github.io/raukr-2025/labs/quarto-site/index.html</loc>
+    <lastmod>2025-05-28T09:39:39.877Z</lastmod>
   </url>
 </urlset>

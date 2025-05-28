@@ -41,6 +41,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -218,9 +220,9 @@ background-size: cover;
 <td><a href="slides/r-env/index.html">Slides</a></td>
 </tr>
 <tr class="even">
-<td>Literate programming with Quarto</td>
-<td>Roy Francis</td>
-<td><a href="slides/quarto/index.html">Slides</a>, <a href="labs/quarto/index.html">Lab</a></td>
+<td>Debugging, Profiling and Optimization</td>
+<td>Marcin Kierczak</td>
+<td><a href="slides/debugging/index.html">Slides</a>, <a href="labs/debugging/index.html">Lab</a></td>
 </tr>
 <tr class="odd">
 <td><span class="badge badge-secondary">10-Jun-2025 (Tue)</span></td>
@@ -228,81 +230,86 @@ background-size: cover;
 <td></td>
 </tr>
 <tr class="even">
-<td>Debugging, Profiling and Optimization</td>
-<td>Marcin Kierczak</td>
-<td><a href="slides/debugging/index.html">Slides</a>, <a href="labs/debugging/index.html">Lab</a></td>
+<td>Introduction to Quarto</td>
+<td>Christophe Dervieux</td>
+<td></td>
 </tr>
 <tr class="odd">
+<td>Creating websites with Quarto</td>
+<td>Roy Francis</td>
+<td><a href="labs/quarto-site/index.html">Lab</a></td>
+</tr>
+<tr class="even">
 <td><span class="badge badge-secondary">11-Jun-2025 (Wed)</span></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>git with R</td>
 <td>Sebastian DiLorenzo</td>
 <td><a href="slides/git/index.html">Slides</a>, <a href="labs/git/index.html">Lab</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Futurverse</td>
 <td>Henrik Bengtsson, UCSF</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><span class="badge badge-secondary">12-Jun-2025 (Thu)</span></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Tidyverse</td>
 <td>Marcin Kierczak</td>
 <td><a href="slides/tidyverse/index.html">Slides</a>, <a href="labs/tidyverse/index.html">Lab</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Plotting with ggplot2</td>
 <td>Roy Francis</td>
 <td><a href="slides/ggplot/index.html">Slides</a>, <a href="labs/ggplot/index.html">Lab</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><span class="badge badge-secondary">13-Jun-2025 (Fri)</span></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>R Packages</td>
 <td>Jenny Bryan, Posit</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>reticulate: Combining R with Python</td>
 <td>Nina Norgren</td>
 <td><a href="slides/reticulate/index.html">Slides</a>, <a href="labs/reticulate/index.html">Lab</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><span class="badge badge-primary">WEEK 2</span></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><span class="badge badge-secondary">16-Jun-2025 (Mon)</span></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Statistics and machine learning in R</td>
 <td>Nikolay Oskolkov</td>
 <td><a href="slides/ml/index.html">Slides</a>, <a href="labs/ml/index.html">Lab</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><span class="badge badge-secondary">17-Jun-2025 (Tue)</span></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Object-oriented programming</td>
 <td>Marcin Kierczak</td>
 <td><a href="slides/oop/index.html">Slides</a>, <a href="labs/oop/index.html">Lab</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Web apps with Shiny</td>
 <td>Roy Francis</td>
 <td><a href="slides/shiny/index.html">Slides</a>, <a href="labs/shiny/index.html">Lab</a></td>
@@ -311,7 +318,7 @@ background-size: cover;
 </table>
 </div>
 <p><br></p>
-<p><a href="slides/index.html"><span class="btn btn-sm btn-primary">Slides</span></a> <a href="labs/index.html"><span class="btn btn-sm btn-primary">Labs</span></a></p>
+<p><a href="slides/index.html"><span class="btn btn-sm btn-primary">Slides <i class="fa-solid fa-circle-chevron-right" aria-label="circle-chevron-right"></i></span></a> <a href="labs/index.html"><span class="btn btn-sm btn-primary">Labs <i class="fa-solid fa-circle-chevron-right" aria-label="circle-chevron-right"></i></span></a></p>
 
 
 
@@ -740,7 +747,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>2025 NBIS • CC BY-NC-SA 4.0</p>
+<p>2025 NBIS • <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
