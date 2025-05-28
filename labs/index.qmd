@@ -8,7 +8,6 @@ listing:
   image-placeholder: "/assets/images/featured.webp"
   contents: 
     - "*.qmd"
-    - "!demo/*.qmd"
 date: ""
 toc: false
 sidebar: false
