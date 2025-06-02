@@ -27,16 +27,16 @@ After this module:
 
 . . .
 
-- You will think a bit about what is a good name.
+- You will be reminded about dividing a problem before your start conquering(coding).
 
 . . .
 
-- You will learn about code formatting.
+- You will understand when it is time to write a function.
 
-. . .
+<!-- . . .
 
-- You will sample some different notations.
-
+- You will have a basic understanding of using github copilot with RStudio `r emo::ji('robot')`.
+-->
 
 ## What is Coding Style?
 
@@ -130,9 +130,7 @@ Sometimes these are domain-specific:
 - `p`, `q` &mdash; allele frequencies in genetics,
 - `N`, `k` &mdash; number of trials and number of successes in stats
 
-<br>
-<br>
-[Try to avoid using these for other variables to avoid possible confusion.]{.large}
+[Try to avoid using these in this way to avoid possible confusion.]{.large}
 
 :::
 :::
@@ -273,6 +271,14 @@ but with a bit of effort you can see them:
 ```{r show_hidden_vars}
 ls(all.names = TRUE)
 ```
+
+## Github copilot `r emo::ji('heart')` RStudio
+
+[
+![](assets/copilot.png){height="500px"}  
+<br>
+[source: https://github.com/edu/students]{.smaller}
+]{.center}
 
 ## {background-image="/assets/images/cover.webp"}
 

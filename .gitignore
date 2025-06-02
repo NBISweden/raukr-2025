@@ -11,3 +11,6 @@ slides/**/*_files
 labs/**/*_files
 **/*.fq
 todo.txt
+.Rproj.user
+*.Rproj
+.RData

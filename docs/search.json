@@ -2797,14 +2797,14 @@
     "href": "slides/coding/index.html#learning-outcomes",
     "title": "Best Coding Practices",
     "section": "Learning Outcomes",
-    "text": "Learning Outcomes\n\nAfter this module:\n\nYou will be aware of different coding styles.\n\n\n\nYou will know what styles are good 🦸 and bad 🦹 and why.\n\n\n\n\nYou will be reminded about dividing a problem before your start conquering(coding).\n\n\n\n\nYou will understand when it is time to write a function.\n\n\n\n\nYou will have a basic understanding of using github copilot with RStudio 🤖.\n\n\n\n\nYour code will reach new level of awesomeness! 🆒."
+    "text": "Learning Outcomes\n\nAfter this module:\n\nYou will be aware of different coding styles.\n\n\n\nYou will know what styles are good and bad and why.\n\n\n\n\nYou will think a bit about what is a good name.\n\n\n\n\nYou will learn about code formatting.\n\n\n\n\nYou will sample some different notations."
   },
   {
     "objectID": "slides/coding/index.html#todays-topics",
     "href": "slides/coding/index.html#todays-topics",
     "title": "Best Coding Practices",
     "section": "Todays topics",
-    "text": "Todays topics\n\n\nStyle — _howTo_style.yourCode?\nStructure — how to think 🤔 about the code and manufacture your own building 🚧 blocks\n\n\n\nDocumentation — how to use quarto for reproducibility, convenience and code integration 📖\n\n\n\n\nDebugging — my code does not run 😞\nProfiling — now it does run but… out of memory 💣\nOptimization — making things better 👨‍🏭"
+    "text": "Todays topics\n\n\nStyle — _howTo_style.yourCode?\nStructure — how to think 🤔 about the code and manufacture your own building 🚧 blocks\n\n\n\nDocumentation — how to use quarto for reproducibility, convenience and code integration 📖\n\n\n\n\nDebugging — my code does not run 😿\nProfiling — now it does run but… out of memory 💣\nOptimization — making things better 👷‍♀️"
   },
   {
     "objectID": "slides/coding/index.html#what-is-coding-style",
@@ -2825,14 +2825,14 @@
     "href": "slides/coding/index.html#naming-style",
     "title": "Best Coding Practices",
     "section": "Naming Style",
-    "text": "Naming Style\nVariable names that are legal are not necessarily a good style and they may be dangerous ⚡:\n\nF\nT\n\n[1] FALSE\n[1] TRUE\n\n\n\nF + T\n\n[1] 1\n\n\n\nF &lt;- 3\nF + T\n\n[1] 4\n\n\ndo not do this!\n\nunless you are a politician 🕴…\nAvoid T and F as variable names."
+    "text": "Naming Style\nVariable names that are legal are not necessarily a good style and they may be dangerous ☠️:\n\nF\nT\n\n[1] FALSE\n[1] TRUE\n\n\n\nF + T\n\n[1] 1\n\n\n\nF &lt;- 3\nF + T\n\n[1] 4\n\n\ndo not do this!\n\nunless you are a politician 🕴…\nAvoid T and F as variable names."
   },
   {
     "objectID": "slides/coding/index.html#customary-variable-names",
     "href": "slides/coding/index.html#customary-variable-names",
     "title": "Best Coding Practices",
     "section": "Customary Variable Names",
-    "text": "Customary Variable Names\n\n\nAlso, there is a number of variable names that are traditionally used to name particular variables:\n\nusr — user\npwd — password\nx, y, z — vectors\nw — weights\nf, g — functions\nn — number of rows\np — number of columns\ni, j, k — indexes\ndf — data frame\ncnt — counter\nM, N, W — matrices\ntmp — temporary variables\n\n\nSometimes these are domain-specific:\n\np, q — allele frequencies in genetics,\nN, k — number of trials and number of successes in stats\n\nTry to avoid using these in this way to avoid possible confusion."
+    "text": "Customary Variable Names\n\n\nAlso, there is a number of variable names that are traditionally used to name particular variables:\n\nusr — user\npwd — password\nx, y, z — vectors\nw — weights\nf, g — functions\nn — number of rows\np — number of columns\ni, j, k — indexes\ndf — data frame\ncnt — counter\nM, N, W — matrices\ntmp — temporary variables\n\n\nSometimes these are domain-specific:\n\np, q — allele frequencies in genetics,\nN, k — number of trials and number of successes in stats\n\n  Try to avoid using these for other variables to avoid possible confusion."
   },
   {
     "objectID": "slides/coding/index.html#different-notations",
@@ -2860,14 +2860,14 @@
     "href": "slides/coding/index.html#how-to-write-functions",
     "title": "Best Coding Practices",
     "section": "How to write functions",
-    "text": "How to write functions\n\navoid accessing and modifying globals\n\navoid 🙊 a &lt;&lt;- 42\nand 🆗 use a closure instead\n\n\n\n\nnew_counter &lt;- function() {\n  i &lt;- 0\n  function() {\n    # do something useful, then ...\n    i &lt;&lt;- i + 1\n    i\n  }\n}\n\ncounter1 &lt;- new_counter()\ncounter2 &lt;- new_counter()\ncounter1()\ncounter1()\ncounter2()\n\n[1] 1\n[1] 2\n[1] 1\n\n\nSource: Stackoverflow"
+    "text": "How to write functions\n\nuse data as the very first argument for %&gt;% pipes sake:\n\nmyfun &lt;- function(x, arg) 🆗\nmyfun &lt;- function(arg, x) 🙅\n\n\n\n\nset arguments to defaults — better too many args than too few:\n\nmyfun &lt;- function(x, seed = 42) 🆗\nmyfun &lt;- function(x, ...) 🚭\n\n\n\n\n\nremember that global defaults can be changed by options"
   },
   {
     "objectID": "slides/coding/index.html#how-to-write-functions-1",
     "href": "slides/coding/index.html#how-to-write-functions-1",
     "title": "Best Coding Practices",
     "section": "How to write functions",
-    "text": "How to write functions\n\nuse data as the very first argument for %&gt;% pipes sake:\n\nmyfun &lt;- function(x, arg) 🆗\nmyfun &lt;- function(arg, x) 🙉\n\n\n\n\nset arguments to defaults — better too many args than too few:\n\nmyfun &lt;- function(x, seed = 42) 🆗\nmyfun &lt;- function(x, ...) 🚯\n\n\n\n\n\nremember that global defaults can be changed by options"
+    "text": "How to write functions\n\navoid accessing and modifying globals\n\navoid 🙅‍♀️ a &lt;&lt;- 42\nexcept in a closure\n\n\n\n\nnew_counter &lt;- function() {\n  i &lt;- 0\n  function() {\n    # do something useful, then ...\n    i &lt;&lt;- i + 1\n    i\n  }\n}\n\ncounter1 &lt;- new_counter()\ncounter2 &lt;- new_counter()\ncounter1()\ncounter1()\ncounter2()\n\n[1] 1\n[1] 2\n[1] 1\n\n\nSource: Stackoverflow"
   },
   {
     "objectID": "slides/coding/index.html#wrapper-function",
@@ -4590,5 +4590,19 @@
     "title": "Website with Quarto",
     "section": "13 Learning more",
     "text": "13 Learning more\nIn addition to the official Quarto documentation, there are many resources available online to learn more about Quarto and how to build websites with it. Here are some resources that you might find helpful:\n\nQuarto.org\nQuarto for Scientists\nReproducible publishing with Quarto"
+  },
+  {
+    "objectID": "slides/coding/index.html#code-formatting",
+    "href": "slides/coding/index.html#code-formatting",
+    "title": "Best Coding Practices",
+    "section": "Code formatting",
+    "text": "Code formatting\n\n\nGoal: Improve readability\n 1. Consistent indentation/whitespace\n\na &lt;- 15\n  b &lt;- 20\n  \n  c &lt;- function(a,b){             #Bad\nreturn(a + b)}\n\n      d &lt;- 1+2:3*(4/5)\n\n\na &lt;- 15\nb &lt;- 20\nc &lt;- function(a, b) {             #Good\n  return(a + b)\n}\nd &lt;- 1 + 2:3 * (4 / 5)\n\n\n\n\n\nhttps://posit-dev.github.io/air/"
+  },
+  {
+    "objectID": "slides/coding/index.html#code-formatting-1",
+    "href": "slides/coding/index.html#code-formatting-1",
+    "title": "Best Coding Practices",
+    "section": "Code formatting",
+    "text": "Code formatting\n\n\nGoal: Improve readability\n 2. Consistent braces and linewidth\n\n# Bad\nfn &lt;- function(a_really_long_variable_name, another_really_long_name) a_really_long_variable_name + another_really_long_name\n\n\n# Good\nfn &lt;- function(\n  a_really_long_variable_name,\n  another_really_long_name\n) {\n  a_really_long_variable_name + another_really_long_name\n}\n\n\n\n\n\nhttps://posit-dev.github.io/air/"
   }
 ]

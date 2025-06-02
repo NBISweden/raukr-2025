@@ -12,6 +12,79 @@ format: revealjs
 library(optparse)
 ```
 
+## Structure Your Code
+
+Decompose the problem `r emo::ji('puzzle')` `r emo::ji('puzzle')`!
+
+[
+  ![](assets/Philip-ii-of-macedon.jpg){height="200px"}
+  ![](assets/Julius_Ceasar.jpg){height="200px"}
+  ![](assets/Napoleon_Bonaparte.jpg){height="200px"}  
+  [source: Wikimedia Commons]{.smaller}  
+]{.center}
+
+. . .
+
+- *divide et impera* / top-down approach &mdash; split your BIG problem into a number of small sub-problems recursively and, **at some level**, encapsulate your code in functional blocks (functions)
+
+. . .
+
+- a function should be performing a small task, it should be a logical program unit
+
+. . . 
+
+**when should I write a function `r emo::ji('question')`**
+
+. . .
+
+- one screen `r emo::ji('screen')` rule (resolution...),
+- re-use twice rule of `r emo::ji('thumbs_up')`.
+
+## How to write functions
+
+- use **data** as the **very first** argument for `%>%` pipes sake:
+  - `myfun <- function(x, arg)` `r emo::ji('yes')`
+  - `myfun <- function(arg, x)` `r emo::ji('no')`
+
+. . .
+
+- set arguments to defaults &mdash; better too many args than too few:
+  - `myfun <- function(x, seed = 42)` `r emo::ji('yes')`
+  - `myfun <- function(x, ...)` `r emo::ji('no')`
+
+. . .
+
+- remember that global defaults can be changed by `options`
+
+## Wrapper function
+
+If you are re-using functions written by someone else &mdash; write a wrapper function around them
+
+:::{.columns}
+:::{.column width="50%"}
+
+```{r wrapper-fn1}
+my_awesome_plot <- function(x, ...) {
+  plot(x, col = "red", pch = 19, cex.axis = .7, ...)
+}
+```
+
+:::
+:::{.column width="50%"}
+
+```{r wrapper-fn-plot}
+#| fig-height: 3
+#| fig-width: 4
+#| error: true
+
+my_awesome_plot(1:5, col = "blue")
+my_awesome_plot(1:5, las = 1)
+```
+
+:::
+:::
+
+
 ## R Functions
 
 - Organised, human readable code
