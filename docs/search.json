@@ -2314,7 +2314,7 @@
     "href": "labs/index.html",
     "title": "Labs",
     "section": "",
-    "text": "Best Coding Practices\n\n\n\nMarcin Kierczak\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDebugging, Profiling and Optimizing Code\n\n\n\nMarcin Kierczak\n\n\n\n\n\n\n\n\n\n\n\n\nDemo Lab\n\n\n\nRoy Francis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFunctions & Scripts\n\n\n\nSebastian DiLorenzo, Markus Mayrhofer\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLiterate programming with Quarto\n\n\n\nRoy Francis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMathematical statistics and machine learning in R\n\n\n\nNikolay Oskolkov\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObject-Oriented Programming in R\n\n\n\nMarcin Kierczak\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlotting with ggplot2\n\n\n\nRoy Francis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR packages\n\n\n\nSebastian DiLorenzo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTidy work in Tidyverse\n\n\n\nMarcin Kierczak\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVectorization\n\n\n\nMarcin Kierczak\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeb apps with Shiny\n\n\n\nRoy Francis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWebsite with Quarto\n\n\n\nRoy Francis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngit and R\n\n\n\nSebastian DiLorenzo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nreticulate\n\n\n\nNina Norgren\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Best Coding Practices\n\n\n\nMarcin Kierczak, Sebastian DiLorenzo\n\n\n\n\n\n\n\n\n\n\n\n\n\nDebugging, Profiling and Optimizing Code\n\n\n\nMarcin Kierczak\n\n\n\n\n\n\n\n\n\n\n\nDemo Lab\n\n\n\nRoy Francis\n\n\n\n\n\n\n\n\n\n\n\n\n\nFunctions & Scripts\n\n\n\nSebastian DiLorenzo, Markus Mayrhofer\n\n\n\n\n\n\n\n\n\n\n\n\n\nLiterate programming with Quarto\n\n\n\nRoy Francis\n\n\n\n\n\n\n\n\n\n\n\n\n\nMathematical statistics and machine learning in R\n\n\n\nNikolay Oskolkov\n\n\n\n\n\n\n\n\n\n\n\n\n\nObject-Oriented Programming in R\n\n\n\nMarcin Kierczak\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlotting with ggplot2\n\n\n\nRoy Francis\n\n\n\n\n\n\n\n\n\n\n\n\n\nR packages\n\n\n\nSebastian DiLorenzo\n\n\n\n\n\n\n\n\n\n\n\n\n\nTidy work in Tidyverse\n\n\n\nMarcin Kierczak\n\n\n\n\n\n\n\n\n\n\n\n\n\nVectorization\n\n\n\nMarcin Kierczak\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeb apps with Shiny\n\n\n\nRoy Francis\n\n\n\n\n\n\n\n\n\n\n\n\n\nWebsite with Quarto\n\n\n\nRoy Francis\n\n\n\n\n\n\n\n\n\n\n\n\n\ngit and R\n\n\n\nSebastian DiLorenzo\n\n\n\n\n\n\n\n\n\n\n\n\n\nreticulate\n\n\n\nNina Norgren\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "home_program.html",
@@ -3168,7 +3168,7 @@
     "href": "labs/coding/index.html#coding-style",
     "title": "Best Coding Practices",
     "section": "1 Coding Style",
-    "text": "1 Coding Style\n\n1.1 Task: Valid Variable Names.\nWhich of the following are valid/good variable names in R. What is wrong with the ones that are invalid/bad?\n\nvar1\n3way_handshake\n.password\n__test__\nmy-matrix-M\nthree.dimensional.array\n3D.distance\n.2objects\nwz3gei92\nnext\nP\nQ\nR\nS\nT\nX\nis.larger?\n\n\n\n1.2 Task: Obscure Code.\nThe code below works, but can be improved. Do improve it!\n\nmyIterAtoR.max &lt;- 5\nsecond_iterator.max&lt;-7\ncol.NUM= 10\nrow.cnt =10\nfwzy45 &lt;- matrix(rep(1, col.NUM*row.cnt),nrow=row.cnt)\nfor(haystack in (2-1):col.NUM){\n  for(needle in 1:row.cnt) {\nif(haystack&gt;=myIterAtoR.max){\nfwzy45[haystack, needle]&lt;-NA}\n}}\n\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\niter_max &lt;- 5\ncol_num &lt;- 10\nrow_num &lt;- 10\nA &lt;- matrix(rep(1, col_num * row_num), nrow = row_num)\nfor (i in 1:col_num) {\n  for (j in 1:row_num) {\n    if (i &gt;= iter_max) {\n      A[i, j] &lt;- NA\n    }\n  }\n}\n\n# Can you improve the code more by eliminating loops or at least one of them?\n\n\n\n\n\n\n1.3 Task: Better Formatting.\nImprove formatting and style of the following code:\n\nsimulate_genotype &lt;- function( q, N=100 ) {\n  if( length(q)==1 ){\n    p &lt;- (1 - q)\n    f_gt &lt;- c(p^2, 2*p*q, q^2) # AA, AB, BB\n  }else{\n    f_gt&lt;-q\n  }\n  tmp &lt;- sample( c('AA','AB','BB'), size =N, prob=f_gt, replace=T )\n  return(tmp)\n}\n\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\nsimulate_genotype &lt;- function(q, N = 100) {\n  if (length(q) == 1) {\n    p &lt;- (1 - q)\n    f_gt &lt;- c(p^2, (2 * p * q), q^2) # AA, AB, BB\n  } else {\n    f_gt &lt;- q\n  }\n  sample(c('AA', 'AB', 'BB'), \n         size = N, \n         prob = f_gt, \n         replace = TRUE)\n}\n\n\n\n\n\n\n1.4 Task: Hidden Variable.\nAssign a vector of three last months (abbreviated in English) in a year to a hidden variable my_months.\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\n# If we do not know the length of the vector\n.my_months &lt;- rev(rev(month.abb)[1:3])\n\n# or\n.my_months &lt;- month.abb[(length(month.abb)-2):length(month.abb)]\n\n\n\n\n\n\n1.5 Task: Pipeline-friendly Function.\nModify the function below so that it works with R pipes %&gt;%:\n\nmy_filter &lt;- function(threshold = 1, x, scalar = 5) {\n  x[x &gt;= threshold] &lt;- NA \n  x &lt;- x * scalar\n  return(x)\n}\n\n\n\n\n\n\n\nNecessary Packages\n\n\n\nYou need to have the magrittr or tidyverse package loaded in order to be able to use the pipe %&gt;%!\n\n\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\nmy_filter &lt;- function(x, threshold = 1, scalar = 5) {\n  x[x &gt;= threshold] &lt;- NA \n  x * scalar\n}\n\n# Test:\nc(-5, 5) %&gt;% my_filter()\n\n\n\n\n\n\n1.6 Task: Untidy Code?\nIs the code below correct? Can it be improved?\n\nsimulate_phenotype &lt;- function(pop_params, gp_map, gtype) {\n  pop_mean &lt;- pop_params[1]\n  pop_var &lt;- pop_params[2]\n  pheno &lt;- rnorm(n = N, mean = pop_mean, sd = sqrt(pop_var))\n  effect &lt;- rep(0, times = length(N))\n  for (gt_iter in c('AA', 'AB', 'BB')) {\n    effect[gtype == gt_iter] &lt;- rnorm(n = sum(gtype == gt_iter), \n                                      mean = gp_map[gt_iter, 'mean_eff'], \n                                      sd = sqrt(gp_map[gt_iter, 'var_eff']))\n  }\n  dat &lt;- data.frame(gt = gtype, raw_pheno = pheno, effect = effect, pheno = pheno + effect)\n  return(dat)\n}\n\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\nMaybe some small improvements can be done, but in principle the code is clean! Except that... the N is not initialized anywhere."
+    "text": "1 Coding Style\n\n1.1 Task: Valid Variable Names.\nWhich of the following are valid/good variable names in R. What is wrong with the ones that are invalid/bad?\n\nvar1\n3way_handshake\n.password\n__test__\nmy-matrix-M\nthree.dimensional.array\n3D.distance\n.2objects\nwz3gei92\nnext\nP\nQ\nR\nS\nT\nX\nis.larger?\n\n\n\n1.2 Task: Obscure Code.\nThe code below works, but the style can be improved. Improve it!\n\nmyIterAtoR.max &lt;- 5\nsecond_iterator.max&lt;-7\ncol.NUM= 10\nrow.cnt =10\nfwzy45 &lt;- matrix(rep(1, col.NUM*row.cnt),nrow=row.cnt)\nfor(haystack in (2-1):col.NUM){\n  for(needle in 1:row.cnt) {\nif(haystack&gt;=myIterAtoR.max){\nfwzy45[haystack, needle]&lt;-NA}\n}}\n\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\niter_max &lt;- 5\ncol_num &lt;- 10\nrow_num &lt;- 10\nA &lt;- matrix(rep(1, col_num * row_num), nrow = row_num)\nfor (i in 1:col_num) {\n  for (j in 1:row_num) {\n    if (i &gt;= iter_max) {\n      A[i, j] &lt;- NA\n    }\n  }\n}\n\n# Can you improve the code more by eliminating loops or at least one of them?\n\n\n\n\n\n\n1.3 Task: Better Formatting.\nImprove formatting and style of the following code:\n\nsimulate_genotype &lt;- function( q, N=100 ) {\n  if( length(q)==1 ){\n    p &lt;- (1 - q)\n    f_gt &lt;- c(p^2, 2*p*q, q^2) # AA, AB, BB\n  }else{\n    f_gt&lt;-q\n  }\n  tmp &lt;- sample( c('AA','AB','BB'), size =N, prob=f_gt, replace=T )\n  return(tmp)\n}\n\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\nsimulate_genotype &lt;- function(q, N = 100) {\n  if (length(q) == 1) {\n    p &lt;- (1 - q)\n    f_gt &lt;- c(p^2, (2 * p * q), q^2) # AA, AB, BB\n  } else {\n    f_gt &lt;- q\n  }\n  sample(c('AA', 'AB', 'BB'), \n         size = N, \n         prob = f_gt, \n         replace = TRUE)\n}\n\n\n\n\n\n\n1.4 Task: Hidden Variable.\nAssign a vector of three last months (abbreviated in English) in a year to a hidden variable my_months.\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\n# If we do not know the length of the vector\n.my_months &lt;- rev(rev(month.abb)[1:3])\n\n# or\n.my_months &lt;- month.abb[(length(month.abb)-2):length(month.abb)]\n\n\n\n\n\n\n\n\n1.5 Bonus task: using air.\nThe example solutions for tasks 1.2 and 1.3 were written before the R package air was released. The package provides a set of functions that can help you with formatting code. Try to use air to reformat the code given in tasks 1.2 and 1.3 and compare with the example solutions. Are they similar? What did air not do?\n\n\n1.6 Bonus task: Using options.\nUse options to change the default prompt in R to hello :-) &gt;.\n\n\n\n\n\n\nTip\n\n\n\nCheck what options are stored in the hidden variable called Options.\n\n\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\noptions(prompt = \"hello :-) &gt; \")\n.Options\noptions(prompt = \"&gt; \") # restoring the default"
   },
   {
     "objectID": "labs/coding/index.html#structuring-the-code",
@@ -3181,8 +3181,8 @@
     "objectID": "labs/coding/index.html#session",
     "href": "labs/coding/index.html#session",
     "title": "Best Coding Practices",
-    "section": "3 Session",
-    "text": "3 Session\n\n\nClick here\n\n\nsessionInfo()\n\nR version 4.4.3 (2025-02-28)\nPlatform: x86_64-pc-linux-gnu\nRunning under: Ubuntu 24.04.2 LTS\n\nMatrix products: default\nBLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 \nLAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0\n\nlocale:\n [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              \n [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    \n [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   \n [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 \n [9] LC_ADDRESS=C               LC_TELEPHONE=C            \n[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       \n\ntime zone: Etc/UTC\ntzcode source: system (glibc)\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] bsplus_0.1.5\n\nloaded via a namespace (and not attached):\n [1] digest_0.6.37     lubridate_1.9.4   fastmap_1.2.0     xfun_0.52        \n [5] magrittr_2.0.3    knitr_1.50        htmltools_0.5.8.1 timechange_0.3.0 \n [9] rmarkdown_2.29    generics_0.1.3    cli_3.6.5         compiler_4.4.3   \n[13] tools_4.4.3       evaluate_1.0.3    yaml_2.3.10       rlang_1.1.6      \n[17] jsonlite_2.0.0    htmlwidgets_1.6.4"
+    "section": "2 Session",
+    "text": "2 Session\n\n\nClick here\n\n\nsessionInfo()\n\nR version 4.5.0 (2025-04-11)\nPlatform: aarch64-apple-darwin20\nRunning under: macOS Sequoia 15.5\n\nMatrix products: default\nBLAS:   /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRblas.0.dylib \nLAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1\n\nlocale:\n[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8\n\ntime zone: Europe/Stockholm\ntzcode source: internal\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] bsplus_0.1.5\n\nloaded via a namespace (and not attached):\n [1] digest_0.6.37     lubridate_1.9.4   fastmap_1.2.0     xfun_0.52        \n [5] magrittr_2.0.3    knitr_1.50        htmltools_0.5.8.1 timechange_0.3.0 \n [9] generics_0.1.4    rmarkdown_2.29    cli_3.6.5         compiler_4.5.0   \n[13] rstudioapi_0.17.1 tools_4.5.0       evaluate_1.0.3    yaml_2.3.10      \n[17] rlang_1.1.6       jsonlite_2.0.0    htmlwidgets_1.6.4"
   },
   {
     "objectID": "labs/packages/index.html",
@@ -4604,5 +4604,82 @@
     "title": "Best Coding Practices",
     "section": "Code formatting",
     "text": "Code formatting\n\n\nGoal: Improve readability\n 2. Consistent braces and linewidth\n\n# Bad\nfn &lt;- function(a_really_long_variable_name, another_really_long_name) a_really_long_variable_name + another_really_long_name\n\n\n# Good\nfn &lt;- function(\n  a_really_long_variable_name,\n  another_really_long_name\n) {\n  a_really_long_variable_name + another_really_long_name\n}\n\n\n\n\n\nhttps://posit-dev.github.io/air/"
+  },
+  {
+    "objectID": "slides/ai/index.html#learning-outcomes",
+    "href": "slides/ai/index.html#learning-outcomes",
+    "title": "Best Coding Practices",
+    "section": "2 Learning Outcomes",
+    "text": "2 Learning Outcomes\n\nAfter this module:\n\nYou will be aware of different coding styles.\n\n. . .\n\nYou will know what styles are good and bad and why.\n\n. . .\n\nYou will be reminded about dividing a problem before your start conquering(coding).\n\n. . .\n\nYou will understand when it is time to write a function."
+  },
+  {
+    "objectID": "slides/ai/index.html#what-is-coding-style",
+    "href": "slides/ai/index.html#what-is-coding-style",
+    "title": "Best Coding Practices",
+    "section": "3 What is Coding Style?",
+    "text": "3 What is Coding Style?\n\n\n\nNaming conventions — assigning names to variables\nCode formatting — placement of braces, use of white space characters etc.\n\n\n\n\n\nFrom: Behind The Lines 2010-09-23. By Oliver Widder, Webcomics Geek And Poke."
+  },
+  {
+    "objectID": "slides/ai/index.html#naming-conventions",
+    "href": "slides/ai/index.html#naming-conventions",
+    "title": "Best Coding Practices",
+    "section": "4 Naming Conventions",
+    "text": "4 Naming Conventions\nA syntactically valid name:\n\nConsists of:\n\nletters: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\ndigits: 0123456789\nperiod: .\nunderscore: _\n\nBegins with a letter or the period (.), if . should not followed by a number\nCannot be one of the reserved words: if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, NA, NA_integer_, NA_real_, NA_complex_, NA_character_\nAlso cannot be: c, q, t, C, D, I as they are reserved function names."
+  },
+  {
+    "objectID": "slides/ai/index.html#naming-style",
+    "href": "slides/ai/index.html#naming-style",
+    "title": "Best Coding Practices",
+    "section": "5 Naming Style",
+    "text": "5 Naming Style\nVariable names that are legal are not necessarily a good style and they may be dangerous ⚡:\n\nF\nT\n\n[1] FALSE\n[1] TRUE\n\n\n\nF + T\n\n[1] 1\n\n\n\nF &lt;- 3\nF + T\n\n[1] 4\n\n\ndo not do this!\n. . .\nunless you are a politician 🕴…\nAvoid T and F as variable names."
+  },
+  {
+    "objectID": "slides/ai/index.html#customary-variable-names",
+    "href": "slides/ai/index.html#customary-variable-names",
+    "title": "Best Coding Practices",
+    "section": "6 Customary Variable Names",
+    "text": "6 Customary Variable Names\n\n\nAlso, there is a number of variable names that are traditionally used to name particular variables:\n\nusr — user\npwd — password\nx, y, z — vectors\nw — weights\nf, g — functions\nn — number of rows\np — number of columns\ni, j, k — indexes\ndf — data frame\ncnt — counter\nM, N, W — matrices\ntmp — temporary variables\n\n\nSometimes these are domain-specific:\n\np, q — allele frequencies in genetics,\nN, k — number of trials and number of successes in stats\n\nTry to avoid using these in this way to avoid possible confusion."
+  },
+  {
+    "objectID": "slides/ai/index.html#code-formatting",
+    "href": "slides/ai/index.html#code-formatting",
+    "title": "Best Coding Practices",
+    "section": "7 Code formatting",
+    "text": "7 Code formatting\n\n\nGoal: Improve readability\n 1. Consistent indentation/whitespace\n\na &lt;- 15\n  b &lt;- 20\n  \n  c &lt;- function(a,b){             #Bad\nreturn(a + b)}\n\n      d &lt;- 1+2:3*(4/5)\n\n\na &lt;- 15\nb &lt;- 20\nc &lt;- function(a, b) {             #Good\n  return(a + b)\n}\nd &lt;- 1 + 2:3 * (4 / 5)\n\n\n\n\n\nhttps://posit-dev.github.io/air/"
+  },
+  {
+    "objectID": "slides/ai/index.html#code-formatting-1",
+    "href": "slides/ai/index.html#code-formatting-1",
+    "title": "Best Coding Practices",
+    "section": "8 Code formatting",
+    "text": "8 Code formatting\n\n\nGoal: Improve readability\n 2. Consistent braces and linewidth\n\n# Bad\nfn &lt;- function(a_really_long_variable_name, another_really_long_name) a_really_long_variable_name + another_really_long_name\n\n\n# Good\nfn &lt;- function(\n  a_really_long_variable_name,\n  another_really_long_name\n) {\n  a_really_long_variable_name + another_really_long_name\n}\n\n\n\n\n\nhttps://posit-dev.github.io/air/"
+  },
+  {
+    "objectID": "slides/ai/index.html#different-notations",
+    "href": "slides/ai/index.html#different-notations",
+    "title": "Best Coding Practices",
+    "section": "9 Different Notations",
+    "text": "9 Different Notations\nPeople use different notation styles throughout their code:\n. . .\n\nsnake_notation_looks_like_this\n\n. . .\n\ncamelNotationLooksLikeThis\n\n. . .\n\nperiod.notation.looks.like.this\n\n. . .\nBut many also use…\n. . .\n\nLousyNotation_looks.likeThis\n\n. . .\nTry to be consistent and stick to one of them. Bear in mind period.notation is used by S3 classes to create generic functions, e.g. plot.my.object. A good-enough reason to avoid it?\n. . .\nIt is also important to maintain code readability by having your variable names:\n\ninformative, e.g. genotypes vs. fsjht45jkhsdf4\n\n. . .\n\nConsistent across your code — the same naming convention\n\n. . .\n\nNot too long, e.g. weight vs. phenotype.weight.measured"
+  },
+  {
+    "objectID": "slides/ai/index.html#special-variable-names",
+    "href": "slides/ai/index.html#special-variable-names",
+    "title": "Best Coding Practices",
+    "section": "10 Special Variable Names",
+    "text": "10 Special Variable Names\n\nThere are built-in variable names:\n\nLETTERS: the 26 upper-case letters of the Roman alphabet\nletters: the 26 lower-case letters of the Roman alphabet\nmonth.abb: the three-letter abbreviations for the English month names\nmonth.name: the English names for the months of the year\npi: the ratio of the circumference of a circle to its diameter\n\nVariable names beginning with period are hidden: .my_secret_variable 👻 will not be shown but can be accessed\n\n\n.the_hidden_answer &lt;- 42\nls()\n\n[1] \"F\" \"T\"\n\n\n. . .\nbut with a bit of effort you can see them:\n\nls(all.names = TRUE)\n\n[1] \".main\"               \".QuartoInlineRender\" \".Random.seed\"       \n[4] \".the_hidden_answer\"  \"F\"                   \"T\""
+  },
+  {
+    "objectID": "slides/ai/index.html#github-copilot-rstudio",
+    "href": "slides/ai/index.html#github-copilot-rstudio",
+    "title": "Best Coding Practices",
+    "section": "11 Github copilot ❤️ RStudio",
+    "text": "11 Github copilot ❤️ RStudio\n\n source: https://github.com/edu/students"
+  },
+  {
+    "objectID": "slides/ai/index.html#section-1",
+    "href": "slides/ai/index.html#section-1",
+    "title": "Best Coding Practices",
+    "section": "12 ",
+    "text": "12 \n\n\nThank you!\nQuestions?\n2025 • SciLifeLab • NBIS • RaukR"
   }
 ]
