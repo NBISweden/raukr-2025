@@ -2951,7 +2951,7 @@
     "href": "slides/scripting/index.html#r-functions",
     "title": "Functions and scripts",
     "section": "R Functions",
-    "text": "R Functions\n\nOrganised, human readable code\nAny code that will be repeated\nAdd less objects to workspace\nPerform a set task, preferably that task is not “this whole analysis”"
+    "text": "R Functions\n\n\nWhat is exported from R packages\nPerform a set task, preferably that task is not “this whole analysis”\nAny code that will be repeated\n“One screen rule”\nAdd less objects to workspace"
   },
   {
     "objectID": "slides/scripting/index.html#r-functions-1",
@@ -2972,14 +2972,14 @@
     "href": "slides/scripting/index.html#r-scripts-as-standalone-tools",
     "title": "Functions and scripts",
     "section": "R scripts as standalone tools",
-    "text": "R scripts as standalone tools\n\n\nIn many ways this quote about the UNIX philosophy relates to the philosophy you should have for an R script.\nMcIlroy is best known for having originally proposed Unix pipelines and developed several Unix tools, such as spell, diff, sort, join, graph, speak, and tr.\n\n\n\nData analysis with R is usually performed interactively using e.g. RStudio\nTasks can be executed from the terminal using R scripts\nR scripts can form powerful standalone tools\n\n\nUsually when you are analyzing data you will use the interactive view and try different things going forward. But say that you have figured out something that you want to do for multiple numbers of datasets?\nAnd like the quote it should do one thing and do it well. Because of the power in that an R script can contain multiple functions, or “programs”, this one thing can be quite simple, or quite advanced. And like the textstream mentioned here Rscripts often take input, something we will look more at now.\nIn this case it might be efficient to use an Rscript.\nSo USUALLY an rscript is something that is executable, can take some inputs and arguments, and returns something.\nNow lets look at those pieces starting with how an rscript can be executed."
+    "text": "R scripts as standalone tools\n\n\n \n\nData analysis with R is usually performed interactively using e.g. RStudio, VSCode, Positron\nTasks can be executed from the terminal using R scripts\nR scripts can form powerful standalone tools\nUseful for putting R into a pipeline of tools  tool1 | Rscript | tool2 &gt; output\n\n\n\n\n\nUsually when you are analyzing data you will use the interactive view and try different things going forward. But say that you have figured out something that you want to do for multiple numbers of datasets?\nAn Rscript should do one thing and do it well. Because of the power in that an R script can contain multiple functions, or “programs”, this one thing can be quite simple, or quite advanced.\nIn this case it might be efficient to use an Rscript. Often Rscripts are used in pipes, which is what I am referencing in this image. Note code is unix commandline.\nSo USUALLY an rscript is something that is executable, can take some inputs and arguments, and returns something.\nNow lets look at those pieces starting with how an rscript can be executed."
   },
   {
     "objectID": "slides/scripting/index.html#executing-an-r-script",
     "href": "slides/scripting/index.html#executing-an-r-script",
     "title": "Functions and scripts",
     "section": "Executing an R script",
-    "text": "Executing an R script\n\nInteractively: source(\"myscript.R\") in R console\n\n\nOne way to execute an Rscript is to use “source myscript.R” from an interactive session which runs whatever code is in the R script. So if it has functions or wether it reads a separate file and creates some new object, these will be in your R environment after sourcing the script.\n\n\n\nCommand line: Rscript myscript.R\n\n\nYou can also run the Rscript from the command line, or terminal. Then we use the command Rscript. It used to be not long ago that people used R CMD batch, but nowadays people usually use Rscript. Like the source, this will execute whichever code is in myscript.R but there is no environment for the objects or functions to pop into so the code in this Rscript is probably different than one that is intended for source.\n\n\n\n\nAs executable file: path/myscript.R if:\n\nScript is executable: chmod +x myscript.R\nFirst line in script is a hashbang e.g. #!/usr/bin/env Rscript\nScript’s path is included in call or $PATH\n\n\n\nYou can also execute the Rscript itself, from terminal. To execute an R script it must meet three requirements. It must be executable. It must start with this special line, specifying how it is executed if run on its own. If you want to run it without giving path, its folder must be in you $PATH variable."
+    "text": "Executing an R script\n\nInteractively: source(\"myscript.R\") in R console\n\n\nOne way to execute an Rscript is to use “source myscript.R” from an interactive session which runs whatever code is in the R script. So if it has functions or wether it reads a separate file and creates some new object, these will be in your R environment after sourcing the script.\n\n\n\nCommand-line: Rscript myscript.R\n\n\nYou can also run the Rscript from the command line, or terminal. Then we use the command Rscript. It used to be not long ago that people used R CMD batch, but nowadays people usually use Rscript. Like the source, this will execute whichever code is in myscript.R but there is no environment for the objects or functions to pop into so the code in this Rscript is probably different than one that is intended for source.\n\n\n\n\nAs executable file: path/myscript.R if:\n\nScript is executable: chmod +x myscript.R\nFirst line in script is a hashbang e.g. #!/usr/bin/env Rscript\nScript’s path is included in call or $PATH\n\n\n\nYou can also execute the Rscript itself, from terminal. To execute an R script it must meet three requirements. It must be executable. It must start with this special line, specifying how it is executed if run on its own. If you want to run it without giving path, its folder must be in you $PATH variable."
   },
   {
     "objectID": "slides/scripting/index.html#providing-arguments-to-an-r-script",
@@ -2993,7 +2993,7 @@
     "href": "slides/scripting/index.html#parsing-arguments---positional",
     "title": "Functions and scripts",
     "section": "Parsing arguments - Positional",
-    "text": "Parsing arguments - Positional\nExample: ./myscript.R inputfile.vcf outputfile.vcf\n\ncommandArgs()\n\nUse commandArgs() to capture whatever was passed into R as it was executed. To be clear; this is a command that is within the Rscript file.\n\n\ntrailingOnly = TRUE\n\nAdd trailingOnly = TRUE to suppress the first few items and get the arguments you passed to the script.\n\nA standard arg, but not default, that you can use when invoking commandArgs() is trailingOnly = TRUE, which basically tells it to start counting the input from after the Rscript arguments. As you can see here when we invoke it without this parameter it returns the script itself, in this case R studio. But with it the invocation is clear, there were no trailing command line arguments.\n\n\n\n\ncommandArgs()\n\n[1] \"/usr/local/lib/R/bin/exec/R\"                              \n[2] \"--no-save\"                                                \n[3] \"--no-restore\"                                             \n[4] \"--no-echo\"                                                \n[5] \"--no-restore\"                                             \n[6] \"--file=/usr/lib/rstudio-server/bin/quarto/share/rmd/rmd.R\"\n\n\n\ncommandArgs(trailingOnly = TRUE)\n\ncharacter(0)"
+    "text": "Parsing arguments - Positional\nExample: ./myscript.R inputfile.vcf outputfile.vcf\n\ncommandArgs()\n\nUse commandArgs() to capture whatever was passed into R as it was executed. To be clear; this is a command that is within the Rscript file.\n\n\ntrailingOnly = TRUE\n\nAdd trailingOnly = TRUE to suppress the first few items and get the arguments you passed to the script.\n\nA standard arg, but not default, that you can use when invoking commandArgs() is trailingOnly = TRUE, which basically tells it to start counting the input from after the Rscript arguments. As you can see here when we invoke it without this parameter it returns the script itself, in this case R studio. But with it the invocation is clear, there were no trailing command line arguments.\n\n\n\n\ncommandArgs()\n\n[1] \"/Library/Frameworks/R.framework/Resources/bin/exec/R\"\n[2] \"--no-echo\"                                           \n[3] \"--no-restore\"                                        \n[4] \"--file=/Applications/quarto/share/rmd/rmd.R\"         \n\n\n\ncommandArgs(trailingOnly = TRUE)\n\ncharacter(0)"
   },
   {
     "objectID": "slides/scripting/index.html#parsing-arguments---flags",
@@ -3021,7 +3021,7 @@
     "href": "slides/scripting/index.html#summary",
     "title": "Functions and scripts",
     "section": "Summary",
-    "text": "Summary\n\n\nFunctions are great for organizing code and repeating tasks\nR scripts are great for performing tasks from command line\nR scripts can be built in different ways to take arguments or text streams\n\n\nSo to summarize, R scripts are powerful tools to solve a specific problem that you define, and often fit well together with other tools. And now you have learned to execute them in different ways, with inputs and outputs and with other programs. All that is left is to actually write the content."
+    "text": "Summary\n\n\nFunctions are great for organizing code and repeating tasks\nR scripts are great for performing tasks from command-line\nR scripts can be built in different ways to take arguments or text streams\n\n\nSo to summarize, R scripts are powerful tools to solve a specific problem that you define, and often fit well together with other tools. And now you have learned to execute them in different ways, with inputs and outputs and with other programs. All that is left is to actually write the content."
   },
   {
     "objectID": "slides/scripting/index.html#section-1",
@@ -4681,5 +4681,33 @@
     "title": "Best Coding Practices",
     "section": "12 ",
     "text": "12 \n\n\nThank you!\nQuestions?\n2025 • SciLifeLab • NBIS • RaukR"
+  },
+  {
+    "objectID": "slides/scripting/index.html#structure-your-code",
+    "href": "slides/scripting/index.html#structure-your-code",
+    "title": "Functions and scripts",
+    "section": "Structure Your Code",
+    "text": "Structure Your Code\nDecompose the problem 🧩 🧩!\n  \nsource: Wikimedia Commons\n\n\n\ndivide et impera / top-down approach — split your BIG problem into a number of small sub-problems recursively and, at some level, encapsulate your code in functional blocks (functions)"
+  },
+  {
+    "objectID": "slides/scripting/index.html#how-to-write-functions",
+    "href": "slides/scripting/index.html#how-to-write-functions",
+    "title": "Functions and scripts",
+    "section": "How to write functions",
+    "text": "How to write functions\n\nuse data as the very first argument for %&gt;% pipes sake:\n\nmyfun &lt;- function(x, arg) 🆗\nmyfun &lt;- function(arg, x) 🚯\n\n\n\n\nset arguments to defaults — better too many args than too few:\n\nmyfun &lt;- function(x, seed = 42) 🆗\nmyfun &lt;- function(x, ...) 🙅‍♀️\n\n\n\n\n\nremember that global defaults can be changed by options"
+  },
+  {
+    "objectID": "slides/scripting/index.html#wrapper-function",
+    "href": "slides/scripting/index.html#wrapper-function",
+    "title": "Functions and scripts",
+    "section": "Wrapper function",
+    "text": "Wrapper function\nIf you are re-using functions written by someone else — write a wrapper function around them and use the power of the ...\n\n\n\nmy_awesome_plot &lt;- function(x, ...) {\n  plot(x,\n       col = \"red\",\n       pch = 19,\n       cex.axis = .7,\n       ...)\n}\n\n\n\nmy_awesome_plot(1:5, col = \"blue\")\n\nError in localWindow(xlim, ylim, log, asp, ...): formal argument \"col\" matched by multiple actual arguments\n\nmy_awesome_plot(1:5, las = 1)"
+  },
+  {
+    "objectID": "slides/scripting/index.html#r-functions-3",
+    "href": "slides/scripting/index.html#r-functions-3",
+    "title": "Functions and scripts",
+    "section": "R Functions",
+    "text": "R Functions\n\nuse data as the very first parameter for %&gt;% pipes sake:\n\nmyfun &lt;- function(x, param) 🆗\nmyfun &lt;- function(param, x) 🚯\n\n\n\n\nset parameters to defaults — better too many parameters than too few:\n\nmyfun &lt;- function(x, seed = 42) 🆗\nmyfun &lt;- function(x, ...) 🚷\n\n\n\n\n\n\nremember that global defaults can be changed with options\n\n\nGlobal options can influence how functions behave, for example the default number of digits printed in the console."
   }
 ]

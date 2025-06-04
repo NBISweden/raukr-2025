@@ -10,6 +10,7 @@ format: revealjs
 ```{r}
 #| echo: false
 library(optparse)
+library(emo)
 ```
 
 ## Structure Your Code
@@ -17,9 +18,9 @@ library(optparse)
 Decompose the problem `r emo::ji('puzzle')` `r emo::ji('puzzle')`!
 
 [
-  ![](assets/Philip-ii-of-macedon.jpg){height="200px"}
-  ![](assets/Julius_Ceasar.jpg){height="200px"}
-  ![](assets/Napoleon_Bonaparte.jpg){height="200px"}  
+  ![](assets/Philip-ii-of-macedon.jpg){height="300px"}
+  ![](assets/Julius_Ceasar.jpg){height="300px"}
+  ![](assets/Napoleon_Bonaparte.jpg){height="300px"}  
   [source: Wikimedia Commons]{.smaller}  
 ]{.center}
 
@@ -27,70 +28,15 @@ Decompose the problem `r emo::ji('puzzle')` `r emo::ji('puzzle')`!
 
 - *divide et impera* / top-down approach &mdash; split your BIG problem into a number of small sub-problems recursively and, **at some level**, encapsulate your code in functional blocks (functions)
 
-. . .
-
-- a function should be performing a small task, it should be a logical program unit
-
-. . . 
-
-**when should I write a function `r emo::ji('question')`**
-
-. . .
-
-- one screen `r emo::ji('screen')` rule (resolution...),
-- re-use twice rule of `r emo::ji('thumbs_up')`.
-
-## How to write functions
-
-- use **data** as the **very first** argument for `%>%` pipes sake:
-  - `myfun <- function(x, arg)` `r emo::ji('yes')`
-  - `myfun <- function(arg, x)` `r emo::ji('no')`
-
-. . .
-
-- set arguments to defaults &mdash; better too many args than too few:
-  - `myfun <- function(x, seed = 42)` `r emo::ji('yes')`
-  - `myfun <- function(x, ...)` `r emo::ji('no')`
-
-. . .
-
-- remember that global defaults can be changed by `options`
-
-## Wrapper function
-
-If you are re-using functions written by someone else &mdash; write a wrapper function around them
-
-:::{.columns}
-:::{.column width="50%"}
-
-```{r wrapper-fn1}
-my_awesome_plot <- function(x, ...) {
-  plot(x, col = "red", pch = 19, cex.axis = .7, ...)
-}
-```
-
-:::
-:::{.column width="50%"}
-
-```{r wrapper-fn-plot}
-#| fig-height: 3
-#| fig-width: 4
-#| error: true
-
-my_awesome_plot(1:5, col = "blue")
-my_awesome_plot(1:5, las = 1)
-```
-
-:::
-:::
-
-
 ## R Functions
 
-- Organised, human readable code
-- Any code that will be repeated
-- Add less objects to workspace
+<br>
+
+- What is exported from R packages
 - Perform a set task, preferably that task is not "this whole analysis"
+- Any code that will be repeated
+- "One screen rule"
+- Add less objects to workspace
 
 ## R Functions
 
@@ -172,28 +118,87 @@ How to add a function to your workspace
 - `source()` / `library()`
 :::
 
-## R scripts as standalone tools
+## R Functions
 
-![](http://www.azquotes.com/picture-quotes/quote-this-is-the-unix-philosophy-write-programs-that-do-one-thing-and-do-it-well-write-programs-douglas-mcilroy-81-95-07.jpg)
-
-::: {.notes}
-In many ways this quote about the UNIX philosophy relates to the philosophy you should have for an R script.
-
-McIlroy is best known for having originally proposed Unix pipelines and developed several Unix tools, such as spell, diff, sort, join, graph, speak, and tr.
-:::
+- use **data** as the **very first** parameter for `%>%` pipes sake:
+  - `myfun <- function(x, param)` `r emo::ji('yes')`
+  - `myfun <- function(param, x)` `r emo::ji('no')`
 
 . . .
 
-- Data analysis with R is usually performed interactively using e.g. RStudio
+- set parameters to defaults &mdash; better too many parameters than too few:
+  - `myfun <- function(x, seed = 42)` `r emo::ji('yes')`
+  - `myfun <- function(x, ...)` `r emo::ji('no')`
+
+. . .
+
+<br>
+
+- remember that global defaults can be changed with `options`
+
+::: {.notes}
+Global options can influence how functions behave, for example the default number of digits printed in the console.
+:::
+
+## Wrapper function
+
+If you are re-using functions written by someone else &mdash; write a wrapper function around them and use the power of the `...`
+
+:::{.columns}
+:::{.column width="50%"}
+
+```{r wrapper-fn1}
+my_awesome_plot <- function(x, ...) {
+  plot(x,
+       col = "red",
+       pch = 19,
+       cex.axis = .7,
+       ...)
+}
+```
+
+:::
+:::{.column width="50%"}
+
+```{r wrapper-fn-plot}
+#| fig-height: 3
+#| fig-width: 4
+#| error: true
+
+my_awesome_plot(1:5, col = "blue")
+my_awesome_plot(1:5, las = 1)
+```
+
+:::
+:::
+
+## R scripts as standalone tools
+
+::::{.columns}
+:::{.column width="50%"}
+
+<br>
+<br>
+
+- Data analysis with R is usually performed interactively using e.g. RStudio, VSCode, Positron
 - Tasks can be executed from the terminal using R scripts
 - R scripts can form powerful standalone tools
+- Useful for putting R into a pipeline of tools <br> `tool1 | Rscript | tool2 > output`
+
+:::
+:::{.column width="50%"}
+
+![](assets/pipes.jpg)
+
+:::
+::::
 
 ::: {.notes}
 Usually when you are **analyzing data** you will use the **interactive view** and try different things going forward. But say that you have figured out something that you want to **do** for **multiple numbers** of datasets?
 
-And like the quote it should do **one** thing and do it well. Because of the **power** in that an **R script** can contain **multiple functions**, or "programs", this one thing can be quite **simple**, or quite **advanced**. And like the textstream mentioned here Rscripts often take input, something we will look more at now.
+An Rscript should do **one** thing and do it well. Because of the **power** in that an **R script** can contain **multiple functions**, or "programs", this one thing can be quite **simple**, or quite **advanced**.
 
-In this case it might be **efficient** to use an **Rscript**.
+In this case it might be **efficient** to use an **Rscript**. Often Rscripts are used in pipes, which is what I am referencing in this image. Note code is unix commandline.
 
 So USUALLY an rscript is something that is executable, can take some inputs and arguments, and returns something.
 
@@ -210,7 +215,7 @@ One way to execute an Rscript is to use "source myscript.R" from an interactive 
 
 . . .
 
-- Command line: `Rscript myscript.R`
+- Command-line: `Rscript myscript.R`
 
 ::: {.notes}
 You can also run the Rscript from the command line, or terminal. Then we use the command **Rscript**. It used to be not long ago that people used **R CMD batch**, but nowadays people usually use Rscript.
@@ -417,7 +422,7 @@ If you already have a tibble, you can stream it out of R using this command.
 <!-- ![](http://www.azquotes.com/picture-quotes/quote-this-is-the-unix-philosophy-write-programs-that-do-one-thing-and-do-it-well-write-programs-douglas-mcilroy-81-95-07.jpg) -->
 
 - Functions are great for organizing code and repeating tasks
-- R scripts are great for performing tasks from command line
+- R scripts are great for performing tasks from command-line
 - R scripts can be built in different ways to take arguments or text streams
 
 ::: {.notes}
