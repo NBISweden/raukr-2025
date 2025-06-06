@@ -1,6 +1,6 @@
 ---
-title: "Functions & Scripts"
-author: "Sebastian DiLorenzo, Markus Mayrhofer"
+title: "Functions and Scripts"
+author: "Sebastian DiLorenzo"
 description: "Modularising R code into functions and running R in the terminal."
 image: "assets/featured.webp"
 format: html
@@ -68,7 +68,7 @@ data.frame(..., row.names = NULL, check.rows = FALSE,
            stringsAsFactors = default.stringsAsFactors())
 ```
 
-The ellipsis can be used to add columns to the data.frame. Try creating a data.frame with one column and one with several. Also, try creating a data.frame with no arguments for `...`, what happens?
+The ellipsis can be used to add columns to the data.frame. Try creating a data.frame with one column and a data.frame with several columns. Also, try creating a data.frame with no arguments for `...`, what happens?
 
 ```{r}
 #| eval: false
@@ -111,7 +111,6 @@ You can also execute your script by typing its name in the console, provided it:
 1. Starts with a **hashbang** line that instructs your system how to interpret it, e.g. `#!/usr/bin/env Rscript`
 2. Is an executable file e.g. through `chmod +x myscriptfile.R` on Unix systems. If you are on windows you are on your own =).
 
-Task:
 
 - Modify your script and run it without `Rscript`.
 - Go into a different folder, can you execute it without giving the path to the script?
