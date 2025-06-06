@@ -84,6 +84,14 @@ docker pull --platform=linux/amd64 ghcr.io/nbisweden/workshop-raukr:latest
 docker run --platform=linux/amd64 --rm -u 1000:1000 -v ${PWD}:/home/rstudio/work ghcr.io/nbisweden/workshop-raukr:latest quarto render index.qmd
 ```
 
+**Preview qmd**
+
+- For live-preview
+
+```
+docker run --platform=linux/amd64 --rm -u 1000:1000 -v ${PWD}:/home/rstudio/work -p 4200:4200 ghcr.io/nbisweden/workshop-raukr:latest quarto render index.qmd --host 0.0.0.0 --port 4200
+```
+
 **Run RStudio server**
 
 - To develop or interactively work with notebooks in Rstudio
