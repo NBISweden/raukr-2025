@@ -5,9 +5,12 @@ description: "Interactive web applications in R."
 image: "assets/featured.webp"
 format: html
 code-annotations: hover
+filters:
+  - shinylive
 ---
 
 ```{r}
+#| label: r-pkgs
 #| echo: false
 library(shiny)
 # library(ggplot2)
@@ -18,11 +21,12 @@ library(shiny)
 # library(shinyAce)
 ```
 
-::: {.callout-note}
 This is an introduction to shiny web applications with R. Please follow the exercise to familiarize yourself with the fundamentals. And then you can follow instructions to build one of the example apps.
 
-- Code chunks starting with `shinyApp()` can be simply copy-pasted to the RStudio console and run.
-- Generally, complete shiny code is saved as a text file, named for example, as **app.R** and then clicking **Run app** launches the app.
+::: {.callout-note}
+- Code chunks starting with `shinyApp()` can be simply copy-pasted to an R console and run.  
+- Generally, complete shiny code is saved as a text file, named for example, as **app.r** and then clicking **Run app** launches the app.  
+- {{< fa hand-sparkles >}} Interactive app: This can take a few minutes to load.  
 :::
 
 ## UI • Layout
@@ -31,9 +35,12 @@ This is an example to show the layout of widgets on a webpage using shiny functi
 
 In the main panel, the use of tab panels are demonstrated. The function `tabsetPanel()` is used to define a tab panel set and individual tabs are defined using `tabPanel()`. `fluidRow()` and `column()` are used to structure elements within each tab. The width of each column is specified. Total width of columns must add up to 12.
 
-```{r}
+:::{.column-page}
+
+```{shinylive-r}
 #| label: ui-layout
-#| eval: false
+#| standalone: true
+#| components: [editor, viewer]
 
 library(shiny)
 ui <- fluidPage(
@@ -77,16 +84,18 @@ server <- function(input,output){}
 shinyApp(ui=ui,server=server)
 ```
 
-![](assets/ui-layout.webp)
+:::
 
 ## UI • Widgets • Input
 
 Input widgets are used to accept content interactively from the user. These widgets usually end in `Input` like `selectInput()`. Below are usage examples of several of shiny's built-in widgets. Every widget has a variable name which is accessible through `input$` in the server function. For example, the value of a variable named `text-input` would be accessed through `input$text-input`.
 
-```{r}
-#| label: ui-widgets-input
-#| eval: false
+:::{.column-page}
 
+```{shinylive-r}
+#| label: ui-widgets-input
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
 ui=fluidPage(
   fluidRow(
@@ -109,18 +118,32 @@ ui=fluidPage(
 ),
 server=function(input,output){},
 options=list(height=900))
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```
 
-![](assets/ui-widgets-input.webp)
+:::
 
 ## UI • Widgets • Outputs
 
 Similar to input widgets, output widgets are used to display information to the user on the webpage. These widgets usually end in `Output` like `textOutput()`. Every widget has a variable name accessible under `output$` to which content is written in the server function. Render functions are used to write content to output widgets. For example `renderText()` is used to write text data to `textOutput()` widget.
 
-```{r}
+```{shinylive-r}
 #| label: ui-widgets-output
-#| eval: false
-
+#| standalone: true
+#| viewerHeight: 650
+#| components: [editor, viewer]
 shinyApp(
   ui=fluidPage(fluidRow(column(6,
              textInput("text_input",label="textInput",value="<h3 style='color:red'>Red text</h3>"),
@@ -139,11 +162,20 @@ shinyApp(
     output$plot_output <- renderPlot({
       plot(iris[,1],iris[,2])
     })
-},
-options=list(height=700))
-```
+})
 
-![](assets/ui-widgets-output.webp)
+
+
+
+
+
+
+
+
+
+
+
+```
 
 In this example, we have a text input box which takes user text and outputs it in three different variations. The first output is html output `htmlOutput()`. Since the default text is html content, the output is red colored text. A normal non-html text would just look like normal text. The second output is normal text output `textOutput()`. The third variation is `verbatimTextOutput()` which displays text in monospaced code style. This example further shows table output and plot output.
 
@@ -153,10 +185,12 @@ Sometimes we want to add, remove or change currently loaded UI widgets condition
 
 In the example below, the output plot is displayed only if the selected dataset is **iris**.
 
-```{r}
-#| label: ui-dynamic
-#| eval: false
+:::{.column-page}
 
+```{shinylive-r}
+#| label: ui-dynamic
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
 ui=fluidPage(
   selectInput("data_input",label="Select data",
@@ -177,7 +211,7 @@ server=function(input,output) {
 })
 ```
 
-![](assets/ui-dynamic.webp)
+:::
 
 Here, conditional UI is used to selectively display an output widget (plot). Similarly, this idea can be used to selectively display any input or output widget.
 
@@ -185,10 +219,12 @@ Here, conditional UI is used to selectively display an output widget (plot). Sim
 
 Widgets can be updated with new values dynamically. `observe()` and `observeEvent()` functions can monitor the values of interest and update relevant widgets.
 
-```{r}
-#| label: updating-widgets
-#| eval: false
+:::{.column-page}
 
+```{shinylive-r}
+#| label: updating-widgets
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
 ui=fluidPage(
   selectInput("data_input",label="Select data",choices=c("mtcars","faithful","iris")),
@@ -210,9 +246,13 @@ server=function(input,output,session) {
   })
 },
 options=list(height=600))
+
+
+
+
 ```
 
-![](assets/ui-widgets-update.webp)
+:::
 
 In this example, the user selects a dataset and a column from the selected dataset to be plotted as a histogram. The column name selection widget must automatically update it's choices depending on the selected dataset. This achieved using `observe()` where the `updateSelectInput()` function updates the selection choices. Notice that a third option `session` is in use in the server function. ie; `server=function(input,output,session)`. And `session` is also the first argument in `updateSelectInput()`. Session keeps track of values in the current session.
 
@@ -222,10 +262,12 @@ When changing the datasets, we can see that there is a short red error message. 
 
 You might've noticed that shiny tends to update changes immediately as the input widgets change. This may not be desirable in all circumstances. For example, if the apps runs a heavy calculation, it is more efficient to grab all the changes and execute in one step rather than executing the heavy calculation after every input change. To illustrate this, we have an example below where we plot an image which has the title as input text. Try adding a long title to it.
 
-```{r}
+```{shinylive-r}
 #| label: isolate-1
-#| eval: false
-
+#| standalone: true
+#| layout: vertical
+#| viewerHeight: 500
+#| components: [editor, viewer]
 shinyApp(
   ui=fluidPage(
     textInput("in_title",label="Title",value="Title"),
@@ -239,16 +281,16 @@ shinyApp(
 )
 ```
 
-![](assets/isolate-1.webp)
-
 The plot changes as soon as the input text field is changed. And as we type in text, the image is continuously being redrawn. This can be computationally intensive depending on the situation. A better solution would be to write the text completely without any reactivity and when done, let the app know that you are ready to redraw.
 
 We can add an action button such that the plot is changed only when the button is clicked.
 
-```{r}
+```{shinylive-r}
 #| label: isolate-2
-#| eval: false
-
+#| standalone: true
+#| layout: vertical
+#| viewerHeight: 550
+#| components: [editor, viewer]
 shinyApp(
   ui=fluidPage(
     textInput("in_title",label="Title",value="Title"),
@@ -264,8 +306,6 @@ shinyApp(
 )
 ```
 
-![](assets/isolate-2.webp)
-
 Now, changes to any of the input fields do not initiate the plot function. The plot is redrawn only when the action button is clicked. When the action button is click, the current values in the input fields are collected and used in the plotting function.
 
 ## Error validation
@@ -273,6 +313,7 @@ Now, changes to any of the input fields do not initiate the plot function. The p
 Shiny returns an error when a variable is NULL, NA or empty. This is similar to normal R operation. The errors show up as bright red text. By using careful error handling, we can print more informative and less distracting error messages. We also have the option of hiding error messages.
 
 ```{r}
+#| label: validation-1
 #| eval: false
 
 shinyApp(
@@ -296,6 +337,7 @@ We can add an extra line to the above app so that the selected string is validat
 Below we use the `need()` function to check the input. It checks if the input is NULL, NA or an empty string and returns a specified message if TRUE. `try()` is optional and is used to catch any other unexpected errors.
 
 ```{r}
+#| label: validation-2
 #| eval: false
 
 shinyApp(
@@ -324,6 +366,7 @@ Now we see an informative gray message (less scary) asking the user to select a 
 We can use a custom function instead of using `need()`. Below, we have created a function called `valfun()` that checks if the input is NULL, NA or an empty string. This is then used in `validate()`.
 
 ```{r}
+#| label: validation-3
 #| eval: false
 
 valfn <- function(x) if(is.null(x) | is.na(x) | x=="") return("Input data is incorrect.")
@@ -352,6 +395,7 @@ options=list(height="350px"))
 The last option is to simple hide the error. This may be used in situations where there is no input needed from the user. We use `req()` to check if the input is valid, else stop execution there till the condition becomes true.
 
 ```{r}
+#| label: validation-4
 #| eval: false
 
 shinyApp(
@@ -379,9 +423,12 @@ As expected there is no error or any message at all. This is not always the best
 
 Finally, instead of printing messages about the error or hiding the error, we can try to resolve the errors from the previous section in a more robust manner. `shiny::req(input$header_input)` is added to ensure that a valid column name string is available before running any of the `renderPlot()` commands. Second, we add `validate(need(input$header_input %in% colnames(getdata()),message="Incorrect column name."))` to ensure that the column name is actually a column in the currently selected dataset.
 
-```{r}
-#| eval: false
+:::{.column-page}
 
+```{shinylive-r}
+#| label: validation-5
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
 ui=fluidPage(
   selectInput("data_input",label="Select data",choices=c("mtcars","faithful","iris")),
@@ -403,9 +450,13 @@ server=function(input,output,session) {
   })
 },
 options=list(height=600))
+
+
+
+
 ```
 
-![](assets/error-validation-5.webp)
+:::
 
 Now, we do not see any error messages. Note that shiny apps on shinyapps.io do not display the complete regular R error message for security reasons. It returns a generic error message in the app. One needs to inspect the error logs to view the actual error message.
 
@@ -415,9 +466,11 @@ It is often desirable to let the user down data tables and plots as images. This
 
 In the example below, we are downloading a table as a csv text file. We define a button that accepts the action input from the user. The `downloadHandler()` function has the file name argument, and the content argument where we specify the `write.csv()` command. Note that this example needs to be opened in a browser and may not in the RStudio preview. In the RStudio preview, click on **Open in Browser**.
 
-```{r}
-#| eval: false
-
+```{shinylive-r}
+#| label: download-data
+#| standalone: true
+#| layout: vertical
+#| components: [editor, viewer]
 shinyApp(
   ui=fluidPage(
     selectInput("data_input",label="Select data",
@@ -443,15 +496,16 @@ shinyApp(
 )
 ```
 
-![](assets/download-data.webp)
-
 ## Download • Plot
 
 In this next example, we are downloading a plot. In the content part of `downloadHandler()`, we specify commands to export a PNG image. Note that this example needs to be opened in a browser and may not in the RStudio preview. In the RStudio preview, click on **Open in Browser**.
 
-```{r}
-#| eval: false
+:::{.column-page}
 
+```{shinylive-r}
+#| label: download-plot
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
   ui=fluidPage(
     selectInput("data_input",label="Select data",
@@ -505,7 +559,7 @@ shinyApp(
 )
 ```
 
-![](assets/download-plot.webp)
+:::
 
 ## Shinylive
 
@@ -516,6 +570,7 @@ Shinylive can be used in three ways:
 **Convert**: Convert existing shiny apps into shinylive apps. This can be achieved using the R package `shinylive` and function `shinylive::export()`. This generates an html file and all necessary assets which can be hosted as a static site. This may not always work depending on the complexity of the app and packages used.
 
 ```{r}
+#| label: shinylive-export
 #| eval: false
 shinylive::export(app_dir="myapp", output_dir="site")
 httpuv::runStaticServer("site")
@@ -529,7 +584,7 @@ There are some caveats.
 
 - Not ready for production use. This is a nascent technology that is experimental and actively developed, therefore likely to be unstable
 - Apps can be slow to very slow to load depending on complexity and how many packages need to be installed
-- You cannot just install any R package. They need to be compiled specifically for WebR. Only the most popular packages are currently available
+- You cannot just install any R package. They need to be compiled specifically for WebR. Only the most popular packages are currently available. To see a list of available packages, go to [https://repo.r-wasm.org/](https://repo.r-wasm.org/).
 
 ## Interactive documents
 ### Shiny in Rmarkdown
@@ -617,6 +672,7 @@ Here is a step by step guide to get started with shinylive in quarto.
 - Install **shinylive** R package
 
 ```{r}
+#| label: shinylive-install
 #| eval: false
 install.packages("shinylive")
 ```
@@ -624,6 +680,7 @@ install.packages("shinylive")
 - Add **shinylive** quarto extension
 
 ```{bash}
+#| label: shinylive-quarto-add
 #| eval: false
 #| filename: Shell
 quarto add quarto-ext/shinylive
@@ -661,78 +718,24 @@ shinyApp(
 ```
 ````
 
+```{shinylive-r}
+#| label: shinylive-example
+#| standalone: true
+
+shinyApp(
+  ui=fluidPage(
+    sliderInput("value", label="Value", min=1, max=50, step=1, value=2),
+    textOutput("out")
+  ),
+  server=function(input, output, session) {
+    output$out <- renderText(paste0("Squared: ",input$value^2))
+  }
+)
+```
+
 - Chunk parameter `#| components: [editor, viewer]` shows the editor and viewer side by side
 - Chunk parameter `#| layout: vertical` displays editor and viewer vertically
 - Packages are installed using `webr::install()`
-
-````
-```{{shinylive-r}}
-#| standalone: true
-#| components: [editor, viewer]
-#| layout: vertical
-#| viewerHeight: 450
-
-# webr::install(c("ggplot2", "bslib", "palmerpenguins", "htmltools"))
-
-library(htmltools)
-library(bslib)
-library(ggplot2)
-library(palmerpenguins)
-data("penguins")
-
-pdata <- na.omit(penguins)
-pc <- prcomp(pdata[,c("bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g")], center = TRUE, scale. = TRUE)
-dfr <- cbind(pdata,as.data.frame(pc$x))
-
-ui <- page_sidebar(
-  sidebar = sidebar(
-    selectInput("x",
-      label = "X axis",
-      choices = c("PC1","PC2","PC3","PC4"),
-      selected = "PC1"
-    ),
-
-    selectInput("y",
-      label = "Y axis",
-      choices = c("PC1","PC2","PC3","PC4"),
-      selected = "PC2"
-    ),
-    selectInput("v",
-      label = "Color",
-      choices = c("species", "island", "sex"),
-      selected = "cut"
-    )
-  ),
-  imageOutput("plot", height = "350px")
-)
-
-server <- function(input, output, session) {
-  
-  output$plot <- renderImage({
-    x <- input$x
-    y <- input$y
-    v <- input$v
-    
-    p <- ggplot(dfr, aes(x = !!sym(x), y = !!sym(y), col = !!sym(v))) +
-      geom_point() +
-      theme_bw() + 
-      theme(legend.position = "top")
-
-    file <- htmltools::capturePlot(
-      print(p), 
-      tempfile(fileext = ".svg"),
-      grDevices::svg,
-      width = 4, 
-      height = 4
-    )
-    
-    list(src = file)
-  }, deleteFile = TRUE)
-}
-
-app <- shinyApp(ui = ui, server = server)
-```
-````
 
 Refer to the shinylive extension [documentation](https://quarto-ext.github.io/shinylive/).
 
@@ -756,6 +759,7 @@ Below is a preview of the complete app.
 We start with a shiny app template with sidebar layout.
 
 ```{r}
+#| label: ggp-builder-ui-1
 #| eval: false
 library(shiny)
 
@@ -772,9 +776,8 @@ shinyApp(
 In the ui part, we will define inputs. Most of the inputs are colours, so we use the `colorInput()` widget from the R package `colorpicker`. The output plot is defined as `plotOutput("plot")`. In the server part, we define a `renderPlot()` function that generates a ggplot object.
 
 ```{r}
-#| code-fold: true
+#| label: ggp-builder-ui-2
 #| eval: false
-
 library(shiny)
 library(ggplot2)
 library(colourpicker)
@@ -815,6 +818,7 @@ shinyApp(
 The input widgets now need to be connected to the ggplot function.
 
 ```{r}
+#| label: ggp-builder-server
 #| code-fold: true
 #| eval: false
 
@@ -870,7 +874,7 @@ Now try changing the colours of plot elements and hopefully, it should change.
 {{< fa clipboard-list >}}  You can add more options to the input if you like, for example; rectangular elements such as backgrounds.
 
 ```{r}
-#| code-fold: true
+#| label: ggp-builder-final
 #| eval: false
 
 library(shiny)
@@ -928,8 +932,6 @@ shinyApp(
 )
 ```
 
-![](assets/ggplot-builder-3.webp)
-
 ## Data explorer
 
 A common use case of shiny apps is to explore a dataset interactively. So we will build a simple app that can create a scatterplot from a dataframe which a user can modify interactively. We will use the built-in `iris` dataset and the user should be able to select x and y axes variables as well the variable mapped to the color of the points.
@@ -952,6 +954,7 @@ Below is a preview of the complete app.
 We start with a standard shiny app template.
 
 ```{r}
+#| label: data-exp-start
 #| eval: false
 
 library(shiny)
@@ -965,6 +968,7 @@ shinyApp(
 And then we start building the UI. We will add a title panel and a sidebar layout with a sidebar and a main panel.
 
 ```{r}
+#| label: data-exp-ui
 #| eval: false
 
 library(shiny)
@@ -986,6 +990,7 @@ shinyApp(
 And to the sidebar, we will add 3 input widgets corresponding to x axis variable, y axis variable and color variable. These will be dropdown type (`selectInput()`) and choices will be column names of the iris dataframe. And we add the output widget (`plotOutput()`) in the main panel.
 
 ```{r}
+#| label: data-exp-widgets
 #| eval: false
 
 library(shiny)
@@ -1015,6 +1020,7 @@ shinyApp(
 Now, we need to add the server part. First, we write the ggplot code to create a plot.
 
 ```{r}
+#| label: data-exp-ggplot-1
 #| eval: false
 ggplot(iris,aes(x,y,col))+
       geom_point()
@@ -1023,6 +1029,7 @@ ggplot(iris,aes(x,y,col))+
 This is added inside the output render function `renderPlot()`.
 
 ```{r}
+#| label: data-exp-ggplot-2
 #| eval: false
 output$out_plot <- renderPlot({
     ggplot(iris,aes(x,y,col))+
@@ -1033,6 +1040,7 @@ output$out_plot <- renderPlot({
 We need to wire the input variable into the ggplot inputs x, y and col. This is achieved through `input$` and the variables are wrapped inside `!!sym()` to convert quoted text to unquoted variable.
 
 ```{r}
+#| label: data-exp-ggplot-3
 #| eval: false
 output$out_plot <- renderPlot({
   ggplot(iris,aes(!!sym(input$in_x),y=!!sym(input$in_y),col=!!sym(input$in_col)))+
@@ -1043,6 +1051,7 @@ output$out_plot <- renderPlot({
 This is finally added to the server function.
 
 ```{r}
+#| label: data-explorer-final
 #| eval: false
 
 library(shiny)
@@ -1094,6 +1103,7 @@ Below is a preview of the finished app.
 The core function that generates colors is `hues::iwanthue()`. What it does is sample colors from the HCL colorspace. [Here](https://colorspace.r-forge.r-project.org/articles/color_spaces.html) is an introduction to colorspaces and HCL colorspace. It requires the number of colors to generate.
 
 ```{r}
+#| label: color-gen-test-1
 hues::iwanthue(5)
 ```
 
@@ -1102,6 +1112,7 @@ In addition, this function has six parameters (`hmin`,`hmax`,`cmin`,`cmax`,`lmin
 This gives you mostly warm reddish colors.
 
 ```{r}
+#| label: color-gen-test-2
 hues::iwanthue(5,hmin=0,hmax=5,cmin=80,cmax=160,lmin=38,lmax=70)
 ```
 
@@ -1110,6 +1121,7 @@ What we are creating is a graphical user interface around this function.
 In this example, we will use the `bslib` package to create a bootstrap 5 themed layout using cards. See [bslib](https://rstudio.github.io/bslib/index.html) for more info. This is the structure of the app with cards defined inside a fixed page. See help page for `bslib::card()` for more information on cards. We also define the page title.
 
 ```{r}
+#| label: color-gen-ui-1
 #| eval: false
 
 library(bslib)
@@ -1135,6 +1147,7 @@ shinyApp(
 Now we define the inputs in the sidebar panel. The number of colors and the three parameters to the colorspace as ranges. Outside the sidebar panel we define our two outputs: an html output to display the names of the colors as hex values. In the footer, we add an acknowledgement link to the hues package.
 
 ```{r}
+#| label: color-gen-ui-2
 #| eval: false
 
 library(shiny)
@@ -1172,6 +1185,7 @@ shinyApp(
 Now, we add content into the server part. The inputs are passed to the `get_colours()` reactive function. This function is run inside the `renderText()` function which outputs the colors as hex values.
 
 ```{r}
+#| label: color-gen-server
 #| eval: false
 
 library(shiny)
@@ -1229,6 +1243,7 @@ This function is creating a span element for each color. These spans are organis
 <br>
 
 ```{r}
+#| label: color-gen-css
 #| eval: false
 
 library(shiny)
@@ -1330,7 +1345,8 @@ So we first need to understand how RNASeqPower works. For a complete understandi
 
 So, let's say we want to find out how many samples are required per group. We have some known input parameters. Let's say the sequencing depth is 50 (`depth=50`), coefficient of variation is 0.6 (`cv=0.6`), effect size is 1.5 fold change (`effect=1.5`), significance cut-off is 0.05 (`alpha=0.05`) and lastly power of the test is 0.8 (`power=0.8`). The parameter we want to compute is the number of samples (`n`), therefore it is not specified.
 
-```{r rnaseqpower-test}
+```{r}
+#| label: rnaseqpower-test
 library(RNASeqPower)
 RNASeqPower::rnapower(depth=1000,cv=0.6,effect=2,alpha=0.05,power=0.8)
 ```
@@ -1339,7 +1355,8 @@ And we get the number of samples required given these input conditions.
 
 Similarly, we can estimate any of the other parameters (except `depth`). We can try another example where we solve for power. What would the power be for a study with 12 samples per group, to detect a 2-fold change, given deep (50x) coverage?
 
-```{r rnaseqpower-more}
+```{r}
+#| label: rnaseqpower-more
 rnapower(depth=50, n=12, cv=0.6, effect=2, alpha=.05)
 ```
 
@@ -1354,10 +1371,10 @@ Let's build the basic scaffolding for our app including the input widgets. Let's
 We use a sidebar layout. The input controls go on the sidebar panel and the output goes on the main panel. So we need 5 numeric inputs. We can set some default values as well as reasonable min and max values and steps to increase or decrease. The output will be verbatim text, so we use `verbatimTextOutput()` widget.
 
 
-```{r rnaseqpower-scaffold}
-#| eval: false
-#| fig-height: 6
-#| fig-width: 8
+```{shinylive-r}
+#| label: rnaseqpower-scaffold
+#| standalone: true
+#| components: [editor, viewer]
 library(shiny)
 
 shinyApp(
@@ -1382,7 +1399,7 @@ shinyApp(
 )
 ```
 
-![](assets/rnaseqpower-1.webp)
+:::
 
 The app should visually look close to our final end result. Check that the widgets work.
 
@@ -1390,7 +1407,8 @@ The next step is to wire up the inputs to the `rnapower()` function and return t
 
 {{< fa clipboard-list >}} Try to see if you can get this to work.
 
-```{r rnaseqpower-server}
+```{r}
+#| label: rnaseqpower-server
 #| eval: false
 #| fig-height: 6
 #| fig-width: 8
@@ -1433,7 +1451,8 @@ The function can estimate not only **sample size**, but **cv**, **effect**, **al
 
 {{< fa clipboard-list >}} Try to add a selection based conditional UI. `?selectInput()`, `?uiOutput()`, `?renderUI()`.
 
-```{r rnaseqpower-conditionalui}
+```{r}
+#| label: rnaseqpower-conditionalui
 #| eval: false
 #| fig-height: 6
 #| fig-width: 8
@@ -1548,17 +1567,20 @@ In the `renderPrint({})` function, we use a similar idea. `rnapower()` is calcul
 
 Another feature of the `rnapower()` function that we have not discussed so far is that all the input arguments can take more than one number as input. Or in other words, instead of a single number, it can take a vector of number. For example;
 
-```{r rnaseqpower-results-1}
+```{r}
+#| label: rnaseqpower-results-1
 RNASeqPower::rnapower(depth=c(50,100),cv=0.6,effect=1.5,alpha=0.05,power=0.8)
 ```
 
 And it expands the results in various ways.
 
-```{r rnaseqpower-results-2}
+```{r}
+#| label: rnaseqpower-results-2
 RNASeqPower::rnapower(depth=50,cv=0.6,effect=c(1.5,2,3),alpha=0.05,power=0.8)
 ```
 
-```{r rnaseqpower-results-3}
+```{r}
+#| label: rnaseqpower-results-3
 RNASeqPower::rnapower(depth=50,cv=c(0.4,0.6),effect=c(1.5,2,3),alpha=0.05,power=0.8)
 ```
 
@@ -1568,7 +1590,8 @@ The output expands in a bit unpredictable manner and this is the reason why our 
 
 One way to do it is to accept comma separated values from the user. And then parse that into a vector of numbers. For example;
 
-```{r rnaseqpower-split}
+```{r}
+#| label: rnaseqpower-split
 x <- "2.5,6"
 as.numeric(unlist(strsplit(gsub(" ","",x),",")))
 ```
@@ -1577,7 +1600,8 @@ Blank space are removed, the string is split by comma into a list of strings, th
 
 {{< fa clipboard-list >}} Update the app such that all numeric inputs are replaced by text inputs and the server logic is able to parse the strings into numbers.
 
-```{r rnaseqpower-multiple-input}
+```{r}
+#| label: rnaseqpower-multiple-input
 #| eval: false
 #| fig-height: 6
 #| fig-width: 8
@@ -1697,7 +1721,8 @@ It is good practice to check whether the current code can be cleaned-up/polished
 
 {{< fa clipboard-list >}} Try to figure out how the code can be reorganized and simplified.
 
-```{r rnaseqpower-cleaner}
+```{r}
+#| label: rnaseqpower-cleaner
 #| eval: false
 #| fig-height: 6
 #| fig-width: 8
@@ -1772,7 +1797,8 @@ Here are the limits we want to set:
 
 {{< fa clipboard-list >}} Try to figure out how to add input validation. `?shiny::validate()`.
 
-```{r rnaseqpower-input-validation}
+```{r}
+#| label: rnaseqpower-input-validation
 #| eval: false
 #| fig-height: 6
 #| fig-width: 8
@@ -1864,7 +1890,8 @@ This part is purely cosmetic. We can add a custom theme from R package `shinythe
 
 {{< fa clipboard-list >}} Try changing the theme and pick one that you like. Check out `?shinythemes`. The themes can be visualized on [Bootswatch](https://bootswatch.com/).
 
-```{r rnaseqpower-theme}
+```{r}
+#| label: rnaseqpower-theme
 #| eval: false
 #| fig-height: 6
 #| fig-width: 8
@@ -1957,6 +1984,7 @@ You do not necessarily need to do this section. This is just so you know.
 The app is now ready to be deployed. If you have an account on [shinyapps.io](https://www.shinyapps.io/), you can quickly deploy this app to your account using the R package `rsconnect`.
 
 ```{r}
+#| label: rnaseqpower-deploy
 #| eval: false
 library(rsconnect)
 rsconnect::setAccountInfo(name="username", token="KJHF853HG6G59C2F4J7B6", secret="jhHD7%jdg)62F67G/")
@@ -1966,19 +1994,243 @@ deployApp(appName="my-awesome-app",appDir=".")
 The packages used are automatically detected and are installed on to the instance. If Bioconductor packages give an error during deployment, the repositories need to be explicitly set on your system.
 
 ```{r}
+#| label: rnaseqpower-set-repo
 #| eval: false
 setRepositories(c(1,2),graphics=FALSE)
 ```
 
 This completes this app tutorial. Hope you have enjoyed this build and learned something interesting along the way.
 
+## Chatbot
+
+Create a simple chatbot with access to OpenAI LLM models.
+
+::: {.callout-warning}
+An OpenAI API key is required to run this app.
+:::
+
+**Topics covered**
+
+- UI layout using bslib
+- Accessing API endpoints using httr package
+- Using purrr to work with JSON lists
+
+The following R packages are required for this app: `c(shiny, bslib, httr2, purrr, glue)`.
+
+Below is a preview of the complete app.
+
+![](assets/chatbot.webp)
+
+Create a file named **.Renviron** and enter the OpenAI API key in this format 
+
+```
+OPENAI_API_KEY="sk-747hSgf64kjsdjaGJ4hD9Ge3lS8Dg"
+```
+
+### Custom functions
+
+We need to create a few custom functions to send HTTP requests to the OpenAI server to get a list of models and to send the chat prompts.
+
+```{r}
+#| label: chatbot-functions-1
+#| eval: false
+
+
+#' Get a list of available models from the OpenAI API
+#' @param api_key OpenAI API key (default is taken from the environment variable
+#' @return A character vector containing the names of available models
+#' 
+list_models <- function(api_key = Sys.getenv("OPENAI_API_KEY")) {
+  # Check if API key is available
+  if (api_key == "") {
+    warning("API key is not set. Please set the OPENAI_API_KEY environment variable.")
+    return("gpt-4.1-nano")
+  } else {
+    base_url <- "https://api.openai.com/v1"
+    resp <- request(base_url) |>
+      req_url_path_append("models") |>
+      req_auth_bearer_token(token = api_key) |>
+      req_perform()
+
+    if (resp$status_code >= 400) {
+      stop("Request failed with status code: ", resp$status_code)
+    }
+
+    # Remove simplifyVector = TRUE to preserve list structure
+    models_response <- resp |> resp_body_json()
+
+    # return only models that start with "gpt-" or "o" and are not previews
+    models <- models_response$data |>
+      purrr::keep(~ grepl("^gpt-[0-9]+|^o[0-9]+", .x$id) && !grepl("preview", .x$id)) |>
+      purrr::map_chr("id") |>
+      sort()
+
+    return(models)  
+  }
+}
+
+#' Send API request to OpenAI
+#' @param user_prompt A character string containing the user's prompt
+#' @param model The model to use for the chat (default is "gpt-4.1-nano")
+#' @param history A list containing the chat history
+#' @param system_prompt System prompt to guide the AI's responses
+#' @param api_key OpenAI API key
+#' @return A character string with OpenAI's response
+#'
+chat <- function(user_prompt, model = "gpt-4.1-nano", history = NULL, system_prompt = "You are a helpful assitant.", api_key = Sys.getenv("OPENAI_API_KEY")) {
+  # Check if API key is available
+  if (api_key == "") {
+    stop("API key is not set. Please set the OPENAI_API_KEY environment variable.")
+  }
+
+  prompt <- prepare_prompt(user_prompt, system_prompt, history)
+  base_url <- "https://api.openai.com/v1"
+  body <- list(model = model, messages = prompt)
+
+  resp <- request(base_url) |>
+    req_url_path_append("chat/completions") |>
+    req_auth_bearer_token(token = api_key) |>
+    req_headers("Content-Type" = "application/json") |>
+    req_body_json(body) |>
+    req_retry(max_tries = 2) |>
+    req_throttle(rate = 15) |>
+    req_perform()
+
+  if (resp$status_code >= 400) {
+    stop("Request failed with status code: ", resp$status_code)
+  }
+
+  openai_chat_response <- resp |> resp_body_json(simplifyVector = TRUE)
+
+  # Check for expected response structure before accessing its content
+  if (!is.null(openai_chat_response$choices) && length(openai_chat_response$choices) > 0) {
+    return(openai_chat_response$choices$message$content)
+  } else {
+    stop("Unexpected response structure: ", openai_chat_response)
+  }
+}
+```
+
+We have two more functions to format the prompts:
+
+```{r}
+#| label: chatbot-functions-2
+#| eval: false
+
+
+#' Prepare the prompt to be sent to the OpenAI API
+#' @param user_prompt A character string with the user's prompt
+#' @param system_prompt A character string with the system prompt
+#' @param history A list containing the chat history
+#' @return A list containing the full prompt
+#'
+prepare_prompt <- function(user_prompt, system_prompt = "You are a helpful assitant.", history = NULL) {
+  user_prompt <- list(list(role = "user", content = user_prompt))
+  sys_prompt <- list(list(role = "system", content = system_prompt))
+  c(sys_prompt, history, user_prompt) |> purrr::compact()
+}
+
+#' Update the chat history with the latest user prompt and response
+#' @param history A list containing the existing chat history
+#' @param user_prompt The latest prompt from the user
+#' @param response The response from the OpenAI API
+#' @return An updated list containing the new chat history
+#'
+update_history <- function(history = NULL, user_prompt, response) {
+  c(
+    history,
+    list(
+      list(role = "user", content = user_prompt),
+      list(role = "assistant", content = response)
+    )
+  ) |> purrr::compact()
+}
+```
+
+Add these functions to a file named **functions.r**.
+
+### App
+
+Then, create a file named **app.r** and add the following:
+
+```{r}
+#| label: chatbot
+#| eval: false
+
+library(shiny)
+library(bslib)
+library(httr2)
+library(purrr)
+library(glue)
+
+source("functions.r")
+
+models <- list_models()
+
+ui <- page_sidebar(
+  title = "Chatbot",
+  theme = bs_theme(bootswatch = "zephyr"),
+  sidebar = sidebar(
+    open = "closed",
+    selectInput("model", "Model", choices = models, selected = "gpt-4.1-nano"),
+    textAreaInput("system_prompt", "System prompt", value = "You are a helpful assistant."),
+  ),
+  layout_columns(
+    fill = FALSE,
+    col_widths = c(10, 2),
+    textAreaInput("prompt", NULL),
+    actionButton("chat", NULL, icon = icon("paper-plane"), width = "75px", class = "m-2 btn-secondary")
+  ),
+  uiOutput("chat_history")
+)
+
+server <- function(input, output, session) {
+  rv <- reactiveValues()
+  rv$chat_history <- NULL
+  observe({
+    req(input$prompt != "")
+    response <- chat(user_prompt = input$prompt, system_prompt = input$system_prompt, history = rv$chat_history)
+    rv$chat_history <- update_history(history = rv$chat_history, user_prompt = input$prompt, response = response)
+    output$chat_history <- renderUI(
+      map(rev(rv$chat_history), \(x) markdown(glue("**{x$role}**: {x$content}")))
+    )
+  }) |> bindEvent(input$chat)
+}
+
+shinyApp(ui, server)
+```
+
+When a user enters a prompt, the **httr** functions are used to send and receive requests from the OpenAI API endpoint. The **purrr** functions are used to massage the JSON response which is then displayed. Upon entering the next prompt, the new prompt and the old chat history are all together send to the API. Feel free to breakdown the script to understand it better.
+
+The OpenAI API reference documentation can be found [here](https://platform.openai.com/docs/api-reference/introduction).
+
+Do you have any ideas to improve this app? Do you have more features that you would like to add to this app?
+
 ## Session
 
 <details>
   <summary>Click here</summary>
+### Shinylive
+
+```{shinylive-r}
+#| label: session-info-shinylive
+#| standalone: true
+shinyApp(
+  ui=fluidPage(
+    verbatimTextOutput("session")
+  ),
+  server=function(input, output, session) {
+    output$session <- renderPrint(
+      sessionInfo()
+    )
+  }
+)
+```
+
+### R
 
 ```{r}
-#| label: session
+#| label: session-info
 sessionInfo()
 ```
 

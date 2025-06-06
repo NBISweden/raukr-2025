@@ -5,6 +5,8 @@ image: "assets/featured.webp"
 format:
   revealjs:
     css: "assets/styles.css"
+filters:
+  - shinylive
 ---
 
 ## {visibility="hidden"}
@@ -123,6 +125,7 @@ Interactive documents, Extensions
 **One file format**
 
 ```{r}
+#| label: app-org-1
 #| eval: false
 #| filename: app.r
 ui <- fluidPage()
@@ -134,6 +137,7 @@ shinyApp(ui = ui, server = server)
 **Two file format**
 
 ```{r}
+#| label: app-org-2-ui
 #| eval: false
 #| filename: ui.r
 ui <- fluidPage()
@@ -141,6 +145,7 @@ ui <- fluidPage()
 
 ```{r}
 #| eval: false
+#| label: app-org-2-server
 #| filename: server.r
 server <- function(input, output) {}
 ```
@@ -156,6 +161,7 @@ server <- function(input, output) {}
 - Use `shinyApp()`
 
 ```{r}
+#| label: app-run
 #| eval: false
 
 shinyApp(
@@ -182,23 +188,23 @@ R -e "shiny::runApp('~/shinyapp')"
 
 ## UI
 
-```{r}
-#| eval: false
-
+```{shinylive-r}
+#| label: ui
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
-  ui = fluidPage(
-    titlePanel("Title Panel"),
-    sidebarLayout(
-      sidebarPanel(
-        helpText("Sidebar Panel")
-      ),
-      mainPanel(
-        "hello"
-      )
+ui=fluidPage(
+  titlePanel("Title Panel"),
+  sidebarLayout(
+    sidebarPanel(
+      helpText("Sidebar Panel")
+    ),
+    mainPanel(
+      "hello"
     )
-  ),
-  server = function(input, output) {}
-)
+  )
+),
+server=function(input,output) {})
 ```
 
 ## Language of the web: HTML, CSS & Javascript
@@ -234,9 +240,11 @@ sidebarPanel(helpText("Sidebar Panel"))
 
 ## 
 
-```{r}
-#| eval: false
-
+```{shinylive-r}
+#| label: ui-2
+#| standalone: true
+#| components: [editor, viewer]
+#| viewerHeight: 300
 shinyApp(
   ui = fluidPage(
     titlePanel("Title Panel"),
@@ -273,12 +281,12 @@ shinyApp(
 )
 ```
 
-![](assets/app-layout.webp){width="600px"}
-
 ## UI • Widgets • Input
 
-```{r}
-#| eval: false
+```{shinylive-r}
+#| label: inputs
+#| standalone: true
+#| components: [editor, viewer]
 
 shinyApp(
   ui = fluidPage(
@@ -314,11 +322,10 @@ selectInput(inputId, label, choices,
 
 ## UI • Widgets • Input
 
-:::: {.columns}
-::: {.column width="70%"}
-
-```{r}
-#| eval: false
+```{shinylive-r}
+#| label: input-widgets
+#| standalone: true
+#| components: [editor, viewer]
 
 shinyApp(
 ui=fluidPage(
@@ -346,13 +353,6 @@ server=function(input,output) {
 
 
 ```
-
-:::
-::: {.column width="30%"}
-![](assets/app-widgets-input.webp){width="50%"}
-:::
-
-::::
 
 [[Widgets gallery](https://shiny.posit.co/r/gallery/widgets/widget-gallery/)]{.smaller}
 
@@ -393,9 +393,10 @@ Widgets are visual objects on a page to allow for data input. Input and output v
 
 ## UI • Widgets • Outputs
 
-```{r}
-#| eval: false
-
+```{shinylive-r}
+#| label: output
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
 ui=fluidPage(
            textInput("text_input",label="textInput",value="hello world"),
@@ -420,12 +421,10 @@ textOutput(outputId)
 
 ## UI • Widgets • Outputs
 
-:::: {.columns}
-::: {.column width="70%"}
-
-```{r}
-#| eval: false
-
+```{shinylive-r}
+#| label: output-widgets
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
 ui=fluidPage(fluidRow(column(5,
            textInput("text_input",label="textInput",value="<h3 style='color:red'>Red text</h3>"),
@@ -446,13 +445,12 @@ server=function(input, output) {
     plot(iris[,1],iris[,2])
   })
 })
-```
 
-:::
-::: {.column width="30%"}
-![](assets/app-widgets-output.webp){width="70%"}
-:::
-::::
+
+
+
+
+```
 
 ## UI • Widgets • Output Functions
 
@@ -468,8 +466,10 @@ server=function(input, output) {
 
 ## A complete app
 
-```{r}
-#| eval: false
+```{shinylive-r}
+#| label: complete-app
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
 ui = fluidPage(
   h3("Temperature Converter"),
@@ -522,8 +522,10 @@ server=function(input, output) {
 
 ## Rendering UI
 
-```{r}
-#| eval: false
+```{shinylive-r}
+#| label: render-ui-1
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
 ui=fluidPage(
   selectInput("type", label="Select input type", choices=c("Text","Number")),
@@ -553,8 +555,10 @@ server=function(input, output) {
 
 ## Rendering UI
 
-```{r}
-#| eval: false
+```{shinylive-r}
+#| label: render-ui-2
+#| standalone: true
+#| components: [editor, viewer]
 
 shinyApp(
 ui=fluidPage(
@@ -575,12 +579,20 @@ server=function(input, output) {
   output$plot <- renderPlot({hist(data()[, 1])})
   output$table <- renderTable({head(data())})
 })
+
+
+
+
+
+
 ```
 
 ## Rendering UI
 
-```{r}
-#| eval: false
+```{shinylive-r}
+#| label: render-ui-3
+#| standalone: true
+#| components: [editor, viewer]
 
 shinyApp(
 ui=fluidPage(
@@ -630,9 +642,10 @@ Reactive values cannot be accessed outside a reactive context
 
 :::: {.columns}
 ::: {.column width="55%"}
-```{r}
-#| eval: false
-
+```{shinylive-r}
+#| label: reactive-context
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
   ui = fluidPage(
     numericInput("num", "Enter number",
@@ -655,9 +668,10 @@ shinyApp(
 
 ## Reactive dynamics
 
-```{r}
-#| eval: false
-
+```{shinylive-r}
+#| label: reactive-dynamics-1
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
   ui=fluidPage(
     numericInput("num_input",label="Observations",value=50),
@@ -693,8 +707,10 @@ shinyApp(
 
 ## Reactive dynamics
 
-```{r}
-#| eval: false
+```{shinylive-r}
+#| label: reactive-dynamics-2
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
   ui=fluidPage(
     numericInput("num_input",label="Observations",value=50),
@@ -758,8 +774,10 @@ shinyApp(
 
 ## Reactive dynamics
 
-```{r}
-#| eval: false
+```{shinylive-r}
+#| label: reactive-dynamics-3
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
   ui=fluidPage(
     numericInput("num_input",label="Observations",value=50),
@@ -779,8 +797,10 @@ shinyApp(
 
 ## Reactive dynamics
 
-```{r}
-#| eval: false
+```{shinylive-r}
+#| label: reactive-dynamics-4
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
   ui=fluidPage(
     numericInput("num_input",label="Observations",value=50),
@@ -1033,8 +1053,10 @@ server = function(input,output,session) {
 
 ## Updating widgets
 
-```{r}
-#| eval: false
+```{shinylive-r}
+#| label: updating-widgets
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
   ui = fluidPage(
     selectInput("data", "Choose a dataset:", choices = c("mtcars", "iris", "faithful")),
@@ -1083,8 +1105,10 @@ shinyApp(
 - `reactVal()` `reactValues()`
 - Store reactive values that can be accessed from any reactive context
 
-```{r}
-#| eval: false
+```{shinylive-r}
+#| label: reactive-values
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
   ui = fluidPage(
     actionButton("add","Add"),
@@ -1110,8 +1134,10 @@ shinyApp(
 
 ## Controlling reactivity using action buttons
 
-```{r}
-#| eval: false
+```{shinylive-r}
+#| label: buttons
+#| standalone: true
+#| components: [editor, viewer]
 shinyApp(
 ui = fluidPage(
   h3("Temperature Converter"),
@@ -1121,18 +1147,20 @@ ui = fluidPage(
 ),
 
 server = function(input, output) {
-  evr <- eventReactive(input$btn_go, {
-    paste(input$celsius, "°C is ", (input$celsius * 9/5) + 32, " °F")
-  })
+
   
   output$fahrenheit <- renderText({
-    evr()
-  })
+    paste(input$celsius, "°C is ", (input$celsius * 9/5) + 32, " °F")
+  }) |>
+  bindEvent(input$btn_go)
   
-  #output$fahrenheit <- renderText({
-  #    paste(input$celsius, "°C is ", (input$celsius * 9/5) + 32, " °F")
-  #  }) |>
-  #  bindEvent(input$btn_go)
+  # evr <- eventReactive(input$btn_go, {
+  #   paste(input$celsius, "°C is ", (input$celsius * 9/5) + 32, " °F")
+  # })
+  
+  # output$fahrenheit <- renderText({
+  #   evr()
+  # })
 })
 ```
 
@@ -1207,9 +1235,10 @@ output$button_download <- downloadHandler(
 
 ## Modules
 
-```{r}
-#| eval: false
-
+```{shinylive-r}
+#| label: modules
+#| standalone: true
+#| components: [editor, viewer]
 counter_ui <- function(id) {
   ns <- NS(id)
   div(
@@ -1319,12 +1348,14 @@ fluidPage(theme = shinythemes::themeSelector())
 ```
 
 [[shinythemes](https://rstudio.github.io/shinythemes/)]{.smaller}
+
 :::
 ::: {.column width="60%"}
-```{r}
-#| eval: false
-
-library("shinythemes")
+```{shinylive-r}
+#| label: shinythemes
+#| standalone: true
+#| viewerHeight: 650
+webr::install("shinythemes")
 
 shinyApp(
   ui = fluidPage(
