@@ -7,6 +7,7 @@ format:
     css: "assets/styles.css"
 filters:
   - shinylive
+embed-resources: false
 ---
 
 ## {visibility="hidden"}
