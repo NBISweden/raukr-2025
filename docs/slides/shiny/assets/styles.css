@@ -6,8 +6,8 @@
   display: -ms-grid;
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  grid-template-rows: repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  grid-template-rows: repeat(auto-fit, minmax(200px,1fr));
 }
 
 .shiny-gallery-child {
@@ -29,5 +29,5 @@
 }
 
 .shiny-gallery-child figcaption {
-  font-size: 0.6em;
+  font-size: 0.5em;
 }

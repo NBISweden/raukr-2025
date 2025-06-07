@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -76,6 +76,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<meta name="shinylive:serviceworker_dir" content="../..">
+<script src="../../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/load-shinylive-sw.js" type="module"></script>
+<script src="../../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/run-python-blocks.js" type="module"></script>
+<link href="../../site_libs/quarto-contrib/shinylive-0.9.1/shinylive/shinylive.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
@@ -140,7 +145,7 @@ background-size: cover;
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -152,6 +157,10 @@ background-size: cover;
   <li class="nav-item">
     <a class="nav-link" href="../../home_schedule.html"> 
 <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../home_contents.html"> 
+<span class="menu-text">Contents</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../home_precourse.html"> 
@@ -184,7 +193,7 @@ background-size: cover;
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -216,7 +225,7 @@ background-size: cover;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">08-May-2025</p>
+        <p class="date">07-Jun-2025</p>
       </div>
     </div>
     
@@ -266,18 +275,28 @@ background-size: cover;
   <li><a href="#theme" id="toc-theme" class="nav-link" data-scroll-target="#theme"><span class="header-section-number">15.7</span> Theme</a></li>
   <li><a href="#deployment" id="toc-deployment" class="nav-link" data-scroll-target="#deployment"><span class="header-section-number">15.8</span> Deployment</a></li>
   </ul></li>
-  <li><a href="#session" id="toc-session" class="nav-link" data-scroll-target="#session"><span class="header-section-number">16</span> Session</a></li>
+  <li><a href="#chatbot" id="toc-chatbot" class="nav-link" data-scroll-target="#chatbot"><span class="header-section-number">16</span> Chatbot</a>
+  <ul>
+  <li><a href="#custom-functions" id="toc-custom-functions" class="nav-link" data-scroll-target="#custom-functions"><span class="header-section-number">16.1</span> Custom functions</a></li>
+  <li><a href="#app" id="toc-app" class="nav-link" data-scroll-target="#app"><span class="header-section-number">16.2</span> App</a></li>
+  </ul></li>
+  <li><a href="#session" id="toc-session" class="nav-link" data-scroll-target="#session"><span class="header-section-number">17</span> Session</a>
+  <ul>
+  <li><a href="#shinylive-1" id="toc-shinylive-1" class="nav-link" data-scroll-target="#shinylive-1"><span class="header-section-number">17.1</span> Shinylive</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><span class="header-section-number">17.2</span> R</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
 
 
 
 
 
 
+<p>This is an introduction to shiny web applications with R. Please follow the exercise to familiarize yourself with the fundamentals. And then you can follow instructions to build one of the example apps.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -288,213 +307,279 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is an introduction to shiny web applications with R. Please follow the exercise to familiarize yourself with the fundamentals. And then you can follow instructions to build one of the example apps.</p>
 <ul>
-<li>Code chunks starting with <code>shinyApp()</code> can be simply copy-pasted to the RStudio console and run.</li>
-<li>Generally, complete shiny code is saved as a text file, named for example, as <strong>app.R</strong> and then clicking <strong>Run app</strong> launches the app.</li>
+<li>Code chunks starting with <code>shinyApp()</code> can be simply copy-pasted to an R console and run.<br>
+</li>
+<li>Generally, complete shiny code is saved as a text file, named for example, as <strong>app.r</strong> and then clicking <strong>Run app</strong> launches the app.<br>
+</li>
+<li><i class="fa-solid fa-hand-sparkles" aria-label="hand-sparkles"></i> Interactive app: This can take a few minutes to load.<br>
+</li>
 </ul>
 </div>
 </div>
-<section id="ui-layout" class="level2" data-number="1">
+<section id="ui-layout" class="level2 page-columns page-full" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="ui-layout"><span class="header-section-number">1</span> UI • Layout</h2>
 <p>This is an example to show the layout of widgets on a webpage using shiny functions. <code>fluidPage()</code> is used to define a responsive webpage. <code>titlePanel()</code> is used to define the top bar. <code>sidebarLayout()</code> is used to create a layout that includes a region on the left called side bar panel and a main panel on the right. The contents of these panels are further defined under <code>sidebarPanel()</code> and <code>mainPanel()</code>.</p>
 <p>In the main panel, the use of tab panels are demonstrated. The function <code>tabsetPanel()</code> is used to define a tab panel set and individual tabs are defined using <code>tabPanel()</code>. <code>fluidRow()</code> and <code>column()</code> are used to structure elements within each tab. The width of each column is specified. Total width of columns must add up to 12.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Title Panel"</span>),</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">helpText</span>(<span class="st">"Sidebar Panel"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(<span class="fu">tabsetPanel</span>(</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tabPanel</span>(<span class="st">"tab1"</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>               <span class="fu">fluidRow</span>(</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">column</span>(<span class="dv">6</span>,<span class="fu">helpText</span>(<span class="st">"Col1"</span>)),</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">column</span>(<span class="dv">6</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">helpText</span>(<span class="st">"Col2"</span>),</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">fluidRow</span>(</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">column</span>(<span class="dv">4</span>,<span class="at">style=</span><span class="st">"background-color:#b0c6fb"</span>,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">helpText</span>(<span class="st">"Col1"</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                          ),</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">column</span>(<span class="dv">4</span>,<span class="at">style=</span><span class="st">"background-color:#ffa153"</span>,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">helpText</span>(<span class="st">"Col2"</span>)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                          ),</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">column</span>(<span class="dv">4</span>,<span class="at">style=</span><span class="st">"background-color:#b1f6c6"</span>,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">helpText</span>(<span class="st">"Col3"</span>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                          )</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                        )</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>                 )</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>               )</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tabPanel</span>(<span class="st">"tab2"</span>,</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>               <span class="fu">inputPanel</span>(<span class="fu">helpText</span>(<span class="st">"Input Panel"</span>))</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tabPanel</span>(<span class="st">"tab3"</span>,</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>               <span class="fu">wellPanel</span>(<span class="fu">helpText</span>(<span class="st">"Well Panel"</span>))</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input,output){}</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui=</span>ui,<span class="at">server=</span>server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="column-page">
+<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
+#|   shinylive does not work in self-contained HTML documents.
+#|   Please set `embed-resources: false` in your metadata.
+#| label: ui-layout
+#| standalone: true
+#| components: [editor, viewer]
+
+library(shiny)
+ui &lt;- fluidPage(
+  titlePanel("Title Panel"),
+  sidebarLayout(
+    sidebarPanel(
+      helpText("Sidebar Panel")
+    ),
+    mainPanel(tabsetPanel(
+      tabPanel("tab1",
+               fluidRow(
+                 column(6,helpText("Col1")),
+                 column(6,
+                        helpText("Col2"),
+                        fluidRow(
+                          column(4,style="background-color:#b0c6fb",
+                                 helpText("Col1")
+                          ),
+                          column(4,style="background-color:#ffa153",
+                                 helpText("Col2")
+                          ),
+                          column(4,style="background-color:#b1f6c6",
+                                 helpText("Col3")
+                          )
+                        )
+                 )
+               )
+      ),
+      tabPanel("tab2",
+               inputPanel(helpText("Input Panel"))
+      ),
+      tabPanel("tab3",
+               wellPanel(helpText("Well Panel"))
+      )
+    )
+    )
+  )
+)
+
+server &lt;- function(input,output){}
+shinyApp(ui=ui,server=server)</code></pre>
 </div>
-<p><a href="assets/ui-layout.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="assets/ui-layout.webp" class="img-fluid"></a></p>
 </section>
-<section id="ui-widgets-input" class="level2" data-number="2">
+<section id="ui-widgets-input" class="level2 page-columns page-full" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="ui-widgets-input"><span class="header-section-number">2</span> UI • Widgets • Input</h2>
 <p>Input widgets are used to accept content interactively from the user. These widgets usually end in <code>Input</code> like <code>selectInput()</code>. Below are usage examples of several of shiny’s built-in widgets. Every widget has a variable name which is accessible through <code>input$</code> in the server function. For example, the value of a variable named <code>text-input</code> would be accessed through <code>input$text-input</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fluidRow</span>(</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column</span>(<span class="dv">6</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>           <span class="fu">fileInput</span>(<span class="st">"file-input"</span>,<span class="st">"fileInput:"</span>),</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>           <span class="fu">selectInput</span>(<span class="st">"select-input"</span>,<span class="at">label=</span><span class="st">"selectInput"</span>,<span class="at">choices=</span><span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>)),</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>           <span class="fu">numericInput</span>(<span class="st">"numeric-input"</span>,<span class="at">label=</span><span class="st">"numericInput"</span>,<span class="at">value=</span><span class="dv">5</span>,<span class="at">min=</span><span class="dv">1</span>,<span class="at">max=</span><span class="dv">10</span>),</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>           <span class="fu">sliderInput</span>(<span class="st">"slider-input"</span>,<span class="at">label=</span><span class="st">"sliderInput"</span>,<span class="at">value=</span><span class="dv">5</span>,<span class="at">min=</span><span class="dv">1</span>,<span class="at">max=</span><span class="dv">10</span>),</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>           <span class="fu">textInput</span>(<span class="st">"text-input"</span>,<span class="at">label=</span><span class="st">"textInput"</span>),</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>           <span class="fu">textAreaInput</span>(<span class="st">"text-area-input"</span>,<span class="at">label=</span><span class="st">"textAreaInput"</span>),</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>           <span class="fu">dateInput</span>(<span class="st">"date-input"</span>,<span class="at">label=</span><span class="st">"dateInput"</span>),</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>           <span class="fu">dateRangeInput</span>(<span class="st">"date-range-input"</span>,<span class="at">label=</span><span class="st">"dateRangeInput"</span>),</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>           <span class="fu">radioButtons</span>(<span class="st">"radio-button"</span>,<span class="at">label=</span><span class="st">"radioButtons"</span>,<span class="at">choices=</span><span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>),<span class="at">inline=</span>T),</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>           <span class="fu">checkboxInput</span>(<span class="st">"checkbox"</span>,<span class="st">"checkboxInput"</span>,<span class="at">value=</span><span class="cn">FALSE</span>),</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>           <span class="fu">actionButton</span>(<span class="st">"action-button"</span>,<span class="st">"Action"</span>),</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>           <span class="fu">hr</span>(),</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>           <span class="fu">submitButton</span>()</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="at">server=</span><span class="cf">function</span>(input,output){},</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="at">options=</span><span class="fu">list</span>(<span class="at">height=</span><span class="dv">900</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="column-page">
+<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
+#|   shinylive does not work in self-contained HTML documents.
+#|   Please set `embed-resources: false` in your metadata.
+#| label: ui-widgets-input
+#| standalone: true
+#| components: [editor, viewer]
+shinyApp(
+ui=fluidPage(
+  fluidRow(
+    column(6,
+           fileInput("file-input","fileInput:"),
+           selectInput("select-input",label="selectInput",choices=c("A","B","C")),
+           numericInput("numeric-input",label="numericInput",value=5,min=1,max=10),
+           sliderInput("slider-input",label="sliderInput",value=5,min=1,max=10),
+           textInput("text-input",label="textInput"),
+           textAreaInput("text-area-input",label="textAreaInput"),
+           dateInput("date-input",label="dateInput"),
+           dateRangeInput("date-range-input",label="dateRangeInput"),
+           radioButtons("radio-button",label="radioButtons",choices=c("A","B","C"),inline=T),
+           checkboxInput("checkbox","checkboxInput",value=FALSE),
+           actionButton("action-button","Action"),
+           hr(),
+           submitButton()
+    )
+  )
+),
+server=function(input,output){},
+options=list(height=900))
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
 </div>
-<p><a href="assets/ui-widgets-input.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="assets/ui-widgets-input.webp" class="img-fluid"></a></p>
 </section>
 <section id="ui-widgets-outputs" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="ui-widgets-outputs"><span class="header-section-number">3</span> UI • Widgets • Outputs</h2>
 <p>Similar to input widgets, output widgets are used to display information to the user on the webpage. These widgets usually end in <code>Output</code> like <code>textOutput()</code>. Every widget has a variable name accessible under <code>output$</code> to which content is written in the server function. Render functions are used to write content to output widgets. For example <code>renderText()</code> is used to write text data to <code>textOutput()</code> widget.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">fluidPage</span>(<span class="fu">fluidRow</span>(<span class="fu">column</span>(<span class="dv">6</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">textInput</span>(<span class="st">"text_input"</span>,<span class="at">label=</span><span class="st">"textInput"</span>,<span class="at">value=</span><span class="st">"&lt;h3 style='color:red'&gt;Red text&lt;/h3&gt;"</span>),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>             <span class="fu">hr</span>(),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>             <span class="fu">htmlOutput</span>(<span class="st">"html_output"</span>),</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>             <span class="fu">textOutput</span>(<span class="st">"text_output"</span>),</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>             <span class="fu">verbatimTextOutput</span>(<span class="st">"verbatim_text_output"</span>),</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>             <span class="fu">tableOutput</span>(<span class="st">"table_output"</span>),</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>             <span class="fu">plotOutput</span>(<span class="st">"plot_output"</span>,<span class="at">width=</span><span class="st">"300px"</span>,<span class="at">height=</span><span class="st">"300px"</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      ))),</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input, output) {</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>html_output <span class="ot">&lt;-</span> <span class="fu">renderText</span>({input<span class="sc">$</span>text_input})</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>text_output <span class="ot">&lt;-</span> <span class="fu">renderText</span>({input<span class="sc">$</span>text_input})</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>verbatim_text_output <span class="ot">&lt;-</span> <span class="fu">renderText</span>({input<span class="sc">$</span>text_input})</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>table_output <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({iris[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]})</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>plot_output <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plot</span>(iris[,<span class="dv">1</span>],iris[,<span class="dv">2</span>])</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>},</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="at">options=</span><span class="fu">list</span>(<span class="at">height=</span><span class="dv">700</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><a href="assets/ui-widgets-output.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="assets/ui-widgets-output.webp" class="img-fluid"></a></p>
+<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
+#|   shinylive does not work in self-contained HTML documents.
+#|   Please set `embed-resources: false` in your metadata.
+#| label: ui-widgets-output
+#| standalone: true
+#| viewerHeight: 650
+#| components: [editor, viewer]
+shinyApp(
+  ui=fluidPage(fluidRow(column(6,
+             textInput("text_input",label="textInput",value="&lt;h3 style='color:red'&gt;Red text&lt;/h3&gt;"),
+             hr(),
+             htmlOutput("html_output"),
+             textOutput("text_output"),
+             verbatimTextOutput("verbatim_text_output"),
+             tableOutput("table_output"),
+             plotOutput("plot_output",width="300px",height="300px")
+      ))),
+  server=function(input, output) {
+    output$html_output &lt;- renderText({input$text_input})
+    output$text_output &lt;- renderText({input$text_input})
+    output$verbatim_text_output &lt;- renderText({input$text_input})
+    output$table_output &lt;- renderTable({iris[1:3,1:3]})
+    output$plot_output &lt;- renderPlot({
+      plot(iris[,1],iris[,2])
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
 <p>In this example, we have a text input box which takes user text and outputs it in three different variations. The first output is html output <code>htmlOutput()</code>. Since the default text is html content, the output is red colored text. A normal non-html text would just look like normal text. The second output is normal text output <code>textOutput()</code>. The third variation is <code>verbatimTextOutput()</code> which displays text in monospaced code style. This example further shows table output and plot output.</p>
 </section>
-<section id="dynamic-ui" class="level2" data-number="4">
+<section id="dynamic-ui" class="level2 page-columns page-full" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="dynamic-ui"><span class="header-section-number">4</span> Dynamic UI</h2>
 <p>Sometimes we want to add, remove or change currently loaded UI widgets conditionally based on dynamic changes in code execution or user input. Conditional UI can be defined using <code>conditionalPanel()</code>, <code>uiOutput()</code>/<code>renderUI()</code>, <code>insertUI()</code> or <code>removeUI</code>. In this example, we will use <code>uiOutput()</code>/<code>renderUI()</code>.</p>
 <p>In the example below, the output plot is displayed only if the selected dataset is <strong>iris</strong>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"data_input"</span>,<span class="at">label=</span><span class="st">"Select data"</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices=</span><span class="fu">c</span>(<span class="st">"mtcars"</span>,<span class="st">"faithful"</span>,<span class="st">"iris"</span>)),</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tableOutput</span>(<span class="st">"table_output"</span>),</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uiOutput</span>(<span class="st">"ui"</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="at">server=</span><span class="cf">function</span>(input,output) {</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  getdata <span class="ot">&lt;-</span> <span class="fu">reactive</span>({ <span class="fu">get</span>(input<span class="sc">$</span>data_input, <span class="st">'package:datasets'</span>) })</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>ui <span class="ot">&lt;-</span> <span class="fu">renderUI</span>({</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(input<span class="sc">$</span>data_input<span class="sc">==</span><span class="st">"iris"</span>) <span class="fu">plotOutput</span>(<span class="st">"plot_output"</span>,<span class="at">width=</span><span class="st">"400px"</span>)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>plot_output <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({<span class="fu">hist</span>(<span class="fu">getdata</span>()[, <span class="dv">1</span>])})</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>table_output <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({<span class="fu">head</span>(<span class="fu">getdata</span>())})</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="column-page">
+<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
+#|   shinylive does not work in self-contained HTML documents.
+#|   Please set `embed-resources: false` in your metadata.
+#| label: ui-dynamic
+#| standalone: true
+#| components: [editor, viewer]
+shinyApp(
+ui=fluidPage(
+  selectInput("data_input",label="Select data",
+              choices=c("mtcars","faithful","iris")),
+  tableOutput("table_output"),
+  uiOutput("ui")
+),
+
+server=function(input,output) {
+  getdata &lt;- reactive({ get(input$data_input, 'package:datasets') })
+  
+  output$ui &lt;- renderUI({
+    if(input$data_input=="iris") plotOutput("plot_output",width="400px")
+  })
+  
+  output$plot_output &lt;- renderPlot({hist(getdata()[, 1])})
+  output$table_output &lt;- renderTable({head(getdata())})
+})</code></pre>
 </div>
-<p><a href="assets/ui-dynamic.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="assets/ui-dynamic.webp" class="img-fluid"></a></p>
 <p>Here, conditional UI is used to selectively display an output widget (plot). Similarly, this idea can be used to selectively display any input or output widget.</p>
 </section>
-<section id="updating-widgets" class="level2" data-number="5">
+<section id="updating-widgets" class="level2 page-columns page-full" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="updating-widgets"><span class="header-section-number">5</span> Updating widgets</h2>
 <p>Widgets can be updated with new values dynamically. <code>observe()</code> and <code>observeEvent()</code> functions can monitor the values of interest and update relevant widgets.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"data_input"</span>,<span class="at">label=</span><span class="st">"Select data"</span>,<span class="at">choices=</span><span class="fu">c</span>(<span class="st">"mtcars"</span>,<span class="st">"faithful"</span>,<span class="st">"iris"</span>)),</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"header_input"</span>,<span class="at">label=</span><span class="st">"Select column name"</span>,<span class="at">choices=</span><span class="cn">NULL</span>),</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">"plot_output"</span>,<span class="at">width=</span><span class="st">"400px"</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">server=</span><span class="cf">function</span>(input,output,session) {</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  getdata <span class="ot">&lt;-</span> <span class="fu">reactive</span>({ <span class="fu">get</span>(input<span class="sc">$</span>data_input, <span class="st">'package:datasets'</span>) })</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observe</span>({</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">updateSelectInput</span>(session,<span class="st">"header_input"</span>,<span class="at">label=</span><span class="st">"Select column name"</span>,<span class="at">choices=</span><span class="fu">colnames</span>(<span class="fu">getdata</span>()))</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>plot_output <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">#shiny::req(input$header_input)</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">#validate(need(input$header_input %in% colnames(getdata()),message="Incorrect column name."))</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hist</span>(<span class="fu">getdata</span>()[, input<span class="sc">$</span>header_input],<span class="at">xlab=</span>input<span class="sc">$</span>header_input,<span class="at">main=</span>input<span class="sc">$</span>data_input)</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>},</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="at">options=</span><span class="fu">list</span>(<span class="at">height=</span><span class="dv">600</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="column-page">
+<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
+#|   shinylive does not work in self-contained HTML documents.
+#|   Please set `embed-resources: false` in your metadata.
+#| label: updating-widgets
+#| standalone: true
+#| components: [editor, viewer]
+shinyApp(
+ui=fluidPage(
+  selectInput("data_input",label="Select data",choices=c("mtcars","faithful","iris")),
+  selectInput("header_input",label="Select column name",choices=NULL),
+  plotOutput("plot_output",width="400px")
+),
+
+server=function(input,output,session) {
+  getdata &lt;- reactive({ get(input$data_input, 'package:datasets') })
+  
+  observe({
+    updateSelectInput(session,"header_input",label="Select column name",choices=colnames(getdata()))
+  })
+  
+  output$plot_output &lt;- renderPlot({
+    #shiny::req(input$header_input)
+    #validate(need(input$header_input %in% colnames(getdata()),message="Incorrect column name."))
+    hist(getdata()[, input$header_input],xlab=input$header_input,main=input$data_input)
+  })
+},
+options=list(height=600))
+
+
+
+</code></pre>
 </div>
-<p><a href="assets/ui-widgets-update.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="assets/ui-widgets-update.webp" class="img-fluid"></a></p>
 <p>In this example, the user selects a dataset and a column from the selected dataset to be plotted as a histogram. The column name selection widget must automatically update it’s choices depending on the selected dataset. This achieved using <code>observe()</code> where the <code>updateSelectInput()</code> function updates the selection choices. Notice that a third option <code>session</code> is in use in the server function. ie; <code>server=function(input,output,session)</code>. And <code>session</code> is also the first argument in <code>updateSelectInput()</code>. Session keeps track of values in the current session.</p>
 <p>When changing the datasets, we can see that there is a short red error message. This is because, after we have selected a new dataset, the old column name from the previous dataset is searched for in the new dataset. This occurs for a short time and causes the error. This can be fixed using careful error handling. We will discuss this in another section.</p>
 </section>
 <section id="isolate" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="isolate"><span class="header-section-number">6</span> Isolate</h2>
 <p>You might’ve noticed that shiny tends to update changes immediately as the input widgets change. This may not be desirable in all circumstances. For example, if the apps runs a heavy calculation, it is more efficient to grab all the changes and execute in one step rather than executing the heavy calculation after every input change. To illustrate this, we have an example below where we plot an image which has the title as input text. Try adding a long title to it.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">textInput</span>(<span class="st">"in_title"</span>,<span class="at">label=</span><span class="st">"Title"</span>,<span class="at">value=</span><span class="st">"Title"</span>),</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plotOutput</span>(<span class="st">"out_plot"</span>)),</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input,output) {</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>out_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plot</span>(iris[,<span class="dv">1</span>],iris[,<span class="dv">2</span>],<span class="at">main=</span>input<span class="sc">$</span>in_title)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><a href="assets/isolate-1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="assets/isolate-1.webp" class="img-fluid"></a></p>
+<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
+#|   shinylive does not work in self-contained HTML documents.
+#|   Please set `embed-resources: false` in your metadata.
+#| label: isolate-1
+#| standalone: true
+#| layout: vertical
+#| viewerHeight: 500
+#| components: [editor, viewer]
+shinyApp(
+  ui=fluidPage(
+    textInput("in_title",label="Title",value="Title"),
+    plotOutput("out_plot")),
+  
+  server=function(input,output) {
+    output$out_plot &lt;- renderPlot({
+      plot(iris[,1],iris[,2],main=input$in_title)
+    })
+  }
+)</code></pre>
 <p>The plot changes as soon as the input text field is changed. And as we type in text, the image is continuously being redrawn. This can be computationally intensive depending on the situation. A better solution would be to write the text completely without any reactivity and when done, let the app know that you are ready to redraw.</p>
 <p>We can add an action button such that the plot is changed only when the button is clicked.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">textInput</span>(<span class="st">"in_title"</span>,<span class="at">label=</span><span class="st">"Title"</span>,<span class="at">value=</span><span class="st">"Title"</span>),</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">actionButton</span>(<span class="st">"btn_go"</span>,<span class="st">"Go!"</span>),</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plotOutput</span>(<span class="st">"out_plot"</span>)),</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input,output) {</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>out_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>      input<span class="sc">$</span>btn_go</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plot</span>(iris[,<span class="dv">1</span>],iris[,<span class="dv">2</span>],<span class="at">main=</span><span class="fu">isolate</span>(input<span class="sc">$</span>in_title))</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><a href="assets/isolate-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="assets/isolate-2.webp" class="img-fluid"></a></p>
+<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
+#|   shinylive does not work in self-contained HTML documents.
+#|   Please set `embed-resources: false` in your metadata.
+#| label: isolate-2
+#| standalone: true
+#| layout: vertical
+#| viewerHeight: 550
+#| components: [editor, viewer]
+shinyApp(
+  ui=fluidPage(
+    textInput("in_title",label="Title",value="Title"),
+    actionButton("btn_go","Go!"),
+    plotOutput("out_plot")),
+  
+  server=function(input,output) {
+    output$out_plot &lt;- renderPlot({
+      input$btn_go
+      plot(iris[,1],iris[,2],main=isolate(input$in_title))
+    })
+  }
+)</code></pre>
 <p>Now, changes to any of the input fields do not initiate the plot function. The plot is redrawn only when the action button is clicked. When the action button is click, the current values in the input fields are collected and used in the plotting function.</p>
 </section>
-<section id="error-validation" class="level2" data-number="7">
+<section id="error-validation" class="level2 page-columns page-full" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="error-validation"><span class="header-section-number">7</span> Error validation</h2>
 <p>Shiny returns an error when a variable is NULL, NA or empty. This is similar to normal R operation. The errors show up as bright red text. By using careful error handling, we can print more informative and less distracting error messages. We also have the option of hiding error messages.</p>
 <div class="cell">
@@ -511,7 +596,7 @@ Note
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>},</span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="at">options=</span><span class="fu">list</span>(<span class="at">height=</span><span class="st">"350px"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/error-validation-1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="assets/error-validation-1.webp" class="img-fluid"></a></p>
+<p><a href="assets/error-validation-1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="assets/error-validation-1.webp" class="img-fluid"></a></p>
 <p>We can add an extra line to the above app so that the selected string is validated before running downstream commands in the <code>getdata({})</code> reactive function. The function <code>validate()</code> is used to validate inputs. <code>validate()</code> can be used with <code>need()</code> function or a custom function.</p>
 <p>Below we use the <code>need()</code> function to check the input. It checks if the input is NULL, NA or an empty string and returns a specified message if TRUE. <code>try()</code> is optional and is used to catch any other unexpected errors.</p>
 <div class="cell">
@@ -534,7 +619,7 @@ Note
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="at">options=</span><span class="fu">list</span>(<span class="at">height=</span><span class="st">"350px"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we see an informative gray message (less scary) asking the user to select a dataset.</p>
-<p><a href="assets/error-validation-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="assets/error-validation-2.webp" class="img-fluid"></a></p>
+<p><a href="assets/error-validation-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="assets/error-validation-2.webp" class="img-fluid"></a></p>
 <p>We can use a custom function instead of using <code>need()</code>. Below, we have created a function called <code>valfun()</code> that checks if the input is NULL, NA or an empty string. This is then used in <code>validate()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>valfn <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="cf">if</span>(<span class="fu">is.null</span>(x) <span class="sc">|</span> <span class="fu">is.na</span>(x) <span class="sc">|</span> x<span class="sc">==</span><span class="st">""</span>) <span class="fu">return</span>(<span class="st">"Input data is incorrect."</span>)</span>
@@ -557,7 +642,7 @@ Note
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>},</span>
 <span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="at">options=</span><span class="fu">list</span>(<span class="at">height=</span><span class="st">"350px"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/error-validation-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="assets/error-validation-3.webp" class="img-fluid"></a></p>
+<p><a href="assets/error-validation-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="assets/error-validation-3.webp" class="img-fluid"></a></p>
 <p>The last option is to simple hide the error. This may be used in situations where there is no input needed from the user. We use <code>req()</code> to check if the input is valid, else stop execution there till the condition becomes true.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
@@ -578,123 +663,141 @@ Note
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>},</span>
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="at">options=</span><span class="fu">list</span>(<span class="at">height=</span><span class="st">"350px"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/error-validation-4.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="assets/error-validation-4.webp" class="img-fluid"></a></p>
+<p><a href="assets/error-validation-4.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="assets/error-validation-4.webp" class="img-fluid"></a></p>
 <p>As expected there is no error or any message at all. This is not always the best to use this option as we need the user to do something. An informative message may be better than nothing.</p>
 <p>Finally, instead of printing messages about the error or hiding the error, we can try to resolve the errors from the previous section in a more robust manner. <code>shiny::req(input$header_input)</code> is added to ensure that a valid column name string is available before running any of the <code>renderPlot()</code> commands. Second, we add <code>validate(need(input$header_input %in% colnames(getdata()),message="Incorrect column name."))</code> to ensure that the column name is actually a column in the currently selected dataset.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"data_input"</span>,<span class="at">label=</span><span class="st">"Select data"</span>,<span class="at">choices=</span><span class="fu">c</span>(<span class="st">"mtcars"</span>,<span class="st">"faithful"</span>,<span class="st">"iris"</span>)),</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"header_input"</span>,<span class="at">label=</span><span class="st">"Select column name"</span>,<span class="at">choices=</span><span class="cn">NULL</span>),</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">"plot_output"</span>,<span class="at">width=</span><span class="st">"400px"</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="at">server=</span><span class="cf">function</span>(input,output,session) {</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  getdata <span class="ot">&lt;-</span> <span class="fu">reactive</span>({ <span class="fu">get</span>(input<span class="sc">$</span>data_input, <span class="st">'package:datasets'</span>) })</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observe</span>({</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">updateSelectInput</span>(session,<span class="st">"header_input"</span>,<span class="at">label=</span><span class="st">"Select column name"</span>,<span class="at">choices=</span><span class="fu">colnames</span>(<span class="fu">getdata</span>()))</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>plot_output <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    shiny<span class="sc">::</span><span class="fu">req</span>(input<span class="sc">$</span>header_input)</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">validate</span>(<span class="fu">need</span>(input<span class="sc">$</span>header_input <span class="sc">%in%</span> <span class="fu">colnames</span>(<span class="fu">getdata</span>()),<span class="at">message=</span><span class="st">"Incorrect column name."</span>))</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hist</span>(<span class="fu">getdata</span>()[, input<span class="sc">$</span>header_input],<span class="at">xlab=</span>input<span class="sc">$</span>header_input,<span class="at">main=</span>input<span class="sc">$</span>data_input)</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>},</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="at">options=</span><span class="fu">list</span>(<span class="at">height=</span><span class="dv">600</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="column-page">
+<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
+#|   shinylive does not work in self-contained HTML documents.
+#|   Please set `embed-resources: false` in your metadata.
+#| label: validation-5
+#| standalone: true
+#| components: [editor, viewer]
+shinyApp(
+ui=fluidPage(
+  selectInput("data_input",label="Select data",choices=c("mtcars","faithful","iris")),
+  selectInput("header_input",label="Select column name",choices=NULL),
+  plotOutput("plot_output",width="400px")
+),
+
+server=function(input,output,session) {
+  getdata &lt;- reactive({ get(input$data_input, 'package:datasets') })
+  
+  observe({
+    updateSelectInput(session,"header_input",label="Select column name",choices=colnames(getdata()))
+  })
+  
+  output$plot_output &lt;- renderPlot({
+    shiny::req(input$header_input)
+    validate(need(input$header_input %in% colnames(getdata()),message="Incorrect column name."))
+    hist(getdata()[, input$header_input],xlab=input$header_input,main=input$data_input)
+  })
+},
+options=list(height=600))
+
+
+
+</code></pre>
 </div>
-<p><a href="assets/error-validation-5.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="assets/error-validation-5.webp" class="img-fluid"></a></p>
 <p>Now, we do not see any error messages. Note that shiny apps on shinyapps.io do not display the complete regular R error message for security reasons. It returns a generic error message in the app. One needs to inspect the error logs to view the actual error message.</p>
 </section>
 <section id="download-data" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="download-data"><span class="header-section-number">8</span> Download • Data</h2>
 <p>It is often desirable to let the user down data tables and plots as images. This is done using <code>downloadHandler()</code>.</p>
 <p>In the example below, we are downloading a table as a csv text file. We define a button that accepts the action input from the user. The <code>downloadHandler()</code> function has the file name argument, and the content argument where we specify the <code>write.csv()</code> command. Note that this example needs to be opened in a browser and may not in the RStudio preview. In the RStudio preview, click on <strong>Open in Browser</strong>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">"data_input"</span>,<span class="at">label=</span><span class="st">"Select data"</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">choices=</span><span class="fu">c</span>(<span class="st">"mtcars"</span>,<span class="st">"faithful"</span>,<span class="st">"iris"</span>)),</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">textOutput</span>(<span class="st">"text_output"</span>),</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">downloadButton</span>(<span class="st">"button_download"</span>,<span class="st">"Download"</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input, output) {</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    getdata <span class="ot">&lt;-</span> <span class="fu">reactive</span>({ <span class="fu">get</span>(input<span class="sc">$</span>data_input, <span class="st">'package:datasets'</span>) })</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>text_output <span class="ot">&lt;-</span> <span class="fu">renderText</span>(<span class="fu">paste0</span>(<span class="st">"Selected dataset: "</span>,input<span class="sc">$</span>data_input))</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>button_download <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">filename =</span> <span class="cf">function</span>() {</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">paste0</span>(input<span class="sc">$</span>data_input,<span class="st">".csv"</span>)</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>      },</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">write.csv</span>(<span class="fu">getdata</span>(),file,<span class="at">row.names=</span><span class="cn">FALSE</span>,<span class="at">quote=</span>F)</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>      })</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  },</span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">options=</span><span class="fu">list</span>(<span class="at">height=</span><span class="st">"200px"</span>)</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><a href="assets/download-data.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="assets/download-data.webp" class="img-fluid"></a></p>
+<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
+#|   shinylive does not work in self-contained HTML documents.
+#|   Please set `embed-resources: false` in your metadata.
+#| label: download-data
+#| standalone: true
+#| layout: vertical
+#| components: [editor, viewer]
+shinyApp(
+  ui=fluidPage(
+    selectInput("data_input",label="Select data",
+                choices=c("mtcars","faithful","iris")),
+    textOutput("text_output"),
+    downloadButton("button_download","Download")
+  ),
+
+  server=function(input, output) {
+    
+    getdata &lt;- reactive({ get(input$data_input, 'package:datasets') })
+    output$text_output &lt;- renderText(paste0("Selected dataset: ",input$data_input))
+    
+    output$button_download &lt;- downloadHandler(
+      filename = function() {
+        paste0(input$data_input,".csv")
+      },
+      content = function(file) {
+        write.csv(getdata(),file,row.names=FALSE,quote=F)
+      })
+  },
+  options=list(height="200px")
+)</code></pre>
 </section>
-<section id="download-plot" class="level2" data-number="9">
+<section id="download-plot" class="level2 page-columns page-full" data-number="9">
 <h2 data-number="9" class="anchored" data-anchor-id="download-plot"><span class="header-section-number">9</span> Download • Plot</h2>
 <p>In this next example, we are downloading a plot. In the content part of <code>downloadHandler()</code>, we specify commands to export a PNG image. Note that this example needs to be opened in a browser and may not in the RStudio preview. In the RStudio preview, click on <strong>Open in Browser</strong>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">"data_input"</span>,<span class="at">label=</span><span class="st">"Select data"</span>,</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">choices=</span><span class="fu">c</span>(<span class="st">"mtcars"</span>,<span class="st">"faithful"</span>,<span class="st">"iris"</span>)),</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">textOutput</span>(<span class="st">"text_output"</span>),</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plotOutput</span>(<span class="st">"plot_output"</span>,<span class="at">height=</span><span class="st">"300px"</span>,<span class="at">width=</span><span class="st">"300px"</span>),</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">downloadButton</span>(<span class="st">"button_download"</span>,<span class="st">"Download"</span>)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input, output) {</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    getdata <span class="ot">&lt;-</span> <span class="fu">reactive</span>({ </span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get</span>(input<span class="sc">$</span>data_input, <span class="st">'package:datasets'</span>) </span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>text_output <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">paste0</span>(<span class="st">"Selected dataset: "</span>,input<span class="sc">$</span>data_input)</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>plot_output <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>      d <span class="ot">&lt;-</span> <span class="fu">getdata</span>()</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>      first_col <span class="ot">&lt;-</span> d[[<span class="dv">1</span>]]</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>      col_name <span class="ot">&lt;-</span> <span class="fu">names</span>(d)[<span class="dv">1</span>]</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">hist</span>(</span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>        first_col,</span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Histogram of"</span>, input<span class="sc">$</span>data_input),</span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> col_name</span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>button_download <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">filename =</span> <span class="cf">function</span>() {</span>
-<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>      <span class="fu">paste0</span>(input<span class="sc">$</span>data_input,<span class="st">".png"</span>)</span>
-<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
-<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>      d <span class="ot">&lt;-</span> <span class="fu">getdata</span>()</span>
-<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>      first_col <span class="ot">&lt;-</span> d[[<span class="dv">1</span>]]</span>
-<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>      col_name <span class="ot">&lt;-</span> <span class="fu">names</span>(d)[<span class="dv">1</span>]</span>
-<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>      <span class="fu">png</span>(file)</span>
-<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>      <span class="fu">hist</span>(</span>
-<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>        first_col,</span>
-<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Histogram of"</span>, input<span class="sc">$</span>data_input),</span>
-<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> col_name</span>
-<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>      <span class="fu">dev.off</span>()</span>
-<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>  },</span>
-<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>  <span class="at">options=</span><span class="fu">list</span>(<span class="at">height=</span><span class="st">"500px"</span>)</span>
-<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="column-page">
+<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
+#|   shinylive does not work in self-contained HTML documents.
+#|   Please set `embed-resources: false` in your metadata.
+#| label: download-plot
+#| standalone: true
+#| components: [editor, viewer]
+shinyApp(
+  ui=fluidPage(
+    selectInput("data_input",label="Select data",
+                choices=c("mtcars","faithful","iris")),
+    textOutput("text_output"),
+    plotOutput("plot_output",height="300px",width="300px"),
+    downloadButton("button_download","Download")
+  ),
+
+  server=function(input, output) {
+    
+    getdata &lt;- reactive({ 
+      get(input$data_input, 'package:datasets') 
+    })
+
+    output$text_output &lt;- renderText({
+      paste0("Selected dataset: ",input$data_input)
+    })
+    
+    output$plot_output &lt;- renderPlot({
+      d &lt;- getdata()
+      first_col &lt;- d[[1]]
+      col_name &lt;- names(d)[1]
+
+      hist(
+        first_col,
+        main = paste("Histogram of", input$data_input),
+        xlab = col_name
+      )
+    })
+  
+  output$button_download &lt;- downloadHandler(
+    filename = function() {
+      paste0(input$data_input,".png")
+    },
+    content = function(file) {
+      d &lt;- getdata()
+      first_col &lt;- d[[1]]
+      col_name &lt;- names(d)[1]
+
+      png(file)
+      hist(
+        first_col,
+        main = paste("Histogram of", input$data_input),
+        xlab = col_name
+      )
+      dev.off()
+    })
+  },
+  options=list(height="500px")
+)</code></pre>
 </div>
-<p><a href="assets/download-plot.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="assets/download-plot.webp" class="img-fluid"></a></p>
 </section>
 <section id="shinylive" class="level2" data-number="10">
 <h2 data-number="10" class="anchored" data-anchor-id="shinylive"><span class="header-section-number">10</span> Shinylive</h2>
@@ -711,7 +814,7 @@ Note
 <ul>
 <li>Not ready for production use. This is a nascent technology that is experimental and actively developed, therefore likely to be unstable</li>
 <li>Apps can be slow to very slow to load depending on complexity and how many packages need to be installed</li>
-<li>You cannot just install any R package. They need to be compiled specifically for WebR. Only the most popular packages are currently available</li>
+<li>You cannot just install any R package. They need to be compiled specifically for WebR. Only the most popular packages are currently available. To see a list of available packages, go to <a href="https://repo.r-wasm.org/">https://repo.r-wasm.org/</a>.</li>
 </ul>
 </section>
 <section id="interactive-documents" class="level2" data-number="11">
@@ -826,77 +929,26 @@ Note
 <span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
 <span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
 <span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
+#|   shinylive does not work in self-contained HTML documents.
+#|   Please set `embed-resources: false` in your metadata.
+#| label: shinylive-example
+#| standalone: true
+
+shinyApp(
+  ui=fluidPage(
+    sliderInput("value", label="Value", min=1, max=50, step=1, value=2),
+    textOutput("out")
+  ),
+  server=function(input, output, session) {
+    output$out &lt;- renderText(paste0("Squared: ",input$value^2))
+  }
+)</code></pre>
 <ul>
 <li>Chunk parameter <code>#| components: [editor, viewer]</code> shows the editor and viewer side by side</li>
 <li>Chunk parameter <code>#| layout: vertical</code> displays editor and viewer vertically</li>
 <li>Packages are installed using <code>webr::install()</code></li>
 </ul>
-<div class="sourceCode" id="cb24"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{shinylive-r}</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| standalone: true</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| components: [editor, viewer]</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| layout: vertical</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="in">#| viewerHeight: 450</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="in"># webr::install(c("ggplot2", "bslib", "palmerpenguins", "htmltools"))</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="in">library(htmltools)</span></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="in">library(bslib)</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="in">library(palmerpenguins)</span></span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="in">data("penguins")</span></span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="in">pdata &lt;- na.omit(penguins)</span></span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="in">pc &lt;- prcomp(pdata[,c("bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g")], center = TRUE, scale. = TRUE)</span></span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="in">dfr &lt;- cbind(pdata,as.data.frame(pc$x))</span></span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="in">ui &lt;- page_sidebar(</span></span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a><span class="in">  sidebar = sidebar(</span></span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a><span class="in">    selectInput("x",</span></span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="in">      label = "X axis",</span></span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="in">      choices = c("PC1","PC2","PC3","PC4"),</span></span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="in">      selected = "PC1"</span></span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a><span class="in">    selectInput("y",</span></span>
-<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a><span class="in">      label = "Y axis",</span></span>
-<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a><span class="in">      choices = c("PC1","PC2","PC3","PC4"),</span></span>
-<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a><span class="in">      selected = "PC2"</span></span>
-<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
-<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a><span class="in">    selectInput("v",</span></span>
-<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a><span class="in">      label = "Color",</span></span>
-<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a><span class="in">      choices = c("species", "island", "sex"),</span></span>
-<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a><span class="in">      selected = "cut"</span></span>
-<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
-<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a><span class="in">  ),</span></span>
-<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a><span class="in">  imageOutput("plot", height = "350px")</span></span>
-<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a><span class="in">server &lt;- function(input, output, session) {</span></span>
-<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
-<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a><span class="in">  output$plot &lt;- renderImage({</span></span>
-<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a><span class="in">    x &lt;- input$x</span></span>
-<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a><span class="in">    y &lt;- input$y</span></span>
-<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a><span class="in">    v &lt;- input$v</span></span>
-<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
-<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a><span class="in">    p &lt;- ggplot(dfr, aes(x = !!sym(x), y = !!sym(y), col = !!sym(v))) +</span></span>
-<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a><span class="in">      geom_point() +</span></span>
-<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a><span class="in">      theme_bw() + </span></span>
-<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a><span class="in">      theme(legend.position = "top")</span></span>
-<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a><span class="in">    file &lt;- htmltools::capturePlot(</span></span>
-<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a><span class="in">      print(p), </span></span>
-<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a><span class="in">      tempfile(fileext = ".svg"),</span></span>
-<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a><span class="in">      grDevices::svg,</span></span>
-<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a><span class="in">      width = 4, </span></span>
-<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a><span class="in">      height = 4</span></span>
-<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
-<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
-<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a><span class="in">    list(src = file)</span></span>
-<span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a><span class="in">  }, deleteFile = TRUE)</span></span>
-<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a><span class="in">app &lt;- shinyApp(ui = ui, server = server)</span></span>
-<span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Refer to the shinylive extension <a href="https://quarto-ext.github.io/shinylive/">documentation</a>.</p>
 </section>
 </section>
@@ -912,7 +964,7 @@ Note
 </ul>
 <p>The following R packages will be required for this app: <code>ggplot2</code>, <code>shiny</code>, <code>colourpicker</code>.</p>
 <p>Below is a preview of the complete app.</p>
-<p><a href="assets/ggplot-builder-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="assets/ggplot-builder-3.webp" class="img-fluid"></a></p>
+<p><a href="assets/ggplot-builder-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="assets/ggplot-builder-3.webp" class="img-fluid"></a></p>
 <p>We start with a shiny app template with sidebar layout.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
@@ -928,8 +980,6 @@ Note
 </div>
 <p>In the ui part, we will define inputs. Most of the inputs are colours, so we use the <code>colorInput()</code> widget from the R package <code>colorpicker</code>. The output plot is defined as <code>plotOutput("plot")</code>. In the server part, we define a <code>renderPlot()</code> function that generates a ggplot object.</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colourpicker)</span>
@@ -963,9 +1013,8 @@ Note
 <span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
-<p><a href="assets/ggplot-builder-1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="assets/ggplot-builder-1.webp" class="img-fluid"></a></p>
+<p><a href="assets/ggplot-builder-1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="assets/ggplot-builder-1.webp" class="img-fluid"></a></p>
 <p>The input widgets now need to be connected to the ggplot function.</p>
 <div class="cell">
 <details class="code-fold">
@@ -1015,12 +1064,10 @@ Note
 <span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><a href="assets/ggplot-builder-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="assets/ggplot-builder-2.webp" class="img-fluid"></a></p>
+<p><a href="assets/ggplot-builder-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="assets/ggplot-builder-2.webp" class="img-fluid"></a></p>
 <p>Now try changing the colours of plot elements and hopefully, it should change.</p>
 <p><i class="fa-solid fa-clipboard-list" aria-label="clipboard-list"></i> You can add more options to the input if you like, for example; rectangular elements such as backgrounds.</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colourpicker)</span>
@@ -1074,9 +1121,7 @@ Note
 <span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a>        })</span>
 <span id="cb28-52"><a href="#cb28-52" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
-<p><a href="assets/ggplot-builder-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="assets/ggplot-builder-3.webp" class="img-fluid"></a></p>
 </section>
 <section id="data-explorer" class="level2" data-number="13">
 <h2 data-number="13" class="anchored" data-anchor-id="data-explorer"><span class="header-section-number">13</span> Data explorer</h2>
@@ -1090,7 +1135,7 @@ Note
 </ul>
 <p>The following R packages will be required for this app: <code>ggplot2</code>, <code>shiny</code>.</p>
 <p>Below is a preview of the complete app.</p>
-<p><a href="assets/data-explorer-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="assets/data-explorer-2.webp" class="img-fluid"></a></p>
+<p><a href="assets/data-explorer-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="assets/data-explorer-2.webp" class="img-fluid"></a></p>
 <section id="ui" class="level3" data-number="13.1">
 <h3 data-number="13.1" class="anchored" data-anchor-id="ui"><span class="header-section-number">13.1</span> UI</h3>
 <p>We start with a standard shiny app template.</p>
@@ -1117,7 +1162,7 @@ Note
 <span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input,output){}</span>
 <span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/data-explorer-1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="assets/data-explorer-1.webp" class="img-fluid"></a></p>
+<p><a href="assets/data-explorer-1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="assets/data-explorer-1.webp" class="img-fluid"></a></p>
 <p>And to the sidebar, we will add 3 input widgets corresponding to x axis variable, y axis variable and color variable. These will be dropdown type (<code>selectInput()</code>) and choices will be column names of the iris dataframe. And we add the output widget (<code>plotOutput()</code>) in the main panel.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
@@ -1139,7 +1184,7 @@ Note
 <span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input,output){}</span>
 <span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/data-explorer-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="assets/data-explorer-2.webp" class="img-fluid"></a></p>
+<p><a href="assets/data-explorer-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="assets/data-explorer-2.webp" class="img-fluid"></a></p>
 </section>
 <section id="server" class="level3" data-number="13.2">
 <h3 data-number="13.2" class="anchored" data-anchor-id="server"><span class="header-section-number">13.2</span> Server</h3>
@@ -1189,7 +1234,7 @@ Note
 <span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/data-explorer-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="assets/data-explorer-3.webp" class="img-fluid"></a></p>
+<p><a href="assets/data-explorer-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="assets/data-explorer-3.webp" class="img-fluid"></a></p>
 <p>You can expand this app to other datasets and map more variables to ggplot etc. Can you add the functionality to <a href="https://shiny.rstudio.com/gallery/file-download.html">download the plots</a>? Or perhaps to <a href="https://shiny.rstudio.com/articles/upload.html">upload a csv file</a> and plot from that file?</p>
 </section>
 </section>
@@ -1204,7 +1249,7 @@ Note
 </ul>
 <p>The following R packages will be required for this app: <code>shiny</code>, <code>hues</code>, <code>bslib</code>.</p>
 <p>Below is a preview of the finished app.</p>
-<p><a href="assets/hues-4.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="assets/hues-4.webp" class="img-fluid"></a></p>
+<p><a href="assets/hues-4.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="assets/hues-4.webp" class="img-fluid"></a></p>
 <p>The core function that generates colors is <code>hues::iwanthue()</code>. What it does is sample colors from the HCL colorspace. <a href="https://colorspace.r-forge.r-project.org/articles/color_spaces.html">Here</a> is an introduction to colorspaces and HCL colorspace. It requires the number of colors to generate.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>hues<span class="sc">::</span><span class="fu">iwanthue</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1240,7 +1285,7 @@ Note
 <span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/hues-1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img src="assets/hues-1.webp" class="img-fluid"></a></p>
+<p><a href="assets/hues-1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="assets/hues-1.webp" class="img-fluid"></a></p>
 <p>Now we define the inputs in the sidebar panel. The number of colors and the three parameters to the colorspace as ranges. Outside the sidebar panel we define our two outputs: an html output to display the names of the colors as hex values. In the footer, we add an acknowledgement link to the hues package.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
@@ -1272,7 +1317,7 @@ Note
 <span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/hues-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img src="assets/hues-2.webp" class="img-fluid"></a></p>
+<p><a href="assets/hues-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="assets/hues-2.webp" class="img-fluid"></a></p>
 <p>Now, we add content into the server part. The inputs are passed to the <code>get_colours()</code> reactive function. This function is run inside the <code>renderText()</code> function which outputs the colors as hex values.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
@@ -1320,7 +1365,7 @@ Note
 <span id="cb42-43"><a href="#cb42-43" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb42-44"><a href="#cb42-44" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/hues-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img src="assets/hues-3.webp" class="img-fluid"></a></p>
+<p><a href="assets/hues-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="assets/hues-3.webp" class="img-fluid"></a></p>
 <p>The app will now generate colors as hex values, but we can’t see the colors. It would be nice to visualise the colors. One option would be to create a plot which is generating an image. An alternative lightweight option is to create div elements with the generated colors. For that we add an <code>htmlOutput()</code> element and a new <code>renderText()</code> function to the server part.</p>
 <p>This function is creating a span element for each color. These spans are organised inside a div. The div and spans have a parent-child relationship. The span elements are laid out in a grid manner using some custom CSS. The custom CSS is added to the head of the app. We have also added a bit of CSS to add some space above the app so it doesn’t touch the top.</p>
 <p><br></p>
@@ -1394,7 +1439,7 @@ Note
 <span id="cb43-67"><a href="#cb43-67" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb43-68"><a href="#cb43-68" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/hues-4.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img src="assets/hues-4.webp" class="img-fluid"></a></p>
+<p><a href="assets/hues-4.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="assets/hues-4.webp" class="img-fluid"></a></p>
 </section>
 <section id="rna-seq-power" class="level2" data-number="15">
 <h2 data-number="15" class="anchored" data-anchor-id="rna-seq-power"><span class="header-section-number">15</span> RNA-Seq power</h2>
@@ -1410,7 +1455,7 @@ Note
 </ul>
 <p>The following R packages are required for this app: <code>c(shiny, shinythemes)</code>. In addition, install <strong>RNASeqPower</strong> from Bioconductor. <code>BiocManager::install('RNASeqPower')</code>.</p>
 <p>Below is a preview of the complete app.</p>
-<p><a href="assets/rnaseq-power-preview.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img src="assets/rnaseq-power-preview.webp" class="img-fluid"></a></p>
+<p><a href="assets/rnaseq-power-preview.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="assets/rnaseq-power-preview.webp" class="img-fluid"></a></p>
 <section id="rnaseqpower" class="level3" data-number="15.1">
 <h3 data-number="15.1" class="anchored" data-anchor-id="rnaseqpower"><span class="header-section-number">15.1</span> RNASeqPower</h3>
 <p>The R package <strong>RNASeqPower</strong> helps users to perform a power analysis before running an RNA-Seq experiment. It helps you to estimate, for example, the number of samples required to detect a certain level of significance. The idea of this shiny app is to create a GUI for the RNASeqPower package.</p>
@@ -1438,31 +1483,35 @@ Note
 <h3 data-number="15.2" class="anchored" data-anchor-id="scaffolding"><span class="header-section-number">15.2</span> Scaffolding</h3>
 <p>Let’s build the basic scaffolding for our app including the input widgets. Let’s assume we are estimating number of samples.</p>
 <p>We use a sidebar layout. The input controls go on the sidebar panel and the output goes on the main panel. So we need 5 numeric inputs. We can set some default values as well as reasonable min and max values and steps to increase or decrease. The output will be verbatim text, so we use <code>verbatimTextOutput()</code> widget.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">titlePanel</span>(<span class="st">"RNA-Seq | Power analysis"</span>),</span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarLayout</span>(</span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sidebarPanel</span>(</span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>          <span class="fu">numericInput</span>(<span class="st">"in_pa_depth"</span>,<span class="st">"Sequencing depth"</span>,<span class="at">value=</span><span class="dv">100</span>,<span class="at">min=</span><span class="dv">1</span>,<span class="at">max=</span><span class="dv">1000</span>,<span class="at">step=</span><span class="dv">5</span>),</span>
-<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">numericInput</span>(<span class="st">"in_pa_cv"</span>,<span class="st">"Coefficient of variation"</span>,<span class="at">value=</span><span class="fl">0.4</span>,<span class="at">min=</span><span class="dv">0</span>,<span class="at">max=</span><span class="dv">1</span>,<span class="at">step=</span><span class="fl">0.1</span>),</span>
-<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">numericInput</span>(<span class="st">"in_pa_effect"</span>,<span class="st">"Effect"</span>,<span class="at">value=</span><span class="dv">2</span>,<span class="at">min=</span><span class="dv">0</span>,<span class="at">max=</span><span class="dv">10</span>,<span class="at">step=</span><span class="fl">0.1</span>),</span>
-<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>          <span class="fu">numericInput</span>(<span class="st">"in_pa_alpha"</span>,<span class="st">"Alpha"</span>,<span class="at">value=</span><span class="fl">0.05</span>,<span class="at">min=</span><span class="fl">0.01</span>,<span class="at">max=</span><span class="fl">0.1</span>,<span class="at">step=</span><span class="fl">0.01</span>),</span>
-<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>          <span class="fu">numericInput</span>(<span class="st">"in_pa_power"</span>,<span class="st">"Power"</span>,<span class="at">value=</span><span class="fl">0.8</span>,<span class="at">min=</span><span class="dv">0</span>,<span class="at">max=</span><span class="dv">1</span>,<span class="at">step=</span><span class="fl">0.1</span>),</span>
-<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mainPanel</span>(</span>
-<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>        <span class="fu">verbatimTextOutput</span>(<span class="st">"out_pa"</span>)</span>
-<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input,output){</span>
-<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a>  },</span>
-<span id="cb48-21"><a href="#cb48-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">options=</span><span class="fu">list</span>(<span class="at">height=</span><span class="st">"500px"</span>)</span>
-<span id="cb48-22"><a href="#cb48-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><a href="assets/rnaseqpower-1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-29"><img src="assets/rnaseqpower-1.webp" class="img-fluid"></a></p>
+<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
+#|   shinylive does not work in self-contained HTML documents.
+#|   Please set `embed-resources: false` in your metadata.
+#| label: rnaseqpower-scaffold
+#| standalone: true
+#| components: [editor, viewer]
+library(shiny)
+
+shinyApp(
+  ui=fluidPage(
+    titlePanel("RNA-Seq | Power analysis"),
+    sidebarLayout(
+      sidebarPanel(
+          numericInput("in_pa_depth","Sequencing depth",value=100,min=1,max=1000,step=5),
+          numericInput("in_pa_cv","Coefficient of variation",value=0.4,min=0,max=1,step=0.1),
+          numericInput("in_pa_effect","Effect",value=2,min=0,max=10,step=0.1),
+          numericInput("in_pa_alpha","Alpha",value=0.05,min=0.01,max=0.1,step=0.01),
+          numericInput("in_pa_power","Power",value=0.8,min=0,max=1,step=0.1),
+      ),
+      mainPanel(
+        verbatimTextOutput("out_pa")
+      )
+    )
+  ),
+  server=function(input,output){
+  },
+  options=list(height="500px")
+)</code></pre>
+<p>:::</p>
 <p>The app should visually look close to our final end result. Check that the widgets work.</p>
 <p>The next step is to wire up the inputs to the <code>rnapower()</code> function and return the result to the output text field.</p>
 <p><i class="fa-solid fa-clipboard-list" aria-label="clipboard-list"></i> Try to see if you can get this to work.</p>
@@ -1495,7 +1544,7 @@ Note
 <span id="cb49-26"><a href="#cb49-26" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb49-27"><a href="#cb49-27" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/rnaseqpower-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-30"><img src="assets/rnaseqpower-2.webp" class="img-fluid"></a></p>
+<p><a href="assets/rnaseqpower-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="assets/rnaseqpower-2.webp" class="img-fluid"></a></p>
 <p>Verify that the inputs and outputs work. One can stop at this point if you only need to compute number of samples. But, we will continue to enhance the app to be able to compute any of the other parameters.</p>
 </section>
 <section id="conditional-ui" class="level3" data-number="15.3">
@@ -1585,7 +1634,7 @@ Note
 <span id="cb50-80"><a href="#cb50-80" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb50-81"><a href="#cb50-81" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/rnaseqpower-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-31"><img src="assets/rnaseqpower-3.webp" class="img-fluid"></a></p>
+<p><a href="assets/rnaseqpower-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="assets/rnaseqpower-3.webp" class="img-fluid"></a></p>
 <p>Let’s summarize what we have done. In the <strong>ui</strong> part, instead of directly including the <code>rnapower()</code> input variable in the <code>sidebarPanel()</code>, we have added a selection input and a conditional UI output. The content inside the output UI depends on the selection made by the user.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">selectInput</span>(<span class="st">"in_pa_est"</span>, <span class="st">"Variable to estimate"</span>, <span class="at">choices=</span><span class="fu">c</span>(<span class="st">"n"</span>,<span class="st">"cv"</span>,<span class="st">"effect"</span>,<span class="st">"alpha"</span>,<span class="st">"power"</span>), <span class="at">selected=</span><span class="dv">1</span>, <span class="at">multiple=</span><span class="cn">FALSE</span>),</span>
@@ -1897,7 +1946,7 @@ Note
 <span id="cb63-73"><a href="#cb63-73" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb63-74"><a href="#cb63-74" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/rnaseqpower-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-32"><img src="assets/rnaseqpower-3.webp" class="img-fluid"></a></p>
+<p><a href="assets/rnaseqpower-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="assets/rnaseqpower-3.webp" class="img-fluid"></a></p>
 <p>We have added <code>validate()</code> to all incoming text to ensure that user input is within reasonable limits.</p>
 <p><i class="fa-solid fa-clipboard-list" aria-label="clipboard-list"></i> Test that the validation works by inputting unreasonable inputs such as alphabets, symbols etc into the input fields.</p>
 </section>
@@ -1983,7 +2032,7 @@ Note
 <span id="cb64-75"><a href="#cb64-75" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb64-76"><a href="#cb64-76" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/rnaseqpower-4.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-33"><img src="assets/rnaseqpower-4.webp" class="img-fluid"></a></p>
+<p><a href="assets/rnaseqpower-4.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="assets/rnaseqpower-4.webp" class="img-fluid"></a></p>
 <p>This is the completed app.</p>
 </section>
 <section id="deployment" class="level3" data-number="15.8">
@@ -2002,54 +2051,262 @@ Note
 <p>This completes this app tutorial. Hope you have enjoyed this build and learned something interesting along the way.</p>
 </section>
 </section>
-<section id="session" class="level2" data-number="16">
-<h2 data-number="16" class="anchored" data-anchor-id="session"><span class="header-section-number">16</span> Session</h2>
+<section id="chatbot" class="level2" data-number="16">
+<h2 data-number="16" class="anchored" data-anchor-id="chatbot"><span class="header-section-number">16</span> Chatbot</h2>
+<p>Create a simple chatbot with access to OpenAI LLM models.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An OpenAI API key is required to run this app.</p>
+</div>
+</div>
+<p><strong>Topics covered</strong></p>
+<ul>
+<li>UI layout using bslib</li>
+<li>Accessing API endpoints using httr package</li>
+<li>Using purrr to work with JSON lists</li>
+</ul>
+<p>The following R packages are required for this app: <code>c(shiny, bslib, httr2, purrr, glue)</code>.</p>
+<p>Below is a preview of the complete app.</p>
+<p><a href="assets/chatbot.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="assets/chatbot.webp" class="img-fluid"></a></p>
+<p>Create a file named <strong>.Renviron</strong> and enter the OpenAI API key in this format</p>
+<pre><code>OPENAI_API_KEY="sk-747hSgf64kjsdjaGJ4hD9Ge3lS8Dg"</code></pre>
+<section id="custom-functions" class="level3" data-number="16.1">
+<h3 data-number="16.1" class="anchored" data-anchor-id="custom-functions"><span class="header-section-number">16.1</span> Custom functions</h3>
+<p>We need to create a few custom functions to send HTTP requests to the OpenAI server to get a list of models and to send the chat prompts.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Get a list of available models from the OpenAI API</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param api_key OpenAI API key (default is taken from the environment variable</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return A character vector containing the names of available models</span></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>list_models <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">api_key =</span> <span class="fu">Sys.getenv</span>(<span class="st">"OPENAI_API_KEY"</span>)) {</span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Check if API key is available</span></span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (api_key <span class="sc">==</span> <span class="st">""</span>) {</span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">warning</span>(<span class="st">"API key is not set. Please set the OPENAI_API_KEY environment variable."</span>)</span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">"gpt-4.1-nano"</span>)</span>
+<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a>    base_url <span class="ot">&lt;-</span> <span class="st">"https://api.openai.com/v1"</span></span>
+<span id="cb68-12"><a href="#cb68-12" aria-hidden="true" tabindex="-1"></a>    resp <span class="ot">&lt;-</span> <span class="fu">request</span>(base_url) <span class="sc">|&gt;</span></span>
+<span id="cb68-13"><a href="#cb68-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">req_url_path_append</span>(<span class="st">"models"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb68-14"><a href="#cb68-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">req_auth_bearer_token</span>(<span class="at">token =</span> api_key) <span class="sc">|&gt;</span></span>
+<span id="cb68-15"><a href="#cb68-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">req_perform</span>()</span>
+<span id="cb68-16"><a href="#cb68-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-17"><a href="#cb68-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (resp<span class="sc">$</span>status_code <span class="sc">&gt;=</span> <span class="dv">400</span>) {</span>
+<span id="cb68-18"><a href="#cb68-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stop</span>(<span class="st">"Request failed with status code: "</span>, resp<span class="sc">$</span>status_code)</span>
+<span id="cb68-19"><a href="#cb68-19" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb68-20"><a href="#cb68-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-21"><a href="#cb68-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Remove simplifyVector = TRUE to preserve list structure</span></span>
+<span id="cb68-22"><a href="#cb68-22" aria-hidden="true" tabindex="-1"></a>    models_response <span class="ot">&lt;-</span> resp <span class="sc">|&gt;</span> <span class="fu">resp_body_json</span>()</span>
+<span id="cb68-23"><a href="#cb68-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-24"><a href="#cb68-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># return only models that start with "gpt-" or "o" and are not previews</span></span>
+<span id="cb68-25"><a href="#cb68-25" aria-hidden="true" tabindex="-1"></a>    models <span class="ot">&lt;-</span> models_response<span class="sc">$</span>data <span class="sc">|&gt;</span></span>
+<span id="cb68-26"><a href="#cb68-26" aria-hidden="true" tabindex="-1"></a>      purrr<span class="sc">::</span><span class="fu">keep</span>(<span class="sc">~</span> <span class="fu">grepl</span>(<span class="st">"^gpt-[0-9]+|^o[0-9]+"</span>, .x<span class="sc">$</span>id) <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"preview"</span>, .x<span class="sc">$</span>id)) <span class="sc">|&gt;</span></span>
+<span id="cb68-27"><a href="#cb68-27" aria-hidden="true" tabindex="-1"></a>      purrr<span class="sc">::</span><span class="fu">map_chr</span>(<span class="st">"id"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb68-28"><a href="#cb68-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sort</span>()</span>
+<span id="cb68-29"><a href="#cb68-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-30"><a href="#cb68-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(models)  </span>
+<span id="cb68-31"><a href="#cb68-31" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb68-32"><a href="#cb68-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb68-33"><a href="#cb68-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-34"><a href="#cb68-34" aria-hidden="true" tabindex="-1"></a><span class="co">#' Send API request to OpenAI</span></span>
+<span id="cb68-35"><a href="#cb68-35" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param user_prompt A character string containing the user's prompt</span></span>
+<span id="cb68-36"><a href="#cb68-36" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param model The model to use for the chat (default is "gpt-4.1-nano")</span></span>
+<span id="cb68-37"><a href="#cb68-37" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param history A list containing the chat history</span></span>
+<span id="cb68-38"><a href="#cb68-38" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param system_prompt System prompt to guide the AI's responses</span></span>
+<span id="cb68-39"><a href="#cb68-39" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param api_key OpenAI API key</span></span>
+<span id="cb68-40"><a href="#cb68-40" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return A character string with OpenAI's response</span></span>
+<span id="cb68-41"><a href="#cb68-41" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb68-42"><a href="#cb68-42" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="cf">function</span>(user_prompt, <span class="at">model =</span> <span class="st">"gpt-4.1-nano"</span>, <span class="at">history =</span> <span class="cn">NULL</span>, <span class="at">system_prompt =</span> <span class="st">"You are a helpful assitant."</span>, <span class="at">api_key =</span> <span class="fu">Sys.getenv</span>(<span class="st">"OPENAI_API_KEY"</span>)) {</span>
+<span id="cb68-43"><a href="#cb68-43" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Check if API key is available</span></span>
+<span id="cb68-44"><a href="#cb68-44" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (api_key <span class="sc">==</span> <span class="st">""</span>) {</span>
+<span id="cb68-45"><a href="#cb68-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"API key is not set. Please set the OPENAI_API_KEY environment variable."</span>)</span>
+<span id="cb68-46"><a href="#cb68-46" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb68-47"><a href="#cb68-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-48"><a href="#cb68-48" aria-hidden="true" tabindex="-1"></a>  prompt <span class="ot">&lt;-</span> <span class="fu">prepare_prompt</span>(user_prompt, system_prompt, history)</span>
+<span id="cb68-49"><a href="#cb68-49" aria-hidden="true" tabindex="-1"></a>  base_url <span class="ot">&lt;-</span> <span class="st">"https://api.openai.com/v1"</span></span>
+<span id="cb68-50"><a href="#cb68-50" aria-hidden="true" tabindex="-1"></a>  body <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">model =</span> model, <span class="at">messages =</span> prompt)</span>
+<span id="cb68-51"><a href="#cb68-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-52"><a href="#cb68-52" aria-hidden="true" tabindex="-1"></a>  resp <span class="ot">&lt;-</span> <span class="fu">request</span>(base_url) <span class="sc">|&gt;</span></span>
+<span id="cb68-53"><a href="#cb68-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_url_path_append</span>(<span class="st">"chat/completions"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb68-54"><a href="#cb68-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_auth_bearer_token</span>(<span class="at">token =</span> api_key) <span class="sc">|&gt;</span></span>
+<span id="cb68-55"><a href="#cb68-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_headers</span>(<span class="st">"Content-Type"</span> <span class="ot">=</span> <span class="st">"application/json"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb68-56"><a href="#cb68-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_body_json</span>(body) <span class="sc">|&gt;</span></span>
+<span id="cb68-57"><a href="#cb68-57" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_retry</span>(<span class="at">max_tries =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span></span>
+<span id="cb68-58"><a href="#cb68-58" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_throttle</span>(<span class="at">rate =</span> <span class="dv">15</span>) <span class="sc">|&gt;</span></span>
+<span id="cb68-59"><a href="#cb68-59" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req_perform</span>()</span>
+<span id="cb68-60"><a href="#cb68-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-61"><a href="#cb68-61" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (resp<span class="sc">$</span>status_code <span class="sc">&gt;=</span> <span class="dv">400</span>) {</span>
+<span id="cb68-62"><a href="#cb68-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Request failed with status code: "</span>, resp<span class="sc">$</span>status_code)</span>
+<span id="cb68-63"><a href="#cb68-63" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb68-64"><a href="#cb68-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-65"><a href="#cb68-65" aria-hidden="true" tabindex="-1"></a>  openai_chat_response <span class="ot">&lt;-</span> resp <span class="sc">|&gt;</span> <span class="fu">resp_body_json</span>(<span class="at">simplifyVector =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb68-66"><a href="#cb68-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-67"><a href="#cb68-67" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Check for expected response structure before accessing its content</span></span>
+<span id="cb68-68"><a href="#cb68-68" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(openai_chat_response<span class="sc">$</span>choices) <span class="sc">&amp;&amp;</span> <span class="fu">length</span>(openai_chat_response<span class="sc">$</span>choices) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb68-69"><a href="#cb68-69" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(openai_chat_response<span class="sc">$</span>choices<span class="sc">$</span>message<span class="sc">$</span>content)</span>
+<span id="cb68-70"><a href="#cb68-70" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb68-71"><a href="#cb68-71" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Unexpected response structure: "</span>, openai_chat_response)</span>
+<span id="cb68-72"><a href="#cb68-72" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb68-73"><a href="#cb68-73" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We have two more functions to format the prompts:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Prepare the prompt to be sent to the OpenAI API</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param user_prompt A character string with the user's prompt</span></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param system_prompt A character string with the system prompt</span></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param history A list containing the chat history</span></span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return A list containing the full prompt</span></span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>prepare_prompt <span class="ot">&lt;-</span> <span class="cf">function</span>(user_prompt, <span class="at">system_prompt =</span> <span class="st">"You are a helpful assitant."</span>, <span class="at">history =</span> <span class="cn">NULL</span>) {</span>
+<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>  user_prompt <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="at">role =</span> <span class="st">"user"</span>, <span class="at">content =</span> user_prompt))</span>
+<span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a>  sys_prompt <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="at">role =</span> <span class="st">"system"</span>, <span class="at">content =</span> system_prompt))</span>
+<span id="cb69-10"><a href="#cb69-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(sys_prompt, history, user_prompt) <span class="sc">|&gt;</span> purrr<span class="sc">::</span><span class="fu">compact</span>()</span>
+<span id="cb69-11"><a href="#cb69-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb69-12"><a href="#cb69-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-13"><a href="#cb69-13" aria-hidden="true" tabindex="-1"></a><span class="co">#' Update the chat history with the latest user prompt and response</span></span>
+<span id="cb69-14"><a href="#cb69-14" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param history A list containing the existing chat history</span></span>
+<span id="cb69-15"><a href="#cb69-15" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param user_prompt The latest prompt from the user</span></span>
+<span id="cb69-16"><a href="#cb69-16" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param response The response from the OpenAI API</span></span>
+<span id="cb69-17"><a href="#cb69-17" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return An updated list containing the new chat history</span></span>
+<span id="cb69-18"><a href="#cb69-18" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb69-19"><a href="#cb69-19" aria-hidden="true" tabindex="-1"></a>update_history <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">history =</span> <span class="cn">NULL</span>, user_prompt, response) {</span>
+<span id="cb69-20"><a href="#cb69-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(</span>
+<span id="cb69-21"><a href="#cb69-21" aria-hidden="true" tabindex="-1"></a>    history,</span>
+<span id="cb69-22"><a href="#cb69-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(</span>
+<span id="cb69-23"><a href="#cb69-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(<span class="at">role =</span> <span class="st">"user"</span>, <span class="at">content =</span> user_prompt),</span>
+<span id="cb69-24"><a href="#cb69-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(<span class="at">role =</span> <span class="st">"assistant"</span>, <span class="at">content =</span> response)</span>
+<span id="cb69-25"><a href="#cb69-25" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb69-26"><a href="#cb69-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> purrr<span class="sc">::</span><span class="fu">compact</span>()</span>
+<span id="cb69-27"><a href="#cb69-27" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Add these functions to a file named <strong>functions.r</strong>.</p>
+</section>
+<section id="app" class="level3" data-number="16.2">
+<h3 data-number="16.2" class="anchored" data-anchor-id="app"><span class="header-section-number">16.2</span> App</h3>
+<p>Then, create a file named <strong>app.r</strong> and add the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bslib)</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr2)</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"functions.r"</span>)</span>
+<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list_models</span>()</span>
+<span id="cb70-10"><a href="#cb70-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-11"><a href="#cb70-11" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">page_sidebar</span>(</span>
+<span id="cb70-12"><a href="#cb70-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Chatbot"</span>,</span>
+<span id="cb70-13"><a href="#cb70-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">theme =</span> <span class="fu">bs_theme</span>(<span class="at">bootswatch =</span> <span class="st">"zephyr"</span>),</span>
+<span id="cb70-14"><a href="#cb70-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">sidebar =</span> <span class="fu">sidebar</span>(</span>
+<span id="cb70-15"><a href="#cb70-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">open =</span> <span class="st">"closed"</span>,</span>
+<span id="cb70-16"><a href="#cb70-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">"model"</span>, <span class="st">"Model"</span>, <span class="at">choices =</span> models, <span class="at">selected =</span> <span class="st">"gpt-4.1-nano"</span>),</span>
+<span id="cb70-17"><a href="#cb70-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">textAreaInput</span>(<span class="st">"system_prompt"</span>, <span class="st">"System prompt"</span>, <span class="at">value =</span> <span class="st">"You are a helpful assistant."</span>),</span>
+<span id="cb70-18"><a href="#cb70-18" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb70-19"><a href="#cb70-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout_columns</span>(</span>
+<span id="cb70-20"><a href="#cb70-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb70-21"><a href="#cb70-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_widths =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">2</span>),</span>
+<span id="cb70-22"><a href="#cb70-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">textAreaInput</span>(<span class="st">"prompt"</span>, <span class="cn">NULL</span>),</span>
+<span id="cb70-23"><a href="#cb70-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">actionButton</span>(<span class="st">"chat"</span>, <span class="cn">NULL</span>, <span class="at">icon =</span> <span class="fu">icon</span>(<span class="st">"paper-plane"</span>), <span class="at">width =</span> <span class="st">"75px"</span>, <span class="at">class =</span> <span class="st">"m-2 btn-secondary"</span>)</span>
+<span id="cb70-24"><a href="#cb70-24" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb70-25"><a href="#cb70-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uiOutput</span>(<span class="st">"chat_history"</span>)</span>
+<span id="cb70-26"><a href="#cb70-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb70-27"><a href="#cb70-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-28"><a href="#cb70-28" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb70-29"><a href="#cb70-29" aria-hidden="true" tabindex="-1"></a>  rv <span class="ot">&lt;-</span> <span class="fu">reactiveValues</span>()</span>
+<span id="cb70-30"><a href="#cb70-30" aria-hidden="true" tabindex="-1"></a>  rv<span class="sc">$</span>chat_history <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb70-31"><a href="#cb70-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observe</span>({</span>
+<span id="cb70-32"><a href="#cb70-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req</span>(input<span class="sc">$</span>prompt <span class="sc">!=</span> <span class="st">""</span>)</span>
+<span id="cb70-33"><a href="#cb70-33" aria-hidden="true" tabindex="-1"></a>    response <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="at">user_prompt =</span> input<span class="sc">$</span>prompt, <span class="at">system_prompt =</span> input<span class="sc">$</span>system_prompt, <span class="at">history =</span> rv<span class="sc">$</span>chat_history)</span>
+<span id="cb70-34"><a href="#cb70-34" aria-hidden="true" tabindex="-1"></a>    rv<span class="sc">$</span>chat_history <span class="ot">&lt;-</span> <span class="fu">update_history</span>(<span class="at">history =</span> rv<span class="sc">$</span>chat_history, <span class="at">user_prompt =</span> input<span class="sc">$</span>prompt, <span class="at">response =</span> response)</span>
+<span id="cb70-35"><a href="#cb70-35" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>chat_history <span class="ot">&lt;-</span> <span class="fu">renderUI</span>(</span>
+<span id="cb70-36"><a href="#cb70-36" aria-hidden="true" tabindex="-1"></a>      <span class="fu">map</span>(<span class="fu">rev</span>(rv<span class="sc">$</span>chat_history), \(x) <span class="fu">markdown</span>(<span class="fu">glue</span>(<span class="st">"**{x$role}**: {x$content}"</span>)))</span>
+<span id="cb70-37"><a href="#cb70-37" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb70-38"><a href="#cb70-38" aria-hidden="true" tabindex="-1"></a>  }) <span class="sc">|&gt;</span> <span class="fu">bindEvent</span>(input<span class="sc">$</span>chat)</span>
+<span id="cb70-39"><a href="#cb70-39" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb70-40"><a href="#cb70-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-41"><a href="#cb70-41" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When a user enters a prompt, the <strong>httr</strong> functions are used to send and receive requests from the OpenAI API endpoint. The <strong>purrr</strong> functions are used to massage the JSON response which is then displayed. Upon entering the next prompt, the new prompt and the old chat history are all together send to the API. Feel free to breakdown the script to understand it better.</p>
+<p>The OpenAI API reference documentation can be found <a href="https://platform.openai.com/docs/api-reference/introduction">here</a>.</p>
+<p>Do you have any ideas to improve this app? Do you have more features that you would like to add to this app?</p>
+</section>
+</section>
+<section id="session" class="level2" data-number="17">
+<h2 data-number="17" class="anchored" data-anchor-id="session"><span class="header-section-number">17</span> Session</h2>
 <details>
 <summary>
 Click here
 </summary>
+<section id="shinylive-1" class="level3" data-number="17.1">
+<h3 data-number="17.1" class="anchored" data-anchor-id="shinylive-1"><span class="header-section-number">17.1</span> Shinylive</h3>
+<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
+#|   shinylive does not work in self-contained HTML documents.
+#|   Please set `embed-resources: false` in your metadata.
+#| label: session-info-shinylive
+#| standalone: true
+shinyApp(
+  ui=fluidPage(
+    verbatimTextOutput("session")
+  ),
+  server=function(input, output, session) {
+    output$session &lt;- renderPrint(
+      sessionInfo()
+    )
+  }
+)</code></pre>
+</section>
+<section id="r" class="level3" data-number="17.2">
+<h3 data-number="17.2" class="anchored" data-anchor-id="r"><span class="header-section-number">17.2</span> R</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.4.3 (2025-02-28)
-Platform: x86_64-pc-linux-gnu
-Running under: Ubuntu 24.04.2 LTS
+<pre><code>R version 4.3.2 (2023-10-31)
+Platform: x86_64-conda-linux-gnu (64-bit)
+Running under: Zorin OS 16.3
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
-LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0
+BLAS/LAPACK: /home/roy/miniconda3/envs/r-4.3/lib/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [1] LC_CTYPE=en_GB.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_GB.UTF-8        LC_COLLATE=en_GB.UTF-8    
+ [5] LC_MONETARY=en_GB.UTF-8    LC_MESSAGES=en_GB.UTF-8   
+ [7] LC_PAPER=en_GB.UTF-8       LC_NAME=C                 
  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+[11] LC_MEASUREMENT=en_GB.UTF-8 LC_IDENTIFICATION=C       
 
-time zone: Etc/UTC
+time zone: Europe/Stockholm
 tzcode source: system (glibc)
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] RNASeqPower_1.46.0 shiny_1.10.0      
+[1] RNASeqPower_1.42.0 shiny_1.10.0      
 
 loaded via a namespace (and not attached):
  [1] digest_0.6.37     later_1.4.2       R6_2.6.1          httpuv_1.6.16    
  [5] fastmap_1.2.0     xfun_0.52         hues_0.2.0        magrittr_2.0.3   
  [9] knitr_1.50        htmltools_0.5.8.1 rmarkdown_2.29    lifecycle_1.0.4  
-[13] promises_1.3.2    cli_3.6.5         xtable_1.8-4      compiler_4.4.3   
-[17] tools_4.4.3       mime_0.13         evaluate_1.0.3    colorspace_2.1-1 
+[13] promises_1.3.3    cli_3.6.5         xtable_1.8-4      compiler_4.3.2   
+[17] tools_4.3.2       mime_0.13         evaluate_1.0.3    colorspace_2.1-1 
 [21] Rcpp_1.0.14       yaml_2.3.10       rlang_1.1.6       jsonlite_2.0.0   
 [25] htmlwidgets_1.6.4</code></pre>
 </div>
 </div>
-</details>
+</section></details>
 
 
 </section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -2087,7 +2344,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2119,47 +2387,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/nbisweden\.github\.io\/raukr-2025\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -2194,11 +2422,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -2515,48 +2739,41 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>2025 NBIS • CC BY-NC-SA 4.0</p>
+<p>2025 NBIS • <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>Published with <a href="https://quarto.org/">Quarto</a> v1.5.57
+<p>Published with <a href="https://quarto.org/">Quarto</a> v1.4.549
 </p>
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
         }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
       }
-    });
-  
-  };
-  
-})();
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
           </script>
 
 

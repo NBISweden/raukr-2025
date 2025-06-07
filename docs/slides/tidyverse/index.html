@@ -551,13 +551,13 @@
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       V1                 V2           
- Min.   :-1.63674   Min.   :-1.329380  
- 1st Qu.:-0.35457   1st Qu.:-0.853494  
- Median : 0.07408   Median :-0.086767  
- Mean   : 0.29641   Mean   :-0.004127  
- 3rd Qu.: 0.80453   3rd Qu.: 0.528120  
- Max.   : 2.27459   Max.   : 2.079340  </code></pre>
+<pre><code>       V1                V2         
+ Min.   :-1.9510   Min.   :-2.1379  
+ 1st Qu.:-0.5215   1st Qu.:-1.0088  
+ Median :-0.1242   Median :-0.5758  
+ Mean   :-0.0370   Mean   :-0.3462  
+ 3rd Qu.: 1.0108   3rd Qu.: 0.6743  
+ Max.   : 1.6850   Max.   : 1.2088  </code></pre>
 </div>
 </div>
 </div></div>
@@ -586,12 +586,12 @@
 </section>
 <section id="other-types-of-magrittr-pipes-1" class="slide level2">
 <h2>Other Types of <code>magrittr</code> Pipes — %&lt;&gt;%</h2>
-<p>It exists but can lead to somewhat confusing code! ☠️</p>
+<p>It exists but can lead to somewhat confusing code! ⚡</p>
 <p><code>x %&lt;&gt;% f</code> <span class="math inline">\(\equiv\)</span> <code>x &lt;- f(x)</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">16</span>), <span class="at">nrow=</span><span class="dv">4</span>); M <span class="sc">%&lt;&gt;%</span> <span class="fu">colSums</span>(); M</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.5143947  0.4404157  0.3583505  6.8704424</code></pre>
+<pre><code>[1]  0.5777080  0.7659219  2.7420588 -1.8361519</code></pre>
 </div>
 </div>
 </section>
@@ -606,7 +606,7 @@
 </div>
 <div class="fragment">
 <hr>
-<p>even simple placeholder <code>_</code> is available now. But ⚡ only for <strong>named</strong> arguments.</p>
+<p>even simple placeholder <code>_</code> is available now. But ☠️ only for <strong>named</strong> arguments.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>mtcars <span class="sc">|&gt;</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> disp, <span class="at">data =</span> _)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -634,8 +634,8 @@ Coefficients:
 <span id="cb18-2"><a></a>M <span class="sc">%&gt;%</span> <span class="st">`</span><span class="at">%*%</span><span class="st">`</span>(., .)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           [,1]        [,2]
-[1,]  0.5362651 -0.02363969
-[2,] -0.7874096  0.11906927</code></pre>
+[1,] -0.3895179 -1.06043896
+[2,]  0.2014379 -0.02800385</code></pre>
 </div>
 </div>
 </div>
@@ -734,18 +734,18 @@ Use 'functions' to extract the individual functions. </code></pre>
 <span id="cb28-6"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 50 × 4
-       x     y     z outcome
-   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
- 1     1 0.215  1.05   1.37 
- 2     1 0.789  1.62   0.807
- 3     1 0.151  1.02   1.67 
- 4     1 0.772  1.60  -0.197
- 5     1 0.177  1.03  -0.600
- 6     1 0.634  1.40  -0.132
- 7     1 0.960  1.92   0.803
- 8     1 0.758  1.57  -0.365
- 9     1 0.454  1.21   0.238
-10     1 0.864  1.75  -1.99 
+       x      y     z outcome
+   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+ 1     1 0.143   1.02   0.233
+ 2     1 0.536   1.29   0.406
+ 3     1 0.124   1.02   0.526
+ 4     1 0.112   1.01  -1.01 
+ 5     1 0.865   1.75  -0.984
+ 6     1 0.0775  1.01   0.322
+ 7     1 0.388   1.15   1.00 
+ 8     1 0.532   1.28  -0.812
+ 9     1 0.241   1.06   1.60 
+10     1 0.301   1.09  -1.87 
 # ℹ 40 more rows</code></pre>
 </div>
 </div>
@@ -1053,7 +1053,7 @@ Levels: mountains swamps seaside</code></pre>
 <p><strong>Caution</strong></p>
 </div>
 <div class="callout-content">
-<p>⛵ Be careful with floating point comparisons!<br>
+<p>🛥 Be careful with floating point comparisons!<br>
 ☠️ Also, rows with comparison resulting in <code>NA</code> are skipped by default!</p>
 </div>
 </div>
@@ -1508,11 +1508,11 @@ Levels: mountains swamps seaside</code></pre>
 <pre><code># A tibble: 5 × 3
   cut     `2008` `2009`
   &lt;ord&gt;    &lt;int&gt;  &lt;dbl&gt;
-1 Ideal      326    328
-2 Premium    326    328
-3 Good       327    329
-4 Premium    334    336
-5 Good       335    337</code></pre>
+1 Ideal      326    327
+2 Premium    326    327
+3 Good       327    328
+4 Premium    334    335
+5 Good       335    336</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -1525,9 +1525,9 @@ Levels: mountains swamps seaside</code></pre>
   cut     year  price
   &lt;ord&gt;   &lt;chr&gt; &lt;dbl&gt;
 1 Ideal   2008    326
-2 Ideal   2009    328
+2 Ideal   2009    327
 3 Premium 2008    326
-4 Premium 2009    328
+4 Premium 2009    327
 5 Good    2008    327</code></pre>
 </div>
 </div>
@@ -1666,11 +1666,11 @@ Levels: mountains swamps seaside</code></pre>
   &lt;ord&gt;     &lt;chr&gt;     &lt;ord&gt;   &lt;int&gt;
 1 Fair      Aus       &lt;NA&gt;       NA
 2 Fair      Eur       &lt;NA&gt;       NA
-3 Good      Aus       VS1       327
-4 Good      Aus       SI2       335
-5 Good      Eur       &lt;NA&gt;       NA
-6 Very Good Aus       &lt;NA&gt;       NA
-7 Very Good Eur       VVS2      336</code></pre>
+3 Good      Aus       &lt;NA&gt;       NA
+4 Good      Eur       VS1       327
+5 Good      Eur       SI2       335
+6 Very Good Aus       VVS2      336
+7 Very Good Eur       &lt;NA&gt;       NA</code></pre>
 </div>
 </div>
 </div>
