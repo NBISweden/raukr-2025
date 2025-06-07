@@ -18,7 +18,7 @@ execute:
 |---------------------------------------|---------------------------------------|-----|
 |[WEEK 1]{.badge .badge-primary}                                          |||
 |[09-Jun-2025 (Mon)]{.badge .badge-secondary}                               |||
-|Introduction to RaukR                  |Marcin Kierczak, Sebastian DiLorenzo   ||
+|Welcome                                |Marcin Kierczak, Sebastian DiLorenzo   |[Slides](slides/welcome/index.html)|
 |Best Coding Practices in R             |Marcin Kierczak, Sebastian DiLorenzo   |[Slides](slides/coding/index.html), [Lab](labs/coding/index.html)|
 |Project environments using Renv        |Roy Francis                            |[Slides](slides/r-env/index.html)|
 |Debugging, Profiling and Optimization  |Marcin Kierczak                        |[Slides](slides/debugging/index.html), [Lab](labs/debugging/index.html)|
