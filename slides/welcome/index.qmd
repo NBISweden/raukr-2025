@@ -1,0 +1,106 @@
+---
+title: "Welcome to RaukR"
+author: "Marcin Kierczak, Sebastian DiLorenzo, Roy Francis"
+date: "09-June-2025"
+image: "assets/featured.webp"
+format: revealjs
+---
+
+## Venue {background-image="assets/campus.webp"}  
+
+::: {.incremental}
+- Entrances/Exits
+- Classrooms
+- Alternate classrooms
+- Restaurant
+- Fire exit
+- Toilets
+:::
+
+## Social activities {background-image="assets/michael-odelberth-uQR7YByRHWk-unsplash-1.webp"}
+
+::: {.fragment}
+
+#### Walking tour
+
+- Date?, Time?  
+- Location?
+
+:::
+::: {.fragment}
+
+#### BBQ
+
+- Organized by students
+- Depends on the weather
+
+:::
+
+## Course Dinner
+
+![](assets/kapitalhusgarden.webp)  
+
+[S:t Drottensgatan 8, 621 56 Visby](https://maps.app.goo.gl/RbvFqZktmTKJtuc48)  
+14th June (Sat) at 18:00  
+
+## Excursion {background-image="assets/casper-van-battum-3eOMkWeWVUc-unsplash.webp"}  
+
+::: {style="background-color:#f8f9f9;padding:10px;border-radius:8px;opacity:0.85;"}
+- Bus trip to När & Ljugarn
+- 15th June (Sun) from 09:15 - 18:00
+- Leaving from Fenomenalen ([Skeppsbron 4, 621 57 Visby](https://maps.app.goo.gl/uBYS5n8eHVDsjQdJA))  
+- Back to Visby at 18:00  
+:::
+
+## Instagram
+
+![](assets/insta.webp)
+
+Instagram: [**raukr_nbis**]{.badge}  
+{{< fa circle-exclamation >}} If you do not want to be photographed, let us know.  
+
+## Note
+
+::: {.incremental}
+- Doors lock during lunch time and after 17:00
+- Saturday is optional (Doors will be locked)
+- Use Slack for communication
+- If you cannot attend a session, let us know
+- If you are feeling sick, let us know
+- Certificates will be emailed to you on satisfactory completion of the workshop
+:::
+
+## Zoom lecture
+
+::: {.large}
+**Introduction to Quarto** by Christophe Dervieux  
+Classroom ?  
+10th (Tue) at 09:00  
+:::
+
+## Technical
+
+- Power
+- Wifi
+- System setup
+
+##  {background-image="assets/casper-van-battum-ZTGGdBgeCeE-unsplash.webp"}
+
+::: {.v-center .center}
+::: {style="background-color:#f8f9f9;padding:10px;border-radius:8px;opacity:0.75;"}
+
+[Questions?]{.largest}
+
+::: {.smaller}
+
+**Image credits**
+
+Unsplash | Casper Van Battum  
+Unsplash | Michael Odelberth  
+
+:::
+
+[{{< meta current_year >}} • [SciLifeLab](https://www.scilifelab.se/) • [NBIS](https://nbis.se/) • [RaukR](https://nbisweden.github.io/raukr-2025)]{.smaller}
+
+:::
+:::
