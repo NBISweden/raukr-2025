@@ -4653,5 +4653,61 @@
     "title": "Welcome to RaukR",
     "section": "Venue",
     "text": "Venue\n\n\nEntrances/Exits\nClassrooms\nAlternate classrooms\nRestaurant\nFire exit\nToilets"
+  },
+  {
+    "objectID": "slides/welcome/index.html#nbis-scilifelab-bioinformatics-platform",
+    "href": "slides/welcome/index.html#nbis-scilifelab-bioinformatics-platform",
+    "title": "Welcome to RaukR",
+    "section": "NBIS: SciLifeLab Bioinformatics Platform",
+    "text": "NBIS: SciLifeLab Bioinformatics Platform"
+  },
+  {
+    "objectID": "slides/welcome/index.html#core-activities",
+    "href": "slides/welcome/index.html#core-activities",
+    "title": "Welcome to RaukR",
+    "section": "Core activities",
+    "text": "Core activities"
+  },
+  {
+    "objectID": "slides/welcome/index.html#support-stages",
+    "href": "slides/welcome/index.html#support-stages",
+    "title": "Welcome to RaukR",
+    "section": "Support stages",
+    "text": "Support stages"
+  },
+  {
+    "objectID": "slides/welcome/index.html#support-options",
+    "href": "slides/welcome/index.html#support-options",
+    "title": "Welcome to RaukR",
+    "section": "Support options",
+    "text": "Support options"
+  },
+  {
+    "objectID": "slides/welcome/index.html#infrastructure",
+    "href": "slides/welcome/index.html#infrastructure",
+    "title": "Welcome to RaukR",
+    "section": "Infrastructure",
+    "text": "Infrastructure"
+  },
+  {
+    "objectID": "slides/welcome/index.html#training",
+    "href": "slides/welcome/index.html#training",
+    "title": "Welcome to RaukR",
+    "section": "Training",
+    "text": "Training"
+  },
+  {
+    "objectID": "slides/welcome/index.html#upcoming-workshops",
+    "href": "slides/welcome/index.html#upcoming-workshops",
+    "title": "Welcome to RaukR",
+    "section": "Upcoming workshops",
+    "text": "Upcoming workshops\n\nIntroduction to Data Management Practices, 09-11 Sep 2025, Lund\nPopulation genomics in practice, 15-19 Sep 2025, Uppsala\nEpigenomics Data Analysis: from Bulk to Single Cell, 22-26 Sep 2025, Online\nhttps://nbis.se/training\nhttps://training.scilifelab.se/events"
+  },
+  {
+    "objectID": "slides/welcome/index.html#elixir",
+    "href": "slides/welcome/index.html#elixir",
+    "title": "Welcome to RaukR",
+    "section": "Elixir",
+    "text": "Elixir"
   }
 ]
