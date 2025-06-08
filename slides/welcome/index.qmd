@@ -23,8 +23,8 @@ format: revealjs
 
 #### Walking tour
 
-- Date?, Time?  
-- Location?
+- 10th June (Tue) at 17:30
+- Campus Gotland
 
 :::
 ::: {.fragment}
@@ -74,8 +74,8 @@ Instagram: [**raukr_nbis**]{.badge}
 
 ::: {.large}
 **Introduction to Quarto** by Christophe Dervieux  
-Classroom ?  
-10th (Tue) at 09:00  
+Classroom B24?  
+10th June (Tue) at 09:00  
 :::
 
 ## Technical
