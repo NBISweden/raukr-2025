@@ -1,0 +1,287 @@
+---
+title: "Projects"
+author: "Guilherme Dias"
+description: "Datasets for projects"
+image: "assets/featured.webp"
+execute: 
+  eval: false
+format:
+  html:
+    code-fold: false
+    css: |
+      .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+      }
+      .alert-info {
+        color: #31708f;
+        background-color: #d9edf7;
+        border-color: #bce8f1;
+      }
+      .tabset-fade .tab-content > .tab-pane {
+        opacity: 0;
+        transition: opacity 0.15s linear;
+      }
+      .tabset-fade .tab-content > .active {
+        opacity: 1;
+      }
+      details {
+        margin-bottom: 20px;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: bold;
+        padding: 10px;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+      summary:hover {
+        background-color: #e9e9e9;
+      }
+      details > *:not(summary) {
+        padding-left: 20px;
+      }
+---
+
+## Datasets  
+Hands-on analysis of actual data is hands down the best way to learn R programming. This page contains some datasets that you can use to explore what you have learned in this course. For each data set, a brief description is provided.
+
+::: {.callout-tip}
+## Take a chance
+The projects might be a good chance to explore parts of the course that didn't necessarily "click" for you. So instead of going for something familiar, maybe take a chance and try to venture into the topics that challenged you the most.
+:::
+
+---
+
+### Palmer penguins 🐧
+
+- This is a data set containing a series of measurements for three species of penguins collected in the Palmer station in Antarctica.
+- Data description: <https://vincentarelbundock.github.io/Rdatasets/doc/heplots/peng.html>
+
+::: {.panel-tabset}
+
+#### Download instructions
+
+```{r}
+#| warning: false
+#| message: false
+penguins <- read.table("https://vincentarelbundock.github.io/Rdatasets/csv/heplots/peng.csv", header = T, sep = ",")
+str(penguins)
+```
+
+:::
+
+---
+
+### Drinking habits 🍷
+
+- Data from a national survey on the drinking habits of american citizens in 2001 and 2002.
+- Data description: <https://vincentarelbundock.github.io/Rdatasets/doc/stevedata/nesarc_drinkspd.html>
+
+::: {.panel-tabset}
+
+#### Download instructions
+
+```{r}
+# this will download the csv file directly from the web
+drinks <- read.table("https://vincentarelbundock.github.io/Rdatasets/csv/stevedata/nesarc_drinkspd.csv", header = T, sep = ",")
+str(drinks)
+```
+
+:::
+
+---
+
+### Car crashes 🚗
+
+- Data from car accidents in the US between 1997-2002.
+- Data description: <https://vincentarelbundock.github.io/Rdatasets/doc/DAAG/nassCDS.html>
+
+::: {.panel-tabset}
+
+#### Download instructions
+
+```{r}
+crashes <- read.table("https://vincentarelbundock.github.io/Rdatasets/csv/DAAG/nassCDS.csv", header = T, sep = ",")
+str(crashes)
+```
+
+:::
+
+---
+
+### Gapminder health and wealth 📈
+
+- This is a collection of country indicators from the Gapminder dataset.
+- Data description: <https://vincentarelbundock.github.io/Rdatasets/doc/dslabs/gapminder.html>
+
+::: {.panel-tabset}
+
+#### Download instructions
+
+```{r}
+#| warning: false
+#| message: false
+gapminder <- readr::read_csv("https://vincentarelbundock.github.io/Rdatasets/csv/dslabs/gapminder.csv")
+str(gapminder)
+```
+
+:::
+
+---
+
+### StackOverflow survey 🖥️
+
+- This is a downsampled and modified version of one of StackOverflow's annual surveys where users respond to a series of questions related to careers in technology and coding.
+- Data description: <https://vincentarelbundock.github.io/Rdatasets/doc/modeldata/stackoverflow.html>
+
+::: {.panel-tabset}
+
+#### Download instructions
+
+```{r}
+stackoverflow <- read.table("https://vincentarelbundock.github.io/Rdatasets/csv/modeldata/stackoverflow.csv", header = T, sep = ",")
+str(stackoverflow)
+```
+
+:::
+
+---
+
+### Doctor visits 🤒
+
+- Data on the frequency of doctor visits in the past two weeks in Australia for the years 1977 and 1978.
+- Data description: <https://vincentarelbundock.github.io/Rdatasets/doc/AER/DoctorVisits.html>
+
+::: {.panel-tabset}
+
+#### Download instructions
+
+```{r}
+doctor <- read.table("https://vincentarelbundock.github.io/Rdatasets/csv/AER/DoctorVisits.csv", header = T, sep = ",")
+str(doctor)
+```
+
+:::
+
+---
+
+### Video Game Sales 🎮
+
+- This data set contains sales figures for video games titles released from 1971 through 2024.
+- Data description: <https://mavenanalytics.io/data-playground?order=date_added%2Cdesc&search=Video%20Game%20Sales> 
+  - Click on "Preview Data" and "VG Data Dictionary" to see the description for each column.
+
+::: {.panel-tabset}
+
+#### Download instructions
+
+```{r}
+#| warning: false
+#| message: false
+# this will download the file to your working directory
+download.file(url = "https://maven-datasets.s3.amazonaws.com/Video+Game+Sales/Video+Game+Sales.zip", destfile = "video_game_sales.zip")
+# this will unzip the file and read it into R
+videogames <- read.table(unz(filename = "vgchartz-2024.csv", "video_game_sales.zip"), header = T, sep = ",", quote = "\"", fill = T)
+str(videogames)
+```
+
+:::
+
+---
+
+### LEGO Sets 🏗️
+
+- This data set contains the description of all LEGO sets released from 1970 to 2022
+- Data description: <https://mavenanalytics.io/data-playground?order=date_added%2Cdesc&search=lego>
+  - Click on "Preview Data" and "VG Data Dictionary" to see the description for each column.
+
+::: {.panel-tabset}
+
+#### Download instructions
+
+```{r}
+#| warning: false
+#| message: false
+# this will download the file to your working directory
+download.file(url = "https://maven-datasets.s3.amazonaws.com/LEGO+Sets/LEGO+Sets.zip", destfile = "lego.csv.zip")
+# this will unzip the file and read it into R
+lego <- read.table(unz(filename = "lego_sets.csv", "lego.csv.zip"), header = T, sep = ",", quote = "\"", fill = T)
+str(lego)
+```
+
+:::
+
+---
+
+### Shark attacks 🦈
+
+- This data set contains information on shark attack records from all over the world.
+- Data description: <https://mavenanalytics.io/data-playground?order=date_added%2Cdesc&search=shark>
+  - Click on "Preview Data" and "VG Data Dictionary" to see the description for each column.
+
+::: {.panel-tabset}
+
+#### Download instructions
+
+```{r}
+#| warning: false
+#| message: false
+# this will download the file to your working directory
+download.file(url = "https://maven-datasets.s3.amazonaws.com/Shark+Attacks/attacks.csv.zip", destfile = "attacks.csv.zip")
+# this will unzip the file and read it into R
+sharks <- read.table(unz(filename = "attacks.csv", "attacks.csv.zip"), header = T, sep = ",", quote = "\"", fill = T)
+str(sharks)
+```
+
+:::
+
+---
+
+## APIs
+
+Most real world data-rich services do not provide ready to download files like the ones we have above. Instead, data retrieval usually happens through an API, or Automation Programming Interface. These are software layers between your code/app/etc and a service or database, allowing you to retrieve data programmatically. API integration allows you to access large volume real-time or near-real-time data like stock prices or public social media posts.
+
+R has plenty of support for working with APIs, very often though http requests (httr package). Each API will function differently and require you to read some documentation to interact with it.
+
+Below are some public APIs (free, with rate limits) with lots of data that you can explore. But remember APIs are everywhere, so feel free to find them elsewhere as well.
+
+### The World Bank 🌎
+
+The World Bank has historical data on economic and social development, environment, infrastructure, and governance for many countries around the world, sometimes including regional data (state and city level).
+
+Read about the indicators API:
+<https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation>
+
+Documentation about the call structure:
+<https://datahelpdesk.worldbank.org/knowledgebase/articles/898581>
+
+### NASA 🚀
+
+NASA aggregates data from many of their research projects and make them available through their API portal.
+
+The API key is free and signup is easy. You can browse their data sets here: 
+<https://api.nasa.gov/>
+
+### European Central Bank 🏦
+
+This API aggregates monetary data for the EU. It's the same data displayed in their data portal <https://data.ecb.europa.eu/>.
+
+Read more here:
+<https://data.ecb.europa.eu/help/api/overview>
+
+### Pokemon 🐛
+
+With this API you can retrieve info for each Pokemon. Completely free and no authentication required.
+
+<https://pokeapi.co/>
+
+
+
+## Visualization
+
+Visualization can be useful to make datasets more comprehensible. To gain some inspiration look at the amazing visualizations made by Cédric Scherer using tidyverse <https://www.behance.net/cedscherer>.
