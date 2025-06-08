@@ -1,0 +1,146 @@
+---
+title: "R & AI"
+author: "Sebastian DiLorenzo"
+image: "assets/featured.webp"
+format: revealjs
+---
+
+##  {visibility="hidden"}
+
+```{r}
+#| echo: false
+
+```
+
+## What this sessions will cover
+
+:::: {.columns}
+::: {.column width="60%"}
+
+<br>
+
+- How to setup and use GitHub Copilot in RStudio
+- How to query LLMs in R using `chattr` & `ellmer`
+- A comparison with using Copilot in VS Code
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+:::{.callout-note}
+https://positron.posit.co/assistant.html
+:::
+
+:::
+::: {.column width="40%"}
+
+![](assets/robot.png)
+
+:::
+::::
+
+## Who can have GitHub Copilot?
+
+:::: {.columns}
+::: {.column width="75%"}
+
+<br>
+
+- Free for individuals with limitations
+- Free for students and educators
+- Paid for anyone
+
+:::
+::: {.column width="25%"}
+
+![](assets/copilot.png)
+
+:::
+::::
+
+::: {.notes}
+Free plan is pretty new, likely january 2025.
+Commonly used in the R community compared to a year ago
+:::
+
+##
+
+<br><br><br><br><br><br>
+
+[[Live demo]{.largest}]{.center}
+
+## How to write prompts
+
+:::: {.columns}
+::: {.column width="75%"}
+
+- Be specific and clear about what you want
+- Give examples
+- Avoid ambiguity
+- Break down complex tasks into smaller steps
+- Follow best coding practices
+
+
+::: {.notes}
+https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
+:::
+
+:::
+
+::: {.column width="25%"}
+
+
+:::
+::::
+
+<!--
+
+## Rough draft of topics
+
+IDEA: Very few slides, mostly live coding with a script of things to show.
+
+  
+Setting up github copilot in R (demo)
+https://docs.posit.co/ide/user/ide/guide/tools/copilot.html
+
+Using Rstudio and copilot (demo)
+  - how it works in Rstudio
+  - Best to split big problems into smaller pieces
+    - write a high-level goal at the start of the file
+    - Write code, whole function
+    - write code, just a line
+    - Write comments
+    - Write questions
+
+
+querying llms in R using chattr (demo)
+
+Other IDE's
+  - Visual Studio Code (demo)
+  - positron
+  
+No labs on this topic for several reasons: (slide)
+  - not applicable to everyone
+  - Quick moving field where things are changing often
+  - This should be more of a inspirational lecture.
+
+If I have time: (slide)
+How to write good prompts
+
+-->
+
+## {background-image="/assets/images/cover.webp"}
+
+::: {.v-center .center}
+::: {}
+
+[Thank you!]{.largest}
+
+[Questions?]{.larger}
+
+[{{< meta current_year >}} • [SciLifeLab](https://www.scilifelab.se/) • [NBIS](https://nbis.se/) • [RaukR](https://nbisweden.github.io/raukr-2025)]{.smaller}
+
+:::
+:::

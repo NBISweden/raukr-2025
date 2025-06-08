@@ -13,7 +13,7 @@
 <link href="../../site_libs/quarto-contrib/reveal-logo-1.0.0/reveal-logo.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <meta name="author" content="Marcin Kierczak, Sebastian DiLorenzo">
+  <meta name="author" content="Sebastian DiLorenzo">
   <title>Best Coding Practices</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -410,8 +410,8 @@
       <div class="title-child-text">
         <h1 class="title">Best Coding Practices</h1>
                 <p class="subtitle">RaukR 2025 • R Beyond the Basics</p>
-                        <p class="author">Marcin Kierczak, Sebastian DiLorenzo</p>
-                                <p class="date">08-May-2025</p>
+                        <p class="author">Sebastian DiLorenzo</p>
+                                <p class="date">08-Jun-2025</p>
               </div>
     </div>
     
@@ -427,47 +427,22 @@
 </ul>
 <div class="fragment">
 <ul>
-<li>You will know what styles are good 🦸 and bad 🦹 and why.</li>
+<li>You will know what styles are good and bad and why.</li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li>You will be reminded about dividing a problem before your start conquering(coding).</li>
+<li>You will think a bit about what is a good name.</li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li>You will understand when it is time to write a function.</li>
+<li>You will learn about code formatting.</li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li>You will have a basic understanding of using github copilot with RStudio 🤖.</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Your code will reach new level of awesomeness! 🆒.</li>
-</ul>
-</div>
-</section>
-<section id="todays-topics" class="slide level2">
-<h2>Todays topics</h2>
-<p><br></p>
-<ul>
-<li><p><strong>Style</strong> — _howTo_style.yourCode?</p></li>
-<li><p><strong>Structure</strong> — how to think 🤔 about the code and manufacture your own building 🚧 blocks</p></li>
-</ul>
-<div class="fragment">
-<ul>
-<li><strong>Documentation</strong> — how to use quarto for reproducibility, convenience and code integration 📖</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><p><strong>Debugging</strong> — my code does not run 😿</p></li>
-<li><p><strong>Profiling</strong> — now it does run but… out of memory 💣</p></li>
-<li><p><strong>Optimization</strong> — making things better 👨‍🏭</p></li>
+<li>You will sample some different notations.</li>
 </ul>
 </div>
 </section>
@@ -506,7 +481,7 @@
 </section>
 <section id="naming-style" class="slide level2">
 <h2>Naming Style</h2>
-<p>Variable names that are legal are not necessarily a good style and they may be dangerous 💀:</p>
+<p>Variable names that are legal are not necessarily a good style and they may be dangerous ☠️:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>F</span>
 <span id="cb1-2"><a></a>T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -559,7 +534,67 @@
 <li><code>p</code>, <code>q</code> — allele frequencies in genetics,</li>
 <li><code>N</code>, <code>k</code> — number of trials and number of successes in stats</li>
 </ul>
-<p><span class="large">Try to avoid using these in this way to avoid possible confusion.</span></p>
+<p><br> <br> <span class="large">Try to avoid using these for other variables to avoid possible confusion.</span></p>
+</div></div>
+</section>
+<section id="code-formatting" class="slide level2">
+<h2>Code formatting</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p><strong>Goal: Improve readability</strong></p>
+<p><br> 1. Consistent indentation/whitespace</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>a <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb7-2"><a></a>  b <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb7-3"><a></a>  </span>
+<span id="cb7-4"><a></a>  c <span class="ot">&lt;-</span> <span class="cf">function</span>(a,b){             <span class="co">#Bad</span></span>
+<span id="cb7-5"><a></a><span class="fu">return</span>(a <span class="sc">+</span> b)}</span>
+<span id="cb7-6"><a></a></span>
+<span id="cb7-7"><a></a>      d <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">+</span><span class="dv">2</span><span class="sc">:</span><span class="dv">3</span><span class="sc">*</span>(<span class="dv">4</span><span class="sc">/</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>a <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb8-2"><a></a>b <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb8-3"><a></a>c <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {             <span class="co">#Good</span></span>
+<span id="cb8-4"><a></a>  <span class="fu">return</span>(a <span class="sc">+</span> b)</span>
+<span id="cb8-5"><a></a>}</span>
+<span id="cb8-6"><a></a>d <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span> <span class="sc">*</span> (<span class="dv">4</span> <span class="sc">/</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="assets/air.png" height="300"></p>
+<figcaption>https://posit-dev.github.io/air/</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="code-formatting-1" class="slide level2">
+<h2>Code formatting</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p><strong>Goal: Improve readability</strong></p>
+<p><br> 2. Consistent braces and linewidth</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Bad</span></span>
+<span id="cb9-2"><a></a>fn <span class="ot">&lt;-</span> <span class="cf">function</span>(a_really_long_variable_name, another_really_long_name) a_really_long_variable_name <span class="sc">+</span> another_really_long_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Good</span></span>
+<span id="cb10-2"><a></a>fn <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb10-3"><a></a>  a_really_long_variable_name,</span>
+<span id="cb10-4"><a></a>  another_really_long_name</span>
+<span id="cb10-5"><a></a>) {</span>
+<span id="cb10-6"><a></a>  a_really_long_variable_name <span class="sc">+</span> another_really_long_name</span>
+<span id="cb10-7"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="assets/air.png" height="300"></p>
+<figcaption>https://posit-dev.github.io/air/</figcaption>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="different-notations" class="slide level2">
@@ -599,11 +634,6 @@
 </div>
 <div class="fragment">
 <ul>
-<li>Consistent across your code — the same naming convention</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
 <li>Not too long, e.g.&nbsp;<code>weight</code> vs.&nbsp;<code>phenotype.weight.measured</code></li>
 </ul>
 </div>
@@ -622,8 +652,8 @@
 <li><p>Variable names beginning with period are <strong>hidden</strong>: <code>.my_secret_variable</code> 👻 will not be shown but can be accessed</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>.the_hidden_answer <span class="ot">&lt;-</span> <span class="dv">42</span></span>
-<span id="cb7-2"><a></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>.the_hidden_answer <span class="ot">&lt;-</span> <span class="dv">42</span></span>
+<span id="cb11-2"><a></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "F" "T"</code></pre>
 </div>
@@ -631,144 +661,13 @@
 <div class="fragment">
 <p>but with a bit of effort you can see them:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ls</span>(<span class="at">all.names =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ls</span>(<span class="at">all.names =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] ".main"               ".QuartoInlineRender" ".Random.seed"       
 [4] ".the_hidden_answer"  "F"                   "T"                  </code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="structure-your-code" class="slide level2">
-<h2>Structure Your Code</h2>
-<p>Decompose the problem 🧩 🧩!</p>
-<p><span class="center"><img data-src="assets/Philip-ii-of-macedon.jpg" height="200"> <img data-src="assets/Julius_Ceasar.jpg" height="200"> <img data-src="assets/Napoleon_Bonaparte.jpg" height="200"><br>
-<span class="smaller">source: Wikimedia Commons</span><br>
-</span></p>
-<div class="fragment">
-<ul>
-<li><em>divide et impera</em> / top-down approach — split your BIG problem into a number of small sub-problems recursively and, <strong>at some level</strong>, encapsulate your code in functional blocks (functions)</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>a function should be performing a small task, it should be a logical program unit</li>
-</ul>
-</div>
-<div class="fragment">
-<p><strong>when should I write a function ❓</strong></p>
-</div>
-<div class="fragment">
-<ul>
-<li>one screen 💻 rule (resolution…),</li>
-<li>re-use twice rule of 👍.</li>
-</ul>
-</div>
-</section>
-<section id="how-to-write-functions" class="slide level2">
-<h2>How to write functions</h2>
-<ul>
-<li>avoid accessing and modifying globals
-<ul>
-<li>avoid 🔕 <code>a &lt;&lt;- 42</code></li>
-<li>and 🆗 use a <strong>closure</strong> instead</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>new_counter <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb11-2"><a></a>  i <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb11-3"><a></a>  <span class="cf">function</span>() {</span>
-<span id="cb11-4"><a></a>    <span class="co"># do something useful, then ...</span></span>
-<span id="cb11-5"><a></a>    i <span class="ot">&lt;&lt;-</span> i <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb11-6"><a></a>    i</span>
-<span id="cb11-7"><a></a>  }</span>
-<span id="cb11-8"><a></a>}</span>
-<span id="cb11-9"><a></a></span>
-<span id="cb11-10"><a></a>counter1 <span class="ot">&lt;-</span> <span class="fu">new_counter</span>()</span>
-<span id="cb11-11"><a></a>counter2 <span class="ot">&lt;-</span> <span class="fu">new_counter</span>()</span>
-<span id="cb11-12"><a></a><span class="fu">counter1</span>()</span>
-<span id="cb11-13"><a></a><span class="fu">counter1</span>()</span>
-<span id="cb11-14"><a></a><span class="fu">counter2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1
-[1] 2
-[1] 1</code></pre>
-</div>
-</div>
-<p><span class="smaller">Source: <a href="https://stackoverflow.com/questions/2628621/how-do-you-use-scoping-assignment-in-r">Stackoverflow</a></span></p>
-</div>
-</section>
-<section id="how-to-write-functions-1" class="slide level2">
-<h2>How to write functions</h2>
-<ul>
-<li>use <strong>data</strong> as the <strong>very first</strong> argument for <code>%&gt;%</code> pipes sake:
-<ul>
-<li><code>myfun &lt;- function(x, arg)</code> 🆗</li>
-<li><code>myfun &lt;- function(arg, x)</code> 🚫</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<ul>
-<li>set arguments to defaults — better too many args than too few:
-<ul>
-<li><code>myfun &lt;- function(x, seed = 42)</code> 🆗</li>
-<li><code>myfun &lt;- function(x, ...)</code> 🚫</li>
-</ul></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>remember that global defaults can be changed by <code>options</code></li>
-</ul>
-</div>
-</section>
-<section id="wrapper-function" class="slide level2">
-<h2>Wrapper function</h2>
-<p>If you are re-using functions written by someone else — write a wrapper function around them</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>my_awesome_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb13-2"><a></a>  <span class="fu">plot</span>(x, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex.axis =</span> .<span class="dv">7</span>, ...)</span>
-<span id="cb13-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">my_awesome_plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in localWindow(xlim, ylim, log, asp, ...): formal argument "col" matched by multiple actual arguments</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">my_awesome_plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">las =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/wrapper-fn-plot-1.png" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="how-to-write-functions-2" class="slide level2">
-<h2>How to write functions</h2>
-<ul>
-<li>showing progress and messages is good, but let the others turn this functionality off</li>
-</ul>
-<div class="fragment">
-<ul>
-<li>if you are calling other functions, consider using <code>...</code></li>
-</ul>
-<p><br><br></p>
-</div>
-<div class="fragment">
-<p><span class="center"><img data-src="assets/goto.png" height="300"> <br> <span class="smaller">source: https://xkcd.com/292/</span></span></p>
-</div>
-</section>
-<section id="github-copilot-rstudio" class="slide level2">
-<h2>Github copilot ❤️ RStudio</h2>
-<p><span class="center"><img data-src="assets/copilot.png" height="500"><br>
-<br> <span class="smaller">source: https://github.com/edu/students</span></span></p>
 </section>
 <section id="section-1" class="slide level2" data-background-image="../../assets/images/cover.webp">
 <h2></h2>

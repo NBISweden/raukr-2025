@@ -1,6 +1,6 @@
 ---
 title: "Best Coding Practices"
-author: "Marcin Kierczak, Sebastian DiLorenzo"
+author: "Sebastian DiLorenzo"
 image: "assets/featured.webp"
 format: revealjs
 ---
@@ -23,46 +23,19 @@ After this module:
 
 . . .
 
-- You will know what styles are good `r emo::ji('good')` and bad `r emo::ji('bad')` and why.
+- You will know what styles are good and bad and why.
 
 . . .
 
-- You will be reminded about dividing a problem before your start conquering(coding).
+- You will think a bit about what is a good name.
 
 . . .
 
-- You will understand when it is time to write a function.
+- You will learn about code formatting.
 
 . . .
 
-- You will have a basic understanding of using github copilot with RStudio `r emo::ji('robot')`.
-
-. . .
-
-- Your code will reach new level of awesomeness! `r emo::ji('cool')`.
-
-
-
-
-## Todays topics
-
-<br>
-
-- **Style** &mdash; _howTo_style.yourCode?
-
-- **Structure** &mdash; how to think `r emo::ji('thinking')` about the code and manufacture your own building `r emo::ji('construction')` blocks
-
-. . .
-
-- **Documentation** &mdash; how to use quarto for reproducibility, convenience and code integration `r emo::ji('book')`
-
-. . .
-
-- **Debugging** &mdash; my code does not run `r emo::ji('sad')`
-
-- **Profiling** &mdash; now it does run but... out of memory `r emo::ji('bomb')`
-
-- **Optimization** &mdash; making things better `r emo::ji('worker')`
+- You will sample some different notations.
 
 
 ## What is Coding Style?
@@ -157,10 +130,82 @@ Sometimes these are domain-specific:
 - `p`, `q` &mdash; allele frequencies in genetics,
 - `N`, `k` &mdash; number of trials and number of successes in stats
 
-[Try to avoid using these in this way to avoid possible confusion.]{.large}
+<br>
+<br>
+[Try to avoid using these for other variables to avoid possible confusion.]{.large}
 
 :::
 :::
+
+## Code formatting
+
+:::: {.columns}
+::: {.column width="70%"}
+**Goal: Improve readability**
+
+<br>
+1. Consistent indentation/whitespace
+
+```{r indentation_bad}
+#| eval: false
+a <- 15
+  b <- 20
+  
+  c <- function(a,b){             #Bad
+return(a + b)}
+
+      d <- 1+2:3*(4/5)
+```
+
+```{r indentation_good}
+#| eval: false
+a <- 15
+b <- 20
+c <- function(a, b) {             #Good
+  return(a + b)
+}
+d <- 1 + 2:3 * (4 / 5)
+```
+
+:::
+::: {.column width="30%"}
+![https://posit-dev.github.io/air/](assets/air.png){height="300px"}
+
+:::
+::::
+
+## Code formatting
+
+:::: {.columns}
+::: {.column width="70%"}
+**Goal: Improve readability**
+
+<br>
+2. Consistent braces and linewidth
+
+```{r linewidth_bad}
+#| eval: false
+# Bad
+fn <- function(a_really_long_variable_name, another_really_long_name) a_really_long_variable_name + another_really_long_name
+```
+
+```{r linewidth_good}
+#| eval: false
+# Good
+fn <- function(
+  a_really_long_variable_name,
+  another_really_long_name
+) {
+  a_really_long_variable_name + another_really_long_name
+}
+```
+
+:::
+::: {.column width="30%"}
+![https://posit-dev.github.io/air/](assets/air.png){height="300px"}
+
+:::
+::::
 
 ## Different Notations
 
@@ -198,10 +243,6 @@ It is also important to maintain code readability by having your variable names:
 
 . . .
 
-- Consistent across your code &mdash; the same naming convention
-
-. . .
-
 - Not too long, e.g. `weight` vs. `phenotype.weight.measured`
 
 ## Special Variable Names
@@ -228,130 +269,6 @@ but with a bit of effort you can see them:
 ```{r show_hidden_vars}
 ls(all.names = TRUE)
 ```
-
-## Structure Your Code
-
-Decompose the problem `r emo::ji('puzzle')` `r emo::ji('puzzle')`!
-
-[
-  ![](assets/Philip-ii-of-macedon.jpg){height="200px"}
-  ![](assets/Julius_Ceasar.jpg){height="200px"}
-  ![](assets/Napoleon_Bonaparte.jpg){height="200px"}  
-  [source: Wikimedia Commons]{.smaller}  
-]{.center}
-
-. . .
-
-- *divide et impera* / top-down approach &mdash; split your BIG problem into a number of small sub-problems recursively and, **at some level**, encapsulate your code in functional blocks (functions)
-
-. . .
-
-- a function should be performing a small task, it should be a logical program unit
-
-. . . 
-
-**when should I write a function `r emo::ji('question')`**
-
-. . .
-
-- one screen `r emo::ji('screen')` rule (resolution...),
-- re-use twice rule of `r emo::ji('thumbs_up')`.
-
-## How to write functions
-
-- avoid accessing and modifying globals
-  - avoid `r emo::ji('no')` `a <<- 42`
-  - and `r emo::ji('yes')` use a **closure** instead
-
-. . .
-
-```{r closure_for_global}
-new_counter <- function() {
-  i <- 0
-  function() {
-    # do something useful, then ...
-    i <<- i + 1
-    i
-  }
-}
-
-counter1 <- new_counter()
-counter2 <- new_counter()
-counter1()
-counter1()
-counter2()
-```
-
-[Source: [Stackoverflow](https://stackoverflow.com/questions/2628621/how-do-you-use-scoping-assignment-in-r)]{.smaller}
-
-## How to write functions
-
-- use **data** as the **very first** argument for `%>%` pipes sake:
-  - `myfun <- function(x, arg)` `r emo::ji('yes')`
-  - `myfun <- function(arg, x)` `r emo::ji('no')`
-
-. . .
-
-- set arguments to defaults &mdash; better too many args than too few:
-  - `myfun <- function(x, seed = 42)` `r emo::ji('yes')`
-  - `myfun <- function(x, ...)` `r emo::ji('no')`
-
-. . .
-
-- remember that global defaults can be changed by `options`
-
-## Wrapper function
-
-If you are re-using functions written by someone else &mdash; write a wrapper function around them
-
-:::{.columns}
-:::{.column width="50%"}
-
-```{r wrapper-fn1}
-my_awesome_plot <- function(x, ...) {
-  plot(x, col = "red", pch = 19, cex.axis = .7, ...)
-}
-```
-
-:::
-:::{.column width="50%"}
-
-```{r wrapper-fn-plot}
-#| fig-height: 3
-#| fig-width: 4
-#| error: true
-
-my_awesome_plot(1:5, col = "blue")
-my_awesome_plot(1:5, las = 1)
-```
-
-:::
-:::
-## How to write functions
-
-- showing progress and messages is good, but let the others turn this functionality off
-
-. . .
-
-- if you are calling other functions, consider using `...`
-
-<br><br>
-
-. . .
-
-[
-![](assets/goto.png){height="300px"}
-<br>
-[source: https://xkcd.com/292/]{.smaller}
-]{.center}
-
-## Github copilot `r emo::ji('heart')` RStudio
-
-[
-![](assets/copilot.png){height="500px"}  
-<br>
-[source: https://github.com/edu/students]{.smaller}
-]{.center}
 
 ## {background-image="/assets/images/cover.webp"}
 

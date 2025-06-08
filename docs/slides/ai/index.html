@@ -14,7 +14,7 @@
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Sebastian DiLorenzo">
-  <title>Functions and scripts</title>
+  <title>R &amp; AI</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -32,71 +32,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -393,9 +328,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&amp;family=Nunito:ital,wght@0,200..1000;1,200..1000&amp;display=swap" rel="stylesheet">
-<meta property="og:title" content="Functions and scripts">
+<meta property="og:title" content="R &amp; AI">
 <meta property="og:description" content="RaukR 2025 • R Beyond the Basics">
-<meta property="og:image" content="https://nbisweden.github.io/raukr-2025/slides/scripting/assets/featured.webp">
+<meta property="og:image" content="https://nbisweden.github.io/raukr-2025/slides/ai/assets/featured.webp">
 </head>
 <body class="quarto-light">
 
@@ -408,7 +343,7 @@
     
     <div class="title-parent title-one">
       <div class="title-child-text">
-        <h1 class="title">Functions and scripts</h1>
+        <h1 class="title">R &amp; AI</h1>
                 <p class="subtitle">RaukR 2025 • R Beyond the Basics</p>
                         <p class="author">Sebastian DiLorenzo</p>
                                 <p class="date">08-Jun-2025</p>
@@ -418,228 +353,49 @@
   </div>
 </section>
 
-<section id="structure-your-code" class="slide level2">
-<h2>Structure Your Code</h2>
-<p>Decompose the problem 🧩 🧩!</p>
-<p><span class="center"><img data-src="assets/Philip-ii-of-macedon.jpg" height="300"> <img data-src="assets/Julius_Ceasar.jpg" height="300"> <img data-src="assets/Napoleon_Bonaparte.jpg" height="300"><br>
-<span class="smaller">source: Wikimedia Commons</span><br>
-</span></p>
-<div class="fragment">
-<ul>
-<li><em>divide et impera</em> / top-down approach — split your BIG problem into a number of small sub-problems recursively and, <strong>at some level</strong>, encapsulate your code in functional blocks (functions)</li>
-</ul>
-</div>
-</section>
-<section id="r-functions" class="slide level2">
-<h2>R Functions</h2>
+<section id="what-this-sessions-will-cover" class="slide level2">
+<h2>What this sessions will cover</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <p><br></p>
 <ul>
-<li>What is exported from R packages</li>
-<li>Perform a set task, preferably that task is not “this whole analysis”</li>
-<li>Any code that will be repeated</li>
-<li>“One screen rule”</li>
-<li>Add less objects to workspace</li>
+<li>How to setup and use GitHub Copilot in RStudio</li>
+<li>How to query LLMs in R using <code>chattr</code> &amp; <code>ellmer</code></li>
+<li>A comparison with using Copilot in VS Code</li>
 </ul>
-</section>
-<section id="r-functions-1" class="slide level2">
-<h2>R Functions</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><span style="background-color: #f2d7d5; padding: 5px;"><strong>Without a function</strong></span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="1|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>a <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb1-2"><a></a>a <span class="sc">+</span> a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>b <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb3-2"><a></a>b <span class="sc">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
-</div>
-</div>
-<ul>
-<li>User is performing the operation each time</li>
-</ul>
-<aside class="notes">
-<p>An R function is something you have probably used many times already.. Functions perform a set task within R. Lets looks at a quick example.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div><div class="column" style="width:50%;">
-<p><span style="background-color: #d0ece7; padding: 5px;"><strong>With a function</strong></span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="1-3|5-6|9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>doubleUp <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb5-2"><a></a>  x <span class="sc">+</span> x</span>
-<span id="cb5-3"><a></a>}</span>
-<span id="cb5-4"><a></a></span>
-<span id="cb5-5"><a></a>a <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb5-6"><a></a><span class="fu">doubleUp</span>(a)</span>
-<span id="cb5-7"><a></a>b <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb5-8"><a></a><span class="fu">doubleUp</span>(b)</span>
-<span id="cb5-9"><a></a>z <span class="ot">&lt;-</span> <span class="fu">doubleUp</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10
-[1] 6</code></pre>
-</div>
-</div>
-<ul>
-<li>Function is performing the operation each time</li>
-</ul>
-</div></div>
-</section>
-<section id="r-functions-2" class="slide level2">
-<h2>R Functions</h2>
-<p>The pieces that make a function</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>function_name <span class="ot">&lt;-</span> <span class="cf">function</span>(param1, <span class="at">param2 =</span> <span class="dv">20</span>, ...) {</span>
-<span id="cb7-2"><a></a>  param1 <span class="sc">*</span> <span class="dv">2</span> <span class="co"># Operational space</span></span>
-<span id="cb7-3"><a></a>  param1 <span class="sc">+</span> param2 <span class="co"># What is returned. Alt, use return(param1+param2)</span></span>
-<span id="cb7-4"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li><code>function_name</code> : Name of the function</li>
-<li><code>function()</code> : Parameters. User input
-<ul>
-<li><code>param1</code> : No default value. Required.</li>
-<li><code>param2 = 20</code> : Default value</li>
-<li><code>...</code> : ellipses pass other arguments into function</li>
-</ul></li>
-<li><code>function(){}</code> : The function body</li>
-<li><code>return</code> : the last line or invoked with <code>return()</code> function.</li>
-</ul>
-<aside class="notes">
-<p>A parameter is a variable in the declaration of the function. An argument is the actual value of the variable that gets passed to the function.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
+<p><br> <br> <br> <br> <br></p>
+<div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Tip</strong></p>
+<p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>How to add a function to your workspace</p>
-<ul>
-<li>copy paste</li>
-<li><code>source()</code> / <code>library()</code></li>
-</ul>
+<p>https://positron.posit.co/assistant.html</p>
 </div>
 </div>
 </div>
-</div>
+</div><div class="column" style="width:40%;">
+<p><img data-src="assets/robot.png"></p>
+</div></div>
 </section>
-<section id="r-functions-3" class="slide level2">
-<h2>R Functions</h2>
-<ul>
-<li>use <strong>data</strong> as the <strong>very first</strong> parameter for <code>%&gt;%</code> pipes sake:
-<ul>
-<li><code>myfun &lt;- function(x, param)</code> 🆗</li>
-<li><code>myfun &lt;- function(param, x)</code> 📵</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<ul>
-<li>set parameters to defaults — better too many parameters than too few:
-<ul>
-<li><code>myfun &lt;- function(x, seed = 42)</code> 🆗</li>
-<li><code>myfun &lt;- function(x, ...)</code> 📵</li>
-</ul></li>
-</ul>
-</div>
-<div class="fragment">
+<section id="who-can-have-github-copilot" class="slide level2">
+<h2>Who can have GitHub Copilot?</h2>
+<div class="columns">
+<div class="column" style="width:75%;">
 <p><br></p>
 <ul>
-<li>remember that global defaults can be changed with <code>options</code></li>
+<li>Free for individuals with limitations</li>
+<li>Free for students and educators</li>
+<li>Paid for anyone</li>
 </ul>
-<aside class="notes">
-<p>Global options can influence how functions behave, for example the default number of digits printed in the console.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-</section>
-<section id="wrapper-function" class="slide level2">
-<h2>Wrapper function</h2>
-<p>If you are re-using functions written by someone else — write a wrapper function around them and use the power of the <code>...</code></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>my_awesome_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb8-2"><a></a>  <span class="fu">plot</span>(x,</span>
-<span id="cb8-3"><a></a>       <span class="at">col =</span> <span class="st">"red"</span>,</span>
-<span id="cb8-4"><a></a>       <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb8-5"><a></a>       <span class="at">cex.axis =</span> .<span class="dv">7</span>,</span>
-<span id="cb8-6"><a></a>       ...)</span>
-<span id="cb8-7"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">my_awesome_plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in localWindow(xlim, ylim, log, asp, ...): formal argument "col" matched by multiple actual arguments</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">my_awesome_plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">las =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/wrapper-fn-plot-1.png" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="r-scripts-as-standalone-tools" class="slide level2">
-<h2>R scripts as standalone tools</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><br> <br></p>
-<ul>
-<li>Data analysis with R is usually performed interactively using e.g.&nbsp;RStudio, VSCode, Positron</li>
-<li>Tasks can be executed from the terminal using R scripts</li>
-<li>R scripts can form powerful standalone tools</li>
-<li>Useful for putting R into a pipeline of tools <br> <code>tool1 | Rscript | tool2 &gt; output</code></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><img data-src="assets/pipes.jpg"></p>
+</div><div class="column" style="width:25%;">
+<p><img data-src="assets/copilot.png"></p>
 </div></div>
 <aside class="notes">
-<p>Usually when you are <strong>analyzing data</strong> you will use the <strong>interactive view</strong> and try different things going forward. But say that you have figured out something that you want to <strong>do</strong> for <strong>multiple numbers</strong> of datasets?</p>
-<p>An Rscript should do <strong>one</strong> thing and do it well. Because of the <strong>power</strong> in that an <strong>R script</strong> can contain <strong>multiple functions</strong>, or “programs”, this one thing can be quite <strong>simple</strong>, or quite <strong>advanced</strong>.</p>
-<p>In this case it might be <strong>efficient</strong> to use an <strong>Rscript</strong>. Often Rscripts are used in pipes, which is what I am referencing in this image. Note code is unix commandline.</p>
-<p>So USUALLY an rscript is something that is executable, can take some inputs and arguments, and returns something.</p>
-<p>Now lets look at those pieces starting with how an rscript can be executed.</p>
+<p>Free plan is pretty new, likely january 2025. Commonly used in the R community compared to a year ago</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -652,73 +408,24 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="executing-an-r-script" class="slide level2">
-<h2>Executing an R script</h2>
-<ul>
-<li>Interactively: <code>source("myscript.R")</code> in R console</li>
-</ul>
-<aside class="notes">
-<p>One way to execute an Rscript is to use “source myscript.R” from an interactive session which <strong>runs</strong> whatever code is in the R script. So if it has <strong>functions</strong> or wether it <strong>reads</strong> a separate file and creates some new <strong>object</strong>, these will be in your <strong>R environment</strong> after sourcing the script.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<div class="fragment">
-<ul>
-<li>Command-line: <code>Rscript myscript.R</code></li>
-</ul>
-<aside class="notes">
-<p>You can also run the Rscript from the command line, or terminal. Then we use the command <strong>Rscript</strong>. It used to be not long ago that people used <strong>R CMD batch</strong>, but nowadays people usually use Rscript. Like the source, this will <strong>execute</strong> whichever code is in <strong>myscript.R</strong> but there is <strong>no environment</strong> for the <strong>objects or functions</strong> to pop into so the <strong>code</strong> in this Rscript is probably <strong>different</strong> than one that is intended for <strong>source</strong>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-<div class="fragment">
-<ul>
-<li>As executable file: <code>path/myscript.R</code> if:
-<ul>
-<li>Script is executable: <code>chmod +x myscript.R</code></li>
-<li>First line in script is a hashbang e.g.&nbsp;<code>#!/usr/bin/env Rscript</code></li>
-<li>Script’s path is included in call or <code>$PATH</code></li>
-</ul></li>
-</ul>
-<aside class="notes">
-<p>You can also execute the Rscript <strong>itself</strong>, from terminal. To execute an R script it must <em>meet three requirements</em>. It must be <strong>executable</strong>. It must start with this <strong>special line</strong>, specifying how it is executed if run on its own. If you want to run it without giving path, its folder must be in you $PATH variable.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p><br><br><br><br><br><br></p>
+<p><span class="center"><span class="largest">Live demo</span></span></p>
 </section>
-<section id="providing-arguments-to-an-r-script" class="slide level2">
-<h2>Providing arguments to an R script</h2>
+<section id="how-to-write-prompts" class="slide level2">
+<h2>How to write prompts</h2>
+<div class="columns">
+<div class="column" style="width:75%;">
 <ul>
-<li>Passing arguments to the script allows for flexibility in settings and input data</li>
+<li>Be specific and clear about what you want</li>
+<li>Give examples</li>
+<li>Avoid ambiguity</li>
+<li>Break down complex tasks into smaller steps</li>
+<li>Follow best coding practices</li>
 </ul>
 <aside class="notes">
-<p><strong>Often</strong> when we use an R script, like I mentioned in the <strong>beginning</strong>, we want to <strong>pass multiple files/samples</strong> through it for efficiency reasons. It <strong>doesnt</strong> just have to be <strong>files</strong>, like <strong>functions</strong> it can also be <strong>argument settings.</strong></p>
+<p>https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -730,320 +437,46 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<div class="fragment">
-<p><code>./myscript.R inputfile.vcf outputfile.vcf</code></p>
-<aside class="notes">
-<p>Here for example we are using the Rscript as an <strong>executable</strong> file, giving it an <strong>inputfile</strong> and specifying what we want the <strong>outputfile</strong> to be named. Notice that the only way the R script knows what is what is positionally.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-<div class="fragment">
-<ul>
-<li>Packages are available that support long and short flags</li>
-</ul>
-<p><code>./myscript.R -i inputfile.vcf -o outputfile.vcf</code></p>
-<aside class="notes">
-<p><strong>Short flags</strong> are when you give a single dash and usually a shortened version of the keyword, here <em>i for input</em> and <em>o for output</em> for example.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-<div class="fragment">
-<p><code>./myscript.R --input inputfile.vcf --output outputfile.vcf</code></p>
-<aside class="notes">
-<p>And here <strong>long flags</strong> with <em>two dashes</em></p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-<div class="fragment">
-<p><code>./myscript.R --output inputfile.vcf --input outputfile.vcf</code></p>
-<aside class="notes">
-<p>A part of the <strong>flexibility</strong> of this is that you can give the flags in <strong>any order</strong>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-<div class="fragment">
-<p><code>./myscript.R --output inputfile.vcf -i inputfile.vcf</code></p>
-<aside class="notes">
-<p>And you can also <em>mix</em> the <em>long/short flag order and styles</em>. It is the coding in the script that determines how it handles this input.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-</section>
-<section id="parsing-arguments---positional" class="slide level2">
-<h2>Parsing arguments - Positional</h2>
-<p>Example: <code>./myscript.R inputfile.vcf outputfile.vcf</code></p>
-<ul>
-<li><code>commandArgs()</code></li>
-</ul>
-<p>Use <strong>commandArgs()</strong> to capture whatever was <strong>passed</strong> into R as it was <strong>executed</strong>. To be <strong>clear</strong>; this is a command that is <strong>within the Rscript file.</strong></p>
-<div class="fragment">
-<ul>
-<li><code>trailingOnly = TRUE</code></li>
-</ul>
-<p>Add <code>trailingOnly = TRUE</code> to suppress the first few items and get the arguments <strong>you</strong> passed to the script.</p>
-<aside class="notes">
-<p>A <strong>standard arg</strong>, but <strong>not default</strong>, that you can use when invoking <code>commandArgs()</code> is <code>trailingOnly = TRUE</code>, which basically tells it to start counting the input from <strong>after</strong> the <strong>Rscript arguments</strong>. As you can see here when we invoke it without this parameter it returns the script itself, in this case R studio. But with it the invocation is clear, there were no trailing command line arguments.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">commandArgs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "/usr/local/lib/R/bin/exec/R"                              
-[2] "--no-save"                                                
-[3] "--no-restore"                                             
-[4] "--no-echo"                                                
-[5] "--no-restore"                                             
-[6] "--file=/usr/lib/rstudio-server/bin/quarto/share/rmd/rmd.R"</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">commandArgs</span>(<span class="at">trailingOnly =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="parsing-arguments---flags" class="slide level2">
-<h2>Parsing arguments - Flags</h2>
-<p>Example: <code>./myscript.R --input inputfile.vcf --output outputfile.vcf</code></p>
-<aside class="notes">
-<p>So how do we do it with <strong>flags</strong>?</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<div class="fragment">
-<ul>
-<li>Several packages are available: <code>getopt</code>, <code>optparse</code>, <code>argparser</code>, …</li>
-</ul>
-</div>
-<div class="fragment">
-<p>Define set of possible arguments at start of script:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">library</span>(optparse)</span>
-<span id="cb16-2"><a></a>my_options <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb16-3"><a></a>  <span class="fu">make_option</span>(<span class="fu">c</span>(<span class="st">"-i"</span>, <span class="st">"--inputfile"</span>), <span class="at">default =</span> <span class="st">"variants.vcf"</span>),</span>
-<span id="cb16-4"><a></a>  <span class="fu">make_option</span>(<span class="fu">c</span>(<span class="st">"-o"</span>, <span class="st">"--outputfile"</span>), <span class="at">default =</span> <span class="st">"variants_filtered.vcf"</span>)</span>
-<span id="cb16-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<aside class="notes">
-<p>If we use <strong>optparse</strong> as an example you <strong>create</strong> your options using the <strong>make_option</strong> command, and can set default values. We see also that you can give both long and short form here.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-<div class="fragment">
-<p>Parse arguments using your definition:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">parse_args</span>(<span class="fu">OptionParser</span>(<span class="at">option_list =</span> my_options))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$inputfile
-[1] "variants.vcf"
+</div><div class="column" style="width:25%;">
 
-$outputfile
-[1] "variants_filtered.vcf"
+</div></div>
+<!--
 
-$help
-[1] FALSE</code></pre>
-</div>
-</div>
-<aside class="notes">
-<p>And then you use the <strong>my_options</strong> object we defined together with <strong>parse_args and OptionParser</strong> to <strong>check our input</strong> for those <strong>flags</strong> We also see an option, <strong>help</strong>, that we did not make, this is a <strong>standard flag</strong> that optparse always looks for and can generate what arguments it is looking for.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
+## Rough draft of topics
+
+IDEA: Very few slides, mostly live coding with a script of things to show.
+
+  
+Setting up github copilot in R (demo)
+https://docs.posit.co/ide/user/ide/guide/tools/copilot.html
+
+Using Rstudio and copilot (demo)
+  - how it works in Rstudio
+  - Best to split big problems into smaller pieces
+    - write a high-level goal at the start of the file
+    - Write code, whole function
+    - write code, just a line
+    - Write comments
+    - Write questions
+
+
+querying llms in R using chattr (demo)
+
+Other IDE's
+  - Visual Studio Code (demo)
+  - positron
+  
+No labs on this topic for several reasons: (slide)
+  - not applicable to everyone
+  - Quick moving field where things are changing often
+  - This should be more of a inspirational lecture.
+
+If I have time: (slide)
+How to write good prompts
+
+-->
 </section>
-<section id="text-streams" class="slide level2">
-<h2>Text streams</h2>
-<ul>
-<li>Text streams allow for piping of data through a set of applications without writing intermediate files.</li>
-</ul>
-<aside class="notes">
-<p>What I am sure most of you will think of when you read this is the bash pipe sign.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<div class="fragment">
-<p><code>samtools mpileup -uf ref.fa aln.bam | bcftools call -mv | myPythonscript.py | myRscript.R &gt; variants.vcf</code></p>
-<aside class="notes">
-<p>So how does R handle taking input piped to it. And the answer is that we have to write some special code if this is the use case.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-<div class="fragment">
-<h3 id="reading">Reading</h3>
-<ul>
-<li>To define and open a connection, read one line, and close it:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>input_con  <span class="ot">&lt;-</span> <span class="fu">file</span>(<span class="st">"stdin"</span>)</span>
-<span id="cb19-2"><a></a><span class="fu">open</span>(input_con)</span>
-<span id="cb19-3"><a></a>oneline<span class="ot">=</span><span class="fu">readLines</span>(input_con, <span class="at">n =</span> <span class="dv">1</span>)</span>
-<span id="cb19-4"><a></a><span class="fu">close</span>(input_con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Tidyverse can read a <code>tibble</code> from text stream: <code>read_csv(file("stdin"))</code></li>
-</ul>
-<aside class="notes">
-<p>What we do is <strong>open</strong> a connection from <strong>standard input</strong> and then read this <strong>text stream</strong> for <strong>n</strong> number of lines at a time. It is also good to close this connection afterwards.</p>
-<p>Alternatively you can read a text stream into a <strong>tibble</strong> from tidyverse by using <strong>read_csv</strong>, note that it isnt <strong>read.csv</strong> the generic R command, which can take our <strong>input connection</strong> and create the tibble in R.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-</section>
-<section id="text-streams-1" class="slide level2">
-<h2>Text streams</h2>
-<h4 id="writing">Writing</h4>
-<ul>
-<li><p>Any <code>stdout</code> produced by the code (<code>print()</code>, <code>cat()</code>, etc) can be piped to a new process: <code>./myRscript.R | myNewScript</code></p></li>
-<li><p>or written to a file: <code>./myRscript.R &gt; output.csv</code></p></li>
-<li><p>To write a <code>tibble</code> as a text stream: <code>cat(format_csv(my_tibble))</code></p></li>
-</ul>
-<aside class="notes">
-<p>What about <strong>piping from</strong> your R script to something else? Continuing the stream? So just writing these commands. print, cat etc, can be piped to a new process.</p>
-<p>If you already have a tibble, you can stream it out of R using this command.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
-<!-- ![](http://www.azquotes.com/picture-quotes/quote-this-is-the-unix-philosophy-write-programs-that-do-one-thing-and-do-it-well-write-programs-douglas-mcilroy-81-95-07.jpg) -->
-<ul>
-<li>Functions are great for organizing code and repeating tasks</li>
-<li>R scripts are great for performing tasks from command-line</li>
-<li>R scripts can be built in different ways to take arguments or text streams</li>
-</ul>
-<aside class="notes">
-<p>So to summarize, R scripts are powerful tools to solve a specific problem that you define, and often fit well together with other tools. And now you have learned to execute them in different ways, with inputs and outputs and with other programs. All that is left is to actually write the content.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-1" class="slide level2" data-background-image="../../assets/images/cover.webp">
+<section id="section-2" class="slide level2" data-background-image="../../assets/images/cover.webp">
 <h2></h2>
 <div class="v-center center">
 <div>

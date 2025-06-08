@@ -1,6 +1,6 @@
 ---
 title: "Best Coding Practices"
-author: "Marcin Kierczak"
+author: "Marcin Kierczak, Sebastian DiLorenzo"
 description: "Styling and conventions for neat and tidy code."
 image: "assets/featured.webp"
 format: html
@@ -41,7 +41,7 @@ Which of the following are valid/good variable names in R. What is wrong with th
 
 ### Task: Obscure Code.
 
-The code below works, but can be improved. Do improve it!
+The code below works, but the style can be improved. Improve it!
 
 ```{r}
 #| eval: false
@@ -140,6 +140,7 @@ Assign a vector of three last months (abbreviated in English) in a year to a hid
 
 :::
 
+<!-- 
 ### Task: Pipeline-friendly Function.
 
 Modify the function below so that it works with R pipes `%>%`:
@@ -175,7 +176,9 @@ c(-5, 5) %>% my_filter()
 ```
 
 :::
+-->
 
+<!--
 ### Task: Untidy Code?
 
 Is the code below correct? Can it be improved?
@@ -337,6 +340,11 @@ red_plot(1, 1, col = 'red', pch = 19) # Works!
 ```
 
 :::
+-->
+
+### Bonus task: using `air`.
+
+The example solutions for tasks 1.2 and 1.3 were written before the [R package `air`](https://posit-dev.github.io/air/editor-rstudio.html) was released. The package provides a set of functions that can help you with formatting code. Try to use `air` to reformat the code given in tasks 1.2 and 1.3 and compare with the example solutions. Are they similar? What did `air` **not** do?
 
 ### Bonus task: Using `options`.
 

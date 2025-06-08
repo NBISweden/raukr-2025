@@ -2622,7 +2622,7 @@
     "href": "slides/coding/index.html#learning-outcomes",
     "title": "Best Coding Practices",
     "section": "Learning Outcomes",
-    "text": "Learning Outcomes\n\nAfter this module:\n\nYou will be aware of different coding styles.\n\n\n\nYou will know what styles are good 🦸 and bad 🦹 and why.\n\n\n\n\nYou will be reminded about dividing a problem before your start conquering(coding).\n\n\n\n\nYou will understand when it is time to write a function.\n\n\n\n\nYou will have a basic understanding of using github copilot with RStudio 🤖.\n\n\n\n\nYour code will reach new level of awesomeness! 🆒."
+    "text": "Learning Outcomes\n\nAfter this module:\n\nYou will be aware of different coding styles.\n\n\n\nYou will know what styles are good and bad and why.\n\n\n\n\nYou will think a bit about what is a good name.\n\n\n\n\nYou will learn about code formatting.\n\n\n\n\nYou will sample some different notations."
   },
   {
     "objectID": "slides/coding/index.html#todays-topics",
@@ -2650,21 +2650,21 @@
     "href": "slides/coding/index.html#naming-style",
     "title": "Best Coding Practices",
     "section": "Naming Style",
-    "text": "Naming Style\nVariable names that are legal are not necessarily a good style and they may be dangerous 💀:\n\nF\nT\n\n[1] FALSE\n[1] TRUE\n\n\n\nF + T\n\n[1] 1\n\n\n\nF &lt;- 3\nF + T\n\n[1] 4\n\n\ndo not do this!\n\nunless you are a politician 🕴…\nAvoid T and F as variable names."
+    "text": "Naming Style\nVariable names that are legal are not necessarily a good style and they may be dangerous ☠️:\n\nF\nT\n\n[1] FALSE\n[1] TRUE\n\n\n\nF + T\n\n[1] 1\n\n\n\nF &lt;- 3\nF + T\n\n[1] 4\n\n\ndo not do this!\n\nunless you are a politician 🕴…\nAvoid T and F as variable names."
   },
   {
     "objectID": "slides/coding/index.html#customary-variable-names",
     "href": "slides/coding/index.html#customary-variable-names",
     "title": "Best Coding Practices",
     "section": "Customary Variable Names",
-    "text": "Customary Variable Names\n\n\nAlso, there is a number of variable names that are traditionally used to name particular variables:\n\nusr — user\npwd — password\nx, y, z — vectors\nw — weights\nf, g — functions\nn — number of rows\np — number of columns\ni, j, k — indexes\ndf — data frame\ncnt — counter\nM, N, W — matrices\ntmp — temporary variables\n\n\nSometimes these are domain-specific:\n\np, q — allele frequencies in genetics,\nN, k — number of trials and number of successes in stats\n\nTry to avoid using these in this way to avoid possible confusion."
+    "text": "Customary Variable Names\n\n\nAlso, there is a number of variable names that are traditionally used to name particular variables:\n\nusr — user\npwd — password\nx, y, z — vectors\nw — weights\nf, g — functions\nn — number of rows\np — number of columns\ni, j, k — indexes\ndf — data frame\ncnt — counter\nM, N, W — matrices\ntmp — temporary variables\n\n\nSometimes these are domain-specific:\n\np, q — allele frequencies in genetics,\nN, k — number of trials and number of successes in stats\n\n  Try to avoid using these for other variables to avoid possible confusion."
   },
   {
     "objectID": "slides/coding/index.html#different-notations",
     "href": "slides/coding/index.html#different-notations",
     "title": "Best Coding Practices",
     "section": "Different Notations",
-    "text": "Different Notations\nPeople use different notation styles throughout their code:\n\n\nsnake_notation_looks_like_this\n\n\n\n\ncamelNotationLooksLikeThis\n\n\n\n\nperiod.notation.looks.like.this\n\n\n\nBut many also use…\n\n\n\nLousyNotation_looks.likeThis\n\n\n\nTry to be consistent and stick to one of them. Bear in mind period.notation is used by S3 classes to create generic functions, e.g. plot.my.object. A good-enough reason to avoid it?\n\n\nIt is also important to maintain code readability by having your variable names:\n\ninformative, e.g. genotypes vs. fsjht45jkhsdf4\n\n\n\n\nConsistent across your code — the same naming convention\n\n\n\n\nNot too long, e.g. weight vs. phenotype.weight.measured"
+    "text": "Different Notations\nPeople use different notation styles throughout their code:\n\n\nsnake_notation_looks_like_this\n\n\n\n\ncamelNotationLooksLikeThis\n\n\n\n\nperiod.notation.looks.like.this\n\n\n\nBut many also use…\n\n\n\nLousyNotation_looks.likeThis\n\n\n\nTry to be consistent and stick to one of them. Bear in mind period.notation is used by S3 classes to create generic functions, e.g. plot.my.object. A good-enough reason to avoid it?\n\n\nIt is also important to maintain code readability by having your variable names:\n\ninformative, e.g. genotypes vs. fsjht45jkhsdf4\n\n\n\n\nNot too long, e.g. weight vs. phenotype.weight.measured"
   },
   {
     "objectID": "slides/coding/index.html#special-variable-names",
@@ -2769,7 +2769,7 @@
     "href": "slides/scripting/index.html#r-functions",
     "title": "Functions and scripts",
     "section": "R Functions",
-    "text": "R Functions\n\nOrganised, human readable code\nAny code that will be repeated\nAdd less objects to workspace\nPerform a set task, preferably that task is not “this whole analysis”"
+    "text": "R Functions\n\n\nWhat is exported from R packages\nPerform a set task, preferably that task is not “this whole analysis”\nAny code that will be repeated\n“One screen rule”\nAdd less objects to workspace"
   },
   {
     "objectID": "slides/scripting/index.html#r-functions-1",
@@ -2790,14 +2790,14 @@
     "href": "slides/scripting/index.html#r-scripts-as-standalone-tools",
     "title": "Functions and scripts",
     "section": "R scripts as standalone tools",
-    "text": "R scripts as standalone tools\n\n\nIn many ways this quote about the UNIX philosophy relates to the philosophy you should have for an R script.\nMcIlroy is best known for having originally proposed Unix pipelines and developed several Unix tools, such as spell, diff, sort, join, graph, speak, and tr.\n\n\n\nData analysis with R is usually performed interactively using e.g. RStudio\nTasks can be executed from the terminal using R scripts\nR scripts can form powerful standalone tools\n\n\nUsually when you are analyzing data you will use the interactive view and try different things going forward. But say that you have figured out something that you want to do for multiple numbers of datasets?\nAnd like the quote it should do one thing and do it well. Because of the power in that an R script can contain multiple functions, or “programs”, this one thing can be quite simple, or quite advanced. And like the textstream mentioned here Rscripts often take input, something we will look more at now.\nIn this case it might be efficient to use an Rscript.\nSo USUALLY an rscript is something that is executable, can take some inputs and arguments, and returns something.\nNow lets look at those pieces starting with how an rscript can be executed."
+    "text": "R scripts as standalone tools\n\n\n \n\nData analysis with R is usually performed interactively using e.g. RStudio, VSCode, Positron\nTasks can be executed from the terminal using R scripts\nR scripts can form powerful standalone tools\nUseful for putting R into a pipeline of tools  tool1 | Rscript | tool2 &gt; output\n\n\n\n\n\nUsually when you are analyzing data you will use the interactive view and try different things going forward. But say that you have figured out something that you want to do for multiple numbers of datasets?\nAn Rscript should do one thing and do it well. Because of the power in that an R script can contain multiple functions, or “programs”, this one thing can be quite simple, or quite advanced.\nIn this case it might be efficient to use an Rscript. Often Rscripts are used in pipes, which is what I am referencing in this image. Note code is unix commandline.\nSo USUALLY an rscript is something that is executable, can take some inputs and arguments, and returns something.\nNow lets look at those pieces starting with how an rscript can be executed."
   },
   {
     "objectID": "slides/scripting/index.html#executing-an-r-script",
     "href": "slides/scripting/index.html#executing-an-r-script",
     "title": "Functions and scripts",
     "section": "Executing an R script",
-    "text": "Executing an R script\n\nInteractively: source(\"myscript.R\") in R console\n\n\nOne way to execute an Rscript is to use “source myscript.R” from an interactive session which runs whatever code is in the R script. So if it has functions or wether it reads a separate file and creates some new object, these will be in your R environment after sourcing the script.\n\n\n\nCommand line: Rscript myscript.R\n\n\nYou can also run the Rscript from the command line, or terminal. Then we use the command Rscript. It used to be not long ago that people used R CMD batch, but nowadays people usually use Rscript. Like the source, this will execute whichever code is in myscript.R but there is no environment for the objects or functions to pop into so the code in this Rscript is probably different than one that is intended for source.\n\n\n\n\nAs executable file: path/myscript.R if:\n\nScript is executable: chmod +x myscript.R\nFirst line in script is a hashbang e.g. #!/usr/bin/env Rscript\nScript’s path is included in call or $PATH\n\n\n\nYou can also execute the Rscript itself, from terminal. To execute an R script it must meet three requirements. It must be executable. It must start with this special line, specifying how it is executed if run on its own. If you want to run it without giving path, its folder must be in you $PATH variable."
+    "text": "Executing an R script\n\nInteractively: source(\"myscript.R\") in R console\n\n\nOne way to execute an Rscript is to use “source myscript.R” from an interactive session which runs whatever code is in the R script. So if it has functions or wether it reads a separate file and creates some new object, these will be in your R environment after sourcing the script.\n\n\n\nCommand-line: Rscript myscript.R\n\n\nYou can also run the Rscript from the command line, or terminal. Then we use the command Rscript. It used to be not long ago that people used R CMD batch, but nowadays people usually use Rscript. Like the source, this will execute whichever code is in myscript.R but there is no environment for the objects or functions to pop into so the code in this Rscript is probably different than one that is intended for source.\n\n\n\n\nAs executable file: path/myscript.R if:\n\nScript is executable: chmod +x myscript.R\nFirst line in script is a hashbang e.g. #!/usr/bin/env Rscript\nScript’s path is included in call or $PATH\n\n\n\nYou can also execute the Rscript itself, from terminal. To execute an R script it must meet three requirements. It must be executable. It must start with this special line, specifying how it is executed if run on its own. If you want to run it without giving path, its folder must be in you $PATH variable."
   },
   {
     "objectID": "slides/scripting/index.html#providing-arguments-to-an-r-script",
@@ -2839,7 +2839,7 @@
     "href": "slides/scripting/index.html#summary",
     "title": "Functions and scripts",
     "section": "Summary",
-    "text": "Summary\n\n\nFunctions are great for organizing code and repeating tasks\nR scripts are great for performing tasks from command line\nR scripts can be built in different ways to take arguments or text streams\n\n\nSo to summarize, R scripts are powerful tools to solve a specific problem that you define, and often fit well together with other tools. And now you have learned to execute them in different ways, with inputs and outputs and with other programs. All that is left is to actually write the content."
+    "text": "Summary\n\n\nFunctions are great for organizing code and repeating tasks\nR scripts are great for performing tasks from command-line\nR scripts can be built in different ways to take arguments or text streams\n\n\nSo to summarize, R scripts are powerful tools to solve a specific problem that you define, and often fit well together with other tools. And now you have learned to execute them in different ways, with inputs and outputs and with other programs. All that is left is to actually write the content."
   },
   {
     "objectID": "slides/scripting/index.html#section-1",
@@ -2851,42 +2851,42 @@
   {
     "objectID": "labs/scripting/index.html",
     "href": "labs/scripting/index.html",
-    "title": "Functions & Scripts",
+    "title": "Functions and Scripts",
     "section": "",
     "text": "Note\n\n\n\n\n\nWrite programs that do one thing and do it well.\nWrite programs to work together.\nWrite programs to handle text streams, because that is a universal interface.\n\n– The UNIX philosophy, Doug McIlroy\n\nIn this exercise we will write a few functions and execute R scripts from the command line and provide them with options and data."
   },
   {
     "objectID": "labs/scripting/index.html#r-functions",
     "href": "labs/scripting/index.html#r-functions",
-    "title": "Functions & Scripts",
+    "title": "Functions and Scripts",
     "section": "1 R Functions",
-    "text": "1 R Functions\nLet’s jump right in and create a function. Your function should have it’s own function_name, atleast two parameters one of which with a default argument, code that performs some operations on the input and a return value. I do encourage you to think about it and make your own function, rather than copying the examples. Examples should be seen more as explanatory, semantic and inspirational.\nExample:\n\nfunction_name &lt;- function(param1, param2 = \"Lucy\"){\n  if (param2 == \"Lucy\") {\n    output &lt;- paste(\"Lucy in the sky with \",param1,\"\\n\",sep=\"\")}\n  else {\n    output &lt;- paste(param1,\" in the ocean with \",param2,\"\\n\",sep=\"\")}\n  return(cat(output))\n}\n\nTest your function to make sure it gives the output you would expect given different arguments.\n\nWhat happens if you don’t assign a argument to the parameter that does not have a default?\nDid I need to use the return() function in my example?\nWhy does my example perform the cat() function in the return() function?\nTry assigning a variable to the return value of your function. variable_a &lt;- function_name(\"Tom\")\nWhat happens to the variable if the return value is the output of cat()?\n\nNow lets see the power of your function in action. Write a loop that executes your function multiple times. Functions are great for performing operations on a number of files, objects or elements in objects that fit a certain condition.\n\nfor (i in c(\"Tom\",\"Mary\",\"Mahesh\",\"Henrik\")){\n  function_name(param1=i,param2=\"Brad\")\n  function_name(param1=i,param2=\"Lucy\")\n}\n\nTom in the ocean with Brad\nLucy in the sky with Tom\nMary in the ocean with Brad\nLucy in the sky with Mary\nMahesh in the ocean with Brad\nLucy in the sky with Mahesh\nHenrik in the ocean with Brad\nLucy in the sky with Henrik\n\n\nNow let’s take a look at the special ellipsis parameter for functions. Basically the ellipsis say that a function can take additional arguments. The function should work without arguments given at the ellipsis. One great example of this is the data.frame() function.\nFrom ?data.frame\nUsage\ndata.frame(..., row.names = NULL, check.rows = FALSE,\n           check.names = TRUE, fix.empty.names = TRUE,\n           stringsAsFactors = default.stringsAsFactors())\nThe ellipsis can be used to add columns to the data.frame. Try creating a data.frame with one column and one with several. Also, try creating a data.frame with no arguments for ..., what happens?\n\ndata.frame(a=c(1,2,3))\ndata.frame(a=c(1,2,3),b=c(4,5,6))\n\nAnother example where ellipsis are often used is to pass plot arguments into a function.\nExample:\n\nmy_plot &lt;- function(...){\n  plot(c(1,2,3),c(1,2,3),...)\n}\n\nmy_plot(main=\"Great title\", xlab = \"This will be X-label of plot\", ylab=\"Y-label\")\n\n\n\n\n\n\n\n\nTry creating your own function that uses the ellipsis parameter."
+    "text": "1 R Functions\nLet’s jump right in and create a function. Your function should have it’s own function_name, atleast two parameters one of which with a default argument, code that performs some operations on the input and a return value. I do encourage you to think about it and make your own function, rather than copying the examples. Examples should be seen more as explanatory, semantic and inspirational.\nExample:\n\nfunction_name &lt;- function(param1, param2 = \"Lucy\"){\n  if (param2 == \"Lucy\") {\n    output &lt;- paste(\"Lucy in the sky with \",param1,\"\\n\",sep=\"\")}\n  else {\n    output &lt;- paste(param1,\" in the ocean with \",param2,\"\\n\",sep=\"\")}\n  return(cat(output))\n}\n\nTest your function to make sure it gives the output you would expect given different arguments.\n\nWhat happens if you don’t assign a argument to the parameter that does not have a default?\nDid I need to use the return() function in my example?\nWhy does my example perform the cat() function in the return() function?\nTry assigning a variable to the return value of your function. variable_a &lt;- function_name(\"Tom\")\nWhat happens to the variable if the return value is the output of cat()?\n\nNow lets see the power of your function in action. Write a loop that executes your function multiple times. Functions are great for performing operations on a number of files, objects or elements in objects that fit a certain condition.\n\nfor (i in c(\"Tom\",\"Mary\",\"Mahesh\",\"Henrik\")){\n  function_name(param1=i,param2=\"Brad\")\n  function_name(param1=i,param2=\"Lucy\")\n}\n\nTom in the ocean with Brad\nLucy in the sky with Tom\nMary in the ocean with Brad\nLucy in the sky with Mary\nMahesh in the ocean with Brad\nLucy in the sky with Mahesh\nHenrik in the ocean with Brad\nLucy in the sky with Henrik\n\n\nNow let’s take a look at the special ellipsis parameter for functions. Basically the ellipsis say that a function can take additional arguments. The function should work without arguments given at the ellipsis. One great example of this is the data.frame() function.\nFrom ?data.frame\nUsage\ndata.frame(..., row.names = NULL, check.rows = FALSE,\n           check.names = TRUE, fix.empty.names = TRUE,\n           stringsAsFactors = default.stringsAsFactors())\nThe ellipsis can be used to add columns to the data.frame. Try creating a data.frame with one column and a data.frame with several columns. Also, try creating a data.frame with no arguments for ..., what happens?\n\ndata.frame(a=c(1,2,3))\ndata.frame(a=c(1,2,3),b=c(4,5,6))\n\nAnother example where ellipsis are often used is to pass plot arguments into a function.\nExample:\n\nmy_plot &lt;- function(...){\n  plot(c(1,2,3),c(1,2,3),...)\n}\n\nmy_plot(main=\"Great title\", xlab = \"This will be X-label of plot\", ylab=\"Y-label\")\n\n\n\n\n\n\n\n\nTry creating your own function that uses the ellipsis parameter."
   },
   {
     "objectID": "labs/scripting/index.html#r-scripts",
     "href": "labs/scripting/index.html#r-scripts",
-    "title": "Functions & Scripts",
+    "title": "Functions and Scripts",
     "section": "2 R Scripts",
-    "text": "2 R Scripts\nWhile many R users write and execute code interactively (in e.g. RStudio), you can run the content of a script by writing source(\"myscriptfile.R\") in the R console. This is also a convenient way to load your custom functions (and this is actually what happens when you load an installed package with library()).\nBut once you have code that works you may want to run it routinely without an interactive R environment. R scripts can be executed directly from the command line by typing Rscript myscriptfile.R.\n\nMake an R script that prints a summary of a sample (n=1000) from a normal distribution. Save it as a .R file and execute it.\n\n\n# Example of a small script\nmydata=rnorm(1000)\nprint(summary(mydata))\n\nYou can also execute your script by typing its name in the console, provided it:\n\nStarts with a hashbang line that instructs your system how to interpret it, e.g. #!/usr/bin/env Rscript\nIs an executable file e.g. through chmod +x myscriptfile.R on Unix systems. If you are on windows you are on your own =).\n\nTask:\n\nModify your script and run it without Rscript.\nGo into a different folder, can you execute it without giving the path to the script?"
+    "text": "2 R Scripts\nWhile many R users write and execute code interactively (in e.g. RStudio), you can run the content of a script by writing source(\"myscriptfile.R\") in the R console. This is also a convenient way to load your custom functions (and this is actually what happens when you load an installed package with library()).\nBut once you have code that works you may want to run it routinely without an interactive R environment. R scripts can be executed directly from the command line by typing Rscript myscriptfile.R.\n\nMake an R script that prints a summary of a sample (n=1000) from a normal distribution. Save it as a .R file and execute it.\n\n\n# Example of a small script\nmydata=rnorm(1000)\nprint(summary(mydata))\n\nYou can also execute your script by typing its name in the console, provided it:\n\nStarts with a hashbang line that instructs your system how to interpret it, e.g. #!/usr/bin/env Rscript\nIs an executable file e.g. through chmod +x myscriptfile.R on Unix systems. If you are on windows you are on your own =).\n\n\nModify your script and run it without Rscript.\nGo into a different folder, can you execute it without giving the path to the script?"
   },
   {
     "objectID": "labs/scripting/index.html#passing-and-parsing-arguments",
     "href": "labs/scripting/index.html#passing-and-parsing-arguments",
-    "title": "Functions & Scripts",
+    "title": "Functions and Scripts",
     "section": "3 Passing and parsing arguments",
     "text": "3 Passing and parsing arguments\nIt’s unlikely that you would need to run the exact same process over and over again without any change in what data is processed or how it’s processed. One way to control the behavior of your code is to provide arguments to it. These commonly refer to file names or settings. You can supply arguments after the name of your script where you invoke it. In R, they are available from commandArgs().\n\nAdd commandArgs() to your script. Execute the script to print the arguments. Run it with a few extra words or numbers and see what happens.\n\nYou can use commandArgs(trailingOnly = TRUE) to suppress the first few items and access your actual arguments.\n\nMake your script use the first argument provided as the mean of the normal distribution.\n\n\n#!/usr/bin/env Rscript\nfirstarg=as.numeric(commandArgs(trailingOnly = TRUE)[1])\nmydata=rnorm(1000,mean = firstarg)\nprint(summary(mydata))\n\nProcessing multiple arguments may become complicated, especially if you want to be able to use C-like long and short flags such as -o outputfile -i inputfile --distribution normal. Packages that support such options include getopt, optparse and argparser.\n\nUse the optparse package to modify your script to accept the argument -m or --mean (followed by the value) for mean value.\n\n\n#!/usr/bin/env Rscript\n\n# don't say \"Loading required package: optparse\" every time\nsuppressPackageStartupMessages(require(optparse))\n\noption_list = list(\n  make_option(c(\"-m\", \"--mean\"), default=0)\n  # you could put the next option here\n)\noptions = parse_args(OptionParser(option_list=option_list))\nmy_mean=as.numeric(options$mean)\n\nmydata=rnorm(1000,mean = my_mean)\nprint(summary(mydata))"
   },
   {
     "objectID": "labs/scripting/index.html#standard-in-and-out",
     "href": "labs/scripting/index.html#standard-in-and-out",
-    "title": "Functions & Scripts",
+    "title": "Functions and Scripts",
     "section": "4 Standard in and out",
     "text": "4 Standard in and out\nA convenient feature of command line scripts is the possibility to pipe data from one script to another, thereby avoiding the need for intermediate files. You can use file('stdin') and open() to define and open the connection in R and readLines() to read one or more lines from it.\n\nMake your script parse the mean value from a text stream, and run it using the pipe e.g. echo 100 | ./myscriptfile.R.\nUsing the same script, supply the mean from a text file (containing only that) with cat.\n\n\n#!/usr/bin/env Rscript\ninput_con  &lt;- file(\"stdin\")\nopen(input_con)\noneline &lt;- readLines(con = input_con, n = 1, warn = FALSE)\nclose(input_con)\nmean=as.numeric(oneline)\nmydata=rnorm(1000,mean = mean)\nprint(summary(mydata))\n\nYou can pipe your output to another process (any script or tool that accepts a stream) by appending | next_tool_or_script_call to the call, or to a file by appending &gt; filename.\n\nWhat happens if a warning is generated by your script, e.g. with warning('Something is wrong') and you pipe the output to a file?\nWhy? \n\nYou can use write(x,file=stderr()) or write(x,file=stdout()) to explicitly divert certain output.\nWell done, you should now know the basics of creating functions and some different kinds of R scripts."
   },
   {
     "objectID": "labs/scripting/index.html#session",
     "href": "labs/scripting/index.html#session",
-    "title": "Functions & Scripts",
+    "title": "Functions and Scripts",
     "section": "5 Session",
     "text": "5 Session\n\n\nClick here\n\n\nsessionInfo()\n\nR version 4.4.3 (2025-02-28)\nPlatform: x86_64-pc-linux-gnu\nRunning under: Ubuntu 24.04.2 LTS\n\nMatrix products: default\nBLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 \nLAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0\n\nlocale:\n [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              \n [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    \n [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   \n [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 \n [9] LC_ADDRESS=C               LC_TELEPHONE=C            \n[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       \n\ntime zone: Etc/UTC\ntzcode source: system (glibc)\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] optparse_1.7.5\n\nloaded via a namespace (and not attached):\n [1] htmlwidgets_1.6.4 compiler_4.4.3    fastmap_1.2.0     cli_3.6.5        \n [5] tools_4.4.3       htmltools_0.5.8.1 yaml_2.3.10       getopt_1.20.4    \n [9] rmarkdown_2.29    knitr_1.50        jsonlite_2.0.0    xfun_0.52        \n[13] digest_0.6.37     rlang_1.1.6       evaluate_1.0.3"
   },
@@ -2986,7 +2986,7 @@
     "href": "labs/coding/index.html#coding-style",
     "title": "Best Coding Practices",
     "section": "1 Coding Style",
-    "text": "1 Coding Style\n\n1.1 Task: Valid Variable Names.\nWhich of the following are valid/good variable names in R. What is wrong with the ones that are invalid/bad?\n\nvar1\n3way_handshake\n.password\n__test__\nmy-matrix-M\nthree.dimensional.array\n3D.distance\n.2objects\nwz3gei92\nnext\nP\nQ\nR\nS\nT\nX\nis.larger?\n\n\n\n1.2 Task: Obscure Code.\nThe code below works, but can be improved. Do improve it!\n\nmyIterAtoR.max &lt;- 5\nsecond_iterator.max&lt;-7\ncol.NUM= 10\nrow.cnt =10\nfwzy45 &lt;- matrix(rep(1, col.NUM*row.cnt),nrow=row.cnt)\nfor(haystack in (2-1):col.NUM){\n  for(needle in 1:row.cnt) {\nif(haystack&gt;=myIterAtoR.max){\nfwzy45[haystack, needle]&lt;-NA}\n}}\n\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\niter_max &lt;- 5\ncol_num &lt;- 10\nrow_num &lt;- 10\nA &lt;- matrix(rep(1, col_num * row_num), nrow = row_num)\nfor (i in 1:col_num) {\n  for (j in 1:row_num) {\n    if (i &gt;= iter_max) {\n      A[i, j] &lt;- NA\n    }\n  }\n}\n\n# Can you improve the code more by eliminating loops or at least one of them?\n\n\n\n\n\n\n1.3 Task: Better Formatting.\nImprove formatting and style of the following code:\n\nsimulate_genotype &lt;- function( q, N=100 ) {\n  if( length(q)==1 ){\n    p &lt;- (1 - q)\n    f_gt &lt;- c(p^2, 2*p*q, q^2) # AA, AB, BB\n  }else{\n    f_gt&lt;-q\n  }\n  tmp &lt;- sample( c('AA','AB','BB'), size =N, prob=f_gt, replace=T )\n  return(tmp)\n}\n\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\nsimulate_genotype &lt;- function(q, N = 100) {\n  if (length(q) == 1) {\n    p &lt;- (1 - q)\n    f_gt &lt;- c(p^2, (2 * p * q), q^2) # AA, AB, BB\n  } else {\n    f_gt &lt;- q\n  }\n  sample(c('AA', 'AB', 'BB'), \n         size = N, \n         prob = f_gt, \n         replace = TRUE)\n}\n\n\n\n\n\n\n1.4 Task: Hidden Variable.\nAssign a vector of three last months (abbreviated in English) in a year to a hidden variable my_months.\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\n# If we do not know the length of the vector\n.my_months &lt;- rev(rev(month.abb)[1:3])\n\n# or\n.my_months &lt;- month.abb[(length(month.abb)-2):length(month.abb)]\n\n\n\n\n\n\n1.5 Task: Pipeline-friendly Function.\nModify the function below so that it works with R pipes %&gt;%:\n\nmy_filter &lt;- function(threshold = 1, x, scalar = 5) {\n  x[x &gt;= threshold] &lt;- NA \n  x &lt;- x * scalar\n  return(x)\n}\n\n\n\n\n\n\n\nNecessary Packages\n\n\n\nYou need to have the magrittr or tidyverse package loaded in order to be able to use the pipe %&gt;%!\n\n\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\nmy_filter &lt;- function(x, threshold = 1, scalar = 5) {\n  x[x &gt;= threshold] &lt;- NA \n  x * scalar\n}\n\n# Test:\nc(-5, 5) %&gt;% my_filter()\n\n\n\n\n\n\n1.6 Task: Untidy Code?\nIs the code below correct? Can it be improved?\n\nsimulate_phenotype &lt;- function(pop_params, gp_map, gtype) {\n  pop_mean &lt;- pop_params[1]\n  pop_var &lt;- pop_params[2]\n  pheno &lt;- rnorm(n = N, mean = pop_mean, sd = sqrt(pop_var))\n  effect &lt;- rep(0, times = length(N))\n  for (gt_iter in c('AA', 'AB', 'BB')) {\n    effect[gtype == gt_iter] &lt;- rnorm(n = sum(gtype == gt_iter), \n                                      mean = gp_map[gt_iter, 'mean_eff'], \n                                      sd = sqrt(gp_map[gt_iter, 'var_eff']))\n  }\n  dat &lt;- data.frame(gt = gtype, raw_pheno = pheno, effect = effect, pheno = pheno + effect)\n  return(dat)\n}\n\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\nMaybe some small improvements can be done, but in principle the code is clean! Except that... the N is not initialized anywhere."
+    "text": "1 Coding Style\n\n1.1 Task: Valid Variable Names.\nWhich of the following are valid/good variable names in R. What is wrong with the ones that are invalid/bad?\n\nvar1\n3way_handshake\n.password\n__test__\nmy-matrix-M\nthree.dimensional.array\n3D.distance\n.2objects\nwz3gei92\nnext\nP\nQ\nR\nS\nT\nX\nis.larger?\n\n\n\n1.2 Task: Obscure Code.\nThe code below works, but the style can be improved. Improve it!\n\nmyIterAtoR.max &lt;- 5\nsecond_iterator.max&lt;-7\ncol.NUM= 10\nrow.cnt =10\nfwzy45 &lt;- matrix(rep(1, col.NUM*row.cnt),nrow=row.cnt)\nfor(haystack in (2-1):col.NUM){\n  for(needle in 1:row.cnt) {\nif(haystack&gt;=myIterAtoR.max){\nfwzy45[haystack, needle]&lt;-NA}\n}}\n\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\niter_max &lt;- 5\ncol_num &lt;- 10\nrow_num &lt;- 10\nA &lt;- matrix(rep(1, col_num * row_num), nrow = row_num)\nfor (i in 1:col_num) {\n  for (j in 1:row_num) {\n    if (i &gt;= iter_max) {\n      A[i, j] &lt;- NA\n    }\n  }\n}\n\n# Can you improve the code more by eliminating loops or at least one of them?\n\n\n\n\n\n\n1.3 Task: Better Formatting.\nImprove formatting and style of the following code:\n\nsimulate_genotype &lt;- function( q, N=100 ) {\n  if( length(q)==1 ){\n    p &lt;- (1 - q)\n    f_gt &lt;- c(p^2, 2*p*q, q^2) # AA, AB, BB\n  }else{\n    f_gt&lt;-q\n  }\n  tmp &lt;- sample( c('AA','AB','BB'), size =N, prob=f_gt, replace=T )\n  return(tmp)\n}\n\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\nsimulate_genotype &lt;- function(q, N = 100) {\n  if (length(q) == 1) {\n    p &lt;- (1 - q)\n    f_gt &lt;- c(p^2, (2 * p * q), q^2) # AA, AB, BB\n  } else {\n    f_gt &lt;- q\n  }\n  sample(c('AA', 'AB', 'BB'), \n         size = N, \n         prob = f_gt, \n         replace = TRUE)\n}\n\n\n\n\n\n\n1.4 Task: Hidden Variable.\nAssign a vector of three last months (abbreviated in English) in a year to a hidden variable my_months.\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\n# If we do not know the length of the vector\n.my_months &lt;- rev(rev(month.abb)[1:3])\n\n# or\n.my_months &lt;- month.abb[(length(month.abb)-2):length(month.abb)]\n\n\n\n\n\n\n\n\n1.5 Bonus task: using air.\nThe example solutions for tasks 1.2 and 1.3 were written before the R package air was released. The package provides a set of functions that can help you with formatting code. Try to use air to reformat the code given in tasks 1.2 and 1.3 and compare with the example solutions. Are they similar? What did air not do?\n\n\n1.6 Bonus task: Using options.\nUse options to change the default prompt in R to hello :-) &gt;.\n\n\n\n\n\n\nTip\n\n\n\nCheck what options are stored in the hidden variable called Options.\n\n\n\n\n\n\n\n\nExample Solution\n\n\n\n\n\n\noptions(prompt = \"hello :-) &gt; \")\n.Options\noptions(prompt = \"&gt; \") # restoring the default"
   },
   {
     "objectID": "labs/coding/index.html#structuring-the-code",
@@ -2999,8 +2999,8 @@
     "objectID": "labs/coding/index.html#session",
     "href": "labs/coding/index.html#session",
     "title": "Best Coding Practices",
-    "section": "3 Session",
-    "text": "3 Session\n\n\nClick here\n\n\nsessionInfo()\n\nR version 4.4.3 (2025-02-28)\nPlatform: x86_64-pc-linux-gnu\nRunning under: Ubuntu 24.04.2 LTS\n\nMatrix products: default\nBLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 \nLAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0\n\nlocale:\n [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              \n [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    \n [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   \n [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 \n [9] LC_ADDRESS=C               LC_TELEPHONE=C            \n[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       \n\ntime zone: Etc/UTC\ntzcode source: system (glibc)\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] bsplus_0.1.5\n\nloaded via a namespace (and not attached):\n [1] digest_0.6.37     lubridate_1.9.4   fastmap_1.2.0     xfun_0.52        \n [5] magrittr_2.0.3    knitr_1.50        htmltools_0.5.8.1 timechange_0.3.0 \n [9] rmarkdown_2.29    generics_0.1.3    cli_3.6.5         compiler_4.4.3   \n[13] tools_4.4.3       evaluate_1.0.3    yaml_2.3.10       rlang_1.1.6      \n[17] jsonlite_2.0.0    htmlwidgets_1.6.4"
+    "section": "2 Session",
+    "text": "2 Session\n\n\nClick here\n\n\nsessionInfo()\n\nR version 4.4.3 (2025-02-28)\nPlatform: x86_64-pc-linux-gnu\nRunning under: Ubuntu 24.04.2 LTS\n\nMatrix products: default\nBLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 \nLAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0\n\nlocale:\n [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              \n [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    \n [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   \n [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 \n [9] LC_ADDRESS=C               LC_TELEPHONE=C            \n[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       \n\ntime zone: Etc/UTC\ntzcode source: system (glibc)\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] bsplus_0.1.5\n\nloaded via a namespace (and not attached):\n [1] digest_0.6.37     lubridate_1.9.4   fastmap_1.2.0     xfun_0.52        \n [5] magrittr_2.0.3    knitr_1.50        htmltools_0.5.8.1 timechange_0.3.0 \n [9] rmarkdown_2.29    generics_0.1.3    cli_3.6.5         compiler_4.4.3   \n[13] tools_4.4.3       evaluate_1.0.3    yaml_2.3.10       rlang_1.1.6      \n[17] jsonlite_2.0.0    htmlwidgets_1.6.4"
   },
   {
     "objectID": "labs/packages/index.html",
@@ -4716,5 +4716,75 @@
     "title": "Welcome to RaukR",
     "section": "",
     "text": "Questions?\n\nImage credits\nUnsplash | Casper Van Battum\nUnsplash | Michael Odelberth\n\n2025 • SciLifeLab • NBIS • RaukR"
+  },
+  {
+    "objectID": "slides/scripting/index.html#structure-your-code",
+    "href": "slides/scripting/index.html#structure-your-code",
+    "title": "Functions and scripts",
+    "section": "Structure Your Code",
+    "text": "Structure Your Code\nDecompose the problem 🧩 🧩!\n  \nsource: Wikimedia Commons\n\n\n\ndivide et impera / top-down approach — split your BIG problem into a number of small sub-problems recursively and, at some level, encapsulate your code in functional blocks (functions)"
+  },
+  {
+    "objectID": "slides/scripting/index.html#r-functions-3",
+    "href": "slides/scripting/index.html#r-functions-3",
+    "title": "Functions and scripts",
+    "section": "R Functions",
+    "text": "R Functions\n\nuse data as the very first parameter for %&gt;% pipes sake:\n\nmyfun &lt;- function(x, param) 🆗\nmyfun &lt;- function(param, x) 📵\n\n\n\n\nset parameters to defaults — better too many parameters than too few:\n\nmyfun &lt;- function(x, seed = 42) 🆗\nmyfun &lt;- function(x, ...) 📵\n\n\n\n\n\n\nremember that global defaults can be changed with options\n\n\nGlobal options can influence how functions behave, for example the default number of digits printed in the console."
+  },
+  {
+    "objectID": "slides/scripting/index.html#wrapper-function",
+    "href": "slides/scripting/index.html#wrapper-function",
+    "title": "Functions and scripts",
+    "section": "Wrapper function",
+    "text": "Wrapper function\nIf you are re-using functions written by someone else — write a wrapper function around them and use the power of the ...\n\n\n\nmy_awesome_plot &lt;- function(x, ...) {\n  plot(x,\n       col = \"red\",\n       pch = 19,\n       cex.axis = .7,\n       ...)\n}\n\n\n\nmy_awesome_plot(1:5, col = \"blue\")\n\nError in localWindow(xlim, ylim, log, asp, ...): formal argument \"col\" matched by multiple actual arguments\n\nmy_awesome_plot(1:5, las = 1)"
+  },
+  {
+    "objectID": "slides/coding/index.html#code-formatting",
+    "href": "slides/coding/index.html#code-formatting",
+    "title": "Best Coding Practices",
+    "section": "Code formatting",
+    "text": "Code formatting\n\n\nGoal: Improve readability\n 1. Consistent indentation/whitespace\n\na &lt;- 15\n  b &lt;- 20\n  \n  c &lt;- function(a,b){             #Bad\nreturn(a + b)}\n\n      d &lt;- 1+2:3*(4/5)\n\n\na &lt;- 15\nb &lt;- 20\nc &lt;- function(a, b) {             #Good\n  return(a + b)\n}\nd &lt;- 1 + 2:3 * (4 / 5)\n\n\n\n\n\nhttps://posit-dev.github.io/air/"
+  },
+  {
+    "objectID": "slides/coding/index.html#code-formatting-1",
+    "href": "slides/coding/index.html#code-formatting-1",
+    "title": "Best Coding Practices",
+    "section": "Code formatting",
+    "text": "Code formatting\n\n\nGoal: Improve readability\n 2. Consistent braces and linewidth\n\n# Bad\nfn &lt;- function(a_really_long_variable_name, another_really_long_name) a_really_long_variable_name + another_really_long_name\n\n\n# Good\nfn &lt;- function(\n  a_really_long_variable_name,\n  another_really_long_name\n) {\n  a_really_long_variable_name + another_really_long_name\n}\n\n\n\n\n\nhttps://posit-dev.github.io/air/"
+  },
+  {
+    "objectID": "slides/ai/index.html#what-this-sessions-will-cover",
+    "href": "slides/ai/index.html#what-this-sessions-will-cover",
+    "title": "R & AI",
+    "section": "What this sessions will cover",
+    "text": "What this sessions will cover\n\n\n\n\nHow to setup and use GitHub Copilot in RStudio\nHow to query LLMs in R using chattr & ellmer\nA comparison with using Copilot in VS Code\n\n    \n\n\n\n\n\n\nNote\n\n\nhttps://positron.posit.co/assistant.html"
+  },
+  {
+    "objectID": "slides/ai/index.html#who-can-have-github-copilot",
+    "href": "slides/ai/index.html#who-can-have-github-copilot",
+    "title": "R & AI",
+    "section": "Who can have GitHub Copilot?",
+    "text": "Who can have GitHub Copilot?\n\n\n\n\nFree for individuals with limitations\nFree for students and educators\nPaid for anyone\n\n\n\n\n\nFree plan is pretty new, likely january 2025. Commonly used in the R community compared to a year ago"
+  },
+  {
+    "objectID": "slides/ai/index.html#section-1",
+    "href": "slides/ai/index.html#section-1",
+    "title": "R & AI",
+    "section": "",
+    "text": "Live demo"
+  },
+  {
+    "objectID": "slides/ai/index.html#how-to-write-prompts",
+    "href": "slides/ai/index.html#how-to-write-prompts",
+    "title": "R & AI",
+    "section": "How to write prompts",
+    "text": "How to write prompts\n\n\n\nBe specific and clear about what you want\nGive examples\nAvoid ambiguity\nBreak down complex tasks into smaller steps\nFollow best coding practices\n\n\nhttps://docs.github.com/en/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat"
+  },
+  {
+    "objectID": "slides/ai/index.html#section-2",
+    "href": "slides/ai/index.html#section-2",
+    "title": "R & AI",
+    "section": "",
+    "text": "Thank you!\nQuestions?\n2025 • SciLifeLab • NBIS • RaukR"
   }
 ]

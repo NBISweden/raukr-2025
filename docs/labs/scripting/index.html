@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Sebastian DiLorenzo, Markus Mayrhofer">
+<meta name="author" content="Sebastian DiLorenzo">
 <meta name="description" content="Modularising R code into functions and running R in the terminal.">
 
-<title>Functions &amp; Scripts</title>
+<title>Functions and Scripts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -121,7 +121,7 @@ background-size: cover;
 <script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
-<meta property="og:title" content="Functions &amp; Scripts">
+<meta property="og:title" content="Functions and Scripts">
 <meta property="og:description" content="Modularising R code into functions and running R in the terminal.">
 <meta property="og:image" content="https://nbisweden.github.io/raukr-2025/labs/scripting/assets/featured.webp">
 </head>
@@ -195,7 +195,7 @@ background-size: cover;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Functions &amp; Scripts</h1>
+      <h1 class="title">Functions and Scripts</h1>
             <p class="subtitle lead">RaukR 2025 • R Beyond the Basics</p>
                   <div>
         <div class="description">
@@ -211,14 +211,14 @@ background-size: cover;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Sebastian DiLorenzo, Markus Mayrhofer </p>
+               <p>Sebastian DiLorenzo </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">08-May-2025</p>
+        <p class="date">08-Jun-2025</p>
       </div>
     </div>
     
@@ -315,7 +315,7 @@ Lucy in the sky with Henrik</code></pre>
 data.frame(..., row.names = NULL, check.rows = FALSE,
            check.names = TRUE, fix.empty.names = TRUE,
            stringsAsFactors = default.stringsAsFactors())</code></pre>
-<p>The ellipsis can be used to add columns to the data.frame. Try creating a data.frame with one column and one with several. Also, try creating a data.frame with no arguments for <code>...</code>, what happens?</p>
+<p>The ellipsis can be used to add columns to the data.frame. Try creating a data.frame with one column and a data.frame with several columns. Also, try creating a data.frame with no arguments for <code>...</code>, what happens?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="at">b=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -355,13 +355,11 @@ data.frame(..., row.names = NULL, check.rows = FALSE,
 <li>Starts with a <strong>hashbang</strong> line that instructs your system how to interpret it, e.g.&nbsp;<code>#!/usr/bin/env Rscript</code></li>
 <li>Is an executable file e.g.&nbsp;through <code>chmod +x myscriptfile.R</code> on Unix systems. If you are on windows you are on your own =).</li>
 </ol>
-<p>Task:</p>
 <ul>
 <li>Modify your script and run it without <code>Rscript</code>.</li>
 <li>Go into a different folder, can you execute it without giving the path to the script?</li>
 </ul>
 <!--
-
 
 
 ::: {.cell}
@@ -372,7 +370,6 @@ mydata=rnorm(1000)
 print(summary(mydata))
 ```
 :::
-
 
 
 -->
@@ -930,7 +927,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","openEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
