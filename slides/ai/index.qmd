@@ -1,5 +1,5 @@
 ---
-title: "Best Coding Practices"
+title: "R & AI"
 author: "Sebastian DiLorenzo"
 image: "assets/featured.webp"
 format: revealjs
@@ -9,276 +9,127 @@ format: revealjs
 
 ```{r}
 #| echo: false
-# remotes::install_github("hadley/emo")
-library(emo)
+
 ```
 
-## Learning Outcomes
+## What this sessions will cover
+
+:::: {.columns}
+::: {.column width="60%"}
 
 <br>
 
-After this module:
+- How to setup and use GitHub Copilot in RStudio
+- How to query LLMs in R using `chattr` & `ellmer`
+- A comparison with using Copilot in VS Code
 
-- You will be aware of different coding styles.
+<br>
+<br>
+<br>
+<br>
+<br>
 
-. . .
-
-- You will know what styles are good and bad and why.
-
-. . .
-
-- You will be reminded about dividing a problem before your start conquering(coding).
-
-. . .
-
-- You will understand when it is time to write a function.
-
-<!-- . . .
-
-- You will have a basic understanding of using github copilot with RStudio `r emo::ji('robot')`.
--->
-
-## What is Coding Style?
-
-:::: {.columns}
-::: {.column width="50%"}
-- Naming conventions --- assigning names to variables
-
-- Code formatting --- placement of braces, use of white space characters etc.
+:::{.callout-note}
+https://positron.posit.co/assistant.html
 :::
 
-::: {.column width="50%"}
+:::
+::: {.column width="40%"}
 
-![[From: [Behind The Lines](http://geekandpoke.typepad.com/geekandpoke/2010/09/behind-the-lines.html) 2010-09-23. By Oliver Widder, Webcomics Geek And Poke.]{.smaller}](assets/coding_style.jpg){.left height="600px"}
+![](assets/robot.png)
+
 :::
 ::::
 
-## Naming Conventions
-
-A syntactically valid name:
-
-- Consists of:
-  - letters: `r paste0(paste0(letters, collapse=''), paste0(LETTERS, collapse=''))`
-  - digits: `r paste(0:9, collapse='')`
-  - period: `.`
-  - underscore: `_`
-
-- Begins with a letter or the period (`.`), if `.` should **not** followed by a number
-
-- Cannot be one of the *reserved words*: `if`, `else`, `repeat`, `while`, `function`, `for`, `in`, `next`, `break`, `TRUE`, `FALSE`, `NULL`, `Inf`, `NaN`, `NA`, `NA_integer_`, `NA_real_`, `NA_complex_`, `NA_character_`
-
-- Also cannot be: `c`, `q`, `t`, `C`, `D`, `I` as they are reserved function names.
-
-## Naming Style
-
-Variable names that are legal are not necessarily a good style and they may be dangerous `r emo::ji('danger')`:
-
-```{r logical_values}
-F
-T
-```
-
-```{r the_TF_trap}
-F + T
-```
-
-```{r the_TF_trap_cted}
-F <- 3
-F + T
-```
-
-```{r reset_false}
-#| include: false
-T <- TRUE
-F <- FALSE
-```
-
-do not do this!
-
-. . .
-
-unless you are a politician `r emo::ji('suit')`...
-
-Avoid `T` and `F` as variable names.
-
-## Customary Variable Names
+## Who can have GitHub Copilot?
 
 :::: {.columns}
-::: {.column}
-
-Also, there is a number of variable names that are traditionally used to name particular variables:
-
-- `usr` &mdash; user
-- `pwd` &mdash; password
-- `x`, `y`, `z` &mdash; vectors
-- `w` &mdash; weights
-- `f`, `g` &mdash; functions
-- `n` &mdash; number of rows
-- `p` &mdash; number of columns
-- `i`, `j`, `k` &mdash; indexes
-- `df` &mdash; data frame
-- `cnt` &mdash; counter
-- `M`, `N`, `W` &mdash; matrices
-- `tmp` &mdash; temporary variables
-
-:::
-
-::: {.column}
-
-Sometimes these are domain-specific:
-
-- `p`, `q` &mdash; allele frequencies in genetics,
-- `N`, `k` &mdash; number of trials and number of successes in stats
-
-[Try to avoid using these in this way to avoid possible confusion.]{.large}
-
-:::
-:::
-
-## Code formatting
-
-:::: {.columns}
-::: {.column width="70%"}
-**Goal: Improve readability**
+::: {.column width="75%"}
 
 <br>
-1. Consistent indentation/whitespace
 
-```{r indentation_bad}
-#| eval: false
-a <- 15
-  b <- 20
+- Free for individuals with limitations
+- Free for students and educators
+- Paid for anyone
+
+:::
+::: {.column width="25%"}
+
+![](assets/copilot.png)
+
+:::
+::::
+
+::: {.notes}
+Free plan is pretty new, likely january 2025.
+Commonly used in the R community compared to a year ago
+:::
+
+##
+
+<br><br><br><br><br><br>
+
+[[Live demo]{.largest}]{.center}
+
+## How to write prompts
+
+:::: {.columns}
+::: {.column width="75%"}
+
+- Be specific and clear about what you want
+- Give examples
+- Avoid ambiguity
+- Break down complex tasks into smaller steps
+- Follow best coding practices
+
+
+::: {.notes}
+https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
+:::
+
+:::
+
+::: {.column width="25%"}
+
+
+:::
+::::
+
+<!--
+
+## Rough draft of topics
+
+IDEA: Very few slides, mostly live coding with a script of things to show.
+
   
-  c <- function(a,b){             #Bad
-return(a + b)}
+Setting up github copilot in R (demo)
+https://docs.posit.co/ide/user/ide/guide/tools/copilot.html
 
-      d <- 1+2:3*(4/5)
-```
+Using Rstudio and copilot (demo)
+  - how it works in Rstudio
+  - Best to split big problems into smaller pieces
+    - write a high-level goal at the start of the file
+    - Write code, whole function
+    - write code, just a line
+    - Write comments
+    - Write questions
 
-```{r indentation_good}
-#| eval: false
-a <- 15
-b <- 20
-c <- function(a, b) {             #Good
-  return(a + b)
-}
-d <- 1 + 2:3 * (4 / 5)
-```
 
-:::
-::: {.column width="30%"}
-![https://posit-dev.github.io/air/](assets/air.png){height="300px"}
+querying llms in R using chattr (demo)
 
-:::
-::::
+Other IDE's
+  - Visual Studio Code (demo)
+  - positron
+  
+No labs on this topic for several reasons: (slide)
+  - not applicable to everyone
+  - Quick moving field where things are changing often
+  - This should be more of a inspirational lecture.
 
-## Code formatting
+If I have time: (slide)
+How to write good prompts
 
-:::: {.columns}
-::: {.column width="70%"}
-**Goal: Improve readability**
-
-<br>
-2. Consistent braces and linewidth
-
-```{r linewidth_bad}
-#| eval: false
-# Bad
-fn <- function(a_really_long_variable_name, another_really_long_name) a_really_long_variable_name + another_really_long_name
-```
-
-```{r linewidth_good}
-#| eval: false
-# Good
-fn <- function(
-  a_really_long_variable_name,
-  another_really_long_name
-) {
-  a_really_long_variable_name + another_really_long_name
-}
-```
-
-:::
-::: {.column width="30%"}
-![https://posit-dev.github.io/air/](assets/air.png){height="300px"}
-
-:::
-::::
-
-## Different Notations
-
-People use different notation styles throughout their code:
-
-. . .
-
-- `snake_notation_looks_like_this`
-
-. . .
-
-- `camelNotationLooksLikeThis`
-
-. . .
-
-- `period.notation.looks.like.this`
-
-. . .
-
-But many also use...
-
-. . .
-
-- `LousyNotation_looks.likeThis`
-
-. . .
-
-Try to be consistent and stick to one of them. Bear in mind `period.notation` is used by S3 classes to create generic functions, e.g. `plot.my.object`. A good-enough reason to avoid it?
-
-. . .
-
-It is also important to maintain code readability by having your variable names:
-
-- informative, e.g. `genotypes` vs. `fsjht45jkhsdf4`
-
-. . .
-
-- Consistent across your code &mdash; the same naming convention
-
-. . .
-
-- Not too long, e.g. `weight` vs. `phenotype.weight.measured`
-
-## Special Variable Names
-
-- There are built-in variable names:
-
-  - `LETTERS`: the 26 upper-case letters of the Roman alphabet
-  - `letters`: the 26 lower-case letters of the Roman alphabet
-  - `month.abb`: the three-letter abbreviations for the English month names
-  - `month.name`: the English names for the months of the year
-  - `pi`: the ratio of the circumference of a circle to its diameter
-
-- Variable names beginning with period are **hidden**: `.my_secret_variable` `r emo::ji('ghost')` will not be shown but can be accessed
-
-```{r hidden_vars}
-.the_hidden_answer <- 42
-ls()
-```
-
-. . .
-
-but with a bit of effort you can see them:
-
-```{r show_hidden_vars}
-ls(all.names = TRUE)
-```
-
-## Github copilot `r emo::ji('heart')` RStudio
-
-[
-![](assets/copilot.png){height="500px"}  
-<br>
-[source: https://github.com/edu/students]{.smaller}
-]{.center}
+-->
 
 ## {background-image="/assets/images/cover.webp"}
 

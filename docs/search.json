@@ -4678,9 +4678,9 @@
   {
     "objectID": "slides/ai/index.html#section-1",
     "href": "slides/ai/index.html#section-1",
-    "title": "Best Coding Practices",
-    "section": "12 ",
-    "text": "12 \n\n\nThank you!\nQuestions?\n2025 • SciLifeLab • NBIS • RaukR"
+    "title": "R & AI",
+    "section": "",
+    "text": "Live demo"
   },
   {
     "objectID": "slides/scripting/index.html#structure-your-code",
@@ -4709,5 +4709,33 @@
     "title": "Functions and scripts",
     "section": "R Functions",
     "text": "R Functions\n\nuse data as the very first parameter for %&gt;% pipes sake:\n\nmyfun &lt;- function(x, param) 🆗\nmyfun &lt;- function(param, x) 🚯\n\n\n\n\nset parameters to defaults — better too many parameters than too few:\n\nmyfun &lt;- function(x, seed = 42) 🆗\nmyfun &lt;- function(x, ...) 🚷\n\n\n\n\n\n\nremember that global defaults can be changed with options\n\n\nGlobal options can influence how functions behave, for example the default number of digits printed in the console."
+  },
+  {
+    "objectID": "slides/ai/index.html#what-this-sessions-will-cover",
+    "href": "slides/ai/index.html#what-this-sessions-will-cover",
+    "title": "R & AI",
+    "section": "What this sessions will cover",
+    "text": "What this sessions will cover\n\n\n\n\nHow to setup and use GitHub Copilot in RStudio\nHow to query LLMs in R using chattr & ellmer\nA comparison with using Copilot in VS Code\n\n    \n\n\n\n\n\n\nNote\n\n\nhttps://positron.posit.co/assistant.html"
+  },
+  {
+    "objectID": "slides/ai/index.html#who-can-have-github-copilot",
+    "href": "slides/ai/index.html#who-can-have-github-copilot",
+    "title": "R & AI",
+    "section": "Who can have GitHub Copilot?",
+    "text": "Who can have GitHub Copilot?\n\n\n\n\nFree for individuals with limitations\nFree for students and educators\nPaid for anyone\n\n\n\n\n\nFree plan is pretty new, likely january 2025. Commonly used in the R community compared to a year ago"
+  },
+  {
+    "objectID": "slides/ai/index.html#how-to-write-prompts",
+    "href": "slides/ai/index.html#how-to-write-prompts",
+    "title": "R & AI",
+    "section": "How to write prompts",
+    "text": "How to write prompts\n\n\n\nBe specific and clear about what you want\nGive examples\nAvoid ambiguity\nBreak down complex tasks into smaller steps\nFollow best coding practices\n\n\nhttps://docs.github.com/en/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat"
+  },
+  {
+    "objectID": "slides/ai/index.html#section-2",
+    "href": "slides/ai/index.html#section-2",
+    "title": "R & AI",
+    "section": "",
+    "text": "Thank you!\nQuestions?\n2025 • SciLifeLab • NBIS • RaukR"
   }
 ]
