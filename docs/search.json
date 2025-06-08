@@ -1635,21 +1635,21 @@
     "href": "slides/r-env/index.html#renv.lock-anatomy-r-version",
     "title": "Renv: Project environments in R",
     "section": "renv.lock anatomy • R version",
-    "text": "renv.lock anatomy • R version"
+    "text": "renv.lock anatomy • R version\n\n{\n  \"R\": {\n    \"Version\": \"4.3.2\",\n    \"Repositories\": [\n      {\n        \"Name\": \"CRAN\",\n        \"URL\": \"https://p3m.dev/cran/latest\"\n      }\n    ]\n  },\n  \"Bioconductor\": {\n    \"Version\": \"3.18\"\n  },\n  \"remotes\": {\n    \"Package\": \"remotes\",\n    \"Version\": \"2.4.2.1\",\n    \"Source\": \"Repository\",\n    \"Repository\": \"RSPM\",\n    \"Requirements\": [\n      \"R\",\n      \"methods\",\n      \"stats\",\n      \"tools\",\n      \"utils\"\n    ],\n    \"Hash\": \"63d15047eb239f95160112bcadc4fcb9\"\n  }\n}"
   },
   {
     "objectID": "slides/r-env/index.html#renv.lock-anatomy-active-repositories",
     "href": "slides/r-env/index.html#renv.lock-anatomy-active-repositories",
     "title": "Renv: Project environments in R",
     "section": "renv.lock anatomy • Active repositories",
-    "text": "renv.lock anatomy • Active repositories"
+    "text": "renv.lock anatomy • Active repositories\n\n{\n  \"R\": {\n    \"Version\": \"4.3.2\",\n    \"Repositories\": [\n      {\n        \"Name\": \"CRAN\",\n        \"URL\": \"https://p3m.dev/cran/latest\"\n      }\n    ]\n  },\n  \"Bioconductor\": {\n    \"Version\": \"3.18\"\n  },\n  \"remotes\": {\n    \"Package\": \"remotes\",\n    \"Version\": \"2.4.2.1\",\n    \"Source\": \"Repository\",\n    \"Repository\": \"RSPM\",\n    \"Requirements\": [\n      \"R\",\n      \"methods\",\n      \"stats\",\n      \"tools\",\n      \"utils\"\n    ],\n    \"Hash\": \"63d15047eb239f95160112bcadc4fcb9\"\n  }\n}"
   },
   {
     "objectID": "slides/r-env/index.html#renv.lock-anatomy-r-packages",
     "href": "slides/r-env/index.html#renv.lock-anatomy-r-packages",
     "title": "Renv: Project environments in R",
     "section": "renv.lock anatomy • R packages",
-    "text": "renv.lock anatomy • R packages"
+    "text": "renv.lock anatomy • R packages\n\n{\n  \"R\": {\n    \"Version\": \"4.3.2\",\n    \"Repositories\": [\n      {\n        \"Name\": \"CRAN\",\n        \"URL\": \"https://p3m.dev/cran/latest\"\n      }\n    ]\n  },\n  \"Bioconductor\": {\n    \"Version\": \"3.18\"\n  },\n  \"remotes\": {\n    \"Package\": \"remotes\",\n    \"Version\": \"2.4.2.1\",\n    \"Source\": \"Repository\",\n    \"Repository\": \"RSPM\",\n    \"Requirements\": [\n      \"R\",\n      \"methods\",\n      \"stats\",\n      \"tools\",\n      \"utils\"\n    ],\n    \"Hash\": \"63d15047eb239f95160112bcadc4fcb9\"\n  }\n}"
   },
   {
     "objectID": "slides/r-env/index.html#package-metadata",
@@ -2139,14 +2139,14 @@
     "href": "index.html",
     "title": "",
     "section": "",
-    "text": "In Life Sciences and Bioinformatics, the R programming language is pivotal for data transformation, statistical analyses, and crafting publication-ready visualizations. This workshop goes beyond the basics, offering participants a comprehensive understanding of the R ecosystem. We explore best coding practices, code profiling, data wrangling, generating reports from notebooks and development of web apps using R.\n   \n\n\nUpdated: 06-06-2025 at 20:23:52."
+    "text": "In Life Sciences and Bioinformatics, the R programming language is pivotal for data transformation, statistical analyses, and crafting publication-ready visualizations. This workshop goes beyond the basics, offering participants a comprehensive understanding of the R ecosystem. We explore best coding practices, code profiling, data wrangling, generating reports from notebooks and development of web apps using R.\n   \n\n\nUpdated: 08-06-2025 at 19:25:59."
   },
   {
     "objectID": "index.html#raukr-r-beyond-the-basics",
     "href": "index.html#raukr-r-beyond-the-basics",
     "title": "",
     "section": "",
-    "text": "In Life Sciences and Bioinformatics, the R programming language is pivotal for data transformation, statistical analyses, and crafting publication-ready visualizations. This workshop goes beyond the basics, offering participants a comprehensive understanding of the R ecosystem. We explore best coding practices, code profiling, data wrangling, generating reports from notebooks and development of web apps using R.\n   \n\n\nUpdated: 06-06-2025 at 20:23:52."
+    "text": "In Life Sciences and Bioinformatics, the R programming language is pivotal for data transformation, statistical analyses, and crafting publication-ready visualizations. This workshop goes beyond the basics, offering participants a comprehensive understanding of the R ecosystem. We explore best coding practices, code profiling, data wrangling, generating reports from notebooks and development of web apps using R.\n   \n\n\nUpdated: 08-06-2025 at 19:25:59."
   },
   {
     "objectID": "home_gallery.html#raukr-2023",
@@ -4603,7 +4603,7 @@
     "href": "slides/welcome/index.html#social-activities",
     "title": "Welcome to RaukR",
     "section": "Social activities",
-    "text": "Social activities\n\n\nWalking tour\n\n10th June (Tue) at 17:30\nCampus Gotland\n\n\n\n\nBBQ\n\nTypically organized by students\nDepends on the weather"
+    "text": "Social activities\n\n\nWalking tour\n\n10th June (Tue) at 17:30\nCampus Gotland\n\n\n\n\nBBQ\n\nTypically organized by students\nDepends on the weather\nIf you plan one, let us know date & time :)"
   },
   {
     "objectID": "slides/welcome/index.html#course-dinner",

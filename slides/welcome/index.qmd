@@ -59,6 +59,7 @@ format: revealjs
 
 - Typically organized by students
 - Depends on the weather
+- If you plan one, let us know date & time :)
 
 :::
 

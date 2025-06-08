@@ -281,7 +281,7 @@ renv::snapshot()
 
 ## renv.lock anatomy • R version {auto-animate="true"}
 
-```{json}
+```{r}
 #| eval: false
 #| code-line-numbers: "3"
 
@@ -317,7 +317,7 @@ renv::snapshot()
 
 ## renv.lock anatomy • Active repositories {auto-animate="true"}
 
-```{json}
+```{r}
 #| eval: false
 #| code-line-numbers: "4-10"
 
@@ -353,7 +353,7 @@ renv::snapshot()
 
 ## renv.lock anatomy • R packages {auto-animate="true"}
 
-```{json}
+```{r}
 #| eval: false
 #| code-line-numbers: "14-27"
 
