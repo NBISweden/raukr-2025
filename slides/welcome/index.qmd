@@ -57,7 +57,7 @@ format: revealjs
 
 #### BBQ
 
-- Organized by students
+- Typically organized by students
 - Depends on the weather
 
 :::
