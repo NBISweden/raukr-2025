@@ -243,10 +243,6 @@ It is also important to maintain code readability by having your variable names:
 
 . . .
 
-- Consistent across your code &mdash; the same naming convention
-
-. . .
-
 - Not too long, e.g. `weight` vs. `phenotype.weight.measured`
 
 ## Special Variable Names

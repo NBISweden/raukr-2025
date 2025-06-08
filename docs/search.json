@@ -2825,7 +2825,7 @@
     "href": "slides/coding/index.html#naming-style",
     "title": "Best Coding Practices",
     "section": "Naming Style",
-    "text": "Naming Style\nVariable names that are legal are not necessarily a good style and they may be dangerous ☠️:\n\nF\nT\n\n[1] FALSE\n[1] TRUE\n\n\n\nF + T\n\n[1] 1\n\n\n\nF &lt;- 3\nF + T\n\n[1] 4\n\n\ndo not do this!\n\nunless you are a politician 🕴…\nAvoid T and F as variable names."
+    "text": "Naming Style\nVariable names that are legal are not necessarily a good style and they may be dangerous ⚡:\n\nF\nT\n\n[1] FALSE\n[1] TRUE\n\n\n\nF + T\n\n[1] 1\n\n\n\nF &lt;- 3\nF + T\n\n[1] 4\n\n\ndo not do this!\n\nunless you are a politician 🕴…\nAvoid T and F as variable names."
   },
   {
     "objectID": "slides/coding/index.html#customary-variable-names",
@@ -2839,7 +2839,7 @@
     "href": "slides/coding/index.html#different-notations",
     "title": "Best Coding Practices",
     "section": "Different Notations",
-    "text": "Different Notations\nPeople use different notation styles throughout their code:\n\n\nsnake_notation_looks_like_this\n\n\n\n\ncamelNotationLooksLikeThis\n\n\n\n\nperiod.notation.looks.like.this\n\n\n\nBut many also use…\n\n\n\nLousyNotation_looks.likeThis\n\n\n\nTry to be consistent and stick to one of them. Bear in mind period.notation is used by S3 classes to create generic functions, e.g. plot.my.object. A good-enough reason to avoid it?\n\n\nIt is also important to maintain code readability by having your variable names:\n\ninformative, e.g. genotypes vs. fsjht45jkhsdf4\n\n\n\n\nConsistent across your code — the same naming convention\n\n\n\n\nNot too long, e.g. weight vs. phenotype.weight.measured"
+    "text": "Different Notations\nPeople use different notation styles throughout their code:\n\n\nsnake_notation_looks_like_this\n\n\n\n\ncamelNotationLooksLikeThis\n\n\n\n\nperiod.notation.looks.like.this\n\n\n\nBut many also use…\n\n\n\nLousyNotation_looks.likeThis\n\n\n\nTry to be consistent and stick to one of them. Bear in mind period.notation is used by S3 classes to create generic functions, e.g. plot.my.object. A good-enough reason to avoid it?\n\n\nIt is also important to maintain code readability by having your variable names:\n\ninformative, e.g. genotypes vs. fsjht45jkhsdf4\n\n\n\n\nNot too long, e.g. weight vs. phenotype.weight.measured"
   },
   {
     "objectID": "slides/coding/index.html#special-variable-names",
