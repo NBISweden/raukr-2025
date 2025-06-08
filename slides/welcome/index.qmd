@@ -6,6 +6,32 @@ image: "assets/featured.webp"
 format: revealjs
 ---
 
+## NBIS: SciLifeLab Bioinformatics Platform {background-image="assets/bioinformatics-platform.webp"}
+
+## {background-image="assets/core-activities.webp"}
+
+## Support stages {background-image="assets/support-stages.webp"}
+
+## Support options {background-image="assets/support-options.webp"}
+
+## Infrastructure {background-image="assets/infrastructure.webp"}
+
+## Training {background-image="assets/training.webp"}
+
+## Upcoming workshops
+
+::: {.large}
+
+- Introduction to Data Management Practices, 09-11 Sep 2025, Lund
+- Population genomics in practice, 15-19 Sep 2025, Uppsala
+- Epigenomics Data Analysis: from Bulk to Single Cell, 22-26 Sep 2025, Online
+- <https://nbis.se/training>
+- <https://training.scilifelab.se/events>
+
+:::
+
+## {background-image="assets/elixir.webp"}
+
 ## Venue {background-image="assets/campus.webp"}  
 
 ::: {.incremental}
