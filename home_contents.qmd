@@ -23,7 +23,7 @@ execute:
 |Project environments using Renv        |Roy Francis                   |[Slides](slides/r-env/index.html)|
 |Debugging, Profiling and Optimization  |Marcin Kierczak               |[Slides](slides/debugging/index.html), [Lab](labs/debugging/index.html)|
 |[10-Jun-2025 (Tue)]{.badge .badge-secondary}                          |||
-|Introduction to Quarto                 |Christophe Dervieux           ||
+|Introduction to Quarto                 |Christophe Dervieux           |[Slides](https://cderv.github.io/raukr-2025-quarto/)|
 |Literate programming with Quarto       |Roy Francis                   |[Lab](labs/quarto/index.html)|
 |Creating websites with Quarto          |Roy Francis                   |[Lab](labs/quarto-site/index.html)|
 |Functions & Scripts                    |Sebastian DiLorenzo           |[Slides](slides/scripting/index.html), [Lab](labs/scripting/index.html)|
