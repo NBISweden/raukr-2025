@@ -37,20 +37,15 @@ library(purrr)
 library(stringr)
 ```
 
-Create and activate an environment using Conda.
+Create a virtual environment and install Python libraries.
 
 ```{r}
-#| eval: false
-conda_create("raukr-reticulate", python_version = "3.12", packages = c("pandas=2.2.1","sqlalchemy=2.0.30"))
+#| eval: true
+
+py_require(c("pandas==2.2.1","sqlalchemy==2.0.30"))
 ```
 
-
-```{r}
-# activate environment
-use_condaenv("raukr-reticulate", required = TRUE)
-```
-
-To make sure you will use the correct Python version (and the libraries associated with it), use the keyword `required` when starting your conda environment. The `reticulate` package will figure out which Python version to use, using a specified order. For more information, read the documentation for [Python versions](https://rstudio.github.io/reticulate/articles/versions.html) and [package installation](https://rstudio.github.io/reticulate/articles/python_packages.html).
+Reticulate will automatically figure out which python version to use. If you want to manually specify the version you can use `use_python(<pythonpath>)`.
 
 ## IMdB
 
