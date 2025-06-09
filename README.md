@@ -59,7 +59,7 @@ To preview from inside docker: `quarto preview labs/topic/index.qmd --host 0.0.0
 - Finally commit changes (both source qmd files, rendered html files and _freeze)
 
 ```
-git stage .
+git add .
 git commit -m "Added topic"
 ```
 
