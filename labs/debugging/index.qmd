@@ -87,7 +87,7 @@ Can you fix the code below so that it produces more reliable result?
 Think in terms of system-specific representation $\epsilon$.
 :::
 
-Put the value of your double $\epsilon$ into [this spreadsheet](https://docs.google.com/spreadsheets/d/1_2tDeEkDVS06RkB437yBI1XEB5SUebtHWyxAf_aRJu4/edit?usp=sharing) (Best Coding Practises Lab sheet).
+Put the value of your double $\epsilon$ into [this spreadsheet](https://docs.google.com/spreadsheets/d/1_2tDeEkDVS06RkB437yBI1XEB5SUebtHWyxAf_aRJu4/edit?usp=sharing) (Debugging Lab sheet). Keep this spreadsheet open as you will be entering more values into this.
 
 ```{r}
 #| eval: false
@@ -127,7 +127,7 @@ is_equal(0.7, 0.8 - 0.1)
 
 ### Task: Filling A Large Matrix.
 
-Create a 10 000 x 10 000 matrix and fill it with random numbers (from 1 to 42), first row by row and later column by column. Use `proc.time` to see if there is any difference. Is the measurement reliable? Record the values you got in this spreadsheet:
+Create a 10 000 x 10 000 matrix and fill it with random numbers (from 1 to 42), first row by row and later column by column. Use `proc.time` to see if there is any difference. Is the measurement reliable? Record the values you got in the same spreadsheet.
 
 ```{r}
 #| eval: false
@@ -156,7 +156,7 @@ In the lecture slides, you have seen how to time sampling from Normal Gaussian d
 system.time(rnorm(n = 10e6))
 ```
 
-Is such single measurement reliable? Run the code 100 times, plot and record the mean and the variance of the `elapsed` time. Put these values (elapsed.time mean and variance) into [this spreadsheet](https://docs.google.com/spreadsheets/d/1_2tDeEkDVS06RkB437yBI1XEB5SUebtHWyxAf_aRJu4/edit?usp=sharing) (Best Coding Practises Lab sheet).
+Is such single measurement reliable? Run the code 100 times, plot and record the mean and the variance of the `elapsed` time. Put these values (elapsed.time mean and variance) into the same spreadsheet (Debugging Lab sheet).
 
 ::: {.callout-tip collapse="true"}
 
@@ -179,7 +179,7 @@ var(timing)
 
 **Optional**
 
-An alternative approach or, more exactly, an alternative notation that achieves the same as the previous chunk of code but in a more compact way makes use of the `replicate`, a wrapper function around `sapply` that simplifies repeated evaluation of expressions. The drawback is you do not get the vector of the actual timing values but the results of calling `system.time` are already averaged for you. Try to read about the `replicate` and use it to re-write the code above. Put the `elapsed.time` into [this spreadsheet](https://docs.google.com/spreadsheets/d/1_2tDeEkDVS06RkB437yBI1XEB5SUebtHWyxAf_aRJu4/edit?usp=sharing) (Best Coding Practises Lab sheet). How does this value compare to calling `system.time` within a loop in the previous chunk of code? Are the values similar?
+An alternative approach or, more exactly, an alternative notation that achieves the same as the previous chunk of code but in a more compact way makes use of the `replicate`, a wrapper function around `sapply` that simplifies repeated evaluation of expressions. The drawback is you do not get the vector of the actual timing values but the results of calling `system.time` are already averaged for you. Try to read about the `replicate` and use it to re-write the code above. Put the `elapsed.time` into the same spreadsheet (Debugging Lab sheet). How does this value compare to calling `system.time` within a loop in the previous chunk of code? Are the values similar?
 
 ::: {.callout-tip collapse="true"}
 
@@ -225,7 +225,7 @@ for (i in 1:100) {
 boxplot(timing)
 ```
 
-Put the mean and the variance into [this spreadsheet](https://docs.google.com/spreadsheets/d/1_2tDeEkDVS06RkB437yBI1XEB5SUebtHWyxAf_aRJu4/edit?usp=sharing) (Best Coding Practises Lab sheet, Microbenchmark -- loop)
+Put the mean and the variance into the same spreadsheet (Debugging Lab sheet, Microbenchmark -- loop)
 
 ::: {.callout-tip collapse="true"}
 
@@ -253,7 +253,7 @@ boxplot(timing)
 There is an experimental function in the `microbenchmark` package that helps the package estimate granularity and resolution of your particular timing subsystem. According to the documentation, *the function measures the overhead of timing a C function call rounds times and returns all non-zero timings observed.*
 
 <br>
-Run the `microtiming_precision` function and put the mean and the variance of the resulting vector into [this spreadsheet](https://docs.google.com/spreadsheets/d/1_2tDeEkDVS06RkB437yBI1XEB5SUebtHWyxAf_aRJu4/edit?usp=sharing) (Best Coding Practises Lab sheet, Microbenchmark -- precision)
+Run the `microtiming_precision` function and put the mean and the variance of the resulting vector into the same spreadsheet (Debugging Lab sheet, Microbenchmark -- precision)
 
 ::: {.callout-tip collapse="true"}
 
@@ -567,7 +567,7 @@ optimize_me <- function(N = 1000, values = c(1:1e4)) {
 - Can you optimize something using `BLAS`?
 - Can you optimize by using `apply` somewhere?
 - Can you optimize `apply` further?
-- What else can you optimize. Do it. Report speed gain and memory gain compared to the original version in [this spreadsheet](https://docs.google.com/spreadsheets/d/1_2tDeEkDVS06RkB437yBI1XEB5SUebtHWyxAf_aRJu4/edit?usp=sharing) (Best Coding Practises Lab sheet, Optimization gains).  
+- What else can you optimize. Do it. Report speed gain and memory gain compared to the original version in the same spreadsheet (Debugging Lab sheet, Optimization gains).  
 
 ## Session
 
