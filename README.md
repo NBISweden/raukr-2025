@@ -14,7 +14,7 @@ To edit, preview and render documents, you need one or more of the following req
 
 ## Adding/Modifying topics
 
-- Fork the repository and clone locally and create a branch
+- Fork/Clone the repository and create a branch
 - Keep the topic name simple, preferably one word
 - To add a **topic**, create
   - **slides/topic/index.qmd**
@@ -63,7 +63,14 @@ git stage .
 git commit -m "Added topic"
 ```
 
-- Push changes to your fork and send a pull request
+- Pull latest changes from the repo to your fork and then to your clone
+- Resolve conflicts as needed
+- Push changes to your fork/clone and send a pull request like one of the options below
+
+```
+nbisweden/raukr-2025:main <- nbisweden/raukr-2025:your-branch
+nbisweden/raukr-2025:main <- you/raukr-2025:your-branch
+```
 
 ### Docker
 
