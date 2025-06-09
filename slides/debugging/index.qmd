@@ -53,8 +53,8 @@ library(emo)
 #| eval: false
 #| echo: true
 #| code-line-numbers: "1|2"
-print(var1) 
-mean(sum(seq((x + 2) * (y - 9 * b))))
+pritnt(var1) 
+mean(sum(seq((x + 2) * (y - 9 * b)))
 ```
 
 . . .
