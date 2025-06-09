@@ -24,6 +24,7 @@ execute:
 |Debugging, Profiling and Optimization  |Marcin Kierczak               |[Slides](slides/debugging/index.html), [Lab](labs/debugging/index.html)|
 |[10-Jun-2025 (Tue)]{.badge .badge-secondary}                          |||
 |Introduction to Quarto                 |Christophe Dervieux           ||
+|Literate programming with Quarto       |Roy Francis                   |[Lab](labs/quarto/index.html)|
 |Creating websites with Quarto          |Roy Francis                   |[Lab](labs/quarto-site/index.html)|
 |Functions & Scripts                    |Sebastian DiLorenzo           |[Slides](slides/scripting/index.html), [Lab](labs/scripting/index.html)|
 |R & AI                                 |Sebastian DiLorenzo           |[Slides](slides/ai/index.html)|
