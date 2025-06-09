@@ -111,10 +111,11 @@ simulate_genotype <- function(q, N = 100) {
   } else {
     f_gt <- q
   }
-  sample(c('AA', 'AB', 'BB'), 
+  result <- sample(c('AA', 'AB', 'BB'), 
          size = N, 
          prob = f_gt, 
          replace = TRUE)
+  return(result)
 }
 ```
 
