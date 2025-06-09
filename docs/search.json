@@ -2139,14 +2139,14 @@
     "href": "index.html",
     "title": "",
     "section": "",
-    "text": "In Life Sciences and Bioinformatics, the R programming language is pivotal for data transformation, statistical analyses, and crafting publication-ready visualizations. This workshop goes beyond the basics, offering participants a comprehensive understanding of the R ecosystem. We explore best coding practices, code profiling, data wrangling, generating reports from notebooks and development of web apps using R.\n   \n\n\nUpdated: 09-06-2025 at 14:00:28."
+    "text": "In Life Sciences and Bioinformatics, the R programming language is pivotal for data transformation, statistical analyses, and crafting publication-ready visualizations. This workshop goes beyond the basics, offering participants a comprehensive understanding of the R ecosystem. We explore best coding practices, code profiling, data wrangling, generating reports from notebooks and development of web apps using R.\n   \n\n\nUpdated: 09-06-2025 at 14:19:46."
   },
   {
     "objectID": "index.html#raukr-r-beyond-the-basics",
     "href": "index.html#raukr-r-beyond-the-basics",
     "title": "",
     "section": "",
-    "text": "In Life Sciences and Bioinformatics, the R programming language is pivotal for data transformation, statistical analyses, and crafting publication-ready visualizations. This workshop goes beyond the basics, offering participants a comprehensive understanding of the R ecosystem. We explore best coding practices, code profiling, data wrangling, generating reports from notebooks and development of web apps using R.\n   \n\n\nUpdated: 09-06-2025 at 14:00:28."
+    "text": "In Life Sciences and Bioinformatics, the R programming language is pivotal for data transformation, statistical analyses, and crafting publication-ready visualizations. This workshop goes beyond the basics, offering participants a comprehensive understanding of the R ecosystem. We explore best coding practices, code profiling, data wrangling, generating reports from notebooks and development of web apps using R.\n   \n\n\nUpdated: 09-06-2025 at 14:19:46."
   },
   {
     "objectID": "home_gallery.html#raukr-2023",
@@ -2181,7 +2181,7 @@
     "href": "home_contents.html",
     "title": "Contents",
     "section": "",
-    "text": "Topic\nPresenter\nLinks\n\n\n\n\nWEEK 1\n\n\n\n\n09-Jun-2025 (Mon)\n\n\n\n\nWelcome\nMarcin Kierczak, Sebastian DiLorenzo\nSlides\n\n\nBest Coding Practices in R\nMarcin Kierczak, Sebastian DiLorenzo\nSlides, Lab\n\n\nProject environments using Renv\nRoy Francis\nSlides\n\n\nDebugging, Profiling and Optimization\nMarcin Kierczak\nSlides, Lab\n\n\n10-Jun-2025 (Tue)\n\n\n\n\nIntroduction to Quarto\nChristophe Dervieux\n\n\n\nCreating websites with Quarto\nRoy Francis\nLab\n\n\n11-Jun-2025 (Wed)\n\n\n\n\ngit with R\nSebastian DiLorenzo\nSlides, Lab\n\n\nFuturverse\nHenrik Bengtsson, UCSF\n\n\n\n12-Jun-2025 (Thu)\n\n\n\n\nTidyverse\nMarcin Kierczak\nSlides, Lab\n\n\nPlotting with ggplot2\nRoy Francis\nSlides, Lab\n\n\n13-Jun-2025 (Fri)\n\n\n\n\nR Packages\nJenny Bryan, Posit\n\n\n\nreticulate: Combining R with Python\nNina Norgren\nSlides, Lab\n\n\nWEEK 2\n\n\n\n\n16-Jun-2025 (Mon)\n\n\n\n\nStatistics and machine learning in R\nNikolay Oskolkov\nSlides, Lab\n\n\n17-Jun-2025 (Tue)\n\n\n\n\nObject-oriented programming\nMarcin Kierczak\nSlides, Lab\n\n\nWeb apps with Shiny\nRoy Francis\nSlides, Lab\n\n\nProjects\nGuilherme Dias\nLab\n\n\n\n\n\nSlides  Labs"
+    "text": "Topic\nPresenter\nLinks\n\n\n\n\nWEEK 1\n\n\n\n\n09-Jun-2025 (Mon)\n\n\n\n\nWelcome\nMarcin Kierczak, Sebastian DiLorenzo\nSlides\n\n\nBest Coding Practices in R\nSebastian DiLorenzo\nSlides, Lab\n\n\nProject environments using Renv\nRoy Francis\nSlides\n\n\nDebugging, Profiling and Optimization\nMarcin Kierczak\nSlides, Lab\n\n\n10-Jun-2025 (Tue)\n\n\n\n\nIntroduction to Quarto\nChristophe Dervieux\n\n\n\nLiterate programming with Quarto\nRoy Francis\nLab\n\n\nCreating websites with Quarto\nRoy Francis\nLab\n\n\nFunctions & Scripts\nSebastian DiLorenzo\nSlides, Lab\n\n\nR & AI\nSebastian DiLorenzo\nSlides\n\n\n11-Jun-2025 (Wed)\n\n\n\n\nPositron\nJenny Bryan\n\n\n\nPlotting with ggplot2\nRoy Francis\nSlides, Lab\n\n\n12-Jun-2025 (Thu)\n\n\n\n\nTidyverse\nMarcin Kierczak\nSlides, Lab\n\n\nFuturverse\nHenrik Bengtsson, UCSF\n\n\n\n13-Jun-2025 (Fri)\n\n\n\n\nR Packages\nJenny Bryan, Posit\n\n\n\nreticulate: Combining R with Python\nNina Norgren\nSlides, Lab\n\n\nWEEK 2\n\n\n\n\n16-Jun-2025 (Mon)\n\n\n\n\nStatistics and machine learning in R\nNikolay Oskolkov\nSlides, Lab\n\n\n17-Jun-2025 (Tue)\n\n\n\n\nObject-oriented programming\nMarcin Kierczak\nSlides, Lab\n\n\nWeb apps with Shiny\nRoy Francis\nSlides, Lab\n\n\nProjects\nGuilherme Dias\nLab\n\n\n\n\n\nSlides  Labs"
   },
   {
     "objectID": "home_program.html",
