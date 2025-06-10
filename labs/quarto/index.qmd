@@ -450,9 +450,13 @@ HTML documents can be opened and viewed in any standard browser such as Chrome, 
 
 #### PDF
 
-A qmd document can be converted to a PDF. Behind the scenes, the markdown is converted to TeX format. The conversion to PDF needs a tool that understands TeX format and converts to PDF. This can be softwares like 'MacTeX', 'MikTeX' etc. which needs to be installed on the system beforehand. A light-weight option is to install R package **tinytex**.
+A qmd document can be converted to a PDF. Behind the scenes, the markdown is converted to TeX format. The conversion to PDF needs a tool that understands TeX format and converts to PDF. This can be softwares like 'MacTeX', 'MikTeX' etc. which needs to be installed on the system. A light-weight option is to install **tinytex** through quarto.
 
-The **format** argument in the YAML matter must be changed to `pdf`, and the **pdf-engine** option may need to be changed as needed. If using **tinytex**, set **pdf-engine: pdflatex**.
+```bash
+quarto install tinytex
+```
+
+The **format** argument in the YAML matter must be changed to `pdf`.
 
 Sometimes TeX converters may need additional libraries which may need to be installed. And all features of HTML are not supported on TeX which may return errors.
 
