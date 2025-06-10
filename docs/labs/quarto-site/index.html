@@ -218,7 +218,7 @@ background-size: cover;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">28-May-2025</p>
+        <p class="date">10-Jun-2025</p>
       </div>
     </div>
     
@@ -252,14 +252,23 @@ background-size: cover;
   <li><a href="#brand.yml" id="toc-brand.yml" class="nav-link" data-scroll-target="#brand.yml"><span class="header-section-number">9.2</span> brand.yml</a></li>
   </ul></li>
   <li><a href="#freezing-compute" id="toc-freezing-compute" class="nav-link" data-scroll-target="#freezing-compute"><span class="header-section-number">10</span> Freezing compute</a></li>
-  <li><a href="#hosting" id="toc-hosting" class="nav-link" data-scroll-target="#hosting"><span class="header-section-number">11</span> Hosting</a></li>
-  <li><a href="#example-websites" id="toc-example-websites" class="nav-link" data-scroll-target="#example-websites"><span class="header-section-number">12</span> Example websites</a>
+  <li><a href="#version-control" id="toc-version-control" class="nav-link" data-scroll-target="#version-control"><span class="header-section-number">11</span> Version control</a>
   <ul>
-  <li><a href="#simple" id="toc-simple" class="nav-link" data-scroll-target="#simple"><span class="header-section-number">12.1</span> Simple</a></li>
-  <li><a href="#intermediate" id="toc-intermediate" class="nav-link" data-scroll-target="#intermediate"><span class="header-section-number">12.2</span> Intermediate</a></li>
-  <li><a href="#advanced" id="toc-advanced" class="nav-link" data-scroll-target="#advanced"><span class="header-section-number">12.3</span> Advanced</a></li>
+  <li><a href="#using-publish" id="toc-using-publish" class="nav-link" data-scroll-target="#using-publish"><span class="header-section-number">11.1</span> Using publish</a></li>
+  <li><a href="#manually" id="toc-manually" class="nav-link" data-scroll-target="#manually"><span class="header-section-number">11.2</span> Manually</a></li>
   </ul></li>
-  <li><a href="#learning-more" id="toc-learning-more" class="nav-link" data-scroll-target="#learning-more"><span class="header-section-number">13</span> Learning more</a></li>
+  <li><a href="#hosting" id="toc-hosting" class="nav-link" data-scroll-target="#hosting"><span class="header-section-number">12</span> Hosting</a>
+  <ul>
+  <li><a href="#using-publish-1" id="toc-using-publish-1" class="nav-link" data-scroll-target="#using-publish-1"><span class="header-section-number">12.1</span> Using publish</a></li>
+  <li><a href="#manually-1" id="toc-manually-1" class="nav-link" data-scroll-target="#manually-1"><span class="header-section-number">12.2</span> Manually</a></li>
+  </ul></li>
+  <li><a href="#example-websites" id="toc-example-websites" class="nav-link" data-scroll-target="#example-websites"><span class="header-section-number">13</span> Example websites</a>
+  <ul>
+  <li><a href="#simple" id="toc-simple" class="nav-link" data-scroll-target="#simple"><span class="header-section-number">13.1</span> Simple</a></li>
+  <li><a href="#intermediate" id="toc-intermediate" class="nav-link" data-scroll-target="#intermediate"><span class="header-section-number">13.2</span> Intermediate</a></li>
+  <li><a href="#advanced" id="toc-advanced" class="nav-link" data-scroll-target="#advanced"><span class="header-section-number">13.3</span> Advanced</a></li>
+  </ul></li>
+  <li><a href="#learning-more" id="toc-learning-more" class="nav-link" data-scroll-target="#learning-more"><span class="header-section-number">14</span> Learning more</a></li>
   </ul>
 </nav>
     </div>
@@ -757,10 +766,41 @@ Note
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Run <code>quarto render</code> to render the whole website. This will create a <code>_freeze</code> directory in the root of the project, which contains the frozen code chunks. If you rerun <code>quarto render</code>, you will notice that that R code chunks are not executed. The frozen code chunks are used instead of executing the code again.</p>
 </section>
-<section id="hosting" class="level2" data-number="11">
-<h2 data-number="11" class="anchored" data-anchor-id="hosting"><span class="header-section-number">11</span> Hosting</h2>
+<section id="version-control" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="version-control"><span class="header-section-number">11</span> Version control</h2>
+<p>What you commit and push to the remote repository (GitHub) depends on exactly how you deploy. You can either use <code>quarto publish</code> or manually push the rendered materials. This is covered in the next section.</p>
+<section id="using-publish" class="level3" data-number="11.1">
+<h3 data-number="11.1" class="anchored" data-anchor-id="using-publish"><span class="header-section-number">11.1</span> Using publish</h3>
+<p>Follow this if you plan to use <code>quarto publish</code> to deploy your website. This is the easier option. Add <code>docs</code> directory to the <code>.gitignore</code> file so that it is not pushed to the remote repository. Create a file named <code>.gitignore</code> in the root directory of your project and add the following content:</p>
+<pre><code>docs/</code></pre>
+<p>Commit the changes to the repository:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Added website files"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="manually" class="level3" data-number="11.2">
+<h3 data-number="11.2" class="anchored" data-anchor-id="manually"><span class="header-section-number">11.2</span> Manually</h3>
+<p>Follow this if you plan to manually push the rendered materials to the remote repository. This is a little bit more involved.</p>
+<p>Commit all changes to the repository:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Added website files"</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will push the changes to the remote repository on GitHub.</p>
+</section>
+</section>
+<section id="hosting" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="hosting"><span class="header-section-number">12</span> Hosting</h2>
 <p>GitHub Pages is a free service provided by GitHub that allows you to host static websites directly from your GitHub repository. Since we starting this exercise with a GitHub repository, we can easily deploy our website to GitHub Pages.</p>
-<p>First we need to make sure that the <code>docs</code> directory is set as the source for GitHub Pages. Go to the settings of your repository on GitHub, scroll down to the “Pages” section, and select the <code>docs</code> directory as the source. Then click “Save”. This will enable GitHub Pages for your repository and set the <code>docs</code> directory as the source for the website.</p>
+<section id="using-publish-1" class="level3" data-number="12.1">
+<h3 data-number="12.1" class="anchored" data-anchor-id="using-publish-1"><span class="header-section-number">12.1</span> Using publish</h3>
+<p>Quarto has a built-in tool to publish websites to GitHub Pages. This tool will automatically create a <code>gh-pages</code> branch in your repository and push the contents of the <code>docs</code> directory to that branch.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Give it a minute or two for the website to be deployed. Your website should then be live at <code>https://&lt;your-username&gt;.github.io/&lt;repository-name&gt;/</code>. For example, if your GitHub username is <code>royfrancis</code> and the repository name is <code>site</code>, the website will be available at <code>https://royfrancis.github.io/site/</code>.</p>
+</section>
+<section id="manually-1" class="level3" data-number="12.2">
+<h3 data-number="12.2" class="anchored" data-anchor-id="manually-1"><span class="header-section-number">12.2</span> Manually</h3>
+<p>Alternatively, you can manually set up GitHub Pages by pushing materials to the <code>main</code> branch of your repository. This was done in the previous step.</p>
+<p>We need to make sure that the <code>docs</code> directory is set as the source for GitHub Pages. Go to the settings of your repository on GitHub, scroll down to the “Pages” section, and select the <code>docs</code> directory as the source. Then click “Save”. This will enable GitHub Pages for your repository and set the <code>docs</code> directory as the source for the website.</p>
 <div id="fig-gh-docs" class="quarto-float quarto-figure quarto-figure-left anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gh-docs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -771,36 +811,33 @@ Figure&nbsp;8: Setup GitHub pages
 </figcaption>
 </figure>
 </div>
-<p>Stage and commit all changes locally, then push the changes to the remote repository on GitHub.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Added files"</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Give it a minute or two for the website to be deployed. Your website should then be live at <code>https://&lt;your-username&gt;.github.io/&lt;repository-name&gt;/</code>. For example, if your GitHub username is <code>royfrancis</code> and the repository name is <code>site</code>, the website will be available at <code>https://royfrancis.github.io/site/</code>.</p>
 </section>
-<section id="example-websites" class="level2" data-number="12">
-<h2 data-number="12" class="anchored" data-anchor-id="example-websites"><span class="header-section-number">12</span> Example websites</h2>
+</section>
+<section id="example-websites" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="example-websites"><span class="header-section-number">13</span> Example websites</h2>
 <p>Here are some example websites built using Quarto. These websites vary in complexity and style, so you can find something that inspires you.</p>
-<section id="simple" class="level3" data-number="12.1">
-<h3 data-number="12.1" class="anchored" data-anchor-id="simple"><span class="header-section-number">12.1</span> Simple</h3>
+<section id="simple" class="level3" data-number="13.1">
+<h3 data-number="13.1" class="anchored" data-anchor-id="simple"><span class="header-section-number">13.1</span> Simple</h3>
 <div style="line-height:2.2em;">
 <p><a href="https://elizabethmcdaniel.com/"><span class="btn btn-sm btn-primary">Elizabeth McDaniel</span></a> <a href="https://www.danyavorsky.com/"><span class="btn btn-sm btn-primary">Dan Yavorsky</span></a> <a href="https://sovacool.dev/"><span class="btn btn-sm btn-primary">Kelly Sovacool</span></a> <a href="https://www.simonpcouch.com/"><span class="btn btn-sm btn-primary">Simon Couch</span></a> <a href="https://krhayes.com/"><span class="btn btn-sm btn-primary">Katherine Hayes</span></a> <a href="https://www.khstats.com/"><span class="btn btn-sm btn-primary">Katherine Hoffman</span></a> <a href="https://beamilz.com/"><span class="btn btn-sm btn-primary">Beatriz Milz</span></a> <a href="https://emilhvitfeldt.com/"><span class="btn btn-sm btn-primary">Emil Hvitfeldt</span></a> <a href="https://themockup.blog/"><span class="btn btn-sm btn-primary">Thomas Mock</span></a> <a href="https://www.alexpghayes.com/"><span class="btn btn-sm btn-primary">Alex Hayes</span></a> <a href="https://www.jessesadler.com/"><span class="btn btn-sm btn-primary">Jesse Sadler</span></a> <a href="https://almeidasilvaf.github.io/"><span class="btn btn-sm btn-primary">Fabrício Almeida-Silva</span></a> <a href="https://www.cynthiahqy.com/"><span class="btn btn-sm btn-primary">Cynthia Huang</span></a> <a href="https://thetidytrekker.com/"><span class="btn btn-sm btn-primary">Megan Harris</span></a> <a href="https://www.javierorracadeatcu.com/"><span class="btn btn-sm btn-primary">Javier Orraca-deatcu</span></a> <a href="https://ivelasq.rbind.io/"><span class="btn btn-sm btn-primary">Isabella Velásquez</span></a> <a href="https://www.joelnitta.com/"><span class="btn btn-sm btn-primary">Joel Nitta</span></a> <a href="https://djnavarro.net/"><span class="btn btn-sm btn-primary">Daniel Navarro</span></a> <a href="https://zekiakyol.com/"><span class="btn btn-sm btn-primary">Zeki Akyol</span></a> <a href="https://improperprior.com/"><span class="btn btn-sm btn-primary">Ben Ewing</span></a> <a href="https://nonprofitf22.classes.andrewheiss.com/"><span class="btn btn-sm btn-primary">Introduction to Nonprofits</span></a> <a href="https://blog.bioconductor.org/"><span class="btn btn-sm btn-primary">Bioconductor community blog</span></a> <a href="https://www.journalovi.org/"><span class="btn btn-sm btn-primary">Journal of visualization &amp; Interaction</span></a></p>
 </div>
 </section>
-<section id="intermediate" class="level3" data-number="12.2">
-<h3 data-number="12.2" class="anchored" data-anchor-id="intermediate"><span class="header-section-number">12.2</span> Intermediate</h3>
+<section id="intermediate" class="level3" data-number="13.2">
+<h3 data-number="13.2" class="anchored" data-anchor-id="intermediate"><span class="header-section-number">13.2</span> Intermediate</h3>
 <div style="line-height:2.2em;">
 <p><a href="https://www.jhelvy.com/"><span class="btn btn-sm btn-primary">John Helveston</span></a> <a href="https://silviacanelon.com/"><span class="btn btn-sm btn-primary">Silvia Canelon</span></a> <a href="https://www.andrewheiss.com/"><span class="btn btn-sm btn-primary">Andrew Heiss</span></a> <a href="https://aeturrell.com/"><span class="btn btn-sm btn-primary">Arthur Turrell</span></a> <a href="https://deeppolicylab.github.io"><span class="btn btn-sm btn-primary">Deep Policy Lab</span></a> <a href="https://drganghe.github.io/"><span class="btn btn-sm btn-primary">Gang He</span></a> <a href="https://robertmitchellv.com/"><span class="btn btn-sm btn-primary">Robert Michelle</span></a> <a href="https://daxkellie.com/"><span class="btn btn-sm btn-primary">Dax Kellie</span></a> <a href="https://www.crumplab.com/"><span class="btn btn-sm btn-primary">Crump Lab</span></a> <a href="https://jadeyryan.com/"><span class="btn btn-sm btn-primary">Jadey Ryan</span></a> <a href="https://www.asterhu.com/"><span class="btn btn-sm btn-primary">Aster Hu</span></a> <a href="https://meghan.rbind.io/"><span class="btn btn-sm btn-primary">Megan Hall</span></a> <a href="https://samanthacsik.github.io/"><span class="btn btn-sm btn-primary">Sam Shanny-Csik</span></a> <a href="https://mickael.canouil.fr/"><span class="btn btn-sm btn-primary">Mickaël Canouil</span></a> <a href="https://njlyon0.github.io/"><span class="btn btn-sm btn-primary">Nick Lyon</span></a> <a href="https://datavizs23.classes.andrewheiss.com/"><span class="btn btn-sm btn-primary">Data viz with R</span></a> <a href="https://cambiotraining.github.io/quarto-course-template/"><span class="btn btn-sm btn-primary">Uni Cambridge Course template</span></a></p>
 </div>
 </section>
-<section id="advanced" class="level3" data-number="12.3">
-<h3 data-number="12.3" class="anchored" data-anchor-id="advanced"><span class="header-section-number">12.3</span> Advanced</h3>
+<section id="advanced" class="level3" data-number="13.3">
+<h3 data-number="13.3" class="anchored" data-anchor-id="advanced"><span class="header-section-number">13.3</span> Advanced</h3>
 <div style="line-height:2.2em;">
 <p><a href="https://faculty.washington.edu/masiello/"><span class="btn btn-sm btn-primary">Masiello Lab</span></a> <a href="https://ellakaye.co.uk/"><span class="btn btn-sm btn-primary">Ella Kaye</span></a> <a href="https://realworlddatascience.net/"><span class="btn btn-sm btn-primary">Real world data science</span></a> <a href="https://rfortherestofus.com/"><span class="btn btn-sm btn-primary">R for the rest of us</span></a> <a href="https://www.quantumjitter.com/"><span class="btn btn-sm btn-primary">Quantum Jitter</span></a> <a href="https://www.tidymodels.org/"><span class="btn btn-sm btn-primary">Tidymodels</span></a> <a href="https://possible.institute/"><span class="btn btn-sm btn-primary">Possible institute</span></a></p>
 </div>
 </section>
 </section>
-<section id="learning-more" class="level2" data-number="13">
-<h2 data-number="13" class="anchored" data-anchor-id="learning-more"><span class="header-section-number">13</span> Learning more</h2>
+<section id="learning-more" class="level2" data-number="14">
+<h2 data-number="14" class="anchored" data-anchor-id="learning-more"><span class="header-section-number">14</span> Learning more</h2>
 <p>In addition to the official Quarto documentation, there are many resources available online to learn more about Quarto and how to build websites with it. Here are some resources that you might find helpful:</p>
 <ul>
 <li><a href="https://quarto.org/">Quarto.org</a></li>
@@ -1247,7 +1284,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

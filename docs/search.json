@@ -2117,22 +2117,22 @@
     "objectID": "labs/quarto-site/index.html#hosting",
     "href": "labs/quarto-site/index.html#hosting",
     "title": "Website with Quarto",
-    "section": "11 Hosting",
-    "text": "11 Hosting\nGitHub Pages is a free service provided by GitHub that allows you to host static websites directly from your GitHub repository. Since we starting this exercise with a GitHub repository, we can easily deploy our website to GitHub Pages.\nFirst we need to make sure that the docs directory is set as the source for GitHub Pages. Go to the settings of your repository on GitHub, scroll down to the “Pages” section, and select the docs directory as the source. Then click “Save”. This will enable GitHub Pages for your repository and set the docs directory as the source for the website.\n\n\n\n\n\n\nFigure 8: Setup GitHub pages\n\n\n\nStage and commit all changes locally, then push the changes to the remote repository on GitHub.\ngit add .\ngit commit -m \"Added files\"\ngit push origin\nGive it a minute or two for the website to be deployed. Your website should then be live at https://&lt;your-username&gt;.github.io/&lt;repository-name&gt;/. For example, if your GitHub username is royfrancis and the repository name is site, the website will be available at https://royfrancis.github.io/site/."
+    "section": "12 Hosting",
+    "text": "12 Hosting\nGitHub Pages is a free service provided by GitHub that allows you to host static websites directly from your GitHub repository. Since we starting this exercise with a GitHub repository, we can easily deploy our website to GitHub Pages.\n\n12.1 Using publish\nQuarto has a built-in tool to publish websites to GitHub Pages. This tool will automatically create a gh-pages branch in your repository and push the contents of the docs directory to that branch.\nquarto publish gh-pages\nGive it a minute or two for the website to be deployed. Your website should then be live at https://&lt;your-username&gt;.github.io/&lt;repository-name&gt;/. For example, if your GitHub username is royfrancis and the repository name is site, the website will be available at https://royfrancis.github.io/site/.\n\n\n12.2 Manually\nAlternatively, you can manually set up GitHub Pages by pushing materials to the main branch of your repository. This was done in the previous step.\nWe need to make sure that the docs directory is set as the source for GitHub Pages. Go to the settings of your repository on GitHub, scroll down to the “Pages” section, and select the docs directory as the source. Then click “Save”. This will enable GitHub Pages for your repository and set the docs directory as the source for the website.\n\n\n\n\n\n\nFigure 8: Setup GitHub pages\n\n\n\nGive it a minute or two for the website to be deployed. Your website should then be live at https://&lt;your-username&gt;.github.io/&lt;repository-name&gt;/. For example, if your GitHub username is royfrancis and the repository name is site, the website will be available at https://royfrancis.github.io/site/."
   },
   {
     "objectID": "labs/quarto-site/index.html#example-websites",
     "href": "labs/quarto-site/index.html#example-websites",
     "title": "Website with Quarto",
-    "section": "12 Example websites",
-    "text": "12 Example websites\nHere are some example websites built using Quarto. These websites vary in complexity and style, so you can find something that inspires you.\n\n12.1 Simple\n\nElizabeth McDaniel Dan Yavorsky Kelly Sovacool Simon Couch Katherine Hayes Katherine Hoffman Beatriz Milz Emil Hvitfeldt Thomas Mock Alex Hayes Jesse Sadler Fabrício Almeida-Silva Cynthia Huang Megan Harris Javier Orraca-deatcu Isabella Velásquez Joel Nitta Daniel Navarro Zeki Akyol Ben Ewing Introduction to Nonprofits Bioconductor community blog Journal of visualization & Interaction\n\n\n\n12.2 Intermediate\n\nJohn Helveston Silvia Canelon Andrew Heiss Arthur Turrell Deep Policy Lab Gang He Robert Michelle Dax Kellie Crump Lab Jadey Ryan Aster Hu Megan Hall Sam Shanny-Csik Mickaël Canouil Nick Lyon Data viz with R Uni Cambridge Course template\n\n\n\n12.3 Advanced\n\nMasiello Lab Ella Kaye Real world data science R for the rest of us Quantum Jitter Tidymodels Possible institute"
+    "section": "13 Example websites",
+    "text": "13 Example websites\nHere are some example websites built using Quarto. These websites vary in complexity and style, so you can find something that inspires you.\n\n13.1 Simple\n\nElizabeth McDaniel Dan Yavorsky Kelly Sovacool Simon Couch Katherine Hayes Katherine Hoffman Beatriz Milz Emil Hvitfeldt Thomas Mock Alex Hayes Jesse Sadler Fabrício Almeida-Silva Cynthia Huang Megan Harris Javier Orraca-deatcu Isabella Velásquez Joel Nitta Daniel Navarro Zeki Akyol Ben Ewing Introduction to Nonprofits Bioconductor community blog Journal of visualization & Interaction\n\n\n\n13.2 Intermediate\n\nJohn Helveston Silvia Canelon Andrew Heiss Arthur Turrell Deep Policy Lab Gang He Robert Michelle Dax Kellie Crump Lab Jadey Ryan Aster Hu Megan Hall Sam Shanny-Csik Mickaël Canouil Nick Lyon Data viz with R Uni Cambridge Course template\n\n\n\n13.3 Advanced\n\nMasiello Lab Ella Kaye Real world data science R for the rest of us Quantum Jitter Tidymodels Possible institute"
   },
   {
     "objectID": "labs/quarto-site/index.html#learning-more",
     "href": "labs/quarto-site/index.html#learning-more",
     "title": "Website with Quarto",
-    "section": "13 Learning more",
-    "text": "13 Learning more\nIn addition to the official Quarto documentation, there are many resources available online to learn more about Quarto and how to build websites with it. Here are some resources that you might find helpful:\n\nQuarto.org\nQuarto for Scientists\nReproducible publishing with Quarto"
+    "section": "14 Learning more",
+    "text": "14 Learning more\nIn addition to the official Quarto documentation, there are many resources available online to learn more about Quarto and how to build websites with it. Here are some resources that you might find helpful:\n\nQuarto.org\nQuarto for Scientists\nReproducible publishing with Quarto"
   },
   {
     "objectID": "index.html",
@@ -4842,5 +4842,12 @@
     "title": "Projects",
     "section": "3 Visualization",
     "text": "3 Visualization\nVisualization can be useful to make datasets more comprehensible. To gain some inspiration look at the amazing visualizations made by Cédric Scherer using tidyverse https://www.behance.net/cedscherer."
+  },
+  {
+    "objectID": "labs/quarto-site/index.html#version-control",
+    "href": "labs/quarto-site/index.html#version-control",
+    "title": "Website with Quarto",
+    "section": "11 Version control",
+    "text": "11 Version control\nWhat you commit and push to the remote repository (GitHub) depends on exactly how you deploy. You can either use quarto publish or manually push the rendered materials. This is covered in the next section.\n\n11.1 Using publish\nFollow this if you plan to use quarto publish to deploy your website. This is the easier option. Add docs directory to the .gitignore file so that it is not pushed to the remote repository. Create a file named .gitignore in the root directory of your project and add the following content:\ndocs/\nCommit the changes to the repository:\ngit add .\ngit commit -m \"Added website files\"\ngit push origin\n\n\n11.2 Manually\nFollow this if you plan to manually push the rendered materials to the remote repository. This is a little bit more involved.\nCommit all changes to the repository:\ngit add .\ngit commit -m \"Added website files\"\ngit push origin\nThis will push the changes to the remote repository on GitHub."
   }
 ]
