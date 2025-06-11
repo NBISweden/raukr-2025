@@ -124,14 +124,19 @@ str(obj)
 obj$descr
 ```
 
-- Design implementation of your own S3 class `protein` that stores the following information (you will implement the class in the next point, now just think and draw on paper if you wish):
+- *Design* implementation of your own S3 class `protein` that stores the following information (you will implement the class in the next point, now just think and draw on paper if you wish):
   - Protein sequence,
   - Protein length,
   - Post-translational modification (PTM) site coords,
   - PTM type that can be either of: "phosphorylation", or "methylation".
-    
-- Implement the `protein` class from the previous point using the *constructor, validator and helper* design pattern. Try to reduce the number of input arguments to: +     + a sequence and 
-  - A list of PTMs.
+
+::: {.callout-note}
+The implementation below is optional! Really!
+:::
+
+- Implement the `protein` class from the previous point using the *constructor, validator and helper* design pattern. Try to reduce the number of input arguments to: 
+  - sequence and 
+  - a list of PTMs
 
 ```{r}
 #| results: hide
