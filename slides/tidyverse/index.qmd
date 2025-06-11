@@ -7,7 +7,7 @@ format:
     df-print: default
 ---
 
-## {visibility="hidden"}
+##  {visibility="hidden"}
 
 ```{r}
 #| echo: false
@@ -24,56 +24,54 @@ library(emo)
 
 When this module is complete, you will:
 
-- know what `tidyverse` is and a bit about its history
+-   know what `tidyverse` is and a bit about its history
 
-- be able to use different pipes, including advanced ones and placeholders
+-   be able to use different pipes, including advanced ones and placeholders
 
-- know whether the data you work with are tidy
+-   know whether the data you work with are tidy
 
-- will be able to load, debug and tidy your data
+-   will be able to load, debug and tidy your data
 
-- understand how to combine data sets using `join_*` 
+-   understand how to combine data sets using `join_*`
 
-- be aware of useful packages within `tidyverse`
+-   be aware of useful packages within `tidyverse`
 
-## Tidyverse &mdash; what is it all about?
+## Tidyverse — what is it all about?
 
-- [tidyverse](http://www.tidyverse.org) is a collection of packages `r emo::ji('package'); emo::ji('package')`, 
-- created by [Hadley Wickham](http://hadley.nz),
-- has became a *de facto* standard in data analyses,
-- a philosophy of programming or a programming paradigm: everything is about `r emo::ji('water_wave')` the flow of `r emo::ji('broom')` *tidy data*.
+-   [tidyverse](http://www.tidyverse.org) is a collection of packages `r emo::ji('package'); emo::ji('package')`,
+-   created by [Hadley Wickham](http://hadley.nz),
+-   has became a *de facto* standard in data analyses,
+-   a philosophy of programming or a programming paradigm: everything is about the `r emo::ji('water_wave')` flow of `r emo::ji('broom')` *tidy data*.
 
-::: {layout.ncol=3}
-![](assets/hex-tidyverse.png){height="250px"}
-![](assets/Hadley-wickham2016-02-04.jpeg){height="250px"}
-![](assets/RforDataScience.jpeg){height="250px"}
+::: {layout.ncol="3"}
+![](assets/hex-tidyverse.png){height="250px"} ![](assets/Hadley-wickham2016-02-04.jpeg){height="250px"} ![](assets/RforDataScience.jpeg){height="250px"}
 :::
 
-::: {.aside}
+::: aside
 Images: www.tidyverse.org, Wikipedia, www.tidyverse.org
 :::
 
 ## `?(Tidyverse OR !Tidyverse)`
 
-::: {.callout-warning}
+::: callout-warning
 `r emo::ji('skull_and_crossbones')` There are still some people out there talking about *the tidyverse curse* though... `r emo::ji('skull_and_crossbones')`<br>
 :::
 
 . . .
 
-::: {.blockquote}
-*Navigating the balance between base R and the tidyverse is a challenge to learn.*  
+::: blockquote
+*Navigating the balance between base R and the tidyverse is a challenge to learn.*\
 [- Robert A. Muenchen](http://r4stats.com/articles/why-r-is-hard-to-learn/)
 :::
 
 ## Typical Tidyverse Workflow
 
-![](assets/tidyverse-flow.png){height="400px"}  
+![](assets/tidyverse.png){height="500px"}\
 [[Source: http://www.storybench.org/getting-started-with-tidyverse-in-r/](http://www.storybench.org/getting-started-with-tidyverse-in-r/)]{.smaller}
 
 ## Introduction to Pipes or Let My Data Flow `r emo::ji('water_wave')` {background-image="assets/pipes.jpg" background-opacity="0.8"}
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ![](assets/MagrittePipe.jpg)
 
@@ -85,19 +83,13 @@ Images: www.tidyverse.org, Wikipedia, www.tidyverse.org
 :::
 
 ::: {.column width="50%"}
-
-
-- `magrittr` package &mdash; `tidyverse` and beyond
-<br><br>
-- the `%>%` pipe
-  <br><br>
-  - `x %>% f` $\equiv$ `f(x)`
-  <br><br>
-  - `x %>% f(y)` $\equiv$ `f(x, y)`
-  <br><br>
-  - `x %>% f %>% g %>% h` $\equiv$ `h(g(f(x)))`
+-   `magrittr` package — `tidyverse` and beyond <br><br>
+-   the `%>%` pipe <br><br>
+    -   `x %>% f` $\equiv$ `f(x)` <br><br>
+    -   `x %>% f(y)` $\equiv$ `f(x, y)` <br><br>
+    -   `x %>% f %>% g %>% h` $\equiv$ `h(g(f(x)))`
 :::
-::::
+:::::
 
 ## Introduction to Pipes
 
@@ -114,10 +106,10 @@ write this:
 iris %>% head(n=3)
 ```
 
-## Other Types of Pipes &mdash; `%T>%`
+## Other Types of Pipes — `%T>%`
 
-- Provided by `magritter`, not in `tidyverse`
-- When you call a function for its *side effects*
+-   Provided by `magritter`, not in `tidyverse`
+-   When you call a function for its *side effects*
 
 ```{r magrittr2a}
 #| tidy: false
@@ -130,11 +122,12 @@ rnorm(50) %>%
   summary()
 ```
 
-## Other Types of Pipes &mdash; `%T>%`
+## Other Types of Pipes — `%T>%`
 
-:::{.columns}
-:::{.column width="50%"}
+::::: columns
+::: {.column width="50%"}
 ![](assets/T-pipe.png){height="180px"}
+
 ```{r}
 #| eval: false
 rnorm(50) %>% 
@@ -143,7 +136,8 @@ rnorm(50) %>%
   summary()
 ```
 :::
-:::{.column width="50%"}
+
+::: {.column width="50%"}
 ```{r}
 #| fig-height: 3
 #| fig-width: 3
@@ -154,9 +148,9 @@ rnorm(50) %>%
   summary()
 ```
 :::
-:::
+:::::
 
-## Other Types of `magrittr` Pipes &mdash; `%$%`
+## Other Types of `magrittr` Pipes — `%$%`
 
 ```{r dollar_pipe1, error=T}
 iris %>% cor(Sepal.Length, Sepal.Width)
@@ -174,9 +168,9 @@ iris %$% cor(Sepal.Length, Sepal.Width)
 
 . . .
 
-This is because `cor` function does not have the `x` (data) argument &ndash; the very first argument of a pipe-friendly function.
+This is because `cor` function does not have the `x` (data) argument – the very first argument of a pipe-friendly function.
 
-## Other Types of `magrittr` Pipes &mdash; %<>%
+## Other Types of `magrittr` Pipes — %\<\>%
 
 It exists but can lead to somewhat confusing code! `r emo::ji('danger')`
 
@@ -188,14 +182,16 @@ M <- matrix(rnorm(16), nrow=4); M %<>% colSums(); M
 
 ## Native R pipe
 
-From R >= 4.1.0 we have a native `|>` pipe that is a bit faster than `%>%` but currently has no placeholders mechanism. 
+From R \>= 4.1.0 we have a native `|>` pipe that is a bit faster than `%>%` but currently has no placeholders mechanism.
 
 ```{r native_pipe}
 c(1,2,3,4,5) |> mean()
 ```
+
 . . .
 
-<hr> 
+<hr>
+
 even simple placeholder `_` is available now. But `r emo::ji('danger')` only for **named** arguments.
 
 ```{r native_pipe2}
@@ -206,8 +202,8 @@ mtcars |> lm(mpg ~ disp, data = _)
 
 Sometimes we want to pass the resulting data to *other than the first* argument of the next function in chain. `magritter` provides placeholder mechanism for this:
 
-- `x %>% f(y, .)` $\equiv$ `f(y, x)`,
-- `x %>% f(y, z = .)` $\equiv$ `f(y, z = x)`.
+-   `x %>% f(y, .)` $\equiv$ `f(y, x)`,
+-   `x %>% f(y, z = .)` $\equiv$ `f(y, z = x)`.
 
 . . .
 
@@ -220,11 +216,11 @@ M %>% `%*%`(., .)
 
 But for nested expressions:
 
-- `x %>% f(a = p(.), b = q(.))` $\equiv$ `f(x, a = p(x), b = q(x))`
+-   `x %>% f(a = p(.), b = q(.))` $\equiv$ `f(x, a = p(x), b = q(x))`
 
 . . .
 
-- `x %>% {f(a = p(.), b = q(.))}` $\equiv$ `f(a = p(x), b = q(x))`
+-   `x %>% {f(a = p(.), b = q(.))}` $\equiv$ `f(a = p(x), b = q(x))`
 
 . . .
 
@@ -241,30 +237,30 @@ We can even use placeholders as the first element of a pipe:
 f <- . %>% sin %>% cos
 f
 ```
+
 and, indeed the `f` function works:
+
 ```{r}
 7 %>% f
 ```
 
-## Time to do [Lab 1.1](../../labs/tidyverse/#pipes) 
+## Time to do [Lab 1.1](../../labs/tidyverse/#pipes)
+
 ![](assets/your_turn.jpg)
 
 ## Tibbles
 
-:::: {.columns}
+::::: columns
 ::: {.column width="50%"}
 ![](assets/tibble_tweet.jpg)
 :::
 
 ::: {.column width="50%"}
-
-- `tibble` is one of the unifying features of tidyverse,
-<br><br>
-- it is a *better* `data.frame` realization,
-<br><br>
-- objects `data.frame` can be coerced to `tibble` using `as_tibble()`
+-   `tibble` is one of the unifying features of tidyverse, <br><br>
+-   it is a *better* `data.frame` realization, <br><br>
+-   objects `data.frame` can be coerced to `tibble` using `as_tibble()`
 :::
-::::
+:::::
 
 ## Convert `data.frame` to `tibble`
 
@@ -272,7 +268,6 @@ and, indeed the `f` function works:
 #| eval: true
 as_tibble(iris)
 ```
-
 
 ## Tibbles from scratch with `tibble`
 
@@ -287,20 +282,21 @@ as_tibble(iris)
 
 ## More on Tibbles
 
-- When you print a `tibble`:
-  - all columns that fit the screen are shown,
-  - only the first 10 rows are shown,
-  - data type for each column is shown.
+-   When you print a `tibble`:
+    -   all columns that fit the screen are shown,
+    -   only the first 10 rows are shown,
+    -   data type for each column is shown.
 
 ```{r tibble_printing}
 as_tibble(cars)
 ```
 
-## Tibble printing options 
-- `my_tibble %>% print(n = 50, width = Inf)`,
-- `options(tibble.print_min = 15, tibble.print_max = 25)`,
-- `options(dplyr.print_min = Inf)`,
-- `options(tibble.width = Inf)`
+## Tibble printing options
+
+-   `my_tibble %>% print(n = 50, width = Inf)`,
+-   `options(tibble.print_min = 15, tibble.print_max = 25)`,
+-   `options(dplyr.print_min = Inf)`,
+-   `options(tibble.width = Inf)`
 
 ## Subsetting Tibbles
 
@@ -377,31 +373,31 @@ cars$gear
 vehicles$gear
 ```
 
-## Time to do [Lab 1.2](../../labs/tidyverse/#tibbles) 
+## Time to do [Lab 1.2](../../labs/tidyverse/#tibbles)
+
 ![](assets/your_turn.jpg)
 
 ## Loading Data
 
 In `tidyverse` you import data using `readr` package that provides a number of useful data import functions:
 
-- `read_delim()` a generic function for reading x-delimited files. There are a number of convenience wrappers:
-  - `read_csv()` used to read comma-delimited files,
-  - `read_csv2()` reads semicolon-delimited files, 
-  `read_tsv()` that reads tab-delimited files.
-- `read_fwf` for reading fixed-width files with its wrappers:
-  - fwf_widths() for width-based reading,
-  - fwf_positions() for positions-based reading and
-  - read_table() for reading white space-delimited fixed-width files.
-- `read_log()` for reading Apache-style logs.
+-   `read_delim()` a generic function for reading x-delimited files. There are a number of convenience wrappers:
+    -   `read_csv()` used to read comma-delimited files,
+    -   `read_csv2()` reads semicolon-delimited files, `read_tsv()` that reads tab-delimited files.
+-   `read_fwf` for reading fixed-width files with its wrappers:
+    -   fwf_widths() for width-based reading,
+    -   fwf_positions() for positions-based reading and
+    -   read_table() for reading white space-delimited fixed-width files.
+-   `read_log()` for reading Apache-style logs.
 
 ## Loading Data
 
 The most commonly used `read_csv()` has some familiar arguments like:
 
-- `skip` -- to specify the number of rows to skip (headers),
-- `col_names` -- to supply a vector of column names,
-- `comment` -- to specify what character designates a comment,
-- `na` -- to specify how missing values are represented.
+-   `skip` -- to specify the number of rows to skip (headers),
+-   `col_names` -- to supply a vector of column names,
+-   `comment` -- to specify what character designates a comment,
+-   `na` -- to specify how missing values are represented.
 
 ## Under the Hood -- `parse_*` Functions
 
@@ -425,7 +421,7 @@ parse_number(c('100%', 'price: 500$', '21sek', '42F'))
 
 ## Parsing Strings
 
-- Strings can be represented in different encodings:
+-   Strings can be represented in different encodings:
 
 ```{r encodings}
 text1 <- 'På en ö är en å'
@@ -433,21 +429,20 @@ text2 <- 'Zażółć gęślą jaźń'
 ```
 
 ```{r encodings2}
-#| eval: false
+#| eval: true
 charToRaw(text2)
 parse_character(text1, locale = locale(encoding = 'UTF-8'))
-guess_encoding(charToRaw("Test"))
 guess_encoding(charToRaw(text2))
 ```
 
 ## Parsing Factors
 
-- R is using factors to represent categorical variables. 
-- Supply known levels to `parse_factor` so that it warns you when an unknown level is present in the data:
+-   R is using factors to represent categorical variables.
+-   Supply known levels to `parse_factor` so that it warns you when an unknown level is present in the data:
 
 ```{r}
-landscapes <- c('mountains', 'swamps', 'seaside')
-parse_factor(c('mountains', 'plains', 'seaside', 'swamps'), 
+landscapes <- c('mountains', 'swamps', 'shore')
+parse_factor(c('mountains', 'plains', 'shore', 'swamps'), 
              levels = landscapes)
 ```
 
@@ -455,8 +450,8 @@ parse_factor(c('mountains', 'plains', 'seaside', 'swamps'),
 
 `parse_`
 
-- `vector`, `time`, `number`, `logical`, `integer`, `double`, `character`, `date`, `datetime`,
-- `guess`
+-   `vector`, `time`, `number`, `logical`, `integer`, `double`, `character`, `date`, `datetime`,
+-   `guess`
 
 ```{r parse_guess}
 guess_parser("2018-06-11 09:00:00")
@@ -470,21 +465,22 @@ parse_guess(c(1, 2.3, "23$", "54%"))
 
 The `readr` package also provides functions useful for writing tibbled data into a file:
 
-- `write_csv()`
-- `write_tsv()`
-- `write_excel_csv()`
+-   `write_csv()`
+-   `write_tsv()`
+-   `write_excel_csv()`
 
 They **always** save:
 
-- Text in UTF-8,
-- Dates in ISO8601
+-   Text in UTF-8,
+-   Dates in ISO8601
 
 But saving in csv (or tsv) does mean you loose information about the type of data in particular columns. You can avoid this by using:
 
-- `write_rds()` and `read_rds()` to read/write objects in R binary rds format,
-- Tse `write_feather()` and `read_feather()` from package `feather` to read/write objects in a fast binary format that other programming languages can access.
+-   `write_rds()` and `read_rds()` to read/write objects in R binary rds format,
+-   Tse `write_feather()` and `read_feather()` from package `feather` to read/write objects in a fast binary format that other programming languages can access.
 
-## Time to do [Lab 1.3](../../labs/tidyverse/#parsing) 
+## Time to do [Lab 1.3](../../labs/tidyverse/#parsing)
+
 ![](assets/your_turn.jpg)
 
 ## Basic Data Transformations with `dplyr`
@@ -492,8 +488,8 @@ But saving in csv (or tsv) does mean you loose information about the type of dat
 Let us create a tibble:
 
 ```{r}
-bijou <- as_tibble(diamonds) %>% head()
-bijou[1:5,]
+jewels <- as_tibble(diamonds) %>% head()
+jewels[1:5,]
 ```
 
 ![](assets/diamonds.png){.center height="200px"}
@@ -501,99 +497,97 @@ bijou[1:5,]
 ## Picking Observations using `filter()`
 
 ```{r}
-bijou %>% filter(cut == 'Ideal' | cut == 'Premium', carat >= 0.23) %>% head()
+jewels %>% filter(cut == 'Ideal' | cut == 'Premium', carat >= 0.23) %>% head()
 ```
 
 ## Floating point and `tidyverse`
 
-::: {.callout-caution}
-`r emo::ji('boat')` Be careful with floating point comparisons!  
+::: callout-caution
+`r emo::ji('boat')` Be careful with floating point comparisons!\
 `r emo::ji('pirate')` Also, rows with comparison resulting in `NA` are skipped by default!
 :::
 
 . . .
 
 ```{r}
-bijou %>% filter(near(0.23, carat) | is.na(carat)) %>% head(n = 4)
+jewels %>% filter(near(0.23, carat) | is.na(carat)) %>% head(n = 4)
 ```
 
 ## Rearranging Observations using `arrange()`
 
 ```{r}
 #| eval: false
-bijou %>% arrange(cut, carat, desc(price))
+jewels %>% arrange(cut, carat, desc(price))
 ```
 
 . . .
 
 ```{r}
 #| echo: false
-bijou %>% arrange(cut, carat, desc(price))
+jewels %>% arrange(cut, carat, desc(price))
 ```
 
-::: {.callout-caution}
+::: callout-caution
 The `NA`s always end up at the end of the rearranged tibble.
-::: 
+:::
 
 ## Selecting Variables with `select()`
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ### Simple range
 
 ```{r}
-bijou %>% select(color, clarity, x:z) %>% head(n = 4)
+jewels %>% select(color, clarity, x:z) %>% head(n = 4)
 ```
 
 ### Exclusion
 
 ```{r}
-bijou %>% select(-(x:z)) %>% head(n = 5)
+jewels %>% select(-(x:z)) %>% head(n = 5)
 ```
-
 :::
 
 ## Renaming variables
 
-::: {.callout-note}
+::: callout-note
 `rename` is a variant of `select`, here used with `everything()` to move `x` to the beginning and rename it to `var_x`
 :::
 
 ```{r}
 #| eval: false
-bijou %>% rename(var_x = x) %>% head(n = 2)
+jewels %>% rename(var_x = x) %>% head(n = 2)
 ```
 
 . . .
 
 ```{r}
 #| echo: false
-bijou %>% rename(var_x = x) %>% head(n = 2)
+jewels %>% rename(var_x = x) %>% head(n = 2)
 ```
 
 ## Bring columns to front
 
-::: {.callout-tip}
+::: callout-tip
 use `everything()` to bring some columns to the front
 :::
 
 ```{r}
 #| eval: false
-bijou %>% select(x:z, everything()) %>% head(n = 2)
+jewels %>% select(x:z, everything()) %>% head(n = 2)
 ```
 
 . . .
 
 ```{r}
 #| echo: false
-bijou %>% select(x:z, everything()) %>% head(n = 2)
+jewels %>% select(x:z, everything()) %>% head(n = 2)
 ```
 
 ## Create/alter new Variables with `mutate`
 
 ```{r}
 #| eval: false
-bijou %>% 
+jewels %>% 
   mutate(p = x + z, q = p + y) %>% 
   select(-(depth:price)) %>% 
   head(n = 5)
@@ -603,7 +597,7 @@ bijou %>%
 
 ```{r}
 #| echo: false
-bijou %>% 
+jewels %>% 
   mutate(p = x + z, q = p + y) %>% 
   select(-(depth:price)) %>% 
   head(n = 5)
@@ -611,28 +605,29 @@ bijou %>%
 
 ## Create/alter new Variables with `transmute` `r emo::ji('wizard')`
 
-::: {.callout-caution}
+::: callout-caution
 Only the transformed variables will be retained.
 :::
 
 ```{r}
-bijou %>% transmute(carat, cut, sum = x + y + z) %>% head(n = 5)
+jewels %>% transmute(carat, cut, sum = x + y + z) %>% head(n = 5)
 ```
 
 ## Group and Summarize
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ### Simple
+
 ```{r}
-bijou %>% group_by(cut) %>% summarize(max_price = max(price),
+jewels %>% group_by(cut) %>% summarize(max_price = max(price),
                                       mean_price = mean(price),
                                       min_price = min(price))
 ```
 
 ### More complex
+
 ```{r}
-bijou %>% group_by(cut, color) %>%  summarize(max_price = max(price), 
+jewels %>% group_by(cut, color) %>%  summarize(max_price = max(price), 
                                               mean_price = mean(price), 
                                               min_price = min(price)) %>% head(n = 5)
 ```
@@ -641,7 +636,7 @@ bijou %>% group_by(cut, color) %>%  summarize(max_price = max(price),
 ## Other data manipulation tips
 
 ```{r}
-bijou %>% group_by(cut) %>% summarize(count = n())
+jewels %>% group_by(cut) %>% summarize(count = n())
 ```
 
 . . .
@@ -650,42 +645,13 @@ When you need to regroup within the same pipe, use `ungroup()`.
 
 ## The Concept of Tidy Data
 
-- Each and every observation is represented as exactly one row,
-- Each and every variable is represented by exactly one column,
-- Thus each data table cell contains only one value.
+-   Each and every observation is represented as exactly one row,
+-   Each and every variable is represented by exactly one column,
+-   Thus each data table cell contains only one value.
 
 ![](assets/tidy_data.png)
 
 Usually data are untidy in only one way. However, if you are unlucky, they are really untidy and thus a pain to work with...
-
-## Tidy Data
-
-![](assets/tidy_data.png){height="120px"}
-
-. . .
-
-[**Are these data tidy?**]{.center}
-
-```{r tidy_iris1}
-#| echo: false
-data("iris") 
-iris %>% head(n=3) %>% kable("html",escape=F,align="c") %>%
-  kable_styling(bootstrap_options=c("striped","hover","responsive","condensed"),
-                position="left",full_width = F)
-```
-
-. . .
-
-```{r tidy_iris2}
-#| echo: false
-iris2 <- iris %>% 
-  gather(key=variable, value=value, -Species)
-iris2 %>%
-  head(n=3) %>%
-  kable("html",escape=F,align="c") %>% 
-  kable_styling(bootstrap_options=c("striped","hover","responsive","condensed"),
-                position="left",full_width = F)
-```
 
 ## Tidy Data
 
@@ -717,13 +683,42 @@ iris4[,1:4] %>%
                 position="left",full_width = F)
 ```
 
+## Tidy Data
+
+![](assets/tidy_data.png){height="120px"}
+
+. . .
+
+[**Are these data tidy?**]{.center}
+
+```{r tidy_iris1}
+#| echo: false
+data("iris") 
+iris %>% head(n=3) %>% kable("html",escape=F,align="c") %>%
+  kable_styling(bootstrap_options=c("striped","hover","responsive","condensed"),
+                position="left",full_width = F)
+```
+
+. . .
+
+```{r tidy_iris2}
+#| echo: false
+iris2 <- iris %>% 
+  gather(key=variable, value=value, -Species)
+iris2 %>%
+  head(n=3) %>%
+  kable("html",escape=F,align="c") %>% 
+  kable_styling(bootstrap_options=c("striped","hover","responsive","condensed"),
+                position="left",full_width = F)
+```
+
 ## Tidying Data with `pivot_longer`
 
 If some of your column names should be values of a variable, use `pivot_longer` (old `gather`):
 
 ```{r}
 #| include: false
-bijou %>% 
+jewels %>% 
   mutate(`2008` = price) %>% 
   select(-price) %>% 
   mutate(`2009` = `2008` + floor(sample(rnorm(100, mean = 0.01 * mean(`2008`)), 
@@ -731,47 +726,49 @@ bijou %>%
                                 replace=T
                                 ))
          ) %>%
-  select(cut, `2008`, `2009`) -> bijou2
+  select(cut, `2008`, `2009`) -> jewels2
 ```
 
-:::: {.columns}
+::::: columns
 ::: {.column width="50%"}
-```{r bijou2}
-bijou2 %>% head(n = 5)
+```{r jewels2}
+jewels2 %>% head(n = 5)
 ```
 :::
+
 ::: {.column width="50%"}
 ```{r}
-bijou2 %>% 
+jewels2 %>% 
   pivot_longer(cols = c(`2008`, `2009`), names_to = 'year', values_to = 'price') %>% 
   head(n = 5)
 ```
 :::
-::::
+:::::
 
 ## Tidying Data with `pivot_wider`
 
 If some of your observations are scattered across many rows, use `pivot_wider` (old `spread`):
 
-
 ```{r}
 #| include: false
-bijou %>% head(n = 3) %>% select(cut, price, clarity, x, y, z) %>% gather(x,y,z, key='dimension', value='measurement') -> bijou3
+jewels %>% head(n = 3) %>% select(cut, price, clarity, x, y, z) %>% gather(x,y,z, key='dimension', value='measurement') -> jewels3
 ```
-:::: {.columns}
+
+::::: columns
 ::: {.column width="50%"}
-```{r bijou3}
-bijou3
+```{r jewels3}
+jewels3
 ```
 :::
+
 ::: {.column width="50%"}
 ```{r}
-bijou3 %>% 
+jewels3 %>% 
   pivot_wider(names_from = dimension, values_from = measurement) %>% 
   head(n = 5)
 ```
 :::
-::::
+:::::
 
 ## Tidying Data with `separate`
 
@@ -779,22 +776,22 @@ If some of your columns contain more than one value, use `separate`:
 
 ```{r}
 #| include: false
-bijou4 <- bijou %>% 
+jewels4 <- jewels %>% 
   head(n = 2) %>% 
   select(cut, price, clarity, x, y, z) %>% 
   unite(dim, x, y, z, sep='/')
 ```
 
-```{r bijou4}
+```{r jewels4}
 #| echo: false
-bijou4
+jewels4
 ```
 
-. . . 
+. . .
 
 ```{r}
 #| eval: false
-bijou4 %>% 
+jewels4 %>% 
   separate(dim, into = c("x", "y", "z"), sep = "/", convert = T)
 ```
 
@@ -802,13 +799,13 @@ bijou4 %>%
 
 ```{r}
 #| echo: false
-bijou4 %>% 
+jewels4 %>% 
   separate(dim, into = c("x", "y", "z"), sep = "/", convert = T)
 ```
 
-::: {.callout-note}
+::: callout-note
 Here, `sep` is here interpreted as the position to split on. It can also be a *regular expression* or a delimiting string/character. Pretty flexible approach!
-::: 
+:::
 
 ## Tidying Data with `unite`
 
@@ -816,27 +813,27 @@ If some of your columns contain more than one value
 
 ```{r}
 #| include: false
-bijou5 <- bijou %>% 
+jewels5 <- jewels %>% 
   head(n = 5) %>% 
   select(cut, price, clarity, x, y, z) %>% 
   separate(clarity, into = c('clarity_prefix', 'clarity_suffix'), sep = 2)
 ```
 
-```{r bijou5}
+```{r jewels5}
 #| echo: false
-bijou5
+jewels5
 ```
 
 . . .
 
 ```{r}
 #| eval: false
-bijou5 %>% unite(clarity, clarity_prefix, clarity_suffix, sep='')
+jewels5 %>% unite(clarity, clarity_prefix, clarity_suffix, sep='')
 ```
 
 ```{r}
 #| echo: false
-bijou5 %>% unite(clarity, clarity_prefix, clarity_suffix, sep='')
+jewels5 %>% unite(clarity, clarity_prefix, clarity_suffix, sep='')
 ```
 
 ## Completing Missing Values Using `complete`
@@ -844,7 +841,7 @@ bijou5 %>% unite(clarity, clarity_prefix, clarity_suffix, sep='')
 ```{r}
 #| eval: false
 #| include: false
-bijou %>% 
+jewels %>% 
   head(n = 10) %>% 
   select(cut, clarity, price) %>% 
   mutate(cut, cut2=replace(cut, sample(1:10, 4, F), NA)) -> missing_stones
@@ -852,7 +849,7 @@ bijou %>%
 
 ```{r}
 #| code-line-numbers: "3"
-bijou %>% head(n = 10) %>% select(cut, clarity, price) %>% 
+jewels %>% head(n = 10) %>% select(cut, clarity, price) %>% 
   mutate(continent = sample(c('Aus', 'Eur'), size = 6, replace = T)) -> missing_stones
 ```
 
@@ -876,21 +873,21 @@ Often, we need to combine a number of data tables (relational data) to get the f
 
 . . .
 
-- *mutating joins* that add new variables to data table `A` based on matching observations (rows) from data table `B`
+-   *mutating joins* that add new variables to data table `A` based on matching observations (rows) from data table `B`
 
 . . .
 
-- *filtering joins* that filter observations from data table `A` based on whether they match observations in data table `B`
+-   *filtering joins* that filter observations from data table `A` based on whether they match observations in data table `B`
 
 . . .
 
-- *set operations* that treat observations in `A` and `B` as elements of a set.
+-   *set operations* that treat observations in `A` and `B` as elements of a set.
 
 . . .
 
 Let us create two example tibbles that share a key:
 
-:::: {.columns}
+::::: columns
 ::: {.column width="50%"}
 ```{r}
 #| echo: false
@@ -926,11 +923,11 @@ B <- tribble(
 knitr::kable(B)
 ```
 :::
-::::
+:::::
 
-## The Joins Family &mdash; `inner_join`
+## The Joins Family — `inner_join`
 
-:::: {.columns}
+::::: columns
 ::: {.column width="50%"}
 ```{r}
 #| echo: false
@@ -944,7 +941,7 @@ knitr::kable(A)
 knitr::kable(B)
 ```
 :::
-::::
+:::::
 
 . . .
 
@@ -953,9 +950,9 @@ A %>% inner_join(B, by = 'key')
 # All non-matching rows are dropped!
 ```
 
-## The Joins Family &mdash; `left_join`
+## The Joins Family — `left_join`
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ```{r}
 #| echo: false
@@ -969,7 +966,7 @@ knitr::kable(A)
 knitr::kable(B)
 ```
 :::
-::::
+:::::
 
 . . .
 
@@ -977,9 +974,9 @@ knitr::kable(B)
 A %>% left_join(B, by = 'key')
 ```
 
-## The Joins Family &mdash; `right_join`
+## The Joins Family — `right_join`
 
-:::: {.columns}
+::::: columns
 ::: {.column width="50%"}
 ```{r}
 #| echo: false
@@ -993,7 +990,7 @@ knitr::kable(A)
 knitr::kable(B)
 ```
 :::
-::::
+:::::
 
 . . .
 
@@ -1001,10 +998,9 @@ knitr::kable(B)
 A %>% right_join(B, by = 'key')
 ```
 
+## The Joins Family — `full_join`
 
-## The Joins Family &mdash; `full_join`
-
-:::: {.columns}
+::::: columns
 ::: {.column width="50%"}
 ```{r}
 #| echo: false
@@ -1018,7 +1014,7 @@ knitr::kable(A)
 knitr::kable(B)
 ```
 :::
-::::
+:::::
 
 . . .
 
@@ -1028,14 +1024,14 @@ A %>% full_join(B, by = 'key')
 
 ## Some Other Friends
 
-- `stringr` for string manipulation and regular expressions
-- `forcats` for working with factors
-- `lubridate` for working with dates
+-   `stringr` for string manipulation and regular expressions
+-   `forcats` for working with factors
+-   `lubridate` for working with dates
 
-## {background-image="/assets/images/cover.webp"}
+##  {background-image="/assets/images/cover.webp"}
 
-::: {.v-center .center}
-::: {}
+:::: {.v-center .center}
+<div>
 
 [Thank you!]{.largest}
 
@@ -1043,5 +1039,5 @@ A %>% full_join(B, by = 'key')
 
 [{{< meta current_year >}} • [SciLifeLab](https://www.scilifelab.se/) • [NBIS](https://nbis.se/) • [RaukR](https://nbisweden.github.io/raukr-2025)]{.smaller}
 
-:::
-:::
+</div>
+::::

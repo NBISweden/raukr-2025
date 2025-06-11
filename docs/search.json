@@ -67,7 +67,7 @@
     "href": "slides/tidyverse/index.html#tidyverse-what-is-it-all-about",
     "title": "Tidy work in Tidyverse",
     "section": "Tidyverse — what is it all about?",
-    "text": "Tidyverse — what is it all about?\n\ntidyverse is a collection of packages 📦,\ncreated by Hadley Wickham,\nhas became a de facto standard in data analyses,\na philosophy of programming or a programming paradigm: everything is about 🌊 the flow of 🧹 tidy data.\n\n\n  \n\n\n\nImages: www.tidyverse.org, Wikipedia, www.tidyverse.org"
+    "text": "Tidyverse — what is it all about?\n\ntidyverse is a collection of packages 📦,\ncreated by Hadley Wickham,\nhas became a de facto standard in data analyses,\na philosophy of programming or a programming paradigm: everything is about the 🌊 flow of 🧹 tidy data.\n\n\n  \n\n\n\nImages: www.tidyverse.org, Wikipedia, www.tidyverse.org"
   },
   {
     "objectID": "slides/tidyverse/index.html#tidyverse-or-tidyverse",
@@ -109,7 +109,7 @@
     "href": "slides/tidyverse/index.html#other-types-of-pipes-t-1",
     "title": "Tidy work in Tidyverse",
     "section": "Other Types of Pipes — %T>%",
-    "text": "Other Types of Pipes — %T&gt;%\n\n\n\n\nrnorm(50) %&gt;% \n  matrix(ncol = 2) %T&gt;% \n  plot() %&gt;% \n  summary()\n\n\n\n\n\n\n\n\n\n\n\n       V1                V2         \n Min.   :-1.9510   Min.   :-2.1379  \n 1st Qu.:-0.5215   1st Qu.:-1.0088  \n Median :-0.1242   Median :-0.5758  \n Mean   :-0.0370   Mean   :-0.3462  \n 3rd Qu.: 1.0108   3rd Qu.: 0.6743  \n Max.   : 1.6850   Max.   : 1.2088"
+    "text": "Other Types of Pipes — %T&gt;%\n\n\n\n\nrnorm(50) %&gt;% \n  matrix(ncol = 2) %T&gt;% \n  plot() %&gt;% \n  summary()\n\n\n\n\n\n\n\n\n\n\n\n       V1                 V2         \n Min.   :-1.99994   Min.   :-2.6631  \n 1st Qu.:-0.66618   1st Qu.:-0.3963  \n Median : 0.01255   Median : 0.2991  \n Mean   :-0.02405   Mean   : 0.1184  \n 3rd Qu.: 0.74289   3rd Qu.: 0.8353  \n Max.   : 2.35663   Max.   : 1.7514"
   },
   {
     "objectID": "slides/tidyverse/index.html#other-types-of-magrittr-pipes",
@@ -123,21 +123,21 @@
     "href": "slides/tidyverse/index.html#other-types-of-magrittr-pipes-1",
     "title": "Tidy work in Tidyverse",
     "section": "Other Types of magrittr Pipes — %<>%",
-    "text": "Other Types of magrittr Pipes — %&lt;&gt;%\nIt exists but can lead to somewhat confusing code! ⚡\nx %&lt;&gt;% f \\(\\equiv\\) x &lt;- f(x)\n\nM &lt;- matrix(rnorm(16), nrow=4); M %&lt;&gt;% colSums(); M\n\n[1]  0.5777080  0.7659219  2.7420588 -1.8361519"
+    "text": "Other Types of magrittr Pipes — %&lt;&gt;%\nIt exists but can lead to somewhat confusing code! ⚡\nx %&lt;&gt;% f \\(\\equiv\\) x &lt;- f(x)\n\nM &lt;- matrix(rnorm(16), nrow=4); M %&lt;&gt;% colSums(); M\n\n[1] -1.68916169  0.08218512  2.38001677  2.58126918"
   },
   {
     "objectID": "slides/tidyverse/index.html#native-r-pipe",
     "href": "slides/tidyverse/index.html#native-r-pipe",
     "title": "Tidy work in Tidyverse",
     "section": "Native R pipe",
-    "text": "Native R pipe\nFrom R &gt;= 4.1.0 we have a native |&gt; pipe that is a bit faster than %&gt;% but currently has no placeholders mechanism.\n\nc(1,2,3,4,5) |&gt; mean()\n\n[1] 3\n\n\n\n\neven simple placeholder _ is available now. But ☠️ only for named arguments.\n\nmtcars |&gt; lm(mpg ~ disp, data = _)\n\n\nCall:\nlm(formula = mpg ~ disp, data = mtcars)\n\nCoefficients:\n(Intercept)         disp  \n   29.59985     -0.04122"
+    "text": "Native R pipe\nFrom R &gt;= 4.1.0 we have a native |&gt; pipe that is a bit faster than %&gt;% but currently has no placeholders mechanism.\n\nc(1,2,3,4,5) |&gt; mean()\n\n[1] 3\n\n\n\n\neven simple placeholder _ is available now. But 💀 only for named arguments.\n\nmtcars |&gt; lm(mpg ~ disp, data = _)\n\n\nCall:\nlm(formula = mpg ~ disp, data = mtcars)\n\nCoefficients:\n(Intercept)         disp  \n   29.59985     -0.04122"
   },
   {
     "objectID": "slides/tidyverse/index.html#placeholders-in-magrittr-pipes",
     "href": "slides/tidyverse/index.html#placeholders-in-magrittr-pipes",
     "title": "Tidy work in Tidyverse",
     "section": "Placeholders in magrittr Pipes",
-    "text": "Placeholders in magrittr Pipes\nSometimes we want to pass the resulting data to other than the first argument of the next function in chain. magritter provides placeholder mechanism for this:\n\nx %&gt;% f(y, .) \\(\\equiv\\) f(y, x),\nx %&gt;% f(y, z = .) \\(\\equiv\\) f(y, z = x).\n\n\n\nM &lt;- rnorm(4) %&gt;% matrix(nrow = 2)\nM %&gt;% `%*%`(., .)\n\n           [,1]        [,2]\n[1,] -0.3895179 -1.06043896\n[2,]  0.2014379 -0.02800385"
+    "text": "Placeholders in magrittr Pipes\nSometimes we want to pass the resulting data to other than the first argument of the next function in chain. magritter provides placeholder mechanism for this:\n\nx %&gt;% f(y, .) \\(\\equiv\\) f(y, x),\nx %&gt;% f(y, z = .) \\(\\equiv\\) f(y, z = x).\n\n\n\nM &lt;- rnorm(4) %&gt;% matrix(nrow = 2)\nM %&gt;% `%*%`(., .)\n\n           [,1]       [,2]\n[1,]  0.2306978 -0.1056775\n[2,] -0.2295869  0.3953752"
   },
   {
     "objectID": "slides/tidyverse/index.html#placeholders-for-nested-expressions",
@@ -179,7 +179,7 @@
     "href": "slides/tidyverse/index.html#tibbles-from-scratch-with-tibble",
     "title": "Tidy work in Tidyverse",
     "section": "Tibbles from scratch with tibble",
-    "text": "Tibbles from scratch with tibble\n\n  tibble(\n    x = 1,          # recycling\n    y = runif(50), \n    z = x + y^2,\n    outcome = rnorm(50)\n  )\n\n# A tibble: 50 × 4\n       x      y     z outcome\n   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n 1     1 0.143   1.02   0.233\n 2     1 0.536   1.29   0.406\n 3     1 0.124   1.02   0.526\n 4     1 0.112   1.01  -1.01 \n 5     1 0.865   1.75  -0.984\n 6     1 0.0775  1.01   0.322\n 7     1 0.388   1.15   1.00 \n 8     1 0.532   1.28  -0.812\n 9     1 0.241   1.06   1.60 \n10     1 0.301   1.09  -1.87 \n# ℹ 40 more rows"
+    "text": "Tibbles from scratch with tibble\n\n  tibble(\n    x = 1,          # recycling\n    y = runif(50), \n    z = x + y^2,\n    outcome = rnorm(50)\n  )\n\n# A tibble: 50 × 4\n       x      y     z outcome\n   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n 1     1 0.100   1.01  1.74  \n 2     1 0.917   1.84 -0.378 \n 3     1 0.299   1.09  1.14  \n 4     1 0.915   1.84 -0.870 \n 5     1 0.0273  1.00  2.69  \n 6     1 0.863   1.74 -0.0911\n 7     1 0.783   1.61  0.540 \n 8     1 0.901   1.81 -1.35  \n 9     1 0.321   1.10  1.40  \n10     1 0.0589  1.00  0.726 \n# ℹ 40 more rows"
   },
   {
     "objectID": "slides/tidyverse/index.html#more-on-tibbles",
@@ -249,14 +249,14 @@
     "href": "slides/tidyverse/index.html#parsing-strings",
     "title": "Tidy work in Tidyverse",
     "section": "Parsing Strings",
-    "text": "Parsing Strings\n\nStrings can be represented in different encodings:\n\n\ntext1 &lt;- 'På en ö är en å'\ntext2 &lt;- 'Zażółć gęślą jaźń'\n\n\ncharToRaw(text2)\nparse_character(text1, locale = locale(encoding = 'UTF-8'))\nguess_encoding(charToRaw(\"Test\"))\nguess_encoding(charToRaw(text2))"
+    "text": "Parsing Strings\n\nStrings can be represented in different encodings:\n\n\ntext1 &lt;- 'På en ö är en å'\ntext2 &lt;- 'Zażółć gęślą jaźń'\n\n\ncharToRaw(text2)\nparse_character(text1, locale = locale(encoding = 'UTF-8'))\nguess_encoding(charToRaw(text2))\n\n [1] 5a 61 c5 bc c3 b3 c5 82 c4 87 20 67 c4 99 c5 9b 6c c4 85 20 6a 61 c5 ba c5\n[26] 84\n[1] \"På en ö är en å\"\n# A tibble: 2 × 2\n  encoding     confidence\n  &lt;chr&gt;             &lt;dbl&gt;\n1 UTF-8              1   \n2 windows-1252       0.24"
   },
   {
     "objectID": "slides/tidyverse/index.html#parsing-factors",
     "href": "slides/tidyverse/index.html#parsing-factors",
     "title": "Tidy work in Tidyverse",
     "section": "Parsing Factors",
-    "text": "Parsing Factors\n\nR is using factors to represent categorical variables.\nSupply known levels to parse_factor so that it warns you when an unknown level is present in the data:\n\n\nlandscapes &lt;- c('mountains', 'swamps', 'seaside')\nparse_factor(c('mountains', 'plains', 'seaside', 'swamps'), \n             levels = landscapes)\n\n[1] mountains &lt;NA&gt;      seaside   swamps   \nattr(,\"problems\")\n# A tibble: 1 × 4\n    row   col expected           actual\n  &lt;int&gt; &lt;int&gt; &lt;chr&gt;              &lt;chr&gt; \n1     2    NA value in level set plains\nLevels: mountains swamps seaside"
+    "text": "Parsing Factors\n\nR is using factors to represent categorical variables.\nSupply known levels to parse_factor so that it warns you when an unknown level is present in the data:\n\n\nlandscapes &lt;- c('mountains', 'swamps', 'shore')\nparse_factor(c('mountains', 'plains', 'shore', 'swamps'), \n             levels = landscapes)\n\n[1] mountains &lt;NA&gt;      shore     swamps   \nattr(,\"problems\")\n# A tibble: 1 × 4\n    row   col expected           actual\n  &lt;int&gt; &lt;int&gt; &lt;chr&gt;              &lt;chr&gt; \n1     2    NA value in level set plains\nLevels: mountains swamps shore"
   },
   {
     "objectID": "slides/tidyverse/index.html#other-parsing-functions",
@@ -284,77 +284,77 @@
     "href": "slides/tidyverse/index.html#basic-data-transformations-with-dplyr",
     "title": "Tidy work in Tidyverse",
     "section": "Basic Data Transformations with dplyr",
-    "text": "Basic Data Transformations with dplyr\nLet us create a tibble:\n\nbijou &lt;- as_tibble(diamonds) %&gt;% head()\nbijou[1:5,]\n\n# A tibble: 5 × 10\n  carat cut     color clarity depth table price     x     y     z\n  &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98  2.43\n2  0.21 Premium E     SI1      59.8    61   326  3.89  3.84  2.31\n3  0.23 Good    E     VS1      56.9    65   327  4.05  4.07  2.31\n4  0.29 Premium I     VS2      62.4    58   334  4.2   4.23  2.63\n5  0.31 Good    J     SI2      63.3    58   335  4.34  4.35  2.75"
+    "text": "Basic Data Transformations with dplyr\nLet us create a tibble:\n\njewels &lt;- as_tibble(diamonds) %&gt;% head()\njewels[1:5,]\n\n# A tibble: 5 × 10\n  carat cut     color clarity depth table price     x     y     z\n  &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98  2.43\n2  0.21 Premium E     SI1      59.8    61   326  3.89  3.84  2.31\n3  0.23 Good    E     VS1      56.9    65   327  4.05  4.07  2.31\n4  0.29 Premium I     VS2      62.4    58   334  4.2   4.23  2.63\n5  0.31 Good    J     SI2      63.3    58   335  4.34  4.35  2.75"
   },
   {
     "objectID": "slides/tidyverse/index.html#picking-observations-using-filter",
     "href": "slides/tidyverse/index.html#picking-observations-using-filter",
     "title": "Tidy work in Tidyverse",
     "section": "Picking Observations using filter()",
-    "text": "Picking Observations using filter()\n\nbijou %&gt;% filter(cut == 'Ideal' | cut == 'Premium', carat &gt;= 0.23) %&gt;% head()\n\n# A tibble: 2 × 10\n  carat cut     color clarity depth table price     x     y     z\n  &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98  2.43\n2  0.29 Premium I     VS2      62.4    58   334  4.2   4.23  2.63"
+    "text": "Picking Observations using filter()\n\njewels %&gt;% filter(cut == 'Ideal' | cut == 'Premium', carat &gt;= 0.23) %&gt;% head()\n\n# A tibble: 2 × 10\n  carat cut     color clarity depth table price     x     y     z\n  &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98  2.43\n2  0.29 Premium I     VS2      62.4    58   334  4.2   4.23  2.63"
   },
   {
     "objectID": "slides/tidyverse/index.html#floating-point-and-tidyverse",
     "href": "slides/tidyverse/index.html#floating-point-and-tidyverse",
     "title": "Tidy work in Tidyverse",
     "section": "Floating point and tidyverse",
-    "text": "Floating point and tidyverse\n\n\n\n\n\n\nCaution\n\n\n🛥 Be careful with floating point comparisons!\n☠️ Also, rows with comparison resulting in NA are skipped by default!\n\n\n\n\n\nbijou %&gt;% filter(near(0.23, carat) | is.na(carat)) %&gt;% head(n = 4)\n\n# A tibble: 2 × 10\n  carat cut   color clarity depth table price     x     y     z\n  &lt;dbl&gt; &lt;ord&gt; &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  0.23 Ideal E     SI2      61.5    55   326  3.95  3.98  2.43\n2  0.23 Good  E     VS1      56.9    65   327  4.05  4.07  2.31"
+    "text": "Floating point and tidyverse\n\n\n\n\n\n\nCaution\n\n\n🚣 Be careful with floating point comparisons!\n🏴‍☠️ Also, rows with comparison resulting in NA are skipped by default!\n\n\n\n\n\njewels %&gt;% filter(near(0.23, carat) | is.na(carat)) %&gt;% head(n = 4)\n\n# A tibble: 2 × 10\n  carat cut   color clarity depth table price     x     y     z\n  &lt;dbl&gt; &lt;ord&gt; &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  0.23 Ideal E     SI2      61.5    55   326  3.95  3.98  2.43\n2  0.23 Good  E     VS1      56.9    65   327  4.05  4.07  2.31"
   },
   {
     "objectID": "slides/tidyverse/index.html#rearranging-observations-using-arrange",
     "href": "slides/tidyverse/index.html#rearranging-observations-using-arrange",
     "title": "Tidy work in Tidyverse",
     "section": "Rearranging Observations using arrange()",
-    "text": "Rearranging Observations using arrange()\n\nbijou %&gt;% arrange(cut, carat, desc(price))\n\n\n\n\n# A tibble: 6 × 10\n  carat cut       color clarity depth table price     x     y     z\n  &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31\n2  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75\n3  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48\n4  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31\n5  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63\n6  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43\n\n\n\n\n\n\n\n\nCaution\n\n\nThe NAs always end up at the end of the rearranged tibble."
+    "text": "Rearranging Observations using arrange()\n\njewels %&gt;% arrange(cut, carat, desc(price))\n\n\n\n\n# A tibble: 6 × 10\n  carat cut       color clarity depth table price     x     y     z\n  &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31\n2  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75\n3  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48\n4  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31\n5  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63\n6  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43\n\n\n\n\n\n\n\n\nCaution\n\n\nThe NAs always end up at the end of the rearranged tibble."
   },
   {
     "objectID": "slides/tidyverse/index.html#selecting-variables-with-select",
     "href": "slides/tidyverse/index.html#selecting-variables-with-select",
     "title": "Tidy work in Tidyverse",
     "section": "Selecting Variables with select()",
-    "text": "Selecting Variables with select()\n\nSimple rangeExclusion\n\n\n\nbijou %&gt;% select(color, clarity, x:z) %&gt;% head(n = 4)\n\n# A tibble: 4 × 5\n  color clarity     x     y     z\n  &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 E     SI2      3.95  3.98  2.43\n2 E     SI1      3.89  3.84  2.31\n3 E     VS1      4.05  4.07  2.31\n4 I     VS2      4.2   4.23  2.63\n\n\n\n\n\nbijou %&gt;% select(-(x:z)) %&gt;% head(n = 5)\n\n# A tibble: 5 × 7\n  carat cut     color clarity depth table price\n  &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;\n1  0.23 Ideal   E     SI2      61.5    55   326\n2  0.21 Premium E     SI1      59.8    61   326\n3  0.23 Good    E     VS1      56.9    65   327\n4  0.29 Premium I     VS2      62.4    58   334\n5  0.31 Good    J     SI2      63.3    58   335"
+    "text": "Selecting Variables with select()\n\nSimple rangeExclusion\n\n\n\njewels %&gt;% select(color, clarity, x:z) %&gt;% head(n = 4)\n\n# A tibble: 4 × 5\n  color clarity     x     y     z\n  &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 E     SI2      3.95  3.98  2.43\n2 E     SI1      3.89  3.84  2.31\n3 E     VS1      4.05  4.07  2.31\n4 I     VS2      4.2   4.23  2.63\n\n\n\n\n\njewels %&gt;% select(-(x:z)) %&gt;% head(n = 5)\n\n# A tibble: 5 × 7\n  carat cut     color clarity depth table price\n  &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;\n1  0.23 Ideal   E     SI2      61.5    55   326\n2  0.21 Premium E     SI1      59.8    61   326\n3  0.23 Good    E     VS1      56.9    65   327\n4  0.29 Premium I     VS2      62.4    58   334\n5  0.31 Good    J     SI2      63.3    58   335"
   },
   {
     "objectID": "slides/tidyverse/index.html#renaming-variables",
     "href": "slides/tidyverse/index.html#renaming-variables",
     "title": "Tidy work in Tidyverse",
     "section": "Renaming variables",
-    "text": "Renaming variables\n\n\n\n\n\n\nNote\n\n\nrename is a variant of select, here used with everything() to move x to the beginning and rename it to var_x\n\n\n\n\nbijou %&gt;% rename(var_x = x) %&gt;% head(n = 2)\n\n\n\n\n# A tibble: 2 × 10\n  carat cut     color clarity depth table price var_x     y     z\n  &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98  2.43\n2  0.21 Premium E     SI1      59.8    61   326  3.89  3.84  2.31"
+    "text": "Renaming variables\n\n\n\n\n\n\nNote\n\n\nrename is a variant of select, here used with everything() to move x to the beginning and rename it to var_x\n\n\n\n\njewels %&gt;% rename(var_x = x) %&gt;% head(n = 2)\n\n\n\n\n# A tibble: 2 × 10\n  carat cut     color clarity depth table price var_x     y     z\n  &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98  2.43\n2  0.21 Premium E     SI1      59.8    61   326  3.89  3.84  2.31"
   },
   {
     "objectID": "slides/tidyverse/index.html#bring-columns-to-front",
     "href": "slides/tidyverse/index.html#bring-columns-to-front",
     "title": "Tidy work in Tidyverse",
     "section": "Bring columns to front",
-    "text": "Bring columns to front\n\n\n\n\n\n\nTip\n\n\nuse everything() to bring some columns to the front\n\n\n\n\nbijou %&gt;% select(x:z, everything()) %&gt;% head(n = 2)\n\n\n\n\n# A tibble: 2 × 10\n      x     y     z carat cut     color clarity depth table price\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;\n1  3.95  3.98  2.43  0.23 Ideal   E     SI2      61.5    55   326\n2  3.89  3.84  2.31  0.21 Premium E     SI1      59.8    61   326"
+    "text": "Bring columns to front\n\n\n\n\n\n\nTip\n\n\nuse everything() to bring some columns to the front\n\n\n\n\njewels %&gt;% select(x:z, everything()) %&gt;% head(n = 2)\n\n\n\n\n# A tibble: 2 × 10\n      x     y     z carat cut     color clarity depth table price\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;\n1  3.95  3.98  2.43  0.23 Ideal   E     SI2      61.5    55   326\n2  3.89  3.84  2.31  0.21 Premium E     SI1      59.8    61   326"
   },
   {
     "objectID": "slides/tidyverse/index.html#createalter-new-variables-with-mutate",
     "href": "slides/tidyverse/index.html#createalter-new-variables-with-mutate",
     "title": "Tidy work in Tidyverse",
     "section": "Create/alter new Variables with mutate",
-    "text": "Create/alter new Variables with mutate\n\nbijou %&gt;% \n  mutate(p = x + z, q = p + y) %&gt;% \n  select(-(depth:price)) %&gt;% \n  head(n = 5)\n\n\n\n\n# A tibble: 5 × 9\n  carat cut     color clarity     x     y     z     p     q\n  &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  0.23 Ideal   E     SI2      3.95  3.98  2.43  6.38  10.4\n2  0.21 Premium E     SI1      3.89  3.84  2.31  6.2   10.0\n3  0.23 Good    E     VS1      4.05  4.07  2.31  6.36  10.4\n4  0.29 Premium I     VS2      4.2   4.23  2.63  6.83  11.1\n5  0.31 Good    J     SI2      4.34  4.35  2.75  7.09  11.4"
+    "text": "Create/alter new Variables with mutate\n\njewels %&gt;% \n  mutate(p = x + z, q = p + y) %&gt;% \n  select(-(depth:price)) %&gt;% \n  head(n = 5)\n\n\n\n\n# A tibble: 5 × 9\n  carat cut     color clarity     x     y     z     p     q\n  &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  0.23 Ideal   E     SI2      3.95  3.98  2.43  6.38  10.4\n2  0.21 Premium E     SI1      3.89  3.84  2.31  6.2   10.0\n3  0.23 Good    E     VS1      4.05  4.07  2.31  6.36  10.4\n4  0.29 Premium I     VS2      4.2   4.23  2.63  6.83  11.1\n5  0.31 Good    J     SI2      4.34  4.35  2.75  7.09  11.4"
   },
   {
     "objectID": "slides/tidyverse/index.html#createalter-new-variables-with-transmute",
     "href": "slides/tidyverse/index.html#createalter-new-variables-with-transmute",
     "title": "Tidy work in Tidyverse",
     "section": "Create/alter new Variables with transmute 🧙‍♂️",
-    "text": "Create/alter new Variables with transmute 🧙‍♂️\n\n\n\n\n\n\nCaution\n\n\nOnly the transformed variables will be retained.\n\n\n\n\nbijou %&gt;% transmute(carat, cut, sum = x + y + z) %&gt;% head(n = 5)\n\n# A tibble: 5 × 3\n  carat cut       sum\n  &lt;dbl&gt; &lt;ord&gt;   &lt;dbl&gt;\n1  0.23 Ideal    10.4\n2  0.21 Premium  10.0\n3  0.23 Good     10.4\n4  0.29 Premium  11.1\n5  0.31 Good     11.4"
+    "text": "Create/alter new Variables with transmute 🧙‍♂️\n\n\n\n\n\n\nCaution\n\n\nOnly the transformed variables will be retained.\n\n\n\n\njewels %&gt;% transmute(carat, cut, sum = x + y + z) %&gt;% head(n = 5)\n\n# A tibble: 5 × 3\n  carat cut       sum\n  &lt;dbl&gt; &lt;ord&gt;   &lt;dbl&gt;\n1  0.23 Ideal    10.4\n2  0.21 Premium  10.0\n3  0.23 Good     10.4\n4  0.29 Premium  11.1\n5  0.31 Good     11.4"
   },
   {
     "objectID": "slides/tidyverse/index.html#group-and-summarize",
     "href": "slides/tidyverse/index.html#group-and-summarize",
     "title": "Tidy work in Tidyverse",
     "section": "Group and Summarize",
-    "text": "Group and Summarize\n\nSimpleMore complex\n\n\n\nbijou %&gt;% group_by(cut) %&gt;% summarize(max_price = max(price),\n                                      mean_price = mean(price),\n                                      min_price = min(price))\n\n# A tibble: 4 × 4\n  cut       max_price mean_price min_price\n  &lt;ord&gt;         &lt;int&gt;      &lt;dbl&gt;     &lt;int&gt;\n1 Good            335        331       327\n2 Very Good       336        336       336\n3 Premium         334        330       326\n4 Ideal           326        326       326\n\n\n\n\n\nbijou %&gt;% group_by(cut, color) %&gt;%  summarize(max_price = max(price), \n                                              mean_price = mean(price), \n                                              min_price = min(price)) %&gt;% head(n = 5)\n\n# A tibble: 5 × 5\n# Groups:   cut [3]\n  cut       color max_price mean_price min_price\n  &lt;ord&gt;     &lt;ord&gt;     &lt;int&gt;      &lt;dbl&gt;     &lt;int&gt;\n1 Good      E           327        327       327\n2 Good      J           335        335       335\n3 Very Good J           336        336       336\n4 Premium   E           326        326       326\n5 Premium   I           334        334       334"
+    "text": "Group and Summarize\n\nSimpleMore complex\n\n\n\njewels %&gt;% group_by(cut) %&gt;% summarize(max_price = max(price),\n                                      mean_price = mean(price),\n                                      min_price = min(price))\n\n# A tibble: 4 × 4\n  cut       max_price mean_price min_price\n  &lt;ord&gt;         &lt;int&gt;      &lt;dbl&gt;     &lt;int&gt;\n1 Good            335        331       327\n2 Very Good       336        336       336\n3 Premium         334        330       326\n4 Ideal           326        326       326\n\n\n\n\n\njewels %&gt;% group_by(cut, color) %&gt;%  summarize(max_price = max(price), \n                                              mean_price = mean(price), \n                                              min_price = min(price)) %&gt;% head(n = 5)\n\n# A tibble: 5 × 5\n# Groups:   cut [3]\n  cut       color max_price mean_price min_price\n  &lt;ord&gt;     &lt;ord&gt;     &lt;int&gt;      &lt;dbl&gt;     &lt;int&gt;\n1 Good      E           327        327       327\n2 Good      J           335        335       335\n3 Very Good J           336        336       336\n4 Premium   E           326        326       326\n5 Premium   I           334        334       334"
   },
   {
     "objectID": "slides/tidyverse/index.html#other-data-manipulation-tips",
     "href": "slides/tidyverse/index.html#other-data-manipulation-tips",
     "title": "Tidy work in Tidyverse",
     "section": "Other data manipulation tips",
-    "text": "Other data manipulation tips\n\nbijou %&gt;% group_by(cut) %&gt;% summarize(count = n())\n\n# A tibble: 4 × 2\n  cut       count\n  &lt;ord&gt;     &lt;int&gt;\n1 Good          2\n2 Very Good     1\n3 Premium       2\n4 Ideal         1\n\n\n\nWhen you need to regroup within the same pipe, use ungroup()."
+    "text": "Other data manipulation tips\n\njewels %&gt;% group_by(cut) %&gt;% summarize(count = n())\n\n# A tibble: 4 × 2\n  cut       count\n  &lt;ord&gt;     &lt;int&gt;\n1 Good          2\n2 Very Good     1\n3 Premium       2\n4 Ideal         1\n\n\n\nWhen you need to regroup within the same pipe, use ungroup()."
   },
   {
     "objectID": "slides/tidyverse/index.html#the-concept-of-tidy-data",
@@ -368,49 +368,49 @@
     "href": "slides/tidyverse/index.html#tidy-data",
     "title": "Tidy work in Tidyverse",
     "section": "Tidy Data",
-    "text": "Tidy Data\n\n\nAre these data tidy?\n\n\n\n\n\n\nSepal.Length\nSepal.Width\nPetal.Length\nPetal.Width\nSpecies\n\n\n\n\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSpecies\nvariable\nvalue\n\n\n\n\nsetosa\nSepal.Length\n5.1\n\n\nsetosa\nSepal.Length\n4.9\n\n\nsetosa\nSepal.Length\n4.7"
+    "text": "Tidy Data\n\nAre these data tidy?\n\n\n\n\n\n\nSepal.L.W\nPetal.L.W\nSpecies\n\n\n\n\n5.1/3.5\n1.4/0.2\nsetosa\n\n\n4.9/3\n1.4/0.2\nsetosa\n\n\n4.7/3.2\n1.3/0.2\nsetosa\n\n\n\n\n\n\n\n\n\n\n\n\n\nSepal.Length\n5.1\n4.9\n4.7\n4.6\n\n\nSepal.Width\n3.5\n3.0\n3.2\n3.1\n\n\nPetal.Length\n1.4\n1.4\n1.3\n1.5\n\n\nPetal.Width\n0.2\n0.2\n0.2\n0.2\n\n\nSpecies\nsetosa\nsetosa\nsetosa\nsetosa"
   },
   {
     "objectID": "slides/tidyverse/index.html#tidy-data-1",
     "href": "slides/tidyverse/index.html#tidy-data-1",
     "title": "Tidy work in Tidyverse",
     "section": "Tidy Data",
-    "text": "Tidy Data\n\nAre these data tidy?\n\n\n\n\n\n\nSepal.L.W\nPetal.L.W\nSpecies\n\n\n\n\n5.1/3.5\n1.4/0.2\nsetosa\n\n\n4.9/3\n1.4/0.2\nsetosa\n\n\n4.7/3.2\n1.3/0.2\nsetosa\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSepal.Length\n5.1\n4.9\n4.7\n4.6\n\n\nSepal.Width\n3.5\n3.0\n3.2\n3.1\n\n\nPetal.Length\n1.4\n1.4\n1.3\n1.5\n\n\nPetal.Width\n0.2\n0.2\n0.2\n0.2\n\n\nSpecies\nsetosa\nsetosa\nsetosa\nsetosa"
+    "text": "Tidy Data\n\n\nAre these data tidy?\n\n\n\n\n\n\nSepal.Length\nSepal.Width\nPetal.Length\nPetal.Width\nSpecies\n\n\n\n\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSpecies\nvariable\nvalue\n\n\n\n\nsetosa\nSepal.Length\n5.1\n\n\nsetosa\nSepal.Length\n4.9\n\n\nsetosa\nSepal.Length\n4.7"
   },
   {
     "objectID": "slides/tidyverse/index.html#tidying-data-with-pivot_longer",
     "href": "slides/tidyverse/index.html#tidying-data-with-pivot_longer",
     "title": "Tidy work in Tidyverse",
     "section": "Tidying Data with pivot_longer",
-    "text": "Tidying Data with pivot_longer\nIf some of your column names should be values of a variable, use pivot_longer (old gather):\n\n\n\nbijou2 %&gt;% head(n = 5)\n\n# A tibble: 5 × 3\n  cut     `2008` `2009`\n  &lt;ord&gt;    &lt;int&gt;  &lt;dbl&gt;\n1 Ideal      326    327\n2 Premium    326    327\n3 Good       327    328\n4 Premium    334    335\n5 Good       335    336\n\n\n\n\nbijou2 %&gt;% \n  pivot_longer(cols = c(`2008`, `2009`), names_to = 'year', values_to = 'price') %&gt;% \n  head(n = 5)\n\n# A tibble: 5 × 3\n  cut     year  price\n  &lt;ord&gt;   &lt;chr&gt; &lt;dbl&gt;\n1 Ideal   2008    326\n2 Ideal   2009    327\n3 Premium 2008    326\n4 Premium 2009    327\n5 Good    2008    327"
+    "text": "Tidying Data with pivot_longer\nIf some of your column names should be values of a variable, use pivot_longer (old gather):\n\n\n\njewels2 %&gt;% head(n = 5)\n\n# A tibble: 5 × 3\n  cut     `2008` `2009`\n  &lt;ord&gt;    &lt;int&gt;  &lt;dbl&gt;\n1 Ideal      326    329\n2 Premium    326    329\n3 Good       327    330\n4 Premium    334    337\n5 Good       335    338\n\n\n\n\njewels2 %&gt;% \n  pivot_longer(cols = c(`2008`, `2009`), names_to = 'year', values_to = 'price') %&gt;% \n  head(n = 5)\n\n# A tibble: 5 × 3\n  cut     year  price\n  &lt;ord&gt;   &lt;chr&gt; &lt;dbl&gt;\n1 Ideal   2008    326\n2 Ideal   2009    329\n3 Premium 2008    326\n4 Premium 2009    329\n5 Good    2008    327"
   },
   {
     "objectID": "slides/tidyverse/index.html#tidying-data-with-pivot_wider",
     "href": "slides/tidyverse/index.html#tidying-data-with-pivot_wider",
     "title": "Tidy work in Tidyverse",
     "section": "Tidying Data with pivot_wider",
-    "text": "Tidying Data with pivot_wider\nIf some of your observations are scattered across many rows, use pivot_wider (old spread):\n\n\n\nbijou3\n\n# A tibble: 9 × 5\n  cut     price clarity dimension measurement\n  &lt;ord&gt;   &lt;int&gt; &lt;ord&gt;   &lt;chr&gt;           &lt;dbl&gt;\n1 Ideal     326 SI2     x                3.95\n2 Premium   326 SI1     x                3.89\n3 Good      327 VS1     x                4.05\n4 Ideal     326 SI2     y                3.98\n5 Premium   326 SI1     y                3.84\n6 Good      327 VS1     y                4.07\n7 Ideal     326 SI2     z                2.43\n8 Premium   326 SI1     z                2.31\n9 Good      327 VS1     z                2.31\n\n\n\n\nbijou3 %&gt;% \n  pivot_wider(names_from = dimension, values_from = measurement) %&gt;% \n  head(n = 5)\n\n# A tibble: 3 × 6\n  cut     price clarity     x     y     z\n  &lt;ord&gt;   &lt;int&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Ideal     326 SI2      3.95  3.98  2.43\n2 Premium   326 SI1      3.89  3.84  2.31\n3 Good      327 VS1      4.05  4.07  2.31"
+    "text": "Tidying Data with pivot_wider\nIf some of your observations are scattered across many rows, use pivot_wider (old spread):\n\n\n\njewels3\n\n# A tibble: 9 × 5\n  cut     price clarity dimension measurement\n  &lt;ord&gt;   &lt;int&gt; &lt;ord&gt;   &lt;chr&gt;           &lt;dbl&gt;\n1 Ideal     326 SI2     x                3.95\n2 Premium   326 SI1     x                3.89\n3 Good      327 VS1     x                4.05\n4 Ideal     326 SI2     y                3.98\n5 Premium   326 SI1     y                3.84\n6 Good      327 VS1     y                4.07\n7 Ideal     326 SI2     z                2.43\n8 Premium   326 SI1     z                2.31\n9 Good      327 VS1     z                2.31\n\n\n\n\njewels3 %&gt;% \n  pivot_wider(names_from = dimension, values_from = measurement) %&gt;% \n  head(n = 5)\n\n# A tibble: 3 × 6\n  cut     price clarity     x     y     z\n  &lt;ord&gt;   &lt;int&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Ideal     326 SI2      3.95  3.98  2.43\n2 Premium   326 SI1      3.89  3.84  2.31\n3 Good      327 VS1      4.05  4.07  2.31"
   },
   {
     "objectID": "slides/tidyverse/index.html#tidying-data-with-separate",
     "href": "slides/tidyverse/index.html#tidying-data-with-separate",
     "title": "Tidy work in Tidyverse",
     "section": "Tidying Data with separate",
-    "text": "Tidying Data with separate\nIf some of your columns contain more than one value, use separate:\n\n\n# A tibble: 2 × 4\n  cut     price clarity dim           \n  &lt;ord&gt;   &lt;int&gt; &lt;ord&gt;   &lt;chr&gt;         \n1 Ideal     326 SI2     3.95/3.98/2.43\n2 Premium   326 SI1     3.89/3.84/2.31\n\n\n\n\nbijou4 %&gt;% \n  separate(dim, into = c(\"x\", \"y\", \"z\"), sep = \"/\", convert = T)\n\n\n\n\n\n# A tibble: 2 × 6\n  cut     price clarity     x     y     z\n  &lt;ord&gt;   &lt;int&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Ideal     326 SI2      3.95  3.98  2.43\n2 Premium   326 SI1      3.89  3.84  2.31\n\n\n\n\n\n\n\n\nNote\n\n\nHere, sep is here interpreted as the position to split on. It can also be a regular expression or a delimiting string/character. Pretty flexible approach!"
+    "text": "Tidying Data with separate\nIf some of your columns contain more than one value, use separate:\n\n\n# A tibble: 2 × 4\n  cut     price clarity dim           \n  &lt;ord&gt;   &lt;int&gt; &lt;ord&gt;   &lt;chr&gt;         \n1 Ideal     326 SI2     3.95/3.98/2.43\n2 Premium   326 SI1     3.89/3.84/2.31\n\n\n\n\njewels4 %&gt;% \n  separate(dim, into = c(\"x\", \"y\", \"z\"), sep = \"/\", convert = T)\n\n\n\n\n\n# A tibble: 2 × 6\n  cut     price clarity     x     y     z\n  &lt;ord&gt;   &lt;int&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Ideal     326 SI2      3.95  3.98  2.43\n2 Premium   326 SI1      3.89  3.84  2.31\n\n\n\n\n\n\n\n\nNote\n\n\nHere, sep is here interpreted as the position to split on. It can also be a regular expression or a delimiting string/character. Pretty flexible approach!"
   },
   {
     "objectID": "slides/tidyverse/index.html#tidying-data-with-unite",
     "href": "slides/tidyverse/index.html#tidying-data-with-unite",
     "title": "Tidy work in Tidyverse",
     "section": "Tidying Data with unite",
-    "text": "Tidying Data with unite\nIf some of your columns contain more than one value\n\n\n# A tibble: 5 × 7\n  cut     price clarity_prefix clarity_suffix     x     y     z\n  &lt;ord&gt;   &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Ideal     326 SI             2               3.95  3.98  2.43\n2 Premium   326 SI             1               3.89  3.84  2.31\n3 Good      327 VS             1               4.05  4.07  2.31\n4 Premium   334 VS             2               4.2   4.23  2.63\n5 Good      335 SI             2               4.34  4.35  2.75\n\n\n\n\nbijou5 %&gt;% unite(clarity, clarity_prefix, clarity_suffix, sep='')\n\n\n\n# A tibble: 5 × 6\n  cut     price clarity     x     y     z\n  &lt;ord&gt;   &lt;int&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Ideal     326 SI2      3.95  3.98  2.43\n2 Premium   326 SI1      3.89  3.84  2.31\n3 Good      327 VS1      4.05  4.07  2.31\n4 Premium   334 VS2      4.2   4.23  2.63\n5 Good      335 SI2      4.34  4.35  2.75"
+    "text": "Tidying Data with unite\nIf some of your columns contain more than one value\n\n\n# A tibble: 5 × 7\n  cut     price clarity_prefix clarity_suffix     x     y     z\n  &lt;ord&gt;   &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Ideal     326 SI             2               3.95  3.98  2.43\n2 Premium   326 SI             1               3.89  3.84  2.31\n3 Good      327 VS             1               4.05  4.07  2.31\n4 Premium   334 VS             2               4.2   4.23  2.63\n5 Good      335 SI             2               4.34  4.35  2.75\n\n\n\n\njewels5 %&gt;% unite(clarity, clarity_prefix, clarity_suffix, sep='')\n\n\n\n# A tibble: 5 × 6\n  cut     price clarity     x     y     z\n  &lt;ord&gt;   &lt;int&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Ideal     326 SI2      3.95  3.98  2.43\n2 Premium   326 SI1      3.89  3.84  2.31\n3 Good      327 VS1      4.05  4.07  2.31\n4 Premium   334 VS2      4.2   4.23  2.63\n5 Good      335 SI2      4.34  4.35  2.75"
   },
   {
     "objectID": "slides/tidyverse/index.html#completing-missing-values-using-complete",
     "href": "slides/tidyverse/index.html#completing-missing-values-using-complete",
     "title": "Tidy work in Tidyverse",
     "section": "Completing Missing Values Using complete",
-    "text": "Completing Missing Values Using complete\n\nbijou %&gt;% head(n = 10) %&gt;% select(cut, clarity, price) %&gt;% \n  mutate(continent = sample(c('Aus', 'Eur'), size = 6, replace = T)) -&gt; missing_stones\n\n\n\nmissing_stones %&gt;% complete(cut, continent) %&gt;% head(n = 7)\n\n\n\n\n\n# A tibble: 7 × 4\n  cut       continent clarity price\n  &lt;ord&gt;     &lt;chr&gt;     &lt;ord&gt;   &lt;int&gt;\n1 Fair      Aus       &lt;NA&gt;       NA\n2 Fair      Eur       &lt;NA&gt;       NA\n3 Good      Aus       &lt;NA&gt;       NA\n4 Good      Eur       VS1       327\n5 Good      Eur       SI2       335\n6 Very Good Aus       VVS2      336\n7 Very Good Eur       &lt;NA&gt;       NA"
+    "text": "Completing Missing Values Using complete\n\njewels %&gt;% head(n = 10) %&gt;% select(cut, clarity, price) %&gt;% \n  mutate(continent = sample(c('Aus', 'Eur'), size = 6, replace = T)) -&gt; missing_stones\n\n\n\nmissing_stones %&gt;% complete(cut, continent) %&gt;% head(n = 7)\n\n\n\n\n\n# A tibble: 7 × 4\n  cut       continent clarity price\n  &lt;ord&gt;     &lt;chr&gt;     &lt;ord&gt;   &lt;int&gt;\n1 Fair      Aus       &lt;NA&gt;       NA\n2 Fair      Eur       &lt;NA&gt;       NA\n3 Good      Aus       VS1       327\n4 Good      Eur       SI2       335\n5 Very Good Aus       VVS2      336\n6 Very Good Eur       &lt;NA&gt;       NA\n7 Premium   Aus       SI1       326"
   },
   {
     "objectID": "slides/tidyverse/index.html#combining-datasets",
