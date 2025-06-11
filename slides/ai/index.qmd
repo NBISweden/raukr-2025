@@ -109,13 +109,15 @@ Using Rstudio and copilot (demo)
   - how it works in Rstudio
   - Best to split big problems into smaller pieces
     - write a high-level goal at the start of the file
+    - View(penguins)
     - Write code, whole function
     - write code, just a line
     - Write comments
     - Write questions
+    - Find bugs
 
 
-querying llms in R using chattr (demo)
+querying llms in R using ellmer (demo)
 
 Other IDE's
   - Visual Studio Code (demo)

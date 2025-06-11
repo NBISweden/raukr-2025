@@ -12,3 +12,4 @@ labs/**/*_files
 **/*.fq
 todo.txt
 **/.quarto/
+.Rproj.user

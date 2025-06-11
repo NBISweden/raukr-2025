@@ -244,7 +244,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">08-May-2025</p>
+        <p class="date">09-Jun-2025</p>
       </div>
     </div>
     
@@ -395,7 +395,7 @@ Tip
 <p>Think in terms of system-specific representation <span class="math inline">\(\epsilon\)</span>.</p>
 </div>
 </div>
-<p>Put the value of your double <span class="math inline">\(\epsilon\)</span> into <a href="https://docs.google.com/spreadsheets/d/1_2tDeEkDVS06RkB437yBI1XEB5SUebtHWyxAf_aRJu4/edit?usp=sharing">this spreadsheet</a> (Best Coding Practises Lab sheet).</p>
+<p>Put the value of your double <span class="math inline">\(\epsilon\)</span> into <a href="https://docs.google.com/spreadsheets/d/1_2tDeEkDVS06RkB437yBI1XEB5SUebtHWyxAf_aRJu4/edit?usp=sharing">this spreadsheet</a> (Debugging Lab sheet). Keep this spreadsheet open as you will be entering more values into this.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>vec <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="fl">0.9</span>, <span class="at">by=</span><span class="fl">0.1</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>vec <span class="sc">==</span> <span class="fl">0.7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -444,7 +444,7 @@ Example Solution
 <h2 data-number="2" class="anchored" data-anchor-id="profiling"><span class="header-section-number">2</span> Profiling</h2>
 <section id="task-filling-a-large-matrix." class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="task-filling-a-large-matrix."><span class="header-section-number">2.1</span> Task: Filling A Large Matrix.</h3>
-<p>Create a 10 000 x 10 000 matrix and fill it with random numbers (from 1 to 42), first row by row and later column by column. Use <code>proc.time</code> to see if there is any difference. Is the measurement reliable? Record the values you got in this spreadsheet:</p>
+<p>Create a 10 000 x 10 000 matrix and fill it with random numbers (from 1 to 42), first row by row and later column by column. Use <code>proc.time</code> to see if there is any difference. Is the measurement reliable? Record the values you got in the same spreadsheet.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fl">10e3</span> <span class="sc">*</span> <span class="fl">10e3</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -467,7 +467,7 @@ Example Solution
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">rnorm</span>(<span class="at">n =</span> <span class="fl">10e6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Is such single measurement reliable? Run the code 100 times, plot and record the mean and the variance of the <code>elapsed</code> time. Put these values (elapsed.time mean and variance) into <a href="https://docs.google.com/spreadsheets/d/1_2tDeEkDVS06RkB437yBI1XEB5SUebtHWyxAf_aRJu4/edit?usp=sharing">this spreadsheet</a> (Best Coding Practises Lab sheet).</p>
+<p>Is such single measurement reliable? Run the code 100 times, plot and record the mean and the variance of the <code>elapsed</code> time. Put these values (elapsed.time mean and variance) into the same spreadsheet (Debugging Lab sheet).</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -494,7 +494,7 @@ Example Solution
 </div>
 </div>
 <p><strong>Optional</strong></p>
-<p>An alternative approach or, more exactly, an alternative notation that achieves the same as the previous chunk of code but in a more compact way makes use of the <code>replicate</code>, a wrapper function around <code>sapply</code> that simplifies repeated evaluation of expressions. The drawback is you do not get the vector of the actual timing values but the results of calling <code>system.time</code> are already averaged for you. Try to read about the <code>replicate</code> and use it to re-write the code above. Put the <code>elapsed.time</code> into <a href="https://docs.google.com/spreadsheets/d/1_2tDeEkDVS06RkB437yBI1XEB5SUebtHWyxAf_aRJu4/edit?usp=sharing">this spreadsheet</a> (Best Coding Practises Lab sheet). How does this value compare to calling <code>system.time</code> within a loop in the previous chunk of code? Are the values similar?</p>
+<p>An alternative approach or, more exactly, an alternative notation that achieves the same as the previous chunk of code but in a more compact way makes use of the <code>replicate</code>, a wrapper function around <code>sapply</code> that simplifies repeated evaluation of expressions. The drawback is you do not get the vector of the actual timing values but the results of calling <code>system.time</code> are already averaged for you. Try to read about the <code>replicate</code> and use it to re-write the code above. Put the <code>elapsed.time</code> into the same spreadsheet (Debugging Lab sheet). How does this value compare to calling <code>system.time</code> within a loop in the previous chunk of code? Are the values similar?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -538,7 +538,7 @@ Example Solution
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(timing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Put the mean and the variance into <a href="https://docs.google.com/spreadsheets/d/1_2tDeEkDVS06RkB437yBI1XEB5SUebtHWyxAf_aRJu4/edit?usp=sharing">this spreadsheet</a> (Best Coding Practises Lab sheet, Microbenchmark – loop)</p>
+<p>Put the mean and the variance into the same spreadsheet (Debugging Lab sheet, Microbenchmark – loop)</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -571,7 +571,7 @@ Example Solution
 <section id="microtiming-precision." class="level4" data-number="2.3.2">
 <h4 data-number="2.3.2" class="anchored" data-anchor-id="microtiming-precision."><span class="header-section-number">2.3.2</span> Microtiming Precision.</h4>
 <p>There is an experimental function in the <code>microbenchmark</code> package that helps the package estimate granularity and resolution of your particular timing subsystem. According to the documentation, <em>the function measures the overhead of timing a C function call rounds times and returns all non-zero timings observed.</em></p>
-<p><br> Run the <code>microtiming_precision</code> function and put the mean and the variance of the resulting vector into <a href="https://docs.google.com/spreadsheets/d/1_2tDeEkDVS06RkB437yBI1XEB5SUebtHWyxAf_aRJu4/edit?usp=sharing">this spreadsheet</a> (Best Coding Practises Lab sheet, Microbenchmark – precision)</p>
+<p><br> Run the <code>microtiming_precision</code> function and put the mean and the variance of the resulting vector into the same spreadsheet (Debugging Lab sheet, Microbenchmark – precision)</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -946,7 +946,7 @@ Example Solution
 <li>Can you optimize something using <code>BLAS</code>?</li>
 <li>Can you optimize by using <code>apply</code> somewhere?</li>
 <li>Can you optimize <code>apply</code> further?</li>
-<li>What else can you optimize. Do it. Report speed gain and memory gain compared to the original version in <a href="https://docs.google.com/spreadsheets/d/1_2tDeEkDVS06RkB437yBI1XEB5SUebtHWyxAf_aRJu4/edit?usp=sharing">this spreadsheet</a> (Best Coding Practises Lab sheet, Optimization gains).</li>
+<li>What else can you optimize. Do it. Report speed gain and memory gain compared to the original version in the same spreadsheet (Debugging Lab sheet, Optimization gains).</li>
 </ul>
 </section>
 </section>

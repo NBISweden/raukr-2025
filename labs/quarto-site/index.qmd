@@ -453,21 +453,62 @@ execute:
 
 Run `quarto render` to render the whole website. This will create a `_freeze` directory in the root of the project, which contains the frozen code chunks. If you rerun `quarto render`, you will notice that that R code chunks are not executed. The frozen code chunks are used instead of executing the code again.
 
+## Version control
+
+What you commit and push to the remote repository (GitHub) depends on exactly how you deploy. You can either use `quarto publish` or manually push the rendered materials. This is covered in the next section.
+
+### Using publish
+
+Follow this if you plan to use `quarto publish` to deploy your website. This is the easier option.
+Add `docs` directory to the `.gitignore` file so that it is not pushed to the remote repository. Create a file named `.gitignore` in the root directory of your project and add the following content:
+
+```
+docs/
+```
+
+Commit the changes to the repository:
+
+```bash
+git add .
+git commit -m "Added website files"
+git push origin
+```
+
+### Manually
+
+Follow this if you plan to manually push the rendered materials to the remote repository. This is a little bit more involved.
+
+Commit all changes to the repository:
+
+```bash
+git add .
+git commit -m "Added website files"
+git push origin
+```
+
+This will push the changes to the remote repository on GitHub.
+
 ## Hosting
 
 GitHub Pages is a free service provided by GitHub that allows you to host static websites directly from your GitHub repository. Since we starting this exercise with a GitHub repository, we can easily deploy our website to GitHub Pages.
 
-First we need to make sure that the `docs` directory is set as the source for GitHub Pages. Go to the settings of your repository on GitHub, scroll down to the "Pages" section, and select the `docs` directory as the source. Then click "Save". This will enable GitHub Pages for your repository and set the `docs` directory as the source for the website.
+### Using publish
 
-![Setup GitHub pages](assets/gh-pages-docs.webp){#fig-gh-docs}
-
-Stage and commit all changes locally, then push the changes to the remote repository on GitHub.
+Quarto has a built-in tool to publish websites to GitHub Pages. This tool will automatically create a `gh-pages` branch in your repository and push the contents of the `docs` directory to that branch.
 
 ```bash
-git add .
-git commit -m "Added files"
-git push origin
+quarto publish gh-pages
 ```
+
+Give it a minute or two for the website to be deployed. Your website should then be live at `https://<your-username>.github.io/<repository-name>/`. For example, if your GitHub username is `royfrancis` and the repository name is `site`, the website will be available at `https://royfrancis.github.io/site/`.
+
+### Manually
+
+Alternatively, you can manually set up GitHub Pages by pushing materials to the `main` branch of your repository. This was done in the previous step.
+
+We need to make sure that the `docs` directory is set as the source for GitHub Pages. Go to the settings of your repository on GitHub, scroll down to the "Pages" section, and select the `docs` directory as the source. Then click "Save". This will enable GitHub Pages for your repository and set the `docs` directory as the source for the website.
+
+![Setup GitHub pages](assets/gh-pages-docs.webp){#fig-gh-docs}
 
 Give it a minute or two for the website to be deployed. Your website should then be live at `https://<your-username>.github.io/<repository-name>/`. For example, if your GitHub username is `royfrancis` and the repository name is `site`, the website will be available at `https://royfrancis.github.io/site/`.
 
