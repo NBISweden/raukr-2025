@@ -40,8 +40,8 @@ execute:
 |[WEEK 2]{.badge .badge-primary}                                          |||
 |[16-Jun-2025 (Mon)]{.badge .badge-secondary}                               |||
 |Statistics and machine learning in R   |Nikolay Oskolkov                       |[Slides](slides/ml/index.html), [Lab](labs/ml/index.html)|
-|[17-Jun-2025 (Tue)]{.badge .badge-secondary}                               |||
 |Object-oriented programming            |Marcin Kierczak                        |[Slides](slides/oop/index.html), [Lab](labs/oop/index.html)|
+|[17-Jun-2025 (Tue)]{.badge .badge-secondary}                               |||
 |Web apps with Shiny                    |Roy Francis                            |[Slides](slides/shiny/index.html), [Lab](labs/shiny/index.html)|
 |Projects                               |Guilherme Dias                         |[Lab](labs/projects/index.html)|
 :::
