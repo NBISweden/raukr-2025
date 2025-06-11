@@ -1,6 +1,6 @@
 ---
 title: "Best Coding Practices"
-author: "Sebastian DiLorenzo"
+author: "Sebastian DiLorenzo, Marcin Kierzak"
 image: "assets/featured.webp"
 format: revealjs
 ---

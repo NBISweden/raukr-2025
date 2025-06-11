@@ -1,6 +1,6 @@
 ---
 title: "Functions and scripts"
-author: "Sebastian DiLorenzo"
+author: "Sebastian DiLorenzo, Markus Mayrhofer"
 image: "assets/featured.webp"
 format: revealjs
 ---
