@@ -35,7 +35,7 @@ execute:
 |Tidyverse                              |Marcin Kierczak               |[Slides](slides/tidyverse/index.html), [Lab](labs/tidyverse/index.html)|
 |Futurverse                             |Henrik Bengtsson, UCSF                 ||
 |[13-Jun-2025 (Fri)]{.badge .badge-secondary}                               |||
-|R Packages                             |Jenny Bryan, Posit                     ||
+|R Packages                             |Jenny Bryan, Posit                     |[Workshop materials](https://github.com/jennybc/2025_raukr-pkg-dev)|
 |reticulate: Combining R with Python    |Nina Norgren                           |[Slides](slides/reticulate/index.html), [Lab](labs/reticulate/index.html)|
 |[WEEK 2]{.badge .badge-primary}                                          |||
 |[16-Jun-2025 (Mon)]{.badge .badge-secondary}                               |||
