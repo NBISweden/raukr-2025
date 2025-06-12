@@ -19,7 +19,7 @@ format:
 
 Software engineer at Posit  
 Data science professor  
-[University of British Columbia](https://www.stat.ubc.ca/jenny-bryan)  
+[University of British Columbia](https://jennybryan.org/)  
 Vancouver, Canada
 
 :::
