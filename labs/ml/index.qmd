@@ -19,7 +19,7 @@ Load the `keras` library and tensorflow in your environment.
 ```{r}
 library(reticulate)
 library(keras)
-reticulate::py_require(c("keras","tensorflow"))
+reticulate::py_require(c("keras==2.15.0","tensorflow==2.15.1"))
 ```
 
 ```{r}

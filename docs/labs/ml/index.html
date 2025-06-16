@@ -311,7 +311,7 @@ Warning
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(keras)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">py_require</span>(<span class="fu">c</span>(<span class="st">"keras"</span>,<span class="st">"tensorflow"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">py_require</span>(<span class="fu">c</span>(<span class="st">"keras==2.15.0"</span>,<span class="st">"tensorflow==2.15.1"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <details class="code-fold">
@@ -400,12 +400,12 @@ ________________________________________________________________________________
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model <span class="sc">%&gt;%</span> <span class="fu">predict</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1/1 - 0s - 29ms/epoch - 29ms/step
+<pre><code>1/1 - 0s - 28ms/epoch - 28ms/step
           [,1]
-[1,] 0.2776316
-[2,] 0.3159372
-[3,] 0.7388501
-[4,] 0.7727200</code></pre>
+[1,] 0.3302638
+[2,] 0.1854045
+[3,] 0.8711513
+[4,] 0.7573155</code></pre>
 </div>
 </div>
 <div class="cell">
