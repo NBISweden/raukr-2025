@@ -187,3 +187,16 @@ sessionInfo()
 ```
 
 </details>
+
+## Python environment
+
+<details>
+  <summary>Click here</summary>
+
+```{r}
+#| label: py-env
+
+reticulate::py_list_packages()
+```
+
+</details>
