@@ -24,8 +24,8 @@ reticulate::py_require(c("keras","tensorflow"))
 
 ```{r}
 #| eval: false
-#| echo: false
-#| code: fold
+#| echo: true
+#| code-fold: true
 
 # alternative solutions
 
@@ -68,29 +68,29 @@ y
 Now, let us define a sequential Keras model of the ANN corresponding to the scheme above and print the summary of the model. Here, we are going to use Sigmoid activation function on the output node because we have a binary classification problem.
 
 ```{r}
-#| eval: false
+#| eval: true
 library(keras)
-model <- keras_model_sequential()
-model <- model %>%
-  layer_input(shape = c(2)) %>%
+model <- keras_model_sequential(layers = list(
+  layer_input(shape = c(2)),
   layer_dense(units = 1, activation = "sigmoid")
+))
 summary(model)
 ```
 
 Next, we are going to compile and fit the Keras ANN model. Again, for simplicity, we are going to use Mean Squared Error (MSE) loss function, and Stochastic Gradient Descent (SGD) as an optimization algorithm (with a high learning rate 0.1). The training will be for 3000 epochs, it should be enough for MSE to reach zero.
 
 ```{r}
-#| eval: false
+#| eval: true
 #| message: false
 #| results: hide
 
 model %>%
   compile(loss = "mean_squared_error", optimizer = optimizer_sgd(lr = 0.1))
-history <- model %>% fit(X, y, epochs = 10000)
+history <- model %>% fit(X, y, epochs = 3000)
 ```
 
 ```{r}
-#| eval: false
+#| eval: true
 #| fig-width: 10
 #| fig-height: 8
 plot(history$metrics$loss ~ seq(1:length(history$metrics$loss)),
@@ -101,12 +101,12 @@ plot(history$metrics$loss ~ seq(1:length(history$metrics$loss)),
 Finally, we will make predictions on the same data set. Overfitting is not a concern here because we want to make sure that the model was capable of linearly separating the two classes of data points.
 
 ```{r}
-#| eval: false
+#| eval: true
 model %>% predict(X)
 ```
 
 ```{r}
-#| eval: false
+#| eval: true
 model %>%
   predict(X) %>%
   `>`(0.5) %>%
@@ -138,7 +138,7 @@ $$\frac{\partial E}{\partial w_{1,2}}=-(d-y)*y*(1-y)*x_{1,2}$$
 where $\mu$ is a learning rate. Let us put it all together in a simple for-loop that updates the fitting parameters $w_1$ and $w_2$ via minimizing the mean squared error:
 
 ```{r}
-#| eval: false
+#| eval: true
 #| fig-width: 10
 #| fig-height: 8
 #| cache: true
@@ -169,7 +169,7 @@ plot(E ~ seq(1:N_epochs), cex = 0.5, xlab = "Epochs", ylab = "Error", col = "red
 The mean squared error seems to be decreasing and reaching zero. Let us display the final y vector of predicted labels, it should be equal to the d vector of true labels.
 
 ```{r}
-#| eval: false
+#| eval: true
 y
 ```
 
