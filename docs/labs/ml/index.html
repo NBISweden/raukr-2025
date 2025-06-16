@@ -269,6 +269,7 @@ window.Quarto = {
   <li><a href="#keras-solution" id="toc-keras-solution" class="nav-link" data-scroll-target="#keras-solution"><span class="header-section-number">2</span> Keras solution</a></li>
   <li><a href="#coding-ann-from-scratch-in-r" id="toc-coding-ann-from-scratch-in-r" class="nav-link" data-scroll-target="#coding-ann-from-scratch-in-r"><span class="header-section-number">3</span> Coding ANN from scratch in R</a></li>
   <li><a href="#session" id="toc-session" class="nav-link" data-scroll-target="#session"><span class="header-section-number">4</span> Session</a></li>
+  <li><a href="#python-environment" id="toc-python-environment" class="nav-link" data-scroll-target="#python-environment"><span class="header-section-number">5</span> Python environment</a></li>
   </ul>
 </nav>
     </div>
@@ -399,12 +400,12 @@ ________________________________________________________________________________
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model <span class="sc">%&gt;%</span> <span class="fu">predict</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1/1 - 0s - 30ms/epoch - 30ms/step
+<pre><code>1/1 - 0s - 29ms/epoch - 29ms/step
           [,1]
-[1,] 0.3404378
-[2,] 0.3203223
-[3,] 0.7482035
-[4,] 0.7306861</code></pre>
+[1,] 0.2776316
+[2,] 0.3159372
+[3,] 0.7388501
+[4,] 0.7727200</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -517,6 +518,24 @@ loaded via a namespace (and not attached):
 [21] htmlwidgets_1.6.4 Rcpp_1.0.13-1     rstudioapi_0.17.1 lattice_0.22-6   
 [25] digest_0.6.37     R6_2.5.1          tensorflow_2.16.0 magrittr_2.0.3   
 [29] Matrix_1.7-1      tools_4.4.2      </code></pre>
+</div>
+</div>
+</details>
+</section>
+<section id="python-environment" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="python-environment"><span class="header-section-number">5</span> Python environment</h2>
+<details>
+<summary>
+Click here
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">py_list_packages</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["package"],"name":[1],"type":["chr"],"align":["left"]},{"label":["version"],"name":[2],"type":["chr"],"align":["left"]},{"label":["requirement"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"absl-py","2":"2.3.0","3":"absl-py==2.3.0"},{"1":"astunparse","2":"1.6.3","3":"astunparse==1.6.3"},{"1":"attrs","2":"25.3.0","3":"attrs==25.3.0"},{"1":"cachetools","2":"5.5.2","3":"cachetools==5.5.2"},{"1":"certifi","2":"2025.4.26","3":"certifi==2025.4.26"},{"1":"charset-normalizer","2":"3.4.2","3":"charset-normalizer==3.4.2"},{"1":"dm-tree","2":"0.1.9","3":"dm-tree==0.1.9"},{"1":"docstring_parser","2":"0.16","3":"docstring_parser==0.16"},{"1":"einops","2":"0.8.1","3":"einops==0.8.1"},{"1":"etils","2":"1.12.2","3":"etils==1.12.2"},{"1":"flatbuffers","2":"25.2.10","3":"flatbuffers==25.2.10"},{"1":"fsspec","2":"2025.5.1","3":"fsspec==2025.5.1"},{"1":"gast","2":"0.6.0","3":"gast==0.6.0"},{"1":"google-auth","2":"2.40.3","3":"google-auth==2.40.3"},{"1":"google-auth-oauthlib","2":"1.2.2","3":"google-auth-oauthlib==1.2.2"},{"1":"google-pasta","2":"0.2.0","3":"google-pasta==0.2.0"},{"1":"grpcio","2":"1.73.0","3":"grpcio==1.73.0"},{"1":"h5py","2":"3.14.0","3":"h5py==3.14.0"},{"1":"idna","2":"3.10","3":"idna==3.10"},{"1":"immutabledict","2":"4.2.1","3":"immutabledict==4.2.1"},{"1":"importlib_resources","2":"6.5.2","3":"importlib_resources==6.5.2"},{"1":"keras","2":"2.15.0","3":"keras==2.15.0"},{"1":"libclang","2":"18.1.1","3":"libclang==18.1.1"},{"1":"Markdown","2":"3.8","3":"Markdown==3.8"},{"1":"MarkupSafe","2":"3.0.2","3":"MarkupSafe==3.0.2"},{"1":"ml-dtypes","2":"0.3.2","3":"ml-dtypes==0.3.2"},{"1":"numpy","2":"1.26.4","3":"numpy==1.26.4"},{"1":"oauthlib","2":"3.2.2","3":"oauthlib==3.2.2"},{"1":"opt_einsum","2":"3.4.0","3":"opt_einsum==3.4.0"},{"1":"packaging","2":"25.0","3":"packaging==25.0"},{"1":"pandas","2":"2.3.0","3":"pandas==2.3.0"},{"1":"pillow","2":"11.2.1","3":"pillow==11.2.1"},{"1":"promise","2":"2.3","3":"promise==2.3"},{"1":"protobuf","2":"4.21.12","3":"protobuf==4.21.12"},{"1":"psutil","2":"7.0.0","3":"psutil==7.0.0"},{"1":"pyarrow","2":"20.0.0","3":"pyarrow==20.0.0"},{"1":"pyasn1","2":"0.6.1","3":"pyasn1==0.6.1"},{"1":"pyasn1_modules","2":"0.4.2","3":"pyasn1_modules==0.4.2"},{"1":"pydot","2":"4.0.0","3":"pydot==4.0.0"},{"1":"pyparsing","2":"3.2.3","3":"pyparsing==3.2.3"},{"1":"python-dateutil","2":"2.9.0.post0","3":"python-dateutil==2.9.0.post0"},{"1":"pytz","2":"2025.2","3":"pytz==2025.2"},{"1":"requests","2":"2.32.4","3":"requests==2.32.4"},{"1":"requests-oauthlib","2":"2.0.0","3":"requests-oauthlib==2.0.0"},{"1":"rsa","2":"4.9.1","3":"rsa==4.9.1"},{"1":"scipy","2":"1.15.3","3":"scipy==1.15.3"},{"1":"simple-parsing","2":"0.1.7","3":"simple-parsing==0.1.7"},{"1":"six","2":"1.17.0","3":"six==1.17.0"},{"1":"tensorboard","2":"2.15.2","3":"tensorboard==2.15.2"},{"1":"tensorboard-data-server","2":"0.7.2","3":"tensorboard-data-server==0.7.2"},{"1":"tensorflow","2":"2.15.1","3":"tensorflow==2.15.1"},{"1":"tensorflow-datasets","2":"4.9.9","3":"tensorflow-datasets==4.9.9"},{"1":"tensorflow-estimator","2":"2.15.0","3":"tensorflow-estimator==2.15.0"},{"1":"tensorflow-hub","2":"0.16.1","3":"tensorflow-hub==0.16.1"},{"1":"tensorflow-io-gcs-filesystem","2":"0.37.1","3":"tensorflow-io-gcs-filesystem==0.37.1"},{"1":"tensorflow-metadata","2":"1.17.1","3":"tensorflow-metadata==1.17.1"},{"1":"termcolor","2":"3.1.0","3":"termcolor==3.1.0"},{"1":"tf_keras","2":"2.15.1","3":"tf_keras==2.15.1"},{"1":"toml","2":"0.10.2","3":"toml==0.10.2"},{"1":"tqdm","2":"4.67.1","3":"tqdm==4.67.1"},{"1":"typing_extensions","2":"4.14.0","3":"typing_extensions==4.14.0"},{"1":"tzdata","2":"2025.2","3":"tzdata==2025.2"},{"1":"urllib3","2":"2.4.0","3":"urllib3==2.4.0"},{"1":"Werkzeug","2":"3.1.3","3":"Werkzeug==3.1.3"},{"1":"wrapt","2":"1.14.1","3":"wrapt==1.14.1"},{"1":"zipp","2":"3.23.0","3":"zipp==3.23.0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 </div>
 </div>
 </details>
