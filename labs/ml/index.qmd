@@ -11,14 +11,23 @@ In this lab we will learn to code an Artificial Neural Network (ANN) in R both f
 :::
 
 ::: {.callout-warning}
-Setting up keras properly might be tricky depending on your OS and setup.
+Setting up keras properly might be tricky depending on your OS and setup. You will have to set up an environment using reticulate and install keras and tensorflow python packages.
 :::
 
-Load the `keras` library and install keras and tensorflow in a conda environment.
+Load the `keras` library and tensorflow in your environment.
 
 ```{r}
 library(reticulate)
 library(keras)
+reticulate::py_require(c("keras","tensorflow"))
+```
+
+```{r}
+#| eval: false
+#| echo: false
+#| code: fold
+
+# alternative solutions
 
 # reticulate::install_python()
 # keras::install_keras()
@@ -26,7 +35,8 @@ library(keras)
 # keras::install_keras(method="conda", envname="raukr-keras")
 # OR
 # conda_create("raukr-keras", packages=c("keras", "tensorflow"), channel="conda-forge", python_version="3.10")
-use_condaenv("raukr-keras")
+# if using container
+# use_condaenv("raukr-keras")
 ```
 
 ## Problem formulation
