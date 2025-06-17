@@ -1276,7 +1276,7 @@ shinyApp(
 <span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">card</span>(</span>
 <span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">card_header</span>(),</span>
 <span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">layout_sidebar</span>(</span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sidebar</span>()</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">sidebar =</span> <span class="fu">sidebar</span>()</span>
 <span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>      ),</span>
 <span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">card_footer</span>()</span>
 <span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>    )</span>
@@ -1300,7 +1300,7 @@ shinyApp(
 <span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">h2</span>(<span class="st">"Colour Generator"</span>),</span>
 <span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>      ),</span>
 <span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">layout_sidebar</span>(</span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sidebar</span>(</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">sidebar =</span> <span class="fu">sidebar</span>(</span>
 <span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>          <span class="fu">numericInput</span>(<span class="st">"in_n"</span>, <span class="st">"Number of colours"</span>, <span class="at">value =</span> <span class="dv">15</span>),</span>
 <span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>          <span class="fu">sliderInput</span>(<span class="st">"in_hue"</span>, <span class="st">"Hue"</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">360</span>, <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">360</span>)),</span>
 <span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>          <span class="fu">sliderInput</span>(<span class="st">"in_chr"</span>, <span class="st">"Chroma"</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">180</span>, <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">180</span>)),</span>
@@ -1332,7 +1332,7 @@ shinyApp(
 <span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">h2</span>(<span class="st">"Colour Generator"</span>),</span>
 <span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>      ),</span>
 <span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">layout_sidebar</span>(</span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sidebar</span>(</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">sidebar =</span> <span class="fu">sidebar</span>(</span>
 <span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>          <span class="fu">numericInput</span>(<span class="st">"in_n"</span>, <span class="st">"Number of colours"</span>, <span class="at">value =</span> <span class="dv">15</span>),</span>
 <span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>          <span class="fu">sliderInput</span>(<span class="st">"in_hue"</span>, <span class="st">"Hue"</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">360</span>, <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">360</span>)),</span>
 <span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>          <span class="fu">sliderInput</span>(<span class="st">"in_chr"</span>, <span class="st">"Chroma"</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">180</span>, <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">180</span>)),</span>
@@ -1399,7 +1399,7 @@ shinyApp(
 <span id="cb43-27"><a href="#cb43-27" aria-hidden="true" tabindex="-1"></a>                <span class="fu">h2</span>(<span class="st">"Colour Generator"</span>),</span>
 <span id="cb43-28"><a href="#cb43-28" aria-hidden="true" tabindex="-1"></a>            ),</span>
 <span id="cb43-29"><a href="#cb43-29" aria-hidden="true" tabindex="-1"></a>            <span class="fu">layout_sidebar</span>(</span>
-<span id="cb43-30"><a href="#cb43-30" aria-hidden="true" tabindex="-1"></a>                <span class="fu">sidebar</span>(</span>
+<span id="cb43-30"><a href="#cb43-30" aria-hidden="true" tabindex="-1"></a>                <span class="at">sidebar =</span> <span class="fu">sidebar</span>(</span>
 <span id="cb43-31"><a href="#cb43-31" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">numericInput</span>(<span class="st">"in_n"</span>, <span class="st">"Number of colours"</span>, <span class="at">value =</span> <span class="dv">15</span>),</span>
 <span id="cb43-32"><a href="#cb43-32" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">sliderInput</span>(<span class="st">"in_hue"</span>, <span class="st">"Hue"</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">360</span>, <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">360</span>)),</span>
 <span id="cb43-33"><a href="#cb43-33" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">sliderInput</span>(<span class="st">"in_chr"</span>, <span class="st">"Chroma"</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">180</span>, <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">180</span>)),</span>
@@ -2750,7 +2750,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

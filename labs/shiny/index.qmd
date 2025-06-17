@@ -1133,7 +1133,7 @@ shinyApp(
     card(
       card_header(),
       layout_sidebar(
-        sidebar()
+        sidebar = sidebar()
       ),
       card_footer()
     )
@@ -1163,7 +1163,7 @@ shinyApp(
         h2("Colour Generator"),
       ),
       layout_sidebar(
-        sidebar(
+        sidebar = sidebar(
           numericInput("in_n", "Number of colours", value = 15),
           sliderInput("in_hue", "Hue", min = 0, max = 360, value = c(0, 360)),
           sliderInput("in_chr", "Chroma", min = 0, max = 180, value = c(0, 180)),
@@ -1201,7 +1201,7 @@ shinyApp(
         h2("Colour Generator"),
       ),
       layout_sidebar(
-        sidebar(
+        sidebar = sidebar(
           numericInput("in_n", "Number of colours", value = 15),
           sliderInput("in_hue", "Hue", min = 0, max = 360, value = c(0, 360)),
           sliderInput("in_chr", "Chroma", min = 0, max = 180, value = c(0, 180)),
@@ -1276,7 +1276,7 @@ shinyApp(
                 h2("Colour Generator"),
             ),
             layout_sidebar(
-                sidebar(
+                sidebar = sidebar(
                     numericInput("in_n", "Number of colours", value = 15),
                     sliderInput("in_hue", "Hue", min = 0, max = 360, value = c(0, 360)),
                     sliderInput("in_chr", "Chroma", min = 0, max = 180, value = c(0, 180)),
