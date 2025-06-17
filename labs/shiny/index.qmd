@@ -740,6 +740,158 @@ shinyApp(
 
 Refer to the shinylive extension [documentation](https://quarto-ext.github.io/shinylive/).
 
+## Data explorer
+
+A common use case of shiny apps is to explore a dataset interactively. So we will build a simple app that can create a scatterplot from a dataframe which a user can modify interactively. We will use the built-in `iris` dataset and the user should be able to select x and y axes variables as well the variable mapped to the color of the points.
+
+**Topics covered**
+
+-   UI sidebar layout
+-   Input and output widgets
+-   Creating plots in a shiny app
+-   Passing variables into ggplot through non standard evaluation
+
+The following R packages will be required for this app: `ggplot2`, `shiny`.
+
+Below is a preview of the complete app.
+
+![](assets/data-explorer-2.webp)
+
+### UI
+
+We start with a standard shiny app template.
+
+```{r}
+#| label: data-exp-start
+#| eval: false
+
+library(shiny)
+
+shinyApp(
+  ui=fluidPage(),
+  server=function(input,output){}
+)
+```
+
+And then we start building the UI. We will add a title panel and a sidebar layout with a sidebar and a main panel.
+
+```{r}
+#| label: data-exp-ui
+#| eval: false
+
+library(shiny)
+
+shinyApp(
+  ui=fluidPage(
+    titlePanel("Data explorer"),
+    sidebarLayout(
+      sidebarPanel(),
+      mainPanel()
+    )
+  ),
+  server=function(input,output){}
+)
+```
+
+![](assets/data-explorer-1.webp)
+
+And to the sidebar, we will add 3 input widgets corresponding to x axis variable, y axis variable and color variable. These will be dropdown type (`selectInput()`) and choices will be column names of the iris dataframe. And we add the output widget (`plotOutput()`) in the main panel.
+
+```{r}
+#| label: data-exp-widgets
+#| eval: false
+
+library(shiny)
+
+shinyApp(
+  ui=fluidPage(
+    titlePanel("Data explorer"),
+    sidebarLayout(
+      sidebarPanel(
+          selectInput("in_x","X axis variable", choices=colnames(iris), selected=colnames(iris)[1], multiple=FALSE),
+          selectInput("in_y","Y axis variable", choices=colnames(iris), selected=colnames(iris)[2], multiple=FALSE),
+          selectInput("in_col","Colour variable", choices=colnames(iris), selected=colnames(iris)[3], multiple=FALSE)
+      ),
+      mainPanel(
+        plotOutput("out_plot")
+      )
+    )
+  ),
+  server=function(input,output){}
+)
+```
+
+![](assets/data-explorer-2.webp)
+
+### Server
+
+Now, we need to add the server part. First, we write the ggplot code to create a plot.
+
+```{r}
+#| label: data-exp-ggplot-1
+#| eval: false
+ggplot(iris,aes(x,y,col))+
+      geom_point()
+```
+
+This is added inside the output render function `renderPlot()`.
+
+```{r}
+#| label: data-exp-ggplot-2
+#| eval: false
+output$out_plot <- renderPlot({
+    ggplot(iris,aes(x,y,col))+
+      geom_point()
+  })
+```
+
+We need to wire the input variable into the ggplot inputs x, y and col. This is achieved through `input$` and the variables are wrapped inside `!!sym()` to convert quoted text to unquoted variable.
+
+```{r}
+#| label: data-exp-ggplot-3
+#| eval: false
+output$out_plot <- renderPlot({
+  ggplot(iris,aes(!!sym(input$in_x),y=!!sym(input$in_y),col=!!sym(input$in_col)))+
+    geom_point()
+})
+```
+
+This is finally added to the server function.
+
+```{r}
+#| label: data-explorer-final
+#| eval: false
+
+library(shiny)
+library(ggplot2)
+
+shinyApp(
+  ui=fluidPage(
+    titlePanel("Data explorer"),
+    sidebarLayout(
+      sidebarPanel(
+          selectInput("in_x","X axis variable", choices=colnames(iris), selected=colnames(iris)[1], multiple=FALSE),
+          selectInput("in_y","Y axis variable", choices=colnames(iris), selected=colnames(iris)[2], multiple=FALSE),
+          selectInput("in_col","Colour variable", choices=colnames(iris), selected=colnames(iris)[3], multiple=FALSE)
+      ),
+      mainPanel(
+        plotOutput("out_plot")
+      )
+    )
+  ),
+  server=function(input,output){
+    output$out_plot <- renderPlot({
+      ggplot(iris,aes(!!sym(input$in_x),y=!!sym(input$in_y),col=!!sym(input$in_col)))+
+        geom_point()
+    })
+  }
+)
+```
+
+![](assets/data-explorer-3.webp)
+
+You can expand this app to other datasets and map more variables to ggplot etc. Can you add the functionality to [download the plots](https://shiny.rstudio.com/gallery/file-download.html)? Or perhaps to [upload a csv file](https://shiny.rstudio.com/articles/upload.html) and plot from that file?
+
 ## ggplot2 builder
 
 In the ggplot2 presentation, we had a few slides with theme customisation. We will try to recreate that as a shiny app, so we can interactively customise a plot.
@@ -932,158 +1084,6 @@ shinyApp(
     }
 )
 ```
-
-## Data explorer
-
-A common use case of shiny apps is to explore a dataset interactively. So we will build a simple app that can create a scatterplot from a dataframe which a user can modify interactively. We will use the built-in `iris` dataset and the user should be able to select x and y axes variables as well the variable mapped to the color of the points.
-
-**Topics covered**
-
--   UI sidebar layout
--   Input and output widgets
--   Creating plots in a shiny app
--   Passing variables into ggplot through non standard evaluation
-
-The following R packages will be required for this app: `ggplot2`, `shiny`.
-
-Below is a preview of the complete app.
-
-![](assets/data-explorer-2.webp)
-
-### UI
-
-We start with a standard shiny app template.
-
-```{r}
-#| label: data-exp-start
-#| eval: false
-
-library(shiny)
-
-shinyApp(
-  ui=fluidPage(),
-  server=function(input,output){}
-)
-```
-
-And then we start building the UI. We will add a title panel and a sidebar layout with a sidebar and a main panel.
-
-```{r}
-#| label: data-exp-ui
-#| eval: false
-
-library(shiny)
-
-shinyApp(
-  ui=fluidPage(
-    titlePanel("Data explorer"),
-    sidebarLayout(
-      sidebarPanel(),
-      mainPanel()
-    )
-  ),
-  server=function(input,output){}
-)
-```
-
-![](assets/data-explorer-1.webp)
-
-And to the sidebar, we will add 3 input widgets corresponding to x axis variable, y axis variable and color variable. These will be dropdown type (`selectInput()`) and choices will be column names of the iris dataframe. And we add the output widget (`plotOutput()`) in the main panel.
-
-```{r}
-#| label: data-exp-widgets
-#| eval: false
-
-library(shiny)
-
-shinyApp(
-  ui=fluidPage(
-    titlePanel("Data explorer"),
-    sidebarLayout(
-      sidebarPanel(
-          selectInput("in_x","X axis variable", choices=colnames(iris), selected=colnames(iris)[1], multiple=FALSE),
-          selectInput("in_y","Y axis variable", choices=colnames(iris), selected=colnames(iris)[2], multiple=FALSE),
-          selectInput("in_col","Colour variable", choices=colnames(iris), selected=colnames(iris)[3], multiple=FALSE)
-      ),
-      mainPanel(
-        plotOutput("out_plot")
-      )
-    )
-  ),
-  server=function(input,output){}
-)
-```
-
-![](assets/data-explorer-2.webp)
-
-### Server
-
-Now, we need to add the server part. First, we write the ggplot code to create a plot.
-
-```{r}
-#| label: data-exp-ggplot-1
-#| eval: false
-ggplot(iris,aes(x,y,col))+
-      geom_point()
-```
-
-This is added inside the output render function `renderPlot()`.
-
-```{r}
-#| label: data-exp-ggplot-2
-#| eval: false
-output$out_plot <- renderPlot({
-    ggplot(iris,aes(x,y,col))+
-      geom_point()
-  })
-```
-
-We need to wire the input variable into the ggplot inputs x, y and col. This is achieved through `input$` and the variables are wrapped inside `!!sym()` to convert quoted text to unquoted variable.
-
-```{r}
-#| label: data-exp-ggplot-3
-#| eval: false
-output$out_plot <- renderPlot({
-  ggplot(iris,aes(!!sym(input$in_x),y=!!sym(input$in_y),col=!!sym(input$in_col)))+
-    geom_point()
-})
-```
-
-This is finally added to the server function.
-
-```{r}
-#| label: data-explorer-final
-#| eval: false
-
-library(shiny)
-library(ggplot2)
-
-shinyApp(
-  ui=fluidPage(
-    titlePanel("Data explorer"),
-    sidebarLayout(
-      sidebarPanel(
-          selectInput("in_x","X axis variable", choices=colnames(iris), selected=colnames(iris)[1], multiple=FALSE),
-          selectInput("in_y","Y axis variable", choices=colnames(iris), selected=colnames(iris)[2], multiple=FALSE),
-          selectInput("in_col","Colour variable", choices=colnames(iris), selected=colnames(iris)[3], multiple=FALSE)
-      ),
-      mainPanel(
-        plotOutput("out_plot")
-      )
-    )
-  ),
-  server=function(input,output){
-    output$out_plot <- renderPlot({
-      ggplot(iris,aes(!!sym(input$in_x),y=!!sym(input$in_y),col=!!sym(input$in_col)))+
-        geom_point()
-    })
-  }
-)
-```
-
-![](assets/data-explorer-3.webp)
-
-You can expand this app to other datasets and map more variables to ggplot etc. Can you add the functionality to [download the plots](https://shiny.rstudio.com/gallery/file-download.html)? Or perhaps to [upload a csv file](https://shiny.rstudio.com/articles/upload.html) and plot from that file?
 
 ## Color generator
 

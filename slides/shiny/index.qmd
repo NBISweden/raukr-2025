@@ -115,11 +115,18 @@ Interactive documents, Extensions
 
 ## What is shiny?
 
+::: {.large .fragment}
+R framework for building interactive web applications
+:::
+
+::: {.fragment .incremental}
+
 - Standalone web applications
-- Interactive RMarkdown/Quarto documents
-- Gadgets/RStudio extensions
+- Interactive Quarto documents
 - Completely created using R
 - Needs a server (live R environment)
+
+:::
 
 ## App organization
 
@@ -178,10 +185,6 @@ shinyApp(
 ```         
 R -e "shiny::runApp('~/shinyapp')"
 ```
-
-. . .
-
-- From Rmd file using `rmarkdown::run()`
 
 ## {.center}
 
@@ -496,7 +499,7 @@ shinyApp(
 ui=fluidPage(
   selectInput("type",label="Select input type", choices=c("Text","Number")),
   uiOutput("ui"),
-  textOutput("text_output"),
+  textOutput("text_output")
 ),
 
 server=function(input, output) {
@@ -531,7 +534,7 @@ shinyApp(
 ui=fluidPage(
   selectInput("type", label="Select input type", choices=c("Text","Number")),
   uiOutput("ui"),
-  textOutput("text_output"),
+  textOutput("text_output")
 ),
 
 server=function(input, output) {
@@ -1498,26 +1501,6 @@ output$plot <- renderPlot({
 ```
 ````
 
-## Interactive documents • Rmarkdown
-
-- Shiny can run in RMarkdown documents. Set YAML `runtime: shiny`.  
-
-````        
----
-title: Interactive document
-output: html_document
-runtime: shiny
----
-````
-
-- Shiny widgets can be included directly  
-
-````
-```{{r}}
-selectInput('n_breaks',label='Number of bins:',choices=c(10,20,35,50),selected=20)
-```
-````
-
 ## Interactive documents
 
 - Whole shiny apps can be included directly  
@@ -1557,6 +1540,8 @@ shinyApp(
 - [shinyWidgets](https://github.com/dreamRs/shinyWidgets): Bootstrap 3 custom widgets
 - [shinyBS](https://github.com/ebailey78/shinyBS): Bootstrap 3 widgets
 - [shinymanager](https://datastorm-open.github.io/shinymanager/): Authentication for shiny apps
+- [rhinoverse](https://www.appsilon.com/rhinoverse): High-level shiny development ecosystem
+- [golemverse](https://golemverse.org/): High-level shiny development ecosystem
 - ...
 
 ## Learning & community

@@ -225,7 +225,7 @@ background-size: cover;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">07-Jun-2025</p>
+        <p class="date">17-Jun-2025</p>
       </div>
     </div>
     
@@ -257,12 +257,12 @@ background-size: cover;
   <li><a href="#shiny-in-quarto" id="toc-shiny-in-quarto" class="nav-link" data-scroll-target="#shiny-in-quarto"><span class="header-section-number">11.2</span> Shiny in Quarto</a></li>
   <li><a href="#shinylive-in-quarto" id="toc-shinylive-in-quarto" class="nav-link" data-scroll-target="#shinylive-in-quarto"><span class="header-section-number">11.3</span> Shinylive in Quarto</a></li>
   </ul></li>
-  <li><a href="#ggplot2-builder" id="toc-ggplot2-builder" class="nav-link" data-scroll-target="#ggplot2-builder"><span class="header-section-number">12</span> ggplot2 builder</a></li>
-  <li><a href="#data-explorer" id="toc-data-explorer" class="nav-link" data-scroll-target="#data-explorer"><span class="header-section-number">13</span> Data explorer</a>
+  <li><a href="#data-explorer" id="toc-data-explorer" class="nav-link" data-scroll-target="#data-explorer"><span class="header-section-number">12</span> Data explorer</a>
   <ul>
-  <li><a href="#ui" id="toc-ui" class="nav-link" data-scroll-target="#ui"><span class="header-section-number">13.1</span> UI</a></li>
-  <li><a href="#server" id="toc-server" class="nav-link" data-scroll-target="#server"><span class="header-section-number">13.2</span> Server</a></li>
+  <li><a href="#ui" id="toc-ui" class="nav-link" data-scroll-target="#ui"><span class="header-section-number">12.1</span> UI</a></li>
+  <li><a href="#server" id="toc-server" class="nav-link" data-scroll-target="#server"><span class="header-section-number">12.2</span> Server</a></li>
   </ul></li>
+  <li><a href="#ggplot2-builder" id="toc-ggplot2-builder" class="nav-link" data-scroll-target="#ggplot2-builder"><span class="header-section-number">13</span> ggplot2 builder</a></li>
   <li><a href="#color-generator" id="toc-color-generator" class="nav-link" data-scroll-target="#color-generator"><span class="header-section-number">14</span> Color generator</a></li>
   <li><a href="#rna-seq-power" id="toc-rna-seq-power" class="nav-link" data-scroll-target="#rna-seq-power"><span class="header-section-number">15</span> RNA-Seq power</a>
   <ul>
@@ -952,179 +952,8 @@ shinyApp(
 <p>Refer to the shinylive extension <a href="https://quarto-ext.github.io/shinylive/">documentation</a>.</p>
 </section>
 </section>
-<section id="ggplot2-builder" class="level2" data-number="12">
-<h2 data-number="12" class="anchored" data-anchor-id="ggplot2-builder"><span class="header-section-number">12</span> ggplot2 builder</h2>
-<p>In the ggplot2 presentation, we had a few slides with theme customisation. We will try to recreate that as a shiny app, so we can interactively customise a plot.</p>
-<p><strong>Topics covered</strong></p>
-<ul>
-<li>UI sidebar layout</li>
-<li>Input and output widgets</li>
-<li>Using colorpicker widget</li>
-<li>Creating plots in a shiny app</li>
-</ul>
-<p>The following R packages will be required for this app: <code>ggplot2</code>, <code>shiny</code>, <code>colourpicker</code>.</p>
-<p>Below is a preview of the complete app.</p>
-<p><a href="assets/ggplot-builder-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="assets/ggplot-builder-3.webp" class="img-fluid"></a></p>
-<p>We start with a shiny app template with sidebar layout.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">pageWithSidebar</span>(</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(),</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>()</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input,output){</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>In the ui part, we will define inputs. Most of the inputs are colours, so we use the <code>colorInput()</code> widget from the R package <code>colorpicker</code>. The output plot is defined as <code>plotOutput("plot")</code>. In the server part, we define a <code>renderPlot()</code> function that generates a ggplot object.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colourpicker)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ui =</span> <span class="fu">pageWithSidebar</span>(</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">headerPanel</span>(<span class="st">"ggplot2 plot builder"</span>),</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sidebarPanel</span>(</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_plot_title"</span>, <span class="st">"Plot title"</span>, <span class="at">value =</span> <span class="st">"#4daf4a"</span>),</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_plot_subtitle"</span>, <span class="st">"Plot subtitle"</span>, <span class="at">value =</span> <span class="st">"#984ea3"</span>),</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_title"</span>, <span class="st">"Legend title"</span>, <span class="at">value =</span> <span class="st">"#ffff33"</span>),</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_text"</span>, <span class="st">"legend text"</span>, <span class="at">value =</span> <span class="st">"#ff7f00"</span>),</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>            <span class="fu">selectInput</span>(<span class="st">"in_legend_pos"</span>, <span class="st">"Legend position"</span>, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"left"</span>, <span class="st">"top"</span>, <span class="st">"bottom"</span>), <span class="at">selected =</span> <span class="st">"right"</span>),</span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_axis_title"</span>, <span class="st">"Axis title"</span>, <span class="at">value =</span> <span class="st">"#e41a1c"</span>),</span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_axis_text"</span>, <span class="st">"Axis text"</span>, <span class="at">value =</span> <span class="st">"#377eb8"</span>),</span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_strip_text"</span>, <span class="st">"Strip text"</span>, <span class="at">value =</span> <span class="st">"#a65628"</span>),</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>        ),</span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mainPanel</span>(</span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>            <span class="fu">plotOutput</span>(<span class="st">"plot"</span>)</span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">server =</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length, <span class="at">col =</span> Species)) <span class="sc">+</span></span>
-<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>                <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species) <span class="sc">+</span></span>
-<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>                <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Iris dataset"</span>, <span class="at">subtitle =</span> <span class="st">"Scatterplots of Sepal and Petal lengths"</span>, <span class="at">caption =</span> <span class="st">"The iris dataset by Edgar Anderson"</span>) <span class="sc">+</span></span>
-<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>                <span class="fu">theme_grey</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span>
-<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>        })</span>
-<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><a href="assets/ggplot-builder-1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="assets/ggplot-builder-1.webp" class="img-fluid"></a></p>
-<p>The input widgets now need to be connected to the ggplot function.</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colourpicker)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ui =</span> <span class="fu">pageWithSidebar</span>(</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">headerPanel</span>(<span class="st">"ggplot2 plot builder"</span>),</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sidebarPanel</span>(</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_plot_title"</span>, <span class="st">"Plot title"</span>, <span class="at">value =</span> <span class="st">"#4daf4a"</span>),</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_plot_subtitle"</span>, <span class="st">"Plot subtitle"</span>, <span class="at">value =</span> <span class="st">"#984ea3"</span>),</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_title"</span>, <span class="st">"Legend title"</span>, <span class="at">value =</span> <span class="st">"#ffff33"</span>),</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_text"</span>, <span class="st">"legend text"</span>, <span class="at">value =</span> <span class="st">"#ff7f00"</span>),</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>            <span class="fu">selectInput</span>(<span class="st">"in_legend_pos"</span>, <span class="st">"Legend position"</span>, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"left"</span>, <span class="st">"top"</span>, <span class="st">"bottom"</span>), <span class="at">selected =</span> <span class="st">"right"</span>),</span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_axis_title"</span>, <span class="st">"Axis title"</span>, <span class="at">value =</span> <span class="st">"#e41a1c"</span>),</span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_axis_text"</span>, <span class="st">"Axis text"</span>, <span class="at">value =</span> <span class="st">"#377eb8"</span>),</span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_strip_text"</span>, <span class="st">"Strip text"</span>, <span class="at">value =</span> <span class="st">"#a65628"</span>),</span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>        ),</span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mainPanel</span>(</span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>            <span class="fu">plotOutput</span>(<span class="st">"plot"</span>)</span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">server =</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length, <span class="at">col =</span> Species)) <span class="sc">+</span></span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>                <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species) <span class="sc">+</span></span>
-<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>                <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Iris dataset"</span>, <span class="at">subtitle =</span> <span class="st">"Scatterplots of Sepal and Petal lengths"</span>, <span class="at">caption =</span> <span class="st">"The iris dataset by Edgar Anderson"</span>) <span class="sc">+</span></span>
-<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>                <span class="fu">theme_grey</span>(<span class="at">base_size =</span> <span class="dv">16</span>)<span class="sc">+</span></span>
-<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>                <span class="fu">theme</span>(</span>
-<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>                  <span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">color=</span>input<span class="sc">$</span>in_plot_title),</span>
-<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>                  <span class="at">plot.subtitle=</span><span class="fu">element_text</span>(<span class="at">color=</span>input<span class="sc">$</span>in_plot_subtitle),</span>
-<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>                  <span class="at">legend.title=</span><span class="fu">element_text</span>(<span class="at">color=</span>input<span class="sc">$</span>in_legend_title),</span>
-<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>                  <span class="at">legend.text=</span><span class="fu">element_text</span>(<span class="at">color=</span>input<span class="sc">$</span>in_legend_text),</span>
-<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>                  <span class="at">legend.position=</span>input<span class="sc">$</span>in_legend_pos,</span>
-<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>                  <span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">color=</span>input<span class="sc">$</span>in_axis_title),</span>
-<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>                  <span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">color=</span>input<span class="sc">$</span>in_axis_text),</span>
-<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>                  <span class="at">strip.text=</span><span class="fu">element_text</span>(<span class="at">color=</span>input<span class="sc">$</span>in_strip_text)</span>
-<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>                )</span>
-<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>        })</span>
-<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><a href="assets/ggplot-builder-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="assets/ggplot-builder-2.webp" class="img-fluid"></a></p>
-<p>Now try changing the colours of plot elements and hopefully, it should change.</p>
-<p><i class="fa-solid fa-clipboard-list" aria-label="clipboard-list"></i> You can add more options to the input if you like, for example; rectangular elements such as backgrounds.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colourpicker)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ui =</span> <span class="fu">pageWithSidebar</span>(</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">headerPanel</span>(<span class="st">"ggplot2 plot builder"</span>),</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sidebarPanel</span>(</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_plot_title"</span>, <span class="st">"Plot title"</span>, <span class="at">value =</span> <span class="st">"#4daf4a"</span>),</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_plot_subtitle"</span>, <span class="st">"Plot subtitle"</span>, <span class="at">value =</span> <span class="st">"#984ea3"</span>),</span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_title"</span>, <span class="st">"Legend title"</span>, <span class="at">value =</span> <span class="st">"#ffff33"</span>),</span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_text"</span>, <span class="st">"legend text"</span>, <span class="at">value =</span> <span class="st">"#ff7f00"</span>),</span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>            <span class="fu">selectInput</span>(<span class="st">"in_legend_pos"</span>, <span class="st">"Legend position"</span>, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"left"</span>, <span class="st">"top"</span>, <span class="st">"bottom"</span>), <span class="at">selected =</span> <span class="st">"right"</span>),</span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_axis_title"</span>, <span class="st">"Axis title"</span>, <span class="at">value =</span> <span class="st">"#e41a1c"</span>),</span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_axis_text"</span>, <span class="st">"Axis text"</span>, <span class="at">value =</span> <span class="st">"#377eb8"</span>),</span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_strip_text"</span>, <span class="st">"Strip text"</span>, <span class="at">value =</span> <span class="st">"#a65628"</span>),</span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_plot_background"</span>, <span class="st">"Plot background"</span>, <span class="at">value =</span> <span class="st">"#b3e2cd"</span>),</span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_panel_background"</span>, <span class="st">"Panel background"</span>, <span class="at">value =</span> <span class="st">"#fdcdac"</span>),</span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_panel_border"</span>, <span class="st">"Panel border"</span>, <span class="at">value =</span> <span class="st">"#cbd5e8"</span>),</span>
-<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_background"</span>, <span class="st">"Legend background"</span>, <span class="at">value =</span> <span class="st">"#f4cae4"</span>),</span>
-<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_box_background"</span>, <span class="st">"Legend box background"</span>, <span class="at">value =</span> <span class="st">"#e6f5c9"</span>),</span>
-<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_strip_background"</span>, <span class="st">"Strip background"</span>, <span class="at">value =</span> <span class="st">"#fff2ae"</span>)</span>
-<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>        ),</span>
-<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mainPanel</span>(</span>
-<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>            <span class="fu">plotOutput</span>(<span class="st">"plot"</span>)</span>
-<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">server =</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length, <span class="at">col =</span> Species)) <span class="sc">+</span></span>
-<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>                <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species) <span class="sc">+</span></span>
-<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>                <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Iris dataset"</span>, <span class="at">subtitle =</span> <span class="st">"Scatterplots of Sepal and Petal lengths"</span>, <span class="at">caption =</span> <span class="st">"The iris dataset by Edgar Anderson"</span>) <span class="sc">+</span></span>
-<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>                <span class="fu">theme_grey</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
-<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>                <span class="fu">theme</span>(</span>
-<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>                    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> input<span class="sc">$</span>in_plot_title),</span>
-<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>                    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">color =</span> input<span class="sc">$</span>in_plot_subtitle),</span>
-<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a>                    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> input<span class="sc">$</span>in_legend_title),</span>
-<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a>                    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> input<span class="sc">$</span>in_legend_text),</span>
-<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a>                    <span class="at">legend.position =</span> input<span class="sc">$</span>in_legend_pos,</span>
-<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a>                    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> input<span class="sc">$</span>in_axis_title),</span>
-<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a>                    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> input<span class="sc">$</span>in_axis_text),</span>
-<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a>                    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> input<span class="sc">$</span>in_strip_text),</span>
-<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a>                    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> input<span class="sc">$</span>in_plot_background),</span>
-<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a>                    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> input<span class="sc">$</span>in_panel_background),</span>
-<span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a>                    <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> input<span class="sc">$</span>in_panel_border, <span class="at">size =</span> <span class="dv">3</span>),</span>
-<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a>                    <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> input<span class="sc">$</span>in_legend_background),</span>
-<span id="cb28-48"><a href="#cb28-48" aria-hidden="true" tabindex="-1"></a>                    <span class="at">legend.box.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> input<span class="sc">$</span>in_legend_box_background),</span>
-<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a>                    <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> input<span class="sc">$</span>in_strip_background)</span>
-<span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a>                )</span>
-<span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a>        })</span>
-<span id="cb28-52"><a href="#cb28-52" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="data-explorer" class="level2" data-number="13">
-<h2 data-number="13" class="anchored" data-anchor-id="data-explorer"><span class="header-section-number">13</span> Data explorer</h2>
+<section id="data-explorer" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="data-explorer"><span class="header-section-number">12</span> Data explorer</h2>
 <p>A common use case of shiny apps is to explore a dataset interactively. So we will build a simple app that can create a scatterplot from a dataframe which a user can modify interactively. We will use the built-in <code>iris</code> dataset and the user should be able to select x and y axes variables as well the variable mapped to the color of the points.</p>
 <p><strong>Topics covered</strong></p>
 <ul>
@@ -1135,108 +964,279 @@ shinyApp(
 </ul>
 <p>The following R packages will be required for this app: <code>ggplot2</code>, <code>shiny</code>.</p>
 <p>Below is a preview of the complete app.</p>
-<p><a href="assets/data-explorer-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="assets/data-explorer-2.webp" class="img-fluid"></a></p>
-<section id="ui" class="level3" data-number="13.1">
-<h3 data-number="13.1" class="anchored" data-anchor-id="ui"><span class="header-section-number">13.1</span> UI</h3>
+<p><a href="assets/data-explorer-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="assets/data-explorer-2.webp" class="img-fluid"></a></p>
+<section id="ui" class="level3" data-number="12.1">
+<h3 data-number="12.1" class="anchored" data-anchor-id="ui"><span class="header-section-number">12.1</span> UI</h3>
 <p>We start with a standard shiny app template.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">fluidPage</span>(),</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input,output){}</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">fluidPage</span>(),</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input,output){}</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And then we start building the UI. We will add a title panel and a sidebar layout with a sidebar and a main panel.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">titlePanel</span>(<span class="st">"Data explorer"</span>),</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarLayout</span>(</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sidebarPanel</span>(),</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mainPanel</span>()</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input,output){}</span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">titlePanel</span>(<span class="st">"Data explorer"</span>),</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarLayout</span>(</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sidebarPanel</span>(),</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mainPanel</span>()</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input,output){}</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/data-explorer-1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="assets/data-explorer-1.webp" class="img-fluid"></a></p>
+<p><a href="assets/data-explorer-1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="assets/data-explorer-1.webp" class="img-fluid"></a></p>
 <p>And to the sidebar, we will add 3 input widgets corresponding to x axis variable, y axis variable and color variable. These will be dropdown type (<code>selectInput()</code>) and choices will be column names of the iris dataframe. And we add the output widget (<code>plotOutput()</code>) in the main panel.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">titlePanel</span>(<span class="st">"Data explorer"</span>),</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarLayout</span>(</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sidebarPanel</span>(</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>          <span class="fu">selectInput</span>(<span class="st">"in_x"</span>,<span class="st">"X axis variable"</span>, <span class="at">choices=</span><span class="fu">colnames</span>(iris), <span class="at">selected=</span><span class="fu">colnames</span>(iris)[<span class="dv">1</span>], <span class="at">multiple=</span><span class="cn">FALSE</span>),</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">selectInput</span>(<span class="st">"in_y"</span>,<span class="st">"Y axis variable"</span>, <span class="at">choices=</span><span class="fu">colnames</span>(iris), <span class="at">selected=</span><span class="fu">colnames</span>(iris)[<span class="dv">2</span>], <span class="at">multiple=</span><span class="cn">FALSE</span>),</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">selectInput</span>(<span class="st">"in_col"</span>,<span class="st">"Colour variable"</span>, <span class="at">choices=</span><span class="fu">colnames</span>(iris), <span class="at">selected=</span><span class="fu">colnames</span>(iris)[<span class="dv">3</span>], <span class="at">multiple=</span><span class="cn">FALSE</span>)</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mainPanel</span>(</span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">plotOutput</span>(<span class="st">"out_plot"</span>)</span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input,output){}</span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">titlePanel</span>(<span class="st">"Data explorer"</span>),</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarLayout</span>(</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sidebarPanel</span>(</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>          <span class="fu">selectInput</span>(<span class="st">"in_x"</span>,<span class="st">"X axis variable"</span>, <span class="at">choices=</span><span class="fu">colnames</span>(iris), <span class="at">selected=</span><span class="fu">colnames</span>(iris)[<span class="dv">1</span>], <span class="at">multiple=</span><span class="cn">FALSE</span>),</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">selectInput</span>(<span class="st">"in_y"</span>,<span class="st">"Y axis variable"</span>, <span class="at">choices=</span><span class="fu">colnames</span>(iris), <span class="at">selected=</span><span class="fu">colnames</span>(iris)[<span class="dv">2</span>], <span class="at">multiple=</span><span class="cn">FALSE</span>),</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">selectInput</span>(<span class="st">"in_col"</span>,<span class="st">"Colour variable"</span>, <span class="at">choices=</span><span class="fu">colnames</span>(iris), <span class="at">selected=</span><span class="fu">colnames</span>(iris)[<span class="dv">3</span>], <span class="at">multiple=</span><span class="cn">FALSE</span>)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mainPanel</span>(</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">plotOutput</span>(<span class="st">"out_plot"</span>)</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input,output){}</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/data-explorer-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="assets/data-explorer-2.webp" class="img-fluid"></a></p>
+<p><a href="assets/data-explorer-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="assets/data-explorer-2.webp" class="img-fluid"></a></p>
 </section>
-<section id="server" class="level3" data-number="13.2">
-<h3 data-number="13.2" class="anchored" data-anchor-id="server"><span class="header-section-number">13.2</span> Server</h3>
+<section id="server" class="level3" data-number="12.2">
+<h3 data-number="12.2" class="anchored" data-anchor-id="server"><span class="header-section-number">12.2</span> Server</h3>
 <p>Now, we need to add the server part. First, we write the ggplot code to create a plot.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(x,y,col))<span class="sc">+</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(x,y,col))<span class="sc">+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This is added inside the output render function <code>renderPlot()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>out_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(x,y,col))<span class="sc">+</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>out_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(x,y,col))<span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We need to wire the input variable into the ggplot inputs x, y and col.&nbsp;This is achieved through <code>input$</code> and the variables are wrapped inside <code>!!sym()</code> to convert quoted text to unquoted variable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>out_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(<span class="sc">!!</span><span class="fu">sym</span>(input<span class="sc">$</span>in_x),<span class="at">y=</span><span class="sc">!!</span><span class="fu">sym</span>(input<span class="sc">$</span>in_y),<span class="at">col=</span><span class="sc">!!</span><span class="fu">sym</span>(input<span class="sc">$</span>in_col)))<span class="sc">+</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>out_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(<span class="sc">!!</span><span class="fu">sym</span>(input<span class="sc">$</span>in_x),<span class="at">y=</span><span class="sc">!!</span><span class="fu">sym</span>(input<span class="sc">$</span>in_y),<span class="at">col=</span><span class="sc">!!</span><span class="fu">sym</span>(input<span class="sc">$</span>in_col)))<span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This is finally added to the server function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">titlePanel</span>(<span class="st">"Data explorer"</span>),</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarLayout</span>(</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sidebarPanel</span>(</span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">selectInput</span>(<span class="st">"in_x"</span>,<span class="st">"X axis variable"</span>, <span class="at">choices=</span><span class="fu">colnames</span>(iris), <span class="at">selected=</span><span class="fu">colnames</span>(iris)[<span class="dv">1</span>], <span class="at">multiple=</span><span class="cn">FALSE</span>),</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">selectInput</span>(<span class="st">"in_y"</span>,<span class="st">"Y axis variable"</span>, <span class="at">choices=</span><span class="fu">colnames</span>(iris), <span class="at">selected=</span><span class="fu">colnames</span>(iris)[<span class="dv">2</span>], <span class="at">multiple=</span><span class="cn">FALSE</span>),</span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>          <span class="fu">selectInput</span>(<span class="st">"in_col"</span>,<span class="st">"Colour variable"</span>, <span class="at">choices=</span><span class="fu">colnames</span>(iris), <span class="at">selected=</span><span class="fu">colnames</span>(iris)[<span class="dv">3</span>], <span class="at">multiple=</span><span class="cn">FALSE</span>)</span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mainPanel</span>(</span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">plotOutput</span>(<span class="st">"out_plot"</span>)</span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input,output){</span>
-<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>out_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(<span class="sc">!!</span><span class="fu">sym</span>(input<span class="sc">$</span>in_x),<span class="at">y=</span><span class="sc">!!</span><span class="fu">sym</span>(input<span class="sc">$</span>in_y),<span class="at">col=</span><span class="sc">!!</span><span class="fu">sym</span>(input<span class="sc">$</span>in_col)))<span class="sc">+</span></span>
-<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>()</span>
-<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">titlePanel</span>(<span class="st">"Data explorer"</span>),</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarLayout</span>(</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sidebarPanel</span>(</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">selectInput</span>(<span class="st">"in_x"</span>,<span class="st">"X axis variable"</span>, <span class="at">choices=</span><span class="fu">colnames</span>(iris), <span class="at">selected=</span><span class="fu">colnames</span>(iris)[<span class="dv">1</span>], <span class="at">multiple=</span><span class="cn">FALSE</span>),</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">selectInput</span>(<span class="st">"in_y"</span>,<span class="st">"Y axis variable"</span>, <span class="at">choices=</span><span class="fu">colnames</span>(iris), <span class="at">selected=</span><span class="fu">colnames</span>(iris)[<span class="dv">2</span>], <span class="at">multiple=</span><span class="cn">FALSE</span>),</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>          <span class="fu">selectInput</span>(<span class="st">"in_col"</span>,<span class="st">"Colour variable"</span>, <span class="at">choices=</span><span class="fu">colnames</span>(iris), <span class="at">selected=</span><span class="fu">colnames</span>(iris)[<span class="dv">3</span>], <span class="at">multiple=</span><span class="cn">FALSE</span>)</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mainPanel</span>(</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">plotOutput</span>(<span class="st">"out_plot"</span>)</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input,output){</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>out_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(<span class="sc">!!</span><span class="fu">sym</span>(input<span class="sc">$</span>in_x),<span class="at">y=</span><span class="sc">!!</span><span class="fu">sym</span>(input<span class="sc">$</span>in_y),<span class="at">col=</span><span class="sc">!!</span><span class="fu">sym</span>(input<span class="sc">$</span>in_col)))<span class="sc">+</span></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>()</span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="assets/data-explorer-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="assets/data-explorer-3.webp" class="img-fluid"></a></p>
+<p><a href="assets/data-explorer-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="assets/data-explorer-3.webp" class="img-fluid"></a></p>
 <p>You can expand this app to other datasets and map more variables to ggplot etc. Can you add the functionality to <a href="https://shiny.rstudio.com/gallery/file-download.html">download the plots</a>? Or perhaps to <a href="https://shiny.rstudio.com/articles/upload.html">upload a csv file</a> and plot from that file?</p>
 </section>
+</section>
+<section id="ggplot2-builder" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="ggplot2-builder"><span class="header-section-number">13</span> ggplot2 builder</h2>
+<p>In the ggplot2 presentation, we had a few slides with theme customisation. We will try to recreate that as a shiny app, so we can interactively customise a plot.</p>
+<p><strong>Topics covered</strong></p>
+<ul>
+<li>UI sidebar layout</li>
+<li>Input and output widgets</li>
+<li>Using colorpicker widget</li>
+<li>Creating plots in a shiny app</li>
+</ul>
+<p>The following R packages will be required for this app: <code>ggplot2</code>, <code>shiny</code>, <code>colourpicker</code>.</p>
+<p>Below is a preview of the complete app.</p>
+<p><a href="assets/ggplot-builder-3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="assets/ggplot-builder-3.webp" class="img-fluid"></a></p>
+<p>We start with a shiny app template with sidebar layout.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ui=</span><span class="fu">pageWithSidebar</span>(</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(),</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>()</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">server=</span><span class="cf">function</span>(input,output){</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In the ui part, we will define inputs. Most of the inputs are colours, so we use the <code>colorInput()</code> widget from the R package <code>colorpicker</code>. The output plot is defined as <code>plotOutput("plot")</code>. In the server part, we define a <code>renderPlot()</code> function that generates a ggplot object.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colourpicker)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ui =</span> <span class="fu">pageWithSidebar</span>(</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">headerPanel</span>(<span class="st">"ggplot2 plot builder"</span>),</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sidebarPanel</span>(</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_plot_title"</span>, <span class="st">"Plot title"</span>, <span class="at">value =</span> <span class="st">"#4daf4a"</span>),</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_plot_subtitle"</span>, <span class="st">"Plot subtitle"</span>, <span class="at">value =</span> <span class="st">"#984ea3"</span>),</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_title"</span>, <span class="st">"Legend title"</span>, <span class="at">value =</span> <span class="st">"#ffff33"</span>),</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_text"</span>, <span class="st">"legend text"</span>, <span class="at">value =</span> <span class="st">"#ff7f00"</span>),</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>            <span class="fu">selectInput</span>(<span class="st">"in_legend_pos"</span>, <span class="st">"Legend position"</span>, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"left"</span>, <span class="st">"top"</span>, <span class="st">"bottom"</span>), <span class="at">selected =</span> <span class="st">"right"</span>),</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_axis_title"</span>, <span class="st">"Axis title"</span>, <span class="at">value =</span> <span class="st">"#e41a1c"</span>),</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_axis_text"</span>, <span class="st">"Axis text"</span>, <span class="at">value =</span> <span class="st">"#377eb8"</span>),</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_strip_text"</span>, <span class="st">"Strip text"</span>, <span class="at">value =</span> <span class="st">"#a65628"</span>),</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mainPanel</span>(</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>            <span class="fu">plotOutput</span>(<span class="st">"plot"</span>)</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">server =</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length, <span class="at">col =</span> Species)) <span class="sc">+</span></span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>                <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species) <span class="sc">+</span></span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>                <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Iris dataset"</span>, <span class="at">subtitle =</span> <span class="st">"Scatterplots of Sepal and Petal lengths"</span>, <span class="at">caption =</span> <span class="st">"The iris dataset by Edgar Anderson"</span>) <span class="sc">+</span></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>                <span class="fu">theme_grey</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><a href="assets/ggplot-builder-1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="assets/ggplot-builder-1.webp" class="img-fluid"></a></p>
+<p>The input widgets now need to be connected to the ggplot function.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colourpicker)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ui =</span> <span class="fu">pageWithSidebar</span>(</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">headerPanel</span>(<span class="st">"ggplot2 plot builder"</span>),</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sidebarPanel</span>(</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_plot_title"</span>, <span class="st">"Plot title"</span>, <span class="at">value =</span> <span class="st">"#4daf4a"</span>),</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_plot_subtitle"</span>, <span class="st">"Plot subtitle"</span>, <span class="at">value =</span> <span class="st">"#984ea3"</span>),</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_title"</span>, <span class="st">"Legend title"</span>, <span class="at">value =</span> <span class="st">"#ffff33"</span>),</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_text"</span>, <span class="st">"legend text"</span>, <span class="at">value =</span> <span class="st">"#ff7f00"</span>),</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>            <span class="fu">selectInput</span>(<span class="st">"in_legend_pos"</span>, <span class="st">"Legend position"</span>, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"left"</span>, <span class="st">"top"</span>, <span class="st">"bottom"</span>), <span class="at">selected =</span> <span class="st">"right"</span>),</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_axis_title"</span>, <span class="st">"Axis title"</span>, <span class="at">value =</span> <span class="st">"#e41a1c"</span>),</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_axis_text"</span>, <span class="st">"Axis text"</span>, <span class="at">value =</span> <span class="st">"#377eb8"</span>),</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_strip_text"</span>, <span class="st">"Strip text"</span>, <span class="at">value =</span> <span class="st">"#a65628"</span>),</span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mainPanel</span>(</span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>            <span class="fu">plotOutput</span>(<span class="st">"plot"</span>)</span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">server =</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length, <span class="at">col =</span> Species)) <span class="sc">+</span></span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>                <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species) <span class="sc">+</span></span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>                <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Iris dataset"</span>, <span class="at">subtitle =</span> <span class="st">"Scatterplots of Sepal and Petal lengths"</span>, <span class="at">caption =</span> <span class="st">"The iris dataset by Edgar Anderson"</span>) <span class="sc">+</span></span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>                <span class="fu">theme_grey</span>(<span class="at">base_size =</span> <span class="dv">16</span>)<span class="sc">+</span></span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>                <span class="fu">theme</span>(</span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>                  <span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">color=</span>input<span class="sc">$</span>in_plot_title),</span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>                  <span class="at">plot.subtitle=</span><span class="fu">element_text</span>(<span class="at">color=</span>input<span class="sc">$</span>in_plot_subtitle),</span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>                  <span class="at">legend.title=</span><span class="fu">element_text</span>(<span class="at">color=</span>input<span class="sc">$</span>in_legend_title),</span>
+<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a>                  <span class="at">legend.text=</span><span class="fu">element_text</span>(<span class="at">color=</span>input<span class="sc">$</span>in_legend_text),</span>
+<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>                  <span class="at">legend.position=</span>input<span class="sc">$</span>in_legend_pos,</span>
+<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a>                  <span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">color=</span>input<span class="sc">$</span>in_axis_title),</span>
+<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>                  <span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">color=</span>input<span class="sc">$</span>in_axis_text),</span>
+<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a>                  <span class="at">strip.text=</span><span class="fu">element_text</span>(<span class="at">color=</span>input<span class="sc">$</span>in_strip_text)</span>
+<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><a href="assets/ggplot-builder-2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="assets/ggplot-builder-2.webp" class="img-fluid"></a></p>
+<p>Now try changing the colours of plot elements and hopefully, it should change.</p>
+<p><i class="fa-solid fa-clipboard-list" aria-label="clipboard-list"></i> You can add more options to the input if you like, for example; rectangular elements such as backgrounds.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colourpicker)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ui =</span> <span class="fu">pageWithSidebar</span>(</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">headerPanel</span>(<span class="st">"ggplot2 plot builder"</span>),</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sidebarPanel</span>(</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_plot_title"</span>, <span class="st">"Plot title"</span>, <span class="at">value =</span> <span class="st">"#4daf4a"</span>),</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_plot_subtitle"</span>, <span class="st">"Plot subtitle"</span>, <span class="at">value =</span> <span class="st">"#984ea3"</span>),</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_title"</span>, <span class="st">"Legend title"</span>, <span class="at">value =</span> <span class="st">"#ffff33"</span>),</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_text"</span>, <span class="st">"legend text"</span>, <span class="at">value =</span> <span class="st">"#ff7f00"</span>),</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>            <span class="fu">selectInput</span>(<span class="st">"in_legend_pos"</span>, <span class="st">"Legend position"</span>, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"left"</span>, <span class="st">"top"</span>, <span class="st">"bottom"</span>), <span class="at">selected =</span> <span class="st">"right"</span>),</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_axis_title"</span>, <span class="st">"Axis title"</span>, <span class="at">value =</span> <span class="st">"#e41a1c"</span>),</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_axis_text"</span>, <span class="st">"Axis text"</span>, <span class="at">value =</span> <span class="st">"#377eb8"</span>),</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_strip_text"</span>, <span class="st">"Strip text"</span>, <span class="at">value =</span> <span class="st">"#a65628"</span>),</span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_plot_background"</span>, <span class="st">"Plot background"</span>, <span class="at">value =</span> <span class="st">"#b3e2cd"</span>),</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_panel_background"</span>, <span class="st">"Panel background"</span>, <span class="at">value =</span> <span class="st">"#fdcdac"</span>),</span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_panel_border"</span>, <span class="st">"Panel border"</span>, <span class="at">value =</span> <span class="st">"#cbd5e8"</span>),</span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_background"</span>, <span class="st">"Legend background"</span>, <span class="at">value =</span> <span class="st">"#f4cae4"</span>),</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_legend_box_background"</span>, <span class="st">"Legend box background"</span>, <span class="at">value =</span> <span class="st">"#e6f5c9"</span>),</span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>            <span class="fu">colourInput</span>(<span class="st">"in_strip_background"</span>, <span class="st">"Strip background"</span>, <span class="at">value =</span> <span class="st">"#fff2ae"</span>)</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mainPanel</span>(</span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>            <span class="fu">plotOutput</span>(<span class="st">"plot"</span>)</span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">server =</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length, <span class="at">col =</span> Species)) <span class="sc">+</span></span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a>                <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species) <span class="sc">+</span></span>
+<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a>                <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Iris dataset"</span>, <span class="at">subtitle =</span> <span class="st">"Scatterplots of Sepal and Petal lengths"</span>, <span class="at">caption =</span> <span class="st">"The iris dataset by Edgar Anderson"</span>) <span class="sc">+</span></span>
+<span id="cb35-34"><a href="#cb35-34" aria-hidden="true" tabindex="-1"></a>                <span class="fu">theme_grey</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
+<span id="cb35-35"><a href="#cb35-35" aria-hidden="true" tabindex="-1"></a>                <span class="fu">theme</span>(</span>
+<span id="cb35-36"><a href="#cb35-36" aria-hidden="true" tabindex="-1"></a>                    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> input<span class="sc">$</span>in_plot_title),</span>
+<span id="cb35-37"><a href="#cb35-37" aria-hidden="true" tabindex="-1"></a>                    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">color =</span> input<span class="sc">$</span>in_plot_subtitle),</span>
+<span id="cb35-38"><a href="#cb35-38" aria-hidden="true" tabindex="-1"></a>                    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> input<span class="sc">$</span>in_legend_title),</span>
+<span id="cb35-39"><a href="#cb35-39" aria-hidden="true" tabindex="-1"></a>                    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> input<span class="sc">$</span>in_legend_text),</span>
+<span id="cb35-40"><a href="#cb35-40" aria-hidden="true" tabindex="-1"></a>                    <span class="at">legend.position =</span> input<span class="sc">$</span>in_legend_pos,</span>
+<span id="cb35-41"><a href="#cb35-41" aria-hidden="true" tabindex="-1"></a>                    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> input<span class="sc">$</span>in_axis_title),</span>
+<span id="cb35-42"><a href="#cb35-42" aria-hidden="true" tabindex="-1"></a>                    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> input<span class="sc">$</span>in_axis_text),</span>
+<span id="cb35-43"><a href="#cb35-43" aria-hidden="true" tabindex="-1"></a>                    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> input<span class="sc">$</span>in_strip_text),</span>
+<span id="cb35-44"><a href="#cb35-44" aria-hidden="true" tabindex="-1"></a>                    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> input<span class="sc">$</span>in_plot_background),</span>
+<span id="cb35-45"><a href="#cb35-45" aria-hidden="true" tabindex="-1"></a>                    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> input<span class="sc">$</span>in_panel_background),</span>
+<span id="cb35-46"><a href="#cb35-46" aria-hidden="true" tabindex="-1"></a>                    <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> input<span class="sc">$</span>in_panel_border, <span class="at">size =</span> <span class="dv">3</span>),</span>
+<span id="cb35-47"><a href="#cb35-47" aria-hidden="true" tabindex="-1"></a>                    <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> input<span class="sc">$</span>in_legend_background),</span>
+<span id="cb35-48"><a href="#cb35-48" aria-hidden="true" tabindex="-1"></a>                    <span class="at">legend.box.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> input<span class="sc">$</span>in_legend_box_background),</span>
+<span id="cb35-49"><a href="#cb35-49" aria-hidden="true" tabindex="-1"></a>                    <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> input<span class="sc">$</span>in_strip_background)</span>
+<span id="cb35-50"><a href="#cb35-50" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb35-51"><a href="#cb35-51" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb35-52"><a href="#cb35-52" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb35-53"><a href="#cb35-53" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="color-generator" class="level2" data-number="14">
 <h2 data-number="14" class="anchored" data-anchor-id="color-generator"><span class="header-section-number">14</span> Color generator</h2>
@@ -2750,7 +2750,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

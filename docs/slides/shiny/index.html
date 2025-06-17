@@ -417,7 +417,7 @@
         <h1 class="title">Interactive web apps with Shiny</h1>
                 <p class="subtitle">RaukR 2025 • R Beyond the Basics</p>
                         <p class="author">Roy Francis</p>
-                                <p class="date">07-Jun-2025</p>
+                                <p class="date">17-Jun-2025</p>
               </div>
     </div>
     
@@ -569,13 +569,17 @@ Interactive documents, Extensions<br>
 </section>
 <section id="what-is-shiny" class="slide level2">
 <h2>What is shiny?</h2>
+<div class="large fragment">
+<p>R framework for building interactive web applications</p>
+</div>
+<div class="fragment">
 <ul>
-<li>Standalone web applications</li>
-<li>Interactive RMarkdown/Quarto documents</li>
-<li>Gadgets/RStudio extensions</li>
-<li>Completely created using R</li>
-<li>Needs a server (live R environment)</li>
+<li class="fragment">Standalone web applications</li>
+<li class="fragment">Interactive Quarto documents</li>
+<li class="fragment">Completely created using R</li>
+<li class="fragment">Needs a server (live R environment)</li>
 </ul>
+</div>
 </section>
 <section id="app-organization" class="slide level2">
 <h2>App organization</h2>
@@ -631,11 +635,6 @@ Interactive documents, Extensions<br>
 <li>Running as a separate process from terminal</li>
 </ul>
 <pre><code>R -e "shiny::runApp('~/shinyapp')"</code></pre>
-</div>
-<div class="fragment">
-<ul>
-<li>From Rmd file using <code>rmarkdown::run()</code></li>
-</ul>
 </div>
 </section>
 <section id="section-3" class="slide level2 center">
@@ -1051,7 +1050,7 @@ Interactive documents, Extensions<br>
 <span id="cb17-2"><a></a><span class="at">ui=</span><span class="fu">fluidPage</span>(</span>
 <span id="cb17-3"><a></a>  <span class="fu">selectInput</span>(<span class="st">"type"</span>,<span class="at">label=</span><span class="st">"Select input type"</span>, <span class="at">choices=</span><span class="fu">c</span>(<span class="st">"Text"</span>,<span class="st">"Number"</span>)),</span>
 <span id="cb17-4"><a></a>  <span class="fu">uiOutput</span>(<span class="st">"ui"</span>),</span>
-<span id="cb17-5"><a></a>  <span class="fu">textOutput</span>(<span class="st">"text_output"</span>),</span>
+<span id="cb17-5"><a></a>  <span class="fu">textOutput</span>(<span class="st">"text_output"</span>)</span>
 <span id="cb17-6"><a></a>),</span>
 <span id="cb17-7"><a></a></span>
 <span id="cb17-8"><a></a><span class="at">server=</span><span class="cf">function</span>(input, output) {</span>
@@ -1089,7 +1088,7 @@ Interactive documents, Extensions<br>
 <span id="cb18-8"><a></a>ui=fluidPage(</span>
 <span id="cb18-9"><a></a>  selectInput("type", label="Select input type", choices=c("Text","Number")),</span>
 <span id="cb18-10"><a></a>  uiOutput("ui"),</span>
-<span id="cb18-11"><a></a>  textOutput("text_output"),</span>
+<span id="cb18-11"><a></a>  textOutput("text_output")</span>
 <span id="cb18-12"><a></a>),</span>
 <span id="cb18-13"><a></a></span>
 <span id="cb18-14"><a></a>server=function(input, output) {</span>
@@ -2065,34 +2064,17 @@ Reactive function <code>fn &lt;- reactive()</code>: Runs only when input changes
 <span id="cb50-24"><a></a><span class="in">})</span></span>
 <span id="cb50-25"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="interactive-documents-rmarkdown" class="slide level2">
-<h2>Interactive documents • Rmarkdown</h2>
-<ul>
-<li>Shiny can run in RMarkdown documents. Set YAML <code>runtime: shiny</code>.</li>
-</ul>
-<pre><code>---
-title: Interactive document
-output: html_document
-runtime: shiny
----</code></pre>
-<ul>
-<li>Shiny widgets can be included directly</li>
-</ul>
-<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb52-1"><a></a><span class="in">```{r}</span></span>
-<span id="cb52-2"><a></a><span class="in">selectInput('n_breaks',label='Number of bins:',choices=c(10,20,35,50),selected=20)</span></span>
-<span id="cb52-3"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
 <section id="interactive-documents" class="slide level2">
 <h2>Interactive documents</h2>
 <ul>
 <li>Whole shiny apps can be included directly</li>
 </ul>
-<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb53-1"><a></a><span class="in">```{r}</span></span>
-<span id="cb53-2"><a></a><span class="in">shinyApp(</span></span>
-<span id="cb53-3"><a></a><span class="in">  ui=fluidPage(),</span></span>
-<span id="cb53-4"><a></a><span class="in">  server=function(input,output) {}</span></span>
-<span id="cb53-5"><a></a><span class="in">)</span></span>
-<span id="cb53-6"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb51-1"><a></a><span class="in">```{r}</span></span>
+<span id="cb51-2"><a></a><span class="in">shinyApp(</span></span>
+<span id="cb51-3"><a></a><span class="in">  ui=fluidPage(),</span></span>
+<span id="cb51-4"><a></a><span class="in">  server=function(input,output) {}</span></span>
+<span id="cb51-5"><a></a><span class="in">)</span></span>
+<span id="cb51-6"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Hosted shiny apps can be embedded using <code>&lt;iframe&gt;</code></li>
 </ul>
@@ -2123,6 +2105,8 @@ runtime: shiny
 <li><a href="https://github.com/dreamRs/shinyWidgets">shinyWidgets</a>: Bootstrap 3 custom widgets</li>
 <li><a href="https://github.com/ebailey78/shinyBS">shinyBS</a>: Bootstrap 3 widgets</li>
 <li><a href="https://datastorm-open.github.io/shinymanager/">shinymanager</a>: Authentication for shiny apps</li>
+<li><a href="https://www.appsilon.com/rhinoverse">rhinoverse</a>: High-level shiny development ecosystem</li>
+<li><a href="https://golemverse.org/">golemverse</a>: High-level shiny development ecosystem</li>
 <li>…</li>
 </ul>
 </section>
