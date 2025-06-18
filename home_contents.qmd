@@ -29,13 +29,13 @@ execute:
 |Functions & Scripts                    |Sebastian DiLorenzo           |[Slides](slides/scripting/index.html), [Lab](labs/scripting/index.html)|
 |R & AI                                 |Sebastian DiLorenzo           |[Slides](slides/ai/index.html)|
 |[11-Jun-2025 (Wed)]{.badge .badge-secondary}                               |||
-|Positron                               |Jenny Bryan, Posit            |[pos.it/ron-raukr](https://pos.it/ron-raukr)|
+|Positron                               |Jenny Bryan, Posit            |[Materials [{{< fa up-right-from-square >}}]{.small}](https://pos.it/ron-raukr){target="_blank"}|
 |Plotting with ggplot2                  |Roy Francis                            |[Slides](slides/ggplot/index.html), [Lab](labs/ggplot/index.html)|
 |[12-Jun-2025 (Thu)]{.badge .badge-secondary}                               |||
 |Tidyverse                              |Marcin Kierczak               |[Slides](slides/tidyverse/index.html), [Lab](labs/tidyverse/index.html)|
-|Futurverse                             |Henrik Bengtsson, UCSF                 |[Slides](https://henrikbengtsson.github.io/futureverse-tutorial-raukr2025/), [Lab](https://henrikbengtsson.github.io/raukr2025-futureverse-lab/lab1.html)|
+|Futurverse                             |Henrik Bengtsson, UCSF                 |[Materials [{{< fa up-right-from-square >}}]{.small}](https://henrikbengtsson.github.io/futureverse-tutorial-raukr2025/){target="_blank"}|
 |[13-Jun-2025 (Fri)]{.badge .badge-secondary}                               |||
-|R Packages                             |Jenny Bryan, Posit                     |[Materials](https://github.com/jennybc/2025_raukr-pkg-dev)|
+|R Packages                             |Jenny Bryan, Posit                     |[Materials [{{< fa up-right-from-square >}}]{.small}](https://github.com/jennybc/2025_raukr-pkg-dev){target="_blank"}|
 |reticulate: Combining R with Python    |Nina Norgren                           |[Slides](slides/reticulate/index.html), [Lab](labs/reticulate/index.html)|
 |[WEEK 2]{.badge .badge-primary}                                          |||
 |[16-Jun-2025 (Mon)]{.badge .badge-secondary}                               |||
