@@ -71,6 +71,27 @@ Commonly used in the R community compared to a year ago
 
 [[Live demo]{.largest}]{.center}
 
+::: {.notes}
+What I covered 2025 in live demo:
+
+Rstudio
+  1. setup copilot
+  2. Where you can see it searching for code completions
+  3. High level goal start of file
+  4. View() your data
+  5. code complete whole function
+  6. code complete 1 line
+  7. comments
+  8. questions&answers
+  9. Bugs
+  10. Ellmer
+
+VScode
+  2,3,5,9
+  11. Chat
+  12. Rewrite
+:::
+
 ## How to write prompts
 
 :::: {.columns}
