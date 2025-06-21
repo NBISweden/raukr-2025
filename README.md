@@ -1,4 +1,5 @@
-# Raukr 2025 • Workshop Website  [![lychee_badge](https://github.com/nbisweden/raukr-2025/workflows/linkcheck/badge.svg)](https://github.com/nbisweden/raukr-2025/actions?workflow=linkcheck)  
+# Raukr 2025 • Workshop Website  
+[![lychee_badge](https://github.com/nbisweden/raukr-2025/workflows/linkcheck/badge.svg)](https://github.com/nbisweden/raukr-2025/actions?workflow=linkcheck)  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15711255.svg)](https://doi.org/10.5281/zenodo.15711255)  
 **NBIS Summer School • R Beyond the Basics**
 
 ## Environment
